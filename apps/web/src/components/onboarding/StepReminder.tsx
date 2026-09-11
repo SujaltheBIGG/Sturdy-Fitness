@@ -6,7 +6,7 @@ import {
   TRAINING_TIME_PRESETS,
   formatReminderTime,
   type TrainingTimePresetId,
-} from '@calistenia/core/lib/onboarding-reminder'
+} from '@sturdy/core/lib/onboarding-reminder'
 import { getNotificationSupport } from '../../lib/push-subscription'
 
 interface Props {

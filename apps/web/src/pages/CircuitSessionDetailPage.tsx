@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { pb } from '@calistenia/core/lib/pocketbase'
-import type { TranslatableField } from '@calistenia/core/lib/i18n-db'
-import { useLocalize } from '@calistenia/core/hooks/useLocalize'
-import { formatCountdown } from '@calistenia/core/lib/countdown'
+import { pb } from '@sturdy/core/lib/pocketbase'
+import type { TranslatableField } from '@sturdy/core/lib/i18n-db'
+import { useLocalize } from '@sturdy/core/hooks/useLocalize'
+import { formatCountdown } from '@sturdy/core/lib/countdown'
 
 // ── Types for the PB record ────────────────────────────────────────────────
 

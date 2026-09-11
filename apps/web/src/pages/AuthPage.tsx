@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { captureReferralCode, captureChallengeId } from '@calistenia/core/hooks/useAuth'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+import { captureReferralCode, captureChallengeId } from '@sturdy/core/hooks/useAuth'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 
 interface AuthPageProps {
   signInWithGoogle: () => Promise<void>
@@ -61,8 +61,8 @@ export default function AuthPage({ signInWithGoogle, signInWithEmail, signUpWith
         {/* Logo */}
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-2.5 mb-2">
-            <img src="/logo.png" alt="" className="w-9 h-9 rounded-lg" />
-            <span className="font-bebas text-3xl tracking-[0.15em] text-[hsl(0_0%_95%)]">CALISTENIA</span>
+            <img src="/logo.png" alt="" className="w-12 h-12 rounded-full object-cover" />
+            <span className="font-bebas text-3xl tracking-[0.15em] text-[hsl(0_0%_95%)]">STURDY</span>
           </div>
           <p className="text-xs text-[hsl(0_0%_50%)] tracking-[0.2em] uppercase">{t('auth.tagline')}</p>
         </div>

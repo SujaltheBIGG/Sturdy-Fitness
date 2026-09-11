@@ -1,5 +1,5 @@
 {
-  "name": "calistenia-app",
+  "name": "sturdy-app",
   "image": "mcr.microsoft.com/devcontainers/typescript-node:20-bookworm",
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {}

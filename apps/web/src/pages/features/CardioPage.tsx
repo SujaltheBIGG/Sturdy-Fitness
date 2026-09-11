@@ -13,7 +13,7 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { op } from '@calistenia/core/lib/analytics'
+import { op } from '@sturdy/core/lib/analytics'
 import { AndroidButton, Eyebrow, Reveal, WebButton } from '../../components/landing/shared'
 import { FeatureShell } from '../../components/landing/featureShell'
 import {
@@ -334,8 +334,8 @@ function LockScreenMock() {
       <p className="text-center font-bebas text-4xl leading-none tracking-wide text-white/85">09:41</p>
       <div className="mt-5 rounded-2xl border border-white/10 bg-[hsl(75_6%_11%)] p-4">
         <div className="flex items-center gap-2 text-[11px] text-white/45">
-          <img src="/logo.png" alt="" width={16} height={16} className="h-4 w-4 rounded" />
-          <span>Calistenia</span>
+          <img src="/logo.png" alt="" width={20} height={20} className="h-5 w-5 rounded-full object-cover" />
+          <span>Sturdy</span>
           <span aria-hidden="true">·</span>
           <span className="font-mono">00:29:41</span>
         </div>

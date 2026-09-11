@@ -10,12 +10,12 @@ import { useAuthUser } from '@/lib/use-auth-user'
 import { haptics } from '@/lib/haptics'
 import * as sounds from '@/lib/sounds'
 import { Sentry } from '@/lib/instrument'
-import { pb } from '@calistenia/core/lib/pocketbase'
-import { formatPace, formatDuration } from '@calistenia/core/lib/geo'
-import { estimateCalories } from '@calistenia/core/lib/calories'
-import { sortRaceParticipants } from '@calistenia/core/lib/race-sort'
-import { splitRoute, saveCardioRoute } from '@calistenia/core/lib/cardioRoutes'
-import { fetchRaceRoute } from '@calistenia/core/lib/raceRoutes'
+import { pb } from '@sturdy/core/lib/pocketbase'
+import { formatPace, formatDuration } from '@sturdy/core/lib/geo'
+import { estimateCalories } from '@sturdy/core/lib/calories'
+import { sortRaceParticipants } from '@sturdy/core/lib/race-sort'
+import { splitRoute, saveCardioRoute } from '@sturdy/core/lib/cardioRoutes'
+import { fetchRaceRoute } from '@sturdy/core/lib/raceRoutes'
 
 export default function RaceResults({ celebrate = false }: { celebrate?: boolean }) {
   const { t } = useTranslation()

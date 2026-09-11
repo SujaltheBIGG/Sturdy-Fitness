@@ -151,7 +151,7 @@
 |---|------|---------------|--------|
 | 16 | Ambassador program (top 10 users become evangelists) | 30-50 | Personal outreach |
 | 17 | Email newsletter ("Tips de calistenia cada semana") | 3-5% converts/mo | 1 hr/week |
-| 18 | Comparison blog posts ("Calistenia App vs Freeletics vs Thenx") | SEO high-intent | 3-4 hrs |
+| 18 | Comparison blog posts ("Sturdy vs Freeletics vs Thenx") | SEO high-intent | 3-4 hrs |
 | 19 | Google TWA listing on Play Store ($25 one-time) | Organic discovery | 1 day |
 | 20 | Seasonal campaign ("Operacion verano") | 30-50 | 2-3 hrs |
 
@@ -418,7 +418,7 @@ Max reps for pull-ups/dips/push-ups → rank (Average/Good/Advanced/Elite).
 ### Google Search Ads (Spanish) -- 3 Variations
 
 **Ad 1:** Keywords: app calistenia, rutina calistenia principiantes
-- H1: App de Calistenia Gratis | Programas Paso a Paso
+- H1: App de Sturdy Gratis | Programas Paso a Paso
 - D1: Programas estructurados de calistenia. Tracking de nutricion con IA, sueno y progreso. 100% gratis.
 
 **Ad 2:** Keywords: ejercicios sin equipo, entrenamiento sin gimnasio
@@ -469,7 +469,7 @@ Max reps for pull-ups/dips/push-ups → rank (Average/Good/Advanced/Elite).
 ### Meta/Instagram Campaign Structure
 
 **Audience targeting:**
-- Interests: Calistenia, Street Workout, Bodyweight exercise, Chris Heria, THENX, Bar Brothers
+- Interests: Sturdy, Street Workout, Bodyweight exercise, Chris Heria, THENX, Bar Brothers
 - Narrowed by: Fitness and wellness + Mobile app activity
 - Age: 18-40, All genders
 - Locations: LATAM + Spain

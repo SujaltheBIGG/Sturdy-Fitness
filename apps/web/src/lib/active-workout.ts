@@ -17,7 +17,7 @@ import {
   CARDIO_ACTIVE_KEY,
   CIRCUIT_ACTIVE_KEY,
   STRENGTH_ACTIVE_KEY,
-} from '@calistenia/core/lib/storage-keys'
+} from '@sturdy/core/lib/storage-keys'
 
 /**
  * Mismo umbral que usan los tres hooks al restaurar

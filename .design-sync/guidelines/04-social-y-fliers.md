@@ -41,7 +41,7 @@ la cabecera del README.
 
 ## El lockup
 
-La firma de la marca es **la marca gráfica + «CALISTENIA» en Bebas**, en
+La firma de la marca es **la marca gráfica + «STURDY» en Bebas**, en
 horizontal, alineadas por el centro vertical.
 
 - La marca gráfica está en `--brand-mark` (atleta en front lever, lima sobre
@@ -50,7 +50,7 @@ horizontal, alineadas por el centro vertical.
   nota inmediatamente.
 - **No la recolorees ni le pongas fondo de color.** Su lima está horneado en el
   PNG (`#bff71a`) y ya casi coincide con el token `--lime`.
-- El texto «CALISTENIA» va en `font-bebas`, mayúsculas, blanco, con
+- El texto «STURDY» va en `font-bebas`, mayúsculas, blanco, con
   `tracking-wide` o `tracking-wider`.
 - Altura de la marca ≈ la altura de las mayúsculas del texto, o un poco más.
 
@@ -66,7 +66,7 @@ horizontal, alineadas por el centro vertical.
       backgroundPosition: 'center',
     }}
   />
-  <span className="font-bebas font-normal text-3xl tracking-wider text-white">CALISTENIA</span>
+  <span className="font-bebas font-normal text-3xl tracking-wider text-white">STURDY</span>
 </div>
 ```
 
@@ -91,7 +91,7 @@ Es la de `og.png`, y funciona en cualquier lienzo:
   {/* lockup */}
   <div className="flex items-center gap-3">
     <div className="h-9" style={{ aspectRatio: 'var(--brand-mark-aspect)', backgroundImage: 'var(--brand-mark)', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }} />
-    <span className="font-bebas font-normal text-3xl tracking-wider text-white">CALISTENIA</span>
+    <span className="font-bebas font-normal text-3xl tracking-wider text-white">STURDY</span>
   </div>
 
   {/* titular — el tamaño y el interlineado van inline: no hay clase que los dé */}

@@ -6,10 +6,10 @@ import { Loader } from '../components/ui/loader'
 import { cn } from '../lib/utils'
 import { ShareButton } from '../components/ShareButton'
 import { shareRoutine } from '../lib/share'
-import { useLocalize } from '@calistenia/core/hooks/useLocalize'
-import { useRoutineView } from '@calistenia/core/hooks/useRoutineView'
-import { resolveExerciseNameField } from '@calistenia/core/lib/exercise-resolver'
-import { inferTimerFromReps } from '@calistenia/core/lib/exercise-timer-inference'
+import { useLocalize } from '@sturdy/core/hooks/useLocalize'
+import { useRoutineView } from '@sturdy/core/hooks/useRoutineView'
+import { resolveExerciseNameField } from '@sturdy/core/lib/exercise-resolver'
+import { inferTimerFromReps } from '@sturdy/core/lib/exercise-timer-inference'
 
 export default function RoutineViewPage() {
   const { t } = useTranslation()
@@ -44,10 +44,10 @@ export default function RoutineViewPage() {
           onClick={() => navigate(`/u/${userId}`)}
           className="text-[10px] tracking-widest text-muted-foreground hover:text-foreground mb-6"
         >
-          &larr; Volver al perfil
+          &larr; Back to profile
         </Button>
         <div className="text-center text-muted-foreground text-sm py-12">
-          Este usuario no tiene un programa activo
+          This user has no active program
         </div>
       </div>
     )
@@ -62,7 +62,7 @@ export default function RoutineViewPage() {
         onClick={() => navigate(`/u/${userId}`)}
         className="text-[10px] tracking-widest text-muted-foreground hover:text-foreground mb-6"
       >
-        &larr; Volver al perfil
+        &larr; Back to profile
       </Button>
 
       {/* Header */}

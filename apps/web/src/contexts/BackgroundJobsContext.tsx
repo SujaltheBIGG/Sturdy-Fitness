@@ -8,7 +8,7 @@
 import { createContext, use, useState, useEffect, useCallback, useRef, type ReactNode } from 'react'
 import { toast } from 'sonner'
 import { useTranslation } from 'react-i18next'
-import { fetchJobStatus, type AIJob } from '@calistenia/core/lib/ai-jobs-api'
+import { fetchJobStatus, type AIJob } from '@sturdy/core/lib/ai-jobs-api'
 
 const LS_KEY = 'ai_background_jobs'
 const POLL_INTERVAL = 5000

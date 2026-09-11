@@ -9,7 +9,7 @@ import {
   normalizeFirstWorkoutLevel,
   trackFirstWorkoutStarted,
   type FirstWorkoutSource,
-} from '@calistenia/core/lib/first-workout'
+} from '@sturdy/core/lib/first-workout'
 
 /**
  * Devuelve un `start(level, source)` que construye el primer entreno para el

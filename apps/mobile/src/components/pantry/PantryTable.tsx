@@ -2,10 +2,10 @@ import { memo, useCallback, useMemo } from 'react'
 import { Alert, Pressable, SectionList, Text, View } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import { Check, X } from 'lucide-react-native'
-import { daysUntil, groupPantryByCategory } from '@calistenia/core/lib/pantry'
-import { formatMoney, roundQty } from '@calistenia/core/lib/shopping'
-import { todayStr } from '@calistenia/core/lib/dateUtils'
-import type { PantryItem } from '@calistenia/core/types'
+import { daysUntil, groupPantryByCategory } from '@sturdy/core/lib/pantry'
+import { formatMoney, roundQty } from '@sturdy/core/lib/shopping'
+import { todayStr } from '@sturdy/core/lib/dateUtils'
+import type { PantryItem } from '@sturdy/core/types'
 
 const CONFIDENCE_DOT: Record<string, string> = {
   high: 'bg-lime',

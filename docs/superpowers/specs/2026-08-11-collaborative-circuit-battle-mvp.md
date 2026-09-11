@@ -60,7 +60,7 @@ would need quoting, and a mis-quoted filter fails silently in the JSVM.
 ### 4. Countdown tolerance: ±1000 ms
 
 `start` sets `starts_at` to server-now + 5 s. Clients render the countdown from that
-value corrected by `@calistenia/core/lib/serverClock`, which measures the offset from the
+value corrected by `@sturdy/core/lib/serverClock`, which measures the offset from the
 `Date` header of a health check using the RTT midpoint — so the realistic error is RTT/2
 per device. **The device clock is never read directly.** QA asserts the tolerance by
 starting a battle on two phones side by side and comparing when each hits `00:00`.

@@ -4,7 +4,7 @@ import { Button } from '../ui/button'
 import { Label } from '../ui/label'
 import { cn } from '../../lib/utils'
 
-import { CONDITION_IDS, INJURY_IDS, type ConditionId, type InjuryId, type HealthValues } from '@calistenia/core/types/onboarding'
+import { CONDITION_IDS, INJURY_IDS, type ConditionId, type InjuryId, type HealthValues } from '@sturdy/core/types/onboarding'
 
 export { CONDITION_IDS, INJURY_IDS }
 export type { ConditionId, InjuryId, HealthValues }

@@ -94,7 +94,7 @@ export const qk = {
      * Es el tercer consumidor del mismo programa y por eso lleva clave propia,
      * como avisa el comentario de arriba: viene de otro endpoint
      * (`/api/programs/{id}/public`, no de la colección), trae menos campos y la
-     * pide gente sin sesión. Compartir clave con `detailView` haría que la ficha
+     * pide gente no session. Compartir clave con `detailView` haría que la ficha
      * completa de quien sí ha entrado se sirviera desde el recorte público.
      */
     publicPreview: (programId: string | null) =>

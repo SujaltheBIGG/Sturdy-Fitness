@@ -10,7 +10,7 @@
  */
 
 import { describe, it, expect } from "vitest";
-import { buildCatalogIndex } from "@calistenia/core/lib/catalogIndex";
+import { buildCatalogIndex } from "@sturdy/core/lib/catalogIndex";
 import type { RecordModel } from "./repos/pb.js";
 import { buildServerExerciseResolver, groupSetsByIdentity } from "./exercise-identity-server.js";
 

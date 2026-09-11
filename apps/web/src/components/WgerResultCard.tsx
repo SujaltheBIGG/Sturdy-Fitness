@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { cn } from '../lib/utils'
-import type { WgerSearchSuggestion } from '@calistenia/core/lib/wger'
+import type { WgerSearchSuggestion } from '@sturdy/core/lib/wger'
 
 interface WgerResultCardProps {
   suggestion: WgerSearchSuggestion

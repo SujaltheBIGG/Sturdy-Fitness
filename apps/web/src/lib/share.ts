@@ -1,6 +1,6 @@
 import i18n from './i18n'
-import { WEB_BASE_URL } from '@calistenia/core/lib/app-urls'
-import { buildProgramShareContent } from '@calistenia/core/lib/programShare'
+import { WEB_BASE_URL } from '@sturdy/core/lib/app-urls'
+import { buildProgramShareContent } from '@sturdy/core/lib/programShare'
 
 /** Deep link to a single saved cardio session's detail page. */
 export function cardioUrl(id: string): string {
@@ -109,14 +109,14 @@ export function shareReferralInvite(displayName: string, referralCode: string, m
 export function shareRace(raceName: string, raceId: string, method?: ShareMethod) {
   return shareContent({
     title: raceName,
-    text: `\u00a1\u00danete a la carrera "${raceName}"! \ud83c\udfc3`,
+    text: `Join the race "${raceName}"! \ud83c\udfc3`,
     url: `${WEB_BASE_URL}/race/${raceId}`,
   }, method)
 }
 
 export function shareApp(method?: ShareMethod) {
   return shareContent({
-    title: 'Calistenia App',
+    title: 'Sturdy',
     text: i18n.t('share.appText'),
     url: WEB_BASE_URL,
   }, method)

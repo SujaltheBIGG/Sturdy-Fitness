@@ -94,7 +94,7 @@ export function setupOnlineManager(): void {
 export const PERSIST_BUSTER = 'v4-program-repair-690'
 
 /** Clave única donde el persister serializa TODA la caché de queries. */
-export const PERSIST_KEY = 'calistenia_rq_cache'
+export const PERSIST_KEY = 'sturdy_rq_cache'
 
 /**
  * Tope de tamaño del caché persistido, en caracteres.
@@ -120,7 +120,7 @@ export const PERSIST_MAX_CHARS = 600_000
  * ni vaciando las queries cabe).
  *
  * Por qué recortar y no descartar: en producción hay usuarios cuyo caché
- * supera el tope en CADA escritura (CALISTENIA-APP-10: 2,3M caracteres contra
+ * supera el tope en CADA escritura (STURDY-APP-10: 2,3M caracteres contra
  * 600k). Con el descarte total esos usuarios no tenían NUNCA caché offline y
  * además reportábamos el mismo error en bucle. Perder las 2-3 queries más
  * gordas (que se refetchean al abrirlas) es mucho más barato que perderlo todo.

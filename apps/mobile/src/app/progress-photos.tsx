@@ -36,8 +36,8 @@ import {
   MAX_PHOTO_SIZE_BYTES,
 } from '@/lib/image-upload'
 import { useAuthUser } from '@/lib/use-auth-user'
-import { useBodyPhotos, type BodyPhoto } from '@calistenia/core/hooks/useBodyPhotos'
-import { todayStr, addDays } from '@calistenia/core/lib/dateUtils'
+import { useBodyPhotos, type BodyPhoto } from '@sturdy/core/hooks/useBodyPhotos'
+import { todayStr, addDays } from '@sturdy/core/lib/dateUtils'
 
 const CATEGORIES = [
   { value: 'front', labelKey: 'progress.bodyPhotos.front' },

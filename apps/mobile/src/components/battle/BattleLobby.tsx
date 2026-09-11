@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { View, Pressable, Share, Alert, Platform } from 'react-native'
 import { useTranslation } from 'react-i18next'
-import { useLocalize } from '@calistenia/core/hooks/useLocalize'
+import { useLocalize } from '@sturdy/core/hooks/useLocalize'
 import { Share2, Crown, Check } from 'lucide-react-native'
 
 import { Text } from '@/components/ui/text'
@@ -10,9 +10,9 @@ import { Kicker } from '@/components/ui/kicker'
 import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
 import { useBattleContext } from '@/contexts/BattleContext'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import { battleExerciseName, findBattlePreset } from '@calistenia/core/data/battle-presets'
-import { WEB_BASE_URL } from '@calistenia/core/lib/app-urls'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import { battleExerciseName, findBattlePreset } from '@sturdy/core/data/battle-presets'
+import { WEB_BASE_URL } from '@sturdy/core/lib/app-urls'
 
 
 export default function BattleLobby() {

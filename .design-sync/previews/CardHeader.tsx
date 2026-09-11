@@ -1,4 +1,4 @@
-import { Card, CardDescription, CardHeader, CardTitle } from '@calistenia/web'
+import { Card, CardDescription, CardHeader, CardTitle } from '@sturdy/web'
 
 // CardHeader suelto es un div vacío. Su render verdadero es dentro de Card.
 export const EnUnaTarjeta = () => (

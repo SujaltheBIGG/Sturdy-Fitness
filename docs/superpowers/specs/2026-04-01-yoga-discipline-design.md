@@ -110,7 +110,7 @@ On completion:
 `ProgramSelectorModal` shows a visual badge/tag to distinguish program types. Detection logic: scan the program's `weekDays` array and check if all non-rest days (`type !== 'rest'`) have `type === 'yoga'`. This check runs client-side when rendering the selector.
 
 - All non-rest days are yoga → "Yoga" badge
-- Otherwise → "Calistenia" badge (default)
+- Otherwise → "Sturdy" badge (default)
 
 ### 3.2 Dashboard
 

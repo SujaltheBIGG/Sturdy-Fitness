@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next'
-import { pb } from '@calistenia/core/lib/pocketbase'
-import { utcToLocalDateStr } from '@calistenia/core/lib/dateUtils'
+import { pb } from '@sturdy/core/lib/pocketbase'
+import { utcToLocalDateStr } from '@sturdy/core/lib/dateUtils'
 import {
   type Referral,
   REFERRAL_SIGNUP_POINTS,
-} from '@calistenia/core/hooks/useReferrals'
+} from '@sturdy/core/hooks/useReferrals'
 import { cn } from '../../lib/utils'
 
 interface ReferralListProps {

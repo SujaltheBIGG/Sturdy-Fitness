@@ -6,13 +6,13 @@
  * necesitan compartir. Lo específico del DOM (comprimir con canvas) vive aquí
  * porque es web-only y sigue siendo una función pura.
  */
-import { localHour } from '@calistenia/core/lib/dateUtils'
-import { storage } from '@calistenia/core/platform'
-import { migrateLegacyFood } from '@calistenia/core/lib/macro-calc'
+import { localHour } from '@sturdy/core/lib/dateUtils'
+import { storage } from '@sturdy/core/platform'
+import { migrateLegacyFood } from '@sturdy/core/lib/macro-calc'
 import type {
   FoodItem, NutritionEntry, DailyTotals, NutritionGoal, MealType,
   QualityScore, QualityBreakdown, QualitySuggestion,
-} from '@calistenia/core/types'
+} from '@sturdy/core/types'
 
 export const MAX_PHOTOS = 5
 
@@ -74,7 +74,7 @@ export function getDefaultMealType(): MealType {
   return 'cena'
 }
 
-const LS_LAST_MEAL_TYPE = 'calistenia_last_meal_type'
+const LS_LAST_MEAL_TYPE = 'sturdy_last_meal_type'
 
 /** Prefer the user's last-used meal type so their choice sticks between logs. */
 export function getSeedMealType(): MealType {

@@ -187,7 +187,7 @@ export function useProgressMutations(userId: string | null = null, activeProgram
 
     if (!isFree && activeProgramId) {
       // emitOnce guarda 'true'; el timestamp que se guardaba antes no lo leía nadie.
-      emitOnce(`calistenia_program_started_${activeProgramId}_${userId}`, () => {
+      emitOnce(`sturdy_program_started_${activeProgramId}_${userId}`, () => {
         op.track('program_started', { program_id: activeProgramId })
       })
 

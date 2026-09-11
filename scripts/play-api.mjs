@@ -127,7 +127,7 @@ export class PlayClient {
             `     → botón «Invitar usuarios nuevos» (sólo sale a nivel de cuenta,\n` +
             `       no dentro de una app)\n` +
             `     correo: ${this.serviceAccountEmail || '(el client_email del JSON)'}\n` +
-            `     Permisos de la app → Calistenia → «Ver información de la app»\n` +
+            `     Permisos de la app → Sturdy → «Ver información de la app»\n` +
             `     + «Administrar versiones de pruebas»\n` +
             `   Tarda unos minutos en propagar.`
           : ''

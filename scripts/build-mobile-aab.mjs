@@ -35,8 +35,8 @@ const SENTRY_ENV = resolve(ROOT, '.env.sentry-build-plugin')
 const JBR = '/Applications/Android Studio.app/Contents/jbr/Contents/Home'
 
 const PROD_ENV = {
-  EXPO_PUBLIC_PB_URL: 'https://gym.guille.tech',
-  EXPO_PUBLIC_AI_API_URL: 'https://gym-server.guille.tech',
+  EXPO_PUBLIC_PB_URL: 'https://sturdy.app',
+  EXPO_PUBLIC_AI_API_URL: 'https://api.sturdy.app',
 }
 
 const args = process.argv.slice(2)
@@ -110,7 +110,7 @@ function verify(aabPath) {
       fail(`faltan en el AAB permisos de salud de app.json: ${missing.join(', ')}`)
     }
     console.log('    → android/ está desincronizado. Regenéralo:')
-    console.log('      pnpm --filter @calistenia/mobile exec expo prebuild --platform android')
+    console.log('      pnpm --filter @sturdy/mobile exec expo prebuild --platform android')
   }
 
   // 1c. targetSdkVersion: Play exige API 36 desde el 2026-08-30. Misma trampa
@@ -153,7 +153,7 @@ function verify(aabPath) {
       { encoding: 'utf-8', shell: '/bin/bash' },
     )
     const cn = cert.match(/Owner:\s*(CN=[^,\n]+)/)?.[1]
-    cn?.includes('Calistenia Upload')
+    cn?.includes('Sturdy Upload')
       ? ok(`firmado con ${cn}`)
       : fail(`firma inesperada: ${cn || '(no se pudo leer)'}`)
   } catch {
@@ -227,7 +227,7 @@ console.log(`  paquete:     ${PKG}`)
 console.log(`  salida:      ${DEST}\n`)
 
 if (!existsSync(ANDROID)) {
-  console.error(`No existe ${ANDROID}. Ejecuta antes: pnpm --filter @calistenia/mobile exec expo prebuild`)
+  console.error(`No existe ${ANDROID}. Ejecuta antes: pnpm --filter @sturdy/mobile exec expo prebuild`)
   process.exit(1)
 }
 if (!existsSync(JBR)) {

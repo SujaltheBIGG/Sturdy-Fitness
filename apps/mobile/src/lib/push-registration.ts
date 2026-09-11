@@ -15,7 +15,7 @@ import * as Device from 'expo-device'
 import Constants from 'expo-constants'
 import { Platform } from 'react-native'
 import type PocketBase from 'pocketbase'
-import type { PushPermissionState } from '@calistenia/core/lib/push-prompt'
+import type { PushPermissionState } from '@sturdy/core/lib/push-prompt'
 
 // Canal Android para notificaciones remotas (push).
 // Usamos un id separado de 'reminders' y 'rest-timer' para que el usuario
@@ -149,7 +149,7 @@ export async function registerPushTokenAsync(
 
 /**
  * Estado del permiso de notificaciones en el vocabulario común de
- * `@calistenia/core/lib/push-prompt` (#694). No dispara el diálogo del SO:
+ * `@sturdy/core/lib/push-prompt` (#694). No dispara el diálogo del SO:
  * solo lee el estado actual con `getPermissionsAsync()`.
  */
 export async function getPushPermissionState(): Promise<PushPermissionState> {

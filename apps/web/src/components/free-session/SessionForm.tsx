@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useAuthState } from '../../contexts/AuthContext'
-import { pb } from '@calistenia/core/lib/pocketbase'
+import { pb } from '@sturdy/core/lib/pocketbase'
 import { Button } from '../ui/button'
 import { cn } from '../../lib/utils'
-import type { NutritionGoal, Sex } from '@calistenia/core/types'
+import type { NutritionGoal, Sex } from '@sturdy/core/types'
 
 type Goal = 'fuerza' | 'resistencia' | 'movilidad' | 'mixto' | 'yoga' | 'circuito'
 type Location = 'casa' | 'parque' | 'gimnasio'
@@ -115,15 +115,15 @@ export default function SessionForm({ onSubmit, isLoading }: SessionFormProps) {
     }
 
     const GOAL_LABELS: Record<string, string> = {
-      fuerza: 'fuerza', resistencia: 'resistencia', movilidad: 'movilidad',
-      yoga: 'yoga', circuito: 'circuito', mixto: 'mixto',
+      fuerza: 'strength', resistencia: 'endurance', movilidad: 'mobility',
+      yoga: 'yoga', circuito: 'circuit', mixto: 'mixed',
     }
     const LOCATION_LABELS: Record<string, string> = {
-      casa: 'casa', parque: 'parque', gimnasio: 'gimnasio',
+      casa: 'home', parque: 'park', gimnasio: 'gym',
     }
 
     // Short user-visible message
-    const msg = `Sesión de ${availableTime} min · ${GOAL_LABELS[goal] || goal} · ${LOCATION_LABELS[location] || location}`
+    const msg = `${availableTime} min session · ${GOAL_LABELS[goal] || goal} · ${LOCATION_LABELS[location] || location}`
     onSubmit(msg, ctx)
   }
 
@@ -233,7 +233,7 @@ export default function SessionForm({ onSubmit, isLoading }: SessionFormProps) {
         disabled={isLoading}
         className="w-full font-bebas text-lg tracking-wide"
       >
-        {isLoading ? 'Generando...' : 'Generar sesión'}
+        {isLoading ? 'Generando...' : 'Generate session'}
       </Button>
     </div>
   )

@@ -7,7 +7,7 @@ import {
   type PlanBlocker,
   type PlanBudget as Budget,
   type PlanHorizon,
-} from '@calistenia/core/lib/meal-plan-spec'
+} from '@sturdy/core/lib/meal-plan-spec'
 import { cn } from '../../../lib/utils'
 import { Kicker } from '../../ui/kicker'
 import { PlanBudget } from './PlanBudget'

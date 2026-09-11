@@ -5,9 +5,9 @@
  * catálogo y el historial, y dispara el match de despensa tras el éxito.
  */
 import { useCallback } from 'react'
-import { localHour, nowLocalForPB, todayStr } from '@calistenia/core/lib/dateUtils'
-import { op } from '@calistenia/core/lib/analytics'
-import type { FoodItem, MealType, NutritionEntry } from '@calistenia/core/types'
+import { localHour, nowLocalForPB, todayStr } from '@sturdy/core/lib/dateUtils'
+import { op } from '@sturdy/core/lib/analytics'
+import type { FoodItem, MealType, NutritionEntry } from '@sturdy/core/types'
 import { setLastMealType, type AnalysisQuality, type MealTotals, type Step } from './meal-logger-shared'
 
 interface UseMealSaveParams {

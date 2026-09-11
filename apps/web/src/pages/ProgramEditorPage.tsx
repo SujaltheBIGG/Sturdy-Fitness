@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'sonner'
 import { cn } from '../lib/utils'
 import { useTranslation } from 'react-i18next'
-import { useProgramEditor, deriveDaysPerWeek, type EditorExercise } from '@calistenia/core/hooks/useProgramEditor'
+import { useProgramEditor, deriveDaysPerWeek, type EditorExercise } from '@sturdy/core/hooks/useProgramEditor'
 import ExerciseCatalogPicker from '../components/ExerciseCatalogPicker'
 import { useWorkoutActions } from '../contexts/WorkoutContext'
 import { Button } from '../components/ui/button'
@@ -16,7 +16,7 @@ import { StepExercises } from '../components/program-editor/StepExercises'
 
 interface ProgramEditorPageProps {
   userId: string
-  userRole?: import('@calistenia/core/types').UserRole
+  userRole?: import('@sturdy/core/types').UserRole
 }
 
 export default function ProgramEditorPage({ userId, userRole = 'user' }: ProgramEditorPageProps) {

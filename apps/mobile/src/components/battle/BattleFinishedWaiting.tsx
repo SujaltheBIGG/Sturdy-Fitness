@@ -31,7 +31,7 @@ import {
   battleSpanMs,
   battleWorkColumns,
   formatBattleElapsed,
-} from '@calistenia/core/lib/battle'
+} from '@sturdy/core/lib/battle'
 
 function Stat({ label, value, className }: { label: string; value: string; className?: string }) {
   return (

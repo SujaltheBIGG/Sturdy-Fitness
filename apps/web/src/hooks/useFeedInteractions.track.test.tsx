@@ -20,19 +20,19 @@ const { mockCanonical, create, getFullList } = vi.hoisted(() => ({
   getFullList: vi.fn(async () => [] as unknown[]),
 }))
 
-vi.mock('@calistenia/core/lib/analytics', async (importOriginal) => ({
-  ...(await importOriginal<typeof import('@calistenia/core/lib/analytics')>()),
+vi.mock('@sturdy/core/lib/analytics', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@sturdy/core/lib/analytics')>()),
   op: { track: vi.fn(), identify: vi.fn(), clear: vi.fn() },
   trackCanonicalEvent: mockCanonical,
 }))
 
-vi.mock('@calistenia/core/platform', () => ({
+vi.mock('@sturdy/core/platform', () => ({
   storage: { getItem: () => null, setItem: vi.fn(), removeItem: vi.fn() },
   getPlatform: () => ({ reportError: vi.fn(), analytics: { track: vi.fn(), identify: vi.fn(), clear: vi.fn() } }),
   getClientInfo: () => ({ version: '1.0.0', build: 0, platform: 'web' as const }),
 }))
 
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: {
     filter: (expr: string) => expr,
     collection: () => ({ create, getFullList, getOne: vi.fn(), delete: vi.fn() }),
@@ -43,8 +43,8 @@ vi.mock('@calistenia/core/lib/pocketbase', () => ({
   isPocketBaseAvailable: async () => true,
 }))
 
-import { useReactions } from '@calistenia/core/hooks/useReactions'
-import { useComments } from '@calistenia/core/hooks/useComments'
+import { useReactions } from '@sturdy/core/hooks/useReactions'
+import { useComments } from '@sturdy/core/hooks/useComments'
 
 function wrapper({ children }: { children: ReactNode }) {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } })

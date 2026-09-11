@@ -8,9 +8,9 @@ import { Kicker } from '@/components/ui/kicker'
 import { cn } from '@/lib/utils'
 import { useRaceContext } from '@/contexts/RaceContext'
 import { haptics } from '@/lib/haptics'
-import { CARDIO_ACTIVITY } from '@calistenia/core/lib/style-tokens'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import { WEB_BASE_URL } from '@calistenia/core/lib/app-urls'
+import { CARDIO_ACTIVITY } from '@sturdy/core/lib/style-tokens'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import { WEB_BASE_URL } from '@sturdy/core/lib/app-urls'
 
 
 export default function RaceLobby({ displayName }: { displayName: string }) {

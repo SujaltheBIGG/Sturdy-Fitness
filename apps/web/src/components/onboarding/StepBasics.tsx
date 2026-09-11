@@ -4,7 +4,7 @@ import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Label } from '../ui/label'
 import { cn } from '../../lib/utils'
-import type { BasicsValues } from '@calistenia/core/types/onboarding'
+import type { BasicsValues } from '@sturdy/core/types/onboarding'
 
 export type { BasicsValues }
 

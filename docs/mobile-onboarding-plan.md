@@ -9,7 +9,7 @@ create an account and complete onboarding entirely without the web app.
 - Steps: `StepWelcome`, `StepBasics`, `StepGoals`, `StepHealth`, `StepTraining`,
   `StepProgram`, `StepPersonalizing`, `OnboardingProgress`.
 - Completion flag (web): `apps/web/src/components/onboarding/state.ts` →
-  `localStorage["calistenia_onboarding_done_<userId>"] = "true"`.
+  `localStorage["sturdy_onboarding_done_<userId>"] = "true"`.
 
 ## Data model (unchanged — all writes go to the `users` auth record)
 | Step | Fields written via `pb.collection('users').update(userId, …)` |
@@ -26,9 +26,9 @@ Profile detection: `needsProfile = !user.weight && !user.height && !user.level`
 ## Mobile integration points (confirmed)
 - Program enroll: `selectProgram(id)` from `useWorkoutActions()` (`apps/mobile/src/contexts/WorkoutContext.tsx`).
 - Catalog: `useWorkoutState().programs` → `ProgramMeta[]`.
-- Match: `matchUserToPrograms` from `@calistenia/core/lib/matchPrograms`.
-- Types: `@calistenia/core/types/onboarding` (CONDITION_IDS, INJURY_IDS, FOCUS_AREA_IDS, DAY_IDS, …).
-- Storage: `storage` from `@calistenia/core/platform` (sync getItem/setItem/removeItem).
+- Match: `matchUserToPrograms` from `@sturdy/core/lib/matchPrograms`.
+- Types: `@sturdy/core/types/onboarding` (CONDITION_IDS, INJURY_IDS, FOCUS_AREA_IDS, DAY_IDS, …).
+- Storage: `storage` from `@sturdy/core/platform` (sync getItem/setItem/removeItem).
 - Current user: `useAuthUser()` (`apps/mobile/src/lib/use-auth-user.ts`).
 - Update profile: `pb.collection('users').update(userId, {...})` direct.
 - Design system: NativeWind; `Chip`, `Button`, `Input`, `Textarea`, `Card`, `Text` in `apps/mobile/src/components/ui/`. Fonts: `font-bebas`/`font-sans*`/`font-mono*` (never `font-bold` with custom fonts). Accent `lime`.
@@ -40,7 +40,7 @@ Profile detection: `needsProfile = !user.weight && !user.height && !user.level`
    - `isOnboardingDone(userId: string): boolean`
    - `markOnboardingDone(userId: string): void`
    - `resetOnboarding(userId: string): void`
-   Uses `storage` from `../platform`, key `calistenia_onboarding_done_${userId}`.
+   Uses `storage` from `../platform`, key `sturdy_onboarding_done_${userId}`.
 2. `packages/core/lib/storage-keys.ts` → add the onboarding key (prefix) to user-scoped keys cleared on logout.
 3. `apps/mobile/src/app/index.tsx` gate:
    - `!pb.authStore.isValid` → `/login`
@@ -48,7 +48,7 @@ Profile detection: `needsProfile = !user.weight && !user.height && !user.level`
    - else → `/(tabs)`
 4. `apps/mobile/src/app/(tabs)/_layout.tsx`: after authValid check, `!isOnboardingDone(uid)` → redirect `/onboarding`.
 5. `apps/mobile/src/app/_layout.tsx`: register `onboarding` Stack screen (full-screen, no header, gesture disabled).
-6. `apps/mobile/src/app/login.tsx`: refactor to `useAuth()` from `@calistenia/core/hooks/useAuth`; add login/signup mode toggle + `displayName` field (signup). Keep Google OAuth via existing `loginWithGoogle()`. On success `router.replace('/')` (gate routes to onboarding for new users).
+6. `apps/mobile/src/app/login.tsx`: refactor to `useAuth()` from `@sturdy/core/hooks/useAuth`; add login/signup mode toggle + `displayName` field (signup). Keep Google OAuth via existing `loginWithGoogle()`. On success `router.replace('/')` (gate routes to onboarding for new users).
 
 ### Part B — Onboarding screens (`apps/mobile/src/components/onboarding/`)
 Port web components 1:1 to RN/NativeWind:

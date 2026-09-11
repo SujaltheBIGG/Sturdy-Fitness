@@ -1,4 +1,4 @@
-# Calistenia App — SaaS MVP Design Spec
+# Sturdy — SaaS MVP Design Spec
 
 ## Overview
 

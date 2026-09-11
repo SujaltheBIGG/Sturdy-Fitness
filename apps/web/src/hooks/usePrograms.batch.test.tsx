@@ -34,7 +34,7 @@ let childRows: Record<string, Array<Record<string, unknown>>> = {}
 
 const pbStub = vi.hoisted(() => ({}))
 
-vi.mock('@calistenia/core/lib/pocketbase', () => {
+vi.mock('@sturdy/core/lib/pocketbase', () => {
   const collection = (name: string) => ({
     getOne: () => Promise.resolve({
       id: 'prog-src', name: { es: 'Fuerza', en: 'Strength' }, description: {},
@@ -87,11 +87,11 @@ vi.mock('@calistenia/core/lib/pocketbase', () => {
 
 // Sin `initCore()` `getPlatform()` lanza, y esa excepción taparía la que se
 // quiere observar.
-vi.mock('@calistenia/core/platform', () => ({
+vi.mock('@sturdy/core/platform', () => ({
   getPlatform: () => ({ reportError: vi.fn() }),
 }))
 
-import { usePrograms } from '@calistenia/core/hooks/usePrograms'
+import { usePrograms } from '@sturdy/core/hooks/usePrograms'
 
 type Programs = ReturnType<typeof usePrograms>
 

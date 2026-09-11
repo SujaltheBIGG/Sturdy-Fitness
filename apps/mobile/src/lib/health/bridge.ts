@@ -21,7 +21,7 @@ import {
   openHealthConnectSettings,
   type Permission,
 } from 'react-native-health-connect'
-import type { HealthHubStatus } from '@calistenia/core/types'
+import type { HealthHubStatus } from '@sturdy/core/types'
 
 /**
  * Tipos de registro que leemos. Espejo EXACTO de los `android.permission.health.READ_*`

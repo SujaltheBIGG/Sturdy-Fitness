@@ -14,7 +14,7 @@ import { Text } from '@/components/ui/text'
 import { Kicker } from '@/components/ui/kicker'
 import { EmptyState } from '@/components/ui/empty-state'
 import CardioSessionRow from '@/components/cardio/CardioSessionRow'
-import type { CardioSession } from '@calistenia/core/types'
+import type { CardioSession } from '@sturdy/core/types'
 
 interface Props {
   sessions: CardioSession[]
@@ -23,7 +23,7 @@ interface Props {
   /** CTA del empty state («Empezar cardio») — el padre decide (p. ej. subir al tracker). */
   onStart?: () => void
   /** La carga falló. Manda sobre la lista vacía: sin esto un 504 se pintaba
-      como «no tienes sesiones», que es mentira (#559, CALISTENIA-APP-S). */
+      como «no tienes sesiones», que es mentira (#559, STURDY-APP-S). */
   error?: boolean
   onRetry?: () => void
   /** Cuántas sesiones se enseñan aquí. */

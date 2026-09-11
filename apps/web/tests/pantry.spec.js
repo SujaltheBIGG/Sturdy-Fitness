@@ -316,10 +316,10 @@ test.describe('Despensa F3 + #179: plan del día y recetas', () => {
       route.fulfill({ contentType: 'application/json', body: JSON.stringify({ meals: null }) }),
     )
 
-    // El persister de TanStack (calistenia_rq_cache) rehidrata goals=null
+    // El persister de TanStack (sturdy_rq_cache) rehidrata goals=null
     // cacheado del dashboard como "fresco" (staleTime 5m) y el setup taparía
     // el dashboard: limpiarlo fuerza refetch y recoge el seed REST.
-    await page.evaluate(() => localStorage.removeItem('calistenia_rq_cache'))
+    await page.evaluate(() => localStorage.removeItem('sturdy_rq_cache'))
     await navigateTo(page, '/nutrition')
     await expect(page.getByText(/DESDE TU DESPENSA|FROM YOUR PANTRY/i)).toBeVisible({ timeout: 20000 })
 
@@ -346,7 +346,7 @@ test.describe('Despensa F3 + #179: plan del día y recetas', () => {
     // La receta aparece en /pantry/recipes y en PB. Mismo truco del persister:
     // el isSaved del diálogo cacheó la lista vacía pre-toggle y la rehidratación
     // la mostraría como fresca tras el full reload del goto.
-    await page.evaluate(() => localStorage.removeItem('calistenia_rq_cache'))
+    await page.evaluate(() => localStorage.removeItem('sturdy_rq_cache'))
     await navigateTo(page, '/pantry/recipes')
     await expect(page.getByText(/Mis recetas|My recipes/i).first()).toBeVisible({ timeout: 8000 })
     await expect(page.getByText(/Pollo con arroz/i).first()).toBeVisible({ timeout: 8000 })

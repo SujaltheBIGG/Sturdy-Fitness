@@ -16,7 +16,7 @@ import { Text } from '@/components/ui/text'
 import { Button } from '@/components/ui/button'
 import { Loader } from '@/components/ui/loader'
 import { cn } from '@/lib/utils'
-import { op } from '@calistenia/core/lib/analytics'
+import { op } from '@sturdy/core/lib/analytics'
 import {
   useCrossInsights,
   MIN_INSIGHT_DAYS,
@@ -24,7 +24,7 @@ import {
   type CrossInsightAction,
   type CrossInsightActionType,
   type CrossInsightPayload,
-} from '@calistenia/core/hooks/useCrossInsights'
+} from '@sturdy/core/hooks/useCrossInsights'
 
 const STRENGTH_DOTS: Record<CrossInsightCorrelation['strength'], string> = {
   weak: '●',

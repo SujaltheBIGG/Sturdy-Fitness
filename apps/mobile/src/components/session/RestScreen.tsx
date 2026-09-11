@@ -17,8 +17,8 @@ import { updateLiveRest, liveSessionHandlesRest } from '@/lib/live-session'
 import { restCues } from '@/lib/training-cues'
 import { RestPanel } from '@/components/training/RestPanel'
 import type { Step } from '@/components/session/types'
-import { useCountdown } from '@calistenia/core/hooks/useCountdown'
-import { adjustCountdown, type CountdownWindow } from '@calistenia/core/lib/countdown'
+import { useCountdown } from '@sturdy/core/hooks/useCountdown'
+import { adjustCountdown, type CountdownWindow } from '@sturdy/core/lib/countdown'
 
 /** Los mismos ajustes de siempre. */
 const ADJUST_DELTAS = [-15, 15, 30] as const

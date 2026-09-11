@@ -108,7 +108,7 @@ export function initCore(p: CorePlatform): void {
 export function getPlatform(): CorePlatform {
   if (!platform) {
     throw new Error(
-      '[core] initCore() no fue llamado. Importa el init de plataforma (p.ej. lib/init-core) antes que cualquier módulo de @calistenia/core.'
+      '[core] initCore() no fue llamado. Importa el init de plataforma (p.ej. lib/init-core) antes que cualquier módulo de @sturdy/core.'
     )
   }
   return platform

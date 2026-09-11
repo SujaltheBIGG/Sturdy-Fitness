@@ -1,12 +1,12 @@
 // Port 1:1 del WorkoutContext de apps/web — los hooks de core son portables.
 import { createContext, use, useCallback, useEffect, useMemo, type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useProgress, type PREvent } from '@calistenia/core/hooks/useProgress'
-import { usePrograms, type ActiveEnrollment } from '@calistenia/core/hooks/usePrograms'
-import { useProgramProgress } from '@calistenia/core/hooks/useProgramProgress'
+import { useProgress, type PREvent } from '@sturdy/core/hooks/useProgress'
+import { usePrograms, type ActiveEnrollment } from '@sturdy/core/hooks/usePrograms'
+import { useProgramProgress } from '@sturdy/core/hooks/useProgramProgress'
 import { syncWidgetSnapshot } from '@/lib/sync-widget-snapshot'
-import type { ProgramProgress } from '@calistenia/core/lib/programProgress'
-import type { Settings, ProgressMap, SetData, ExerciseLog, Phase, WeekDay, Workout, ProgramMeta, CardioDayConfig, CircuitDefinition, ExerciseTiming } from '@calistenia/core/types'
+import type { ProgramProgress } from '@sturdy/core/lib/programProgress'
+import type { Settings, ProgressMap, SetData, ExerciseLog, Phase, WeekDay, Workout, ProgramMeta, CardioDayConfig, CircuitDefinition, ExerciseTiming } from '@sturdy/core/types'
 
 // ── Context interface (state + actions + meta) ──────────────────────────────
 

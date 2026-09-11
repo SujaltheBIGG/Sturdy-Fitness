@@ -5,8 +5,8 @@ import {
   CANONICAL_ANALYTICS_EVENTS,
   trackCanonicalEvent,
   trackShareCardShared,
-} from '@calistenia/core/lib/analytics'
-import { WEB_BASE_URL } from '@calistenia/core/lib/app-urls'
+} from '@sturdy/core/lib/analytics'
+import { WEB_BASE_URL } from '@sturdy/core/lib/app-urls'
 
 // ── URL builders ──────────────────────────────────────────────────────────────
 
@@ -42,7 +42,7 @@ export function cardioUrl(id: string): string {
  * `link` o `public`. Uno `private` enseña «programa no encontrado», y esa es la
  * respuesta correcta.
  */
-export { sharedProgramUrl as programUrl } from '@calistenia/core/lib/programShare'
+export { sharedProgramUrl as programUrl } from '@sturdy/core/lib/programShare'
 
 // ── Primitive share helpers ───────────────────────────────────────────────────
 
@@ -283,7 +283,7 @@ export function shareReferralInvite(
   referralCode: string,
 ): ReferralShareResult {
   const url = inviteUrl(referralCode)
-  const message = `${displayName} te invita a entrenar en Calistenia App 🤸\nÚnete y empieza gratis:`
+  const message = `${displayName} te invita a entrenar en Sturdy 🤸\nÚnete y empieza gratis:`
   return { message, url }
 }
 

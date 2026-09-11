@@ -38,7 +38,7 @@ describe('referral prompt eligibility', () => {
   it('persists a 14-day cooldown after dismissal or completion', () => {
     markReferralPromptHandled('u1', NOW)
     expect(storage.setItem).toHaveBeenCalledWith(
-      'calistenia_referral_prompt_shown_u1',
+      'sturdy_referral_prompt_shown_u1',
       '2026-08-09T12:00:00.000Z',
     )
 

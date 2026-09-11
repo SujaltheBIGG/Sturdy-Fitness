@@ -1,7 +1,7 @@
-import { localDay, todayStr, getTimezone } from '@calistenia/core/lib/dateUtils'
+import { localDay, todayStr, getTimezone } from '@sturdy/core/lib/dateUtils'
 import { buildWidgetSnapshot } from './widget-snapshot'
 import { writeWidgetSnapshot } from './widget-bridge'
-import type { Settings, WeekDay, Workout } from '@calistenia/core/types'
+import type { Settings, WeekDay, Workout } from '@sturdy/core/types'
 
 const DAY_IDS = ['dom', 'lun', 'mar', 'mie', 'jue', 'vie', 'sab'] as const
 

@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { cn } from '../lib/utils'
 import { Button } from '../components/ui/button'
-import { useReminderTimeline, type ReminderTimelineItem } from '@calistenia/core/hooks/useReminderTimeline'
+import { useReminderTimeline, type ReminderTimelineItem } from '@sturdy/core/hooks/useReminderTimeline'
 import {
   MEAL_QUICK_TIMES,
   WORKOUT_QUICK_TIMES,
@@ -12,11 +12,11 @@ import {
   parseHour,
   parseMinute,
   clampPauseInterval,
-} from '@calistenia/core/lib/reminders'
+} from '@sturdy/core/lib/reminders'
 import { subscribeToPush, getSubscriptionStatus, getNotificationSupport, requestNotificationPermission } from '../lib/push-subscription'
 import { cancelAllScheduled } from '../lib/reminder-scheduler'
-import { localMinutesSinceMidnight } from '@calistenia/core/lib/dateUtils'
-import type { MealType } from '@calistenia/core/types'
+import { localMinutesSinceMidnight } from '@sturdy/core/lib/dateUtils'
+import type { MealType } from '@sturdy/core/types'
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
@@ -286,7 +286,7 @@ export default function RemindersPage({ userId }: RemindersPageProps) {
           />
         </div>
       </div>
-      <div className="flex gap-1 mb-4" role="group" aria-label="Dias de la semana">
+      <div className="flex gap-1 mb-4" role="group" aria-label="Days of the week">
         {DAY_LABELS.map(d => (
           <button
             key={d.id}
@@ -388,7 +388,7 @@ export default function RemindersPage({ userId }: RemindersPageProps) {
           <div className={cn('h-px mb-5', showForm === 'meal' ? 'bg-amber-400/30' : showForm === 'workout' ? 'bg-sky-400/30' : 'bg-violet-400/30')} />
 
           {showForm === 'meal' && (
-            <div className="mb-5" role="group" aria-label="Tipo de comida">
+            <div className="mb-5" role="group" aria-label="Meal type">
               <div className="grid grid-cols-4 gap-2">
                 {(['desayuno', 'almuerzo', 'cena', 'snack'] as MealType[]).map(type => {
                   const meta = MEAL_META[type]
@@ -485,7 +485,7 @@ export default function RemindersPage({ userId }: RemindersPageProps) {
                     type="number" min={0} max={23} value={pauseHourStart}
                     onChange={e => setPauseHourStart(e.target.value)}
                     onBlur={() => setPauseHourStart(clampHour(pauseHourStart))}
-                    aria-label="Hora de inicio"
+                    aria-label="Start time"
                     className="w-16 h-12 text-center font-bebas text-2xl bg-muted/30 rounded-xl border-0 focus:outline-none focus:ring-1 focus:ring-violet-400/30 tabular-nums"
                   />
                   <div className="flex flex-col items-center" aria-hidden="true">
@@ -506,7 +506,7 @@ export default function RemindersPage({ userId }: RemindersPageProps) {
             </div>
           )}
 
-          <div className="flex gap-1 mb-5" role="group" aria-label="Dias de la semana">
+          <div className="flex gap-1 mb-5" role="group" aria-label="Days of the week">
             {DAY_LABELS.map(d => (
               <button
                 key={d.id}
@@ -557,7 +557,7 @@ export default function RemindersPage({ userId }: RemindersPageProps) {
         <div className="mb-6 px-4 py-3 rounded-xl bg-red-400/5 border border-red-400/15">
           <div className="text-[12px] text-red-400 font-medium mb-1">Notificaciones bloqueadas</div>
           <div className="text-[11px] text-muted-foreground leading-relaxed">
-            Los recordatorios estan guardados pero no recibiras alertas. Para activarlas, ve a los ajustes de tu navegador → Permisos → Notificaciones y permite este sitio.
+            Your reminders are saved but you will not receive alerts. To enable them, go to the settings of your navegador → Permisos → Notificaciones y permite este sitio.
           </div>
         </div>
       )}
@@ -566,7 +566,7 @@ export default function RemindersPage({ userId }: RemindersPageProps) {
         <div className="mb-6 px-4 py-3 rounded-xl bg-amber-400/5 border border-amber-400/15">
           <div className="text-[12px] text-amber-400 font-medium mb-1">Notificaciones no soportadas</div>
           <div className="text-[11px] text-muted-foreground leading-relaxed">
-            Tu navegador no soporta notificaciones. Prueba con Chrome, Edge o Safari, o instala la app desde el menu de tu navegador.
+            Your browser does not support notifications. Try Chrome, Edge or Safari, or install the app from the menu de tu navegador.
           </div>
         </div>
       )}
@@ -746,10 +746,10 @@ export default function RemindersPage({ userId }: RemindersPageProps) {
             </div>
           </div>
           <div className="font-bebas text-xl tracking-wide text-muted-foreground/60 mb-1">
-            SIN RECORDATORIOS
+            NO REMINDERS
           </div>
           <p className="text-[11px] text-muted-foreground/40 max-w-[240px] mx-auto leading-relaxed">
-            Programa alertas para no saltarte comidas, entrenamientos o pausas activas durante el trabajo
+            Schedule alerts so you never skip meals, workouts or active breaks during work
           </p>
         </div>
       )}

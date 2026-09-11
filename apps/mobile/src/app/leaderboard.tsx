@@ -11,9 +11,9 @@ import { Kicker } from '@/components/ui/kicker'
 import { EmptyState } from '@/components/ui/empty-state'
 import { cn } from '@/lib/utils'
 import { useAuthUser } from '@/lib/use-auth-user'
-import { useLeaderboard, type LeaderboardCategory, type LeaderboardEntry } from '@calistenia/core/hooks/useLeaderboard'
-import { RANK_MEDALS } from '@calistenia/core/lib/challenges'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+import { useLeaderboard, type LeaderboardCategory, type LeaderboardEntry } from '@sturdy/core/hooks/useLeaderboard'
+import { RANK_MEDALS } from '@sturdy/core/lib/challenges'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 
 // ── Category definitions ──────────────────────────────────────────────────────
 

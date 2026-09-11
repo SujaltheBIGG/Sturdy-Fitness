@@ -5,7 +5,7 @@
  * live elapsed clock, and today's pause log.
  *
  * Persistence: localStorage only (instant read on mount, no PB round-trip needed).
- * Key: 'calistenia_workday_<YYYY-MM-DD>'  — one record per calendar day.
+ * Key: 'sturdy_workday_<YYYY-MM-DD>'  — one record per calendar day.
  *
  * Audio: los avisos salen por `lib/sounds.ts`, que ya es el único `AudioContext` de
  * la pestaña — este hook tenía el suyo propio en paralelo sin motivo.
@@ -15,11 +15,11 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import i18n from '../lib/i18n'
 import { playWorkPauseLong, playWorkPauseShort } from '../lib/sounds'
-import type { Pause, PauseType, WorkDay } from '@calistenia/core/types'
-import { todayStr } from '@calistenia/core/lib/dateUtils'
+import type { Pause, PauseType, WorkDay } from '@sturdy/core/types'
+import { todayStr } from '@sturdy/core/lib/dateUtils'
 
 const TODAY = (): string => todayStr()
-const LS_KEY = (date: string): string => `calistenia_workday_${date}`
+const LS_KEY = (date: string): string => `sturdy_workday_${date}`
 
 // ─── localStorage helpers ─────────────────────────────────────────────────────
 function lsLoad(date: string): WorkDay | null {

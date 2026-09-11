@@ -1,4 +1,4 @@
-/** Historial de insights cross-métrica — "Tus semanas", web Dashboard (épica #128 Fase 3, issue #132). */
+/** Historial de insights cross-métrica — "Your weeks", web Dashboard (épica #128 Fase 3, issue #132). */
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { cn } from '../../lib/utils'
@@ -7,7 +7,7 @@ import {
   type InsightPeriodType,
   type CrossInsight,
   type CrossInsightCorrelation,
-} from '@calistenia/core/hooks/useCrossInsights'
+} from '@sturdy/core/hooks/useCrossInsights'
 
 const STRENGTH_LABEL: Record<CrossInsightCorrelation['strength'], string> = {
   weak: '●',
@@ -163,7 +163,7 @@ export default function InsightsHistory({ userId }: InsightsHistoryProps) {
   return (
     <div className="bg-card border border-border rounded-xl p-4">
       <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-3">
-        {t('insights.history.title', 'Tus semanas')}
+        {t('insights.history.title', 'Your weeks')}
       </div>
 
       {!expanded ? (

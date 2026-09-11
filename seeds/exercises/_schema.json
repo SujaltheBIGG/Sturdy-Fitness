@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Calistenia Exercise Catalog Seed",
+  "title": "Sturdy Exercise Catalog Seed",
   "description": "Schema for seeding exercises_catalog and exercise_progressions tables. Each file represents one top-level category and contains subcategories (movement families) with their exercises ordered by progression difficulty.",
   "type": "object",
   "required": ["category", "category_label", "subcategories"],

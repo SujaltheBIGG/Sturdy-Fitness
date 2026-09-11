@@ -2,8 +2,8 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { renderHook, act, waitFor } from '@testing-library/react'
 import type { ReactNode } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { estimateCalories } from '@calistenia/core/lib/calories'
-import type { CardioActivityType } from '@calistenia/core/types'
+import { estimateCalories } from '@sturdy/core/lib/calories'
+import type { CardioActivityType } from '@sturdy/core/types'
 
 // i18n real inicializa recursos bundleados de forma síncrona, pero se mockea
 // para no depender de esa carga en un test unitario — solo se usa `t()` una
@@ -14,7 +14,7 @@ vi.mock('../lib/i18n', () => ({
 
 // pb.collection()/pb.filter() se mockean enteros: este context habla con
 // PocketBase solo para crear/borrar/actualizar sesiones cardio e historial.
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: {
     collection: vi.fn(),
     filter: vi.fn((raw: string) => raw),
@@ -31,7 +31,7 @@ const { lifecycleBus } = vi.hoisted(() => ({
   },
 }))
 
-vi.mock('@calistenia/core/platform', () => ({
+vi.mock('@sturdy/core/platform', () => ({
   storage: {
     getItem: (k: string) => window.localStorage.getItem(k),
     setItem: (k: string, v: string) => window.localStorage.setItem(k, v),
@@ -51,7 +51,7 @@ vi.mock('@calistenia/core/platform', () => ({
   getPlatform: () => ({ reportError: vi.fn() }),
 }))
 
-import { pb } from '@calistenia/core/lib/pocketbase'
+import { pb } from '@sturdy/core/lib/pocketbase'
 import { CardioSessionProvider, useCardioSessionContext } from './CardioSessionContext'
 
 // ── Helpers de geolocalización ──────────────────────────────────────────────
@@ -132,8 +132,8 @@ function mockPb(
   return mocks
 }
 
-const STORAGE_KEY = 'calistenia_cardio_active'
-const UNSAVED_KEY = 'calistenia_cardio_unsaved'
+const STORAGE_KEY = 'sturdy_cardio_active'
+const UNSAVED_KEY = 'sturdy_cardio_unsaved'
 
 beforeEach(() => {
   watchCallbacks = []
@@ -643,7 +643,7 @@ describe('getHistory — errores (#559)', () => {
     await expect(result.current.getHistory(20)).rejects.toThrow('network down')
   })
 
-  // CALISTENIA-APP-S: un unico 504 del gateway pintaba el historial vacio.
+  // STURDY-APP-S: un unico 504 del gateway pintaba el historial vacio.
   it('reintenta un 504 del gateway y devuelve las sesiones del segundo intento', async () => {
     const gatewayTimeout = Object.assign(new Error('ClientResponseError 504'), { status: 504 })
     const getList = vi.fn()

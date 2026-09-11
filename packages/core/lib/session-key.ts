@@ -79,7 +79,7 @@ export function sessionKeyLabel(workoutKey: string): string {
   // Una fila sin `workout_key` (datos corruptos, import antiguo) no puede dejar
   // la tarjeta del muro sin título.
   if (!workoutKey) return tr('feed.workoutGeneric', 'Entrenamiento')
-  if (isFreeSessionKey(workoutKey)) return tr('progress.freeSession', 'Sesión Libre')
+  if (isFreeSessionKey(workoutKey)) return tr('progress.freeSession', 'Free Session')
   // Una clave de programa que no está en `WORKOUTS` (programa propio o de la
   // comunidad) al menos se humaniza: "Fase 2 · mié" en vez de `p2_mie`.
   const parts = sessionKeyParts(workoutKey)

@@ -14,7 +14,7 @@
 import { useTranslation } from 'react-i18next'
 import { PhoneFrame } from '../../components/landing/featureSections'
 
-/** Días de la semana de fábrica (`packages/core/data/workouts.ts:10-18`). */
+/** Days of the week de fábrica (`packages/core/data/workouts.ts:10-18`). */
 const WEEK = ['lun', 'mar', 'mie', 'jue', 'vie', 'sab', 'dom'] as const
 /** Índice del día activo: martes, que es día de tirón. */
 const TODAY = 1

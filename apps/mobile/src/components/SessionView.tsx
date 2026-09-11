@@ -1,6 +1,6 @@
 // Orquestador de la sesión de fuerza en nativo. Las pantallas viven en
 // `components/session/`; la máquina de estados es el reducer puro de
-// `@calistenia/core/lib/session-machine`, el mismo que usa la web. Aquí solo
+// `@sturdy/core/lib/session-machine`, el mismo que usa la web. Aquí solo
 // quedan la composición, los gestos, los efectos de plataforma y el empujón
 // del progreso al contexto (#475).
 //
@@ -26,19 +26,19 @@ import { haptics as haptic } from '@/lib/haptics'
 import { useLiveSession } from '@/lib/use-live-session'
 import { useAuthUser } from '@/lib/use-auth-user'
 import { useActiveSession } from '@/contexts/ActiveSessionContext'
-import type { PREvent } from '@calistenia/core/hooks/useProgress'
-import type { ExerciseLog, ExerciseTiming, Workout } from '@calistenia/core/types'
-import { ExerciseTimingTracker } from '@calistenia/core/lib/exerciseTiming'
-import { TRAINING_FUNNEL_EVENTS } from '@calistenia/core/lib/session-funnel'
-import { quickReps } from '@calistenia/core/lib/exercise-format'
+import type { PREvent } from '@sturdy/core/hooks/useProgress'
+import type { ExerciseLog, ExerciseTiming, Workout } from '@sturdy/core/types'
+import { ExerciseTimingTracker } from '@sturdy/core/lib/exerciseTiming'
+import { TRAINING_FUNNEL_EVENTS } from '@sturdy/core/lib/session-funnel'
+import { quickReps } from '@sturdy/core/lib/exercise-format'
 import {
   buildSteps,
   computeExerciseBoundaries,
   createSessionReducer,
   findCurrentExerciseIndex,
   initSessionState,
-} from '@calistenia/core/lib/session-machine'
-import { getUserAvatarUrl } from '@calistenia/core/lib/pocketbase'
+} from '@sturdy/core/lib/session-machine'
+import { getUserAvatarUrl } from '@sturdy/core/lib/pocketbase'
 import PRCelebration from '@/components/share/PRCelebration'
 import { MUTED } from '@/components/session/constants'
 import { RestScreen } from '@/components/session/RestScreen'

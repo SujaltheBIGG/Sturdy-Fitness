@@ -27,11 +27,11 @@ import RacePRsPanel from '@/components/race/RacePRsPanel'
 import ActiveRacesPanel from '@/components/race/ActiveRacesPanel'
 import CardioShareButton from '@/components/share/CardioShareButton'
 
-import { useCardioStats } from '@calistenia/core/hooks/useCardioStats'
-import { formatDuration, formatPace, formatSpeed, assessTrackQuality } from '@calistenia/core/lib/geo'
-import { CARDIO_ACTIVITY } from '@calistenia/core/lib/style-tokens'
-import { op } from '@calistenia/core/lib/analytics'
-import type { CardioActivityType, CardioSession } from '@calistenia/core/types'
+import { useCardioStats } from '@sturdy/core/hooks/useCardioStats'
+import { formatDuration, formatPace, formatSpeed, assessTrackQuality } from '@sturdy/core/lib/geo'
+import { CARDIO_ACTIVITY } from '@sturdy/core/lib/style-tokens'
+import { op } from '@sturdy/core/lib/analytics'
+import type { CardioActivityType, CardioSession } from '@sturdy/core/types'
 import { Sentry } from '@/lib/instrument'
 
 const ACTIVITIES: CardioActivityType[] = ['running', 'walking', 'cycling']
@@ -78,7 +78,7 @@ export default function CardioScreen() {
     setHistoryLoading(true)
     setHistoryError(false)
     // Marcar el error, no solo reportarlo: si no, la lista vacía mentiría
-    // diciendo que no hay sesiones (#559, CALISTENIA-APP-S).
+    // diciendo que no hay sesiones (#559, STURDY-APP-S).
     getHistory(20)
       .then((sessions) => { setHistory(sessions); setHistoryError(false) })
       .catch((e) => {

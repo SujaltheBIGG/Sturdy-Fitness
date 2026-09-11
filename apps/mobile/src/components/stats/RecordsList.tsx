@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next'
 import type { TFunction } from 'i18next'
 import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
-import { relativeDate } from '@calistenia/core/lib/dateUtils'
-import type { RecordStat } from '@calistenia/core/lib/training-stats'
+import { relativeDate } from '@sturdy/core/lib/dateUtils'
+import type { RecordStat } from '@sturdy/core/lib/training-stats'
 
 interface Props {
   records: RecordStat[]

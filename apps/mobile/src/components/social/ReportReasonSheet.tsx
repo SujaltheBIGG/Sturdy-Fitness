@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Flag } from 'lucide-react-native'
 
 import { OptionSheet } from '@/components/ui/option-sheet'
-import { REPORT_REASONS, type ReportReason } from '@calistenia/core/hooks/useReports'
+import { REPORT_REASONS, type ReportReason } from '@sturdy/core/hooks/useReports'
 
 const REASON_KEY: Record<ReportReason, string> = {
   spam: 'reports.reasonSpam',

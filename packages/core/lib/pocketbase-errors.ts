@@ -38,7 +38,7 @@ export function isTransientError(err: unknown): boolean {
  *
  * Existe porque no todas las lecturas pasan por React Query — el historial de
  * cardio se pide a pelo desde un efecto, así que sin esto un único 504 del
- * gateway pintaba el historial vacío (CALISTENIA-APP-S). El backoff replica el
+ * gateway pintaba el historial vacío (STURDY-APP-S). El backoff replica el
  * del QueryClient para que la app se comporte igual venga de donde venga.
  *
  * El último error se propaga tal cual: quien llama sigue distinguiendo «falló»

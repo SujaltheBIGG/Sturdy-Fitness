@@ -45,7 +45,7 @@ $6.99 works across purchasing power in both Spain and Latin America. It's less t
 
 | Program Type | Price | Examples |
 |-------------|-------|---------|
-| 4-week starter | $9.99 | "Calistenia desde cero" |
+| 4-week starter | $9.99 | "Sturdy desde cero" |
 | 12-week structured | $19.99 | "Fuerza fundamental", "Primer muscle-up" |
 | 6-month complete | $29.99 | "Transformacion completa" |
 

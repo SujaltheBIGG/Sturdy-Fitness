@@ -13,8 +13,8 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
-import { previewNutritionGoal, type NutritionPace } from '@calistenia/core/lib/nutritionGoal'
-import type { NutritionGoal, NutritionGoalType } from '@calistenia/core/types'
+import { previewNutritionGoal, type NutritionPace } from '@sturdy/core/lib/nutritionGoal'
+import type { NutritionGoal, NutritionGoalType } from '@sturdy/core/types'
 
 // Mismas etiquetas/iconos que el picker inline de la web.
 export const GOAL_LABEL_KEYS: Record<NutritionGoalType, string> = {

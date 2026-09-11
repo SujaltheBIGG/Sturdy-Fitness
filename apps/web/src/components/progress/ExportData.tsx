@@ -1,9 +1,9 @@
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/button'
-import { todayStr } from '@calistenia/core/lib/dateUtils'
-import type { ProgressMap, ExerciseLog, SetData } from '@calistenia/core/types'
-import type { WeightEntry } from '@calistenia/core/hooks/useWeight'
+import { todayStr } from '@sturdy/core/lib/dateUtils'
+import type { ProgressMap, ExerciseLog, SetData } from '@sturdy/core/types'
+import type { WeightEntry } from '@sturdy/core/hooks/useWeight'
 
 interface ExportDataProps {
   progress: ProgressMap
@@ -55,13 +55,13 @@ export default function ExportData({ progress, weights }: ExportDataProps) {
   const handleExportSessions = useCallback(() => {
     const csv = progressToCSV(progress)
     const date = todayStr()
-    downloadCSV(csv, `calistenia_sessions_${date}.csv`)
+    downloadCSV(csv, `sturdy_sessions_${date}.csv`)
   }, [progress])
 
   const handleExportWeight = useCallback(() => {
     const csv = weightsToCSV(weights)
     const date = todayStr()
-    downloadCSV(csv, `calistenia_weight_${date}.csv`)
+    downloadCSV(csv, `sturdy_weight_${date}.csv`)
   }, [weights])
 
   return (

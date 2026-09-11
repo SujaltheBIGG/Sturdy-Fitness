@@ -54,7 +54,7 @@ routerUse((e) => {
   if (mode === 'distance' && targetKm > 0) subtitle += ` · ${targetKm} km`
   else if (mode === 'time' && targetSec > 0) subtitle += ` · ${Math.round(targetSec / 60)} min`
 
-  const description = escapeHtml(`Únete a esta carrera en Calistenia — ${subtitle}`)
+  const description = escapeHtml(`Únete a esta carrera en Sturdy — ${subtitle}`)
   const proto = e.request.header.get('X-Forwarded-Proto') || 'https'
   const host = e.request.header.get('X-Forwarded-Host') || e.request.host || ''
   const url = `${proto}://${host}/race/${raceId}`
@@ -64,22 +64,22 @@ routerUse((e) => {
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>${name} — Calistenia Race</title>
+<title>${name} — Sturdy Race</title>
 <meta name="description" content="${description}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${url}">
-<meta property="og:title" content="${name} — Calistenia Race">
+<meta property="og:title" content="${name} — Sturdy Race">
 <meta property="og:description" content="${description}">
 <meta property="og:image" content="${imageUrl}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${name} — Calistenia Race">
+<meta name="twitter:title" content="${name} — Sturdy Race">
 <meta name="twitter:description" content="${description}">
 <meta name="twitter:image" content="${imageUrl}">
 </head>
 <body>
 <h1>${name}</h1>
 <p>${escapeHtml(subtitle)}</p>
-<p><a href="${url}">Abrir en Calistenia App</a></p>
+<p><a href="${url}">Abrir en Sturdy</a></p>
 </body>
 </html>`
 

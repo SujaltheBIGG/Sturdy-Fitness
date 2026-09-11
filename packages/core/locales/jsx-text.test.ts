@@ -186,7 +186,7 @@ for (const finding of findings) {
 }
 
 // Regenerar `pending` tras un barrido:
-//   UPDATE_JSX_BASELINE=1 pnpm --filter @calistenia/core test jsx-text
+//   UPDATE_JSX_BASELINE=1 pnpm --filter @sturdy/core test jsx-text
 // `exempt` se conserva tal cual — esa lista se cura a mano.
 if (process.env.UPDATE_JSX_BASELINE) {
   const pending = Object.fromEntries(

@@ -122,10 +122,10 @@ function PRShareCard({ exerciseName, oldValue, newValue, date, userName, avatarU
           <View style={styles.footerDivider} />
           <View style={styles.footerRow}>
             <Text className="font-mono-semibold" style={styles.footerBrand}>
-              CALISTENIA
+              STURDY
             </Text>
             <Text className="font-mono" style={styles.footerUrl}>
-              gym.guille.tech
+              sturdy.app
             </Text>
           </View>
         </View>

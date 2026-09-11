@@ -109,7 +109,7 @@ export function useNotificationPrefs(userId: string | null) {
     { key: keyof NotificationPrefs; value: boolean }
   >({
     mutationFn: async ({ key: prefKey, value }) => {
-      if (!userId) throw new Error('sin sesión')
+      if (!userId) throw new Error('no session')
 
       if (rowId) {
         await pb.collection('notification_prefs').update(rowId, { [prefKey]: value })

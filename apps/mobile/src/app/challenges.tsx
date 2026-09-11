@@ -12,9 +12,9 @@ import { EmptyState } from '@/components/ui/empty-state'
 import { Loader } from '@/components/ui/loader'
 import { cn } from '@/lib/utils'
 import { useAuthUser } from '@/lib/use-auth-user'
-import { useChallenges, type ChallengeWithMeta } from '@calistenia/core/hooks/useChallenges'
-import { daysRemaining, getMetricLabel } from '@calistenia/core/lib/challenges'
-import { isCumulativeMetric } from '@calistenia/core/lib/cumulative-scoring'
+import { useChallenges, type ChallengeWithMeta } from '@sturdy/core/hooks/useChallenges'
+import { daysRemaining, getMetricLabel } from '@sturdy/core/lib/challenges'
+import { isCumulativeMetric } from '@sturdy/core/lib/cumulative-scoring'
 import {
   BEGINNER_CHALLENGE_PRESETS,
   getVisibleBeginnerChallengePresets,
@@ -23,8 +23,8 @@ import {
   resolvePresetChallengeDescription,
   resolvePresetChallengeTitle,
   type BeginnerChallengePreset,
-} from '@calistenia/core/lib/challenge-presets'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+} from '@sturdy/core/lib/challenge-presets'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 

@@ -7,14 +7,14 @@ import { useTranslation } from 'react-i18next'
 import { Text } from '@/components/ui/text'
 import { Chip } from '@/components/ui/chip'
 import { cn } from '@/lib/utils'
-import { BADGE_DEFINITIONS } from '@calistenia/core/lib/badge-definitions'
-import { MEAL_TYPE_COLORS, SCORE_COLORS } from '@calistenia/core/lib/style-tokens'
+import { BADGE_DEFINITIONS } from '@sturdy/core/lib/badge-definitions'
+import { MEAL_TYPE_COLORS, SCORE_COLORS } from '@sturdy/core/lib/style-tokens'
 import type {
   NutritionEntry,
   NutritionCoachInsight,
   NutritionBadge,
   QualityScore,
-} from '@calistenia/core/types'
+} from '@sturdy/core/types'
 
 interface CoachInsightsProps {
   entries: NutritionEntry[]

@@ -1,5 +1,5 @@
 /**
- * Tagline motivacional para la pantalla de "¡SESIÓN COMPLETADA!".
+ * Tagline motivacional para la pantalla de "¡SESSION COMPLETE!".
  *
  * Determinista a partir del contexto (no aleatorio) para que se sienta
  * "consciente" de lo que acabas de hacer: prioriza hitos concretos de la
@@ -23,18 +23,18 @@ export const getCelebrationTagline = (ctx: CelebrationContext): string => {
   const { durationMin, totalSets, exerciseCount, hour } = ctx
 
   // 1) Hitos de la propia sesión — lo más específico va primero.
-  if (durationMin >= 60) return 'Una hora entera. Eso es oficio. 🔥'
-  if (totalSets >= 30) return `${totalSets} series. Hoy fuiste imparable.`
-  if (durationMin >= 45) return 'Sesión larga, cero excusas. 💯'
-  if (exerciseCount >= 8) return 'Cuerpo completo, sin saltarte nada.'
-  if (durationMin > 0 && durationMin <= 18 && totalSets >= 8) return 'Corta e intensa. Calidad pura. ⚡'
+  if (durationMin >= 60) return 'A full hour. That is craft. 🔥'
+  if (totalSets >= 30) return `${totalSets} sets. You were unstoppable today.`
+  if (durationMin >= 45) return 'Long session, zero excuses. 💯'
+  if (exerciseCount >= 8) return 'Full body, nothing skipped.'
+  if (durationMin > 0 && durationMin <= 18 && totalSets >= 8) return 'Short and intense. Pure quality. ⚡'
 
   // 2) Momento del día — siempre hay algo que decir.
-  if (hour < 6) return 'Entrenando de madrugada. Otra liga. 🌙'
-  if (hour < 12) return 'Empezaste el día ganando. ☀️'
-  if (hour < 18) return 'Un descanso bien ganado te espera.'
-  if (hour >= 22) return 'Cerrando el día fuerte. 🌙'
+  if (hour < 6) return 'Training before dawn. Another league. 🌙'
+  if (hour < 12) return 'You started the day winning. ☀️'
+  if (hour < 18) return 'A well-earned rest is waiting.'
+  if (hour >= 22) return 'Closing the day strong. 🌙'
 
   // 3) Fallback neutro pero con energía.
-  return 'Otra marca en el muro. A seguir. 💪'
+  return 'Another mark on the wall. Keep going. 💪'
 }

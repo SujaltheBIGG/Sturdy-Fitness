@@ -1,4 +1,4 @@
-# Marca y dirección estética — Calistenia
+# Marca y dirección estética — Sturdy
 
 ## Para quién
 

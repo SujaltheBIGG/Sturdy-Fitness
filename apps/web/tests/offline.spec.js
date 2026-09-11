@@ -28,7 +28,7 @@ import { register, navigateTo } from './helpers.js'
  * aquí se ejercita el wiring real (boot, localStorage, eventos de window).
  */
 const PB_URL = process.env.PB_URL || 'http://127.0.0.1:8090'
-const QUEUE_KEY = 'calistenia_offline_queue'
+const QUEUE_KEY = 'sturdy_offline_queue'
 
 async function pbAuth(page) {
   return page.evaluate(() => {

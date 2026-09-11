@@ -11,9 +11,9 @@ import { useTranslation } from 'react-i18next'
 import { Trash2, ChevronRight } from 'lucide-react-native'
 
 import { Text } from '@/components/ui/text'
-import { formatPace, formatSpeed, formatDuration } from '@calistenia/core/lib/geo'
-import { CARDIO_ACTIVITY } from '@calistenia/core/lib/style-tokens'
-import type { CardioSession } from '@calistenia/core/types'
+import { formatPace, formatSpeed, formatDuration } from '@sturdy/core/lib/geo'
+import { CARDIO_ACTIVITY } from '@sturdy/core/lib/style-tokens'
+import type { CardioSession } from '@sturdy/core/types'
 
 interface Props {
   session: CardioSession

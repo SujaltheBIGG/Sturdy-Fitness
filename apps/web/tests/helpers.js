@@ -32,12 +32,12 @@ export async function suppressOverlays(page) {
       // navegación real se queda sin las claves.
       try {
         localStorage.setItem(dismissKey, Date.now().toString())
-        tourPages.forEach((p) => localStorage.setItem(`calistenia_tour_${p}`, 'true'))
+        tourPages.forEach((p) => localStorage.setItem(`sturdy_tour_${p}`, 'true'))
       } catch {
         /* origen sin storage disponible: se reintenta en la siguiente navegación */
       }
     },
-    ['calistenia_install_dismiss', TOUR_PAGES],
+    ['sturdy_install_dismiss', TOUR_PAGES],
   )
 }
 
@@ -124,8 +124,8 @@ export async function register(page, { email, password, name } = {}) {
       'programs','exercises','free-session','cardio','friends','leaderboard',
       'challenges','notifications','profile','lumbar']
     pages.forEach(p => {
-      localStorage.setItem(`calistenia_tour_${p}`, 'true')
-      if (userId) localStorage.setItem(`calistenia_tour_${p}_${userId}`, 'true')
+      localStorage.setItem(`sturdy_tour_${p}`, 'true')
+      if (userId) localStorage.setItem(`sturdy_tour_${p}_${userId}`, 'true')
     })
   })
 

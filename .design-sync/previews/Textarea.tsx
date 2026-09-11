@@ -1,4 +1,4 @@
-import { Label, Textarea } from '@calistenia/web'
+import { Label, Textarea } from '@sturdy/web'
 
 export const ConEtiqueta = () => (
   <div className="grid w-80 gap-2">

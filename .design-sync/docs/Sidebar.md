@@ -9,7 +9,7 @@ Navegación lateral de la app en escritorio, colapsable. **Requiere `SidebarProv
 ```jsx
 <SidebarProvider>
   <Sidebar>
-    <SidebarHeader>Calistenia</SidebarHeader>
+    <SidebarHeader>Sturdy</SidebarHeader>
     <SidebarContent>
       <SidebarGroup>
         <SidebarGroupLabel>Entrenar</SidebarGroupLabel>

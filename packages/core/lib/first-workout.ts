@@ -155,7 +155,7 @@ export function isFirstWorkoutKey(workoutKey: string): boolean {
 // `startSession`. Deja la intención en storage y `/session` la consume una vez.
 
 /** Un solo uso y ligado al usuario: se limpia al cerrar sesión (storage-keys). */
-export const FIRST_WORKOUT_PENDING_KEY = 'calistenia_first_workout_pending'
+export const FIRST_WORKOUT_PENDING_KEY = 'sturdy_first_workout_pending'
 
 export interface FirstWorkoutPending {
   userId: string

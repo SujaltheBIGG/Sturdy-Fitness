@@ -278,7 +278,7 @@ SHOT 5 (30-40s): THE WHY
                    Ahora la usan mis amigos. Y quiero que la uses tu."
 
 SHOT 6 (40-45s): CTA
-  Text overlay: "gym.guille.tech — link en bio"
+  Text overlay: "sturdy.app — link en bio"
 ```
 
 **Message:** "I built this thing from nothing, for myself, and now I'm sharing it with you."

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import i18n from '../lib/i18n'
 import type { DriveStep } from 'driver.js'
 
-const TOUR_KEY_PREFIX = 'calistenia_tour'
+const TOUR_KEY_PREFIX = 'sturdy_tour'
 
 function tourKey(page: string, userId?: string): string {
   return userId ? `${TOUR_KEY_PREFIX}_${page}_${userId}` : `${TOUR_KEY_PREFIX}_${page}`

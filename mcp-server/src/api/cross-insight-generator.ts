@@ -51,10 +51,10 @@ const CrossInsightSchema = z.object({
 export type CrossInsight = z.infer<typeof CrossInsightSchema>;
 
 // ── Input ────────────────────────────────────────────────────────────────────
-// The compact rollup built by @calistenia/core (client) or
+// The compact rollup built by @sturdy/core (client) or
 // insight-context-server.ts (cron) — ONE declaration, in core (#480).
 
-import type { InsightContext } from "@calistenia/core/lib/insightContext";
+import type { InsightContext } from "@sturdy/core/lib/insightContext";
 export type { InsightContext };
 
 interface CrossInsightInput {

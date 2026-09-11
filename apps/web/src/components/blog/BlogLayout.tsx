@@ -4,7 +4,7 @@
  * Reutiliza la cabecera y el pie públicos de `components/landing/shared.tsx`:
  * el blog es la puerta de entrada del tráfico orgánico, así que tiene que
  * llevar exactamente la misma identidad que la landing y las páginas de
- * funciones (logo + CALISTENIA en Bebas), no una propia.
+ * funciones (logo + STURDY en Bebas), no una propia.
  *
  * Antes tenía cabecera y pie inventados con las primitivas de la APP
  * (`bg-card`, `border`, iconos de lucide), que son las del dashboard privado.

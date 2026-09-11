@@ -11,8 +11,8 @@
  * biblioteca puede seguir enseñando su icono de categoría en el hueco.
  */
 import type { ReactNode } from 'react'
-import { useExerciseMedia, type UseExerciseMediaOpts } from '@calistenia/core/hooks/useExerciseMedia'
-import type { ExerciseMediaInput } from '@calistenia/core/lib/exerciseMedia'
+import { useExerciseMedia, type UseExerciseMediaOpts } from '@sturdy/core/hooks/useExerciseMedia'
+import type { ExerciseMediaInput } from '@sturdy/core/lib/exerciseMedia'
 
 interface ExerciseThumbnailProps extends UseExerciseMediaOpts {
   /** El ejercicio, en la forma mínima que espera el resolutor. */

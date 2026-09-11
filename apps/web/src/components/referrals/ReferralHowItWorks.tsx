@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import {
   REFERRAL_BONUS_POINTS,
   REFERRAL_SIGNUP_POINTS,
-} from '@calistenia/core/hooks/useReferrals'
+} from '@sturdy/core/hooks/useReferrals'
 
 /**
  * Explica en producto qué cuenta como referido válido y cuándo llegan los puntos.

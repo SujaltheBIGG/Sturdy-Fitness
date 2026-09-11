@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Card, CardContent } from '../ui/card'
 import { Button } from '../ui/button'
 import { cn } from '../../lib/utils'
-import type { ExerciseLog } from '@calistenia/core/types'
+import type { ExerciseLog } from '@sturdy/core/types'
 
 interface WeightProgressionChartProps {
   exerciseLogs: Record<string, ExerciseLog[]>

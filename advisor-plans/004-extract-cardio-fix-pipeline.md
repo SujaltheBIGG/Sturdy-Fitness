@@ -8,7 +8,7 @@
 > they maintain the index.
 >
 > **Drift check (run first)**: from the repo root
-> (`/Users/guillermomarin/Documents/ejercicios/calistenia-app`) run:
+> (`/Users/guillermomarin/Documents/ejercicios/sturdy-app`) run:
 > `git diff --stat 943f558..HEAD -- apps/mobile/src/contexts/CardioSessionContext.tsx packages/core/lib/geo.ts apps/mobile/src/lib/cardio-tracker.ts packages/core/types/index.ts`
 > If any of those files changed since this plan was written, compare the
 > "Current state" excerpts below against the live code before proceeding; on a
@@ -35,7 +35,7 @@ says "La lógica de filtrado … es idéntica a la web" (line 8) and the section
 comment says "mismo pipeline que la web" (line 229): this math is duplicated
 across web and mobile and is **untestable** where it lives (it can only run
 inside a rendered React context, and this repo has no React-render test
-infra). Extracting the math into a pure function in `@calistenia/core` makes it
+infra). Extracting the math into a pure function in `@sturdy/core` makes it
 unit-testable, pins its exact behavior with characterization tests, and sets up
 a later follow-up where web adopts the same function and the duplication dies.
 The refactor is behavior-preserving — the tests prove identical output.
@@ -269,14 +269,14 @@ Read this list against the excerpt above and confirm each one:
   `import { matchUserToPrograms } from './matchPrograms'` and
   `import type { ProgramMeta } from '../types'`
   (`packages/core/lib/matchPrograms.test.ts:1-3`). **Do NOT import from
-  `'@calistenia/core/types'` in the core test** — there is no `exports` map in
+  `'@sturdy/core/types'` in the core test** — there is no `exports` map in
   `packages/core/package.json` (verified), so that specifier will not resolve
   under the test runner. Use relative imports (`../types`, `./geo`).
 - Structural exemplars to mirror for the test:
   `packages/core/lib/matchPrograms.test.ts` and
   `packages/core/lib/exerciseTiming.test.ts` (both `describe`/`it`/`expect`,
   pure-function-in / value-out, no mocks, no React).
-- `@calistenia/core` must stay free of DOM/React-Native deps — `cardio-fix.ts`
+- `@sturdy/core` must stay free of DOM/React-Native deps — `cardio-fix.ts`
   imports ONLY from `./geo` and `../types`. No imports from `apps/mobile`.
 
 ## Commands you will need
@@ -679,15 +679,15 @@ function.
 
 In `apps/mobile/src/contexts/CardioSessionContext.tsx`:
 
-1. Add the import (group it with the other `@calistenia/core/lib` imports near
+1. Add the import (group it with the other `@sturdy/core/lib` imports near
    lines 15–22):
    ```ts
-   import { processCardioFix, type CardioFixState } from '@calistenia/core/lib/cardio-fix'
+   import { processCardioFix, type CardioFixState } from '@sturdy/core/lib/cardio-fix'
    ```
    (Match the existing import-by-subpath style — line 15 imports
-   `'@calistenia/core/lib/pocketbase'`, lines 17–21 import from
-   `'@calistenia/core/lib/geo'`. `@calistenia/core` is a node_modules symlink to
-   `packages/core` with no `exports` map, so `@calistenia/core/lib/cardio-fix`
+   `'@sturdy/core/lib/pocketbase'`, lines 17–21 import from
+   `'@sturdy/core/lib/geo'`. `@sturdy/core` is a node_modules symlink to
+   `packages/core` with no `exports` map, so `@sturdy/core/lib/cardio-fix`
    resolves to `packages/core/lib/cardio-fix.ts` by directory resolution — the
    same mechanism as `…/geo`. If it does NOT typecheck, that is a STOP condition.)
 
@@ -863,7 +863,7 @@ Stop and report back (do not improvise) if:
   from the excerpt above (fields added/removed/retyped) — the
   `CardioFixInput`/mapping assumption is then invalid.
 - The core test runner cannot resolve imports: e.g. the test cannot find
-  `./cardio-fix` or `../types`, or `import … from '@calistenia/core/lib/cardio-fix'`
+  `./cardio-fix` or `../types`, or `import … from '@sturdy/core/lib/cardio-fix'`
   fails to typecheck in the mobile project. Do NOT add an `exports` map to
   `packages/core/package.json` or invent a vitest config to work around it —
   report instead.

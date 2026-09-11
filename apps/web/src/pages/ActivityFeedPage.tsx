@@ -1,17 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { useActivityFeed } from '@calistenia/core/hooks/useActivityFeed'
-import { useReactions } from '@calistenia/core/hooks/useReactions'
-import { useComments } from '@calistenia/core/hooks/useComments'
-import { useCommentReactions } from '@calistenia/core/hooks/useCommentReactions'
+import { useActivityFeed } from '@sturdy/core/hooks/useActivityFeed'
+import { useReactions } from '@sturdy/core/hooks/useReactions'
+import { useComments } from '@sturdy/core/hooks/useComments'
+import { useCommentReactions } from '@sturdy/core/hooks/useCommentReactions'
 import { CommentsSheet } from '../components/social/CommentsSheet'
 import FeedCard from '../components/social/FeedCard'
 import { Loader } from '../components/ui/loader'
 import { EmptyState } from '../components/ui/empty-state'
 import { Button } from '../components/ui/button'
 import { feedItemHref, shareFeedItem } from '../lib/feed-routes'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 
 interface ActivityFeedPageProps {
   userId: string

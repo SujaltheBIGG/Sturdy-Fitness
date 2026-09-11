@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams, useNavigate } from 'react-router-dom'
-import { pb } from '@calistenia/core/lib/pocketbase'
+import { pb } from '@sturdy/core/lib/pocketbase'
 import { Button } from '../components/ui/button'
 import { Loader } from '../components/ui/loader'
 import { ShareButton } from '../components/ShareButton'
 import { shareContent, type ShareMethod } from '../lib/share'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import { WEB_BASE_URL } from '@calistenia/core/lib/app-urls'
-import { useInviteLanding } from '@calistenia/core/hooks/useInviteLanding'
-import { REFERRAL_BONUS_POINTS, REFERRAL_SIGNUP_POINTS } from '@calistenia/core/hooks/useReferrals'
-import { useLocalize } from '@calistenia/core/hooks/useLocalize'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import { WEB_BASE_URL } from '@sturdy/core/lib/app-urls'
+import { useInviteLanding } from '@sturdy/core/hooks/useInviteLanding'
+import { REFERRAL_BONUS_POINTS, REFERRAL_SIGNUP_POINTS } from '@sturdy/core/hooks/useReferrals'
+import { useLocalize } from '@sturdy/core/hooks/useLocalize'
 
-const REFERRAL_CODE_KEY = 'calistenia_referral_code'
+const REFERRAL_CODE_KEY = 'sturdy_referral_code'
 
 export default function InviteLandingPage() {
   const { t } = useTranslation()
@@ -82,8 +82,8 @@ export default function InviteLandingPage() {
       <div className="min-h-screen bg-background flex items-center justify-center p-6">
         <div className="w-full max-w-sm text-center">
           <div className="flex items-center justify-center gap-2.5 mb-6">
-            <img src="/logo.png" alt="" className="w-9 h-9 rounded-lg" />
-            <span className="font-bebas text-3xl tracking-[0.15em] text-foreground">CALISTENIA</span>
+            <img src="/logo.png" alt="" className="w-12 h-12 rounded-full object-cover" />
+            <span className="font-bebas text-3xl tracking-[0.15em] text-foreground">STURDY</span>
           </div>
 
           <div className="bg-card border border-border rounded-xl p-6">
@@ -160,8 +160,8 @@ export default function InviteLandingPage() {
         {/* Logo */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2.5 mb-2">
-            <img src="/logo.png" alt="" className="w-9 h-9 rounded-lg" />
-            <span className="font-bebas text-3xl tracking-[0.15em] text-foreground">CALISTENIA</span>
+            <img src="/logo.png" alt="" className="w-12 h-12 rounded-full object-cover" />
+            <span className="font-bebas text-3xl tracking-[0.15em] text-foreground">STURDY</span>
           </div>
         </div>
 

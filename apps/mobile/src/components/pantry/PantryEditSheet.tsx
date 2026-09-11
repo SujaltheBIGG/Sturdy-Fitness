@@ -4,8 +4,8 @@ import { KeyboardAvoidingView, KeyboardProvider } from 'react-native-keyboard-co
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { X } from 'lucide-react-native'
 import { useTranslation } from 'react-i18next'
-import { currencySymbol, parseLocaleNumber } from '@calistenia/core/lib/money'
-import type { PantryItem } from '@calistenia/core/types'
+import { currencySymbol, parseLocaleNumber } from '@sturdy/core/lib/money'
+import type { PantryItem } from '@sturdy/core/types'
 
 export function PantryEditSheet({ item, onSave, onDelete, onClose, onVerify, onGone }: {
   item: PantryItem | null

@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Card, CardContent } from '../ui/card'
 import { Button } from '../ui/button'
 import { cn } from '../../lib/utils'
-import { DISCOVERY_SOURCES, type DiscoverySourceId } from '@calistenia/core/lib/discovery-source'
+import { DISCOVERY_SOURCES, type DiscoverySourceId } from '@sturdy/core/lib/discovery-source'
 
 interface Props {
   firstName: string
@@ -22,7 +22,7 @@ export function StepWelcome({
   return (
     <div className="text-center animate-[fadeUp_0.5s_ease]">
       <div className="font-bebas text-6xl md:text-7xl text-[hsl(var(--lime))] mb-2 leading-none">
-        CALISTENIA
+        STURDY
       </div>
       <div className="text-muted-foreground text-sm mb-6">
         {firstName ? t('onboarding.welcomeMsg', { name: firstName }) : t('onboarding.welcomeDefault')}

@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { useCommunityPrograms, type CommunityProgramCard } from '@calistenia/core/hooks/useCommunityPrograms'
+import { useCommunityPrograms, type CommunityProgramCard } from '@sturdy/core/hooks/useCommunityPrograms'
 import { toast } from 'sonner'
 import { Button } from '../components/ui/button'
 

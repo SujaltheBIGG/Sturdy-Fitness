@@ -32,22 +32,26 @@ ENV VITE_AI_API_URL=$VITE_AI_API_URL
 ARG VITE_VAPID_PUBLIC_KEY=""
 ENV VITE_VAPID_PUBLIC_KEY=$VITE_VAPID_PUBLIC_KEY
 
-# Release de Sentry, única por deploy: `calistenia-app@<version>+<sha corto>`.
+# Release de Sentry, única por deploy: `sturdy-app@<version>+<sha corto>`.
 # Es solo un identificador, no un secreto, así que ARG normal. Vacío en un build
 # local → vite.config.js cae al semver de package.json.
 ARG SENTRY_RELEASE=""
 ENV SENTRY_RELEASE=$SENTRY_RELEASE
 
-# El token va como SECRET de buildkit, NO como ARG: un build-arg queda escrito
-# en los metadatos de la imagen y `docker history` lo enseña. Montado así solo
-# existe durante este RUN y no toca ninguna capa.
+# Idealmente este token entraría como SECRET de buildkit (--mount=type=secret),
+# no como ARG: un build-arg queda escrito en los metadatos de la imagen y
+# `docker history` lo enseña. Pero el builder de Railway solo soporta
+# `--mount=type=cache`, no `type=secret` — con eso puesto, el build entero
+# falla en el parseo del Dockerfile antes de ejecutar nada (#deploy-railway).
+# Como ARG normal en su lugar: funciona en todas partes, a costa de esa
+# propiedad de aislamiento. El token de Sentry solo sube source maps (alcance
+# limitado) y nadie lo pasa en el deploy actual, así que llega vacío igual.
 #
-# `|| true` porque en un build sin el secreto (local, o un PR de un fork) el
-# fichero no existe: el build debe seguir, y sentryVitePlugin se apaga solo al
-# no ver token. Subir source maps NUNCA debe poder tumbar un deploy.
-RUN --mount=type=secret,id=sentry_auth_token \
-    SENTRY_AUTH_TOKEN="$(cat /run/secrets/sentry_auth_token 2>/dev/null || true)" \
-    pnpm --filter @calistenia/web build
+# El build nunca debe caerse por esto: sin token, sentryVitePlugin se apaga
+# solo (ver vite.config.js: `disable: !process.env.SENTRY_AUTH_TOKEN`).
+ARG SENTRY_AUTH_TOKEN=""
+ENV SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN
+RUN pnpm --filter @sturdy/web build
 
 # ─────────────────────────────────────────────
 # Stage 2: Download PocketBase
@@ -83,13 +87,20 @@ COPY --from=frontend-builder /app/apps/web/dist ./pb_public
 
 RUN mkdir -p /app/pb_data && chown -R pbuser:pbuser /app
 
-USER pbuser
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
+
+# Stays root here on purpose: a platform volume (Railway, or a fresh named
+# volume in docker-compose) mounts over /app/pb_data at container start,
+# root-owned, AFTER the chown above ran at build time. The entrypoint re-chowns
+# it and drops to pbuser before exec'ing PocketBase — see docker-entrypoint.sh.
 
 EXPOSE 8090
 
 HEALTHCHECK --interval=10s --timeout=3s --start-period=5s \
   CMD wget -qO- http://localhost:8090/api/health || exit 1
 
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["./pocketbase", "serve", \
      "--http=0.0.0.0:8090", \
      "--dir=/app/pb_data", \

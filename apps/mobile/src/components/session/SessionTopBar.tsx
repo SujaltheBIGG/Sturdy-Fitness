@@ -1,7 +1,7 @@
 import { View, Pressable } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import { ChevronLeft, X } from 'lucide-react-native'
-import type { SessionPhase } from '@calistenia/core/lib/session-machine'
+import type { SessionPhase } from '@sturdy/core/lib/session-machine'
 
 import { Text } from '@/components/ui/text'
 import { MUTED } from '@/components/session/constants'

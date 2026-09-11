@@ -20,8 +20,8 @@ import { useCircuitSession } from '@/contexts/CircuitSessionContext'
 import { COLORS } from '@/lib/theme'
 import { haptics } from '@/lib/haptics'
 import * as sounds from '@/lib/sounds'
-import { useLocalize } from '@calistenia/core/hooks/useLocalize'
-import { getLocalQuote } from '@calistenia/core/lib/quotes'
+import { useLocalize } from '@sturdy/core/hooks/useLocalize'
+import { getLocalQuote } from '@sturdy/core/lib/quotes'
 
 // ── Format elapsed time ───────────────────────────────────────────────────────
 

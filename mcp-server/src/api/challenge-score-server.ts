@@ -39,10 +39,10 @@ import {
   countWorkouts,
   sumDistanceKm,
   sumExerciseTotal,
-} from "@calistenia/core/lib/cumulative-scoring";
-import { parseRepsForPR } from "@calistenia/core/lib/pr-utils";
-import { addDaysIn, localMidnightAsUTCIn, utcToLocalDateStrIn } from "@calistenia/core/lib/tzDate";
-import { toIsoTextDatetime } from "@calistenia/core/lib/pbTextDatetime";
+} from "@sturdy/core/lib/cumulative-scoring";
+import { parseRepsForPR } from "@sturdy/core/lib/pr-utils";
+import { addDaysIn, localMidnightAsUTCIn, utcToLocalDateStrIn } from "@sturdy/core/lib/tzDate";
+import { toIsoTextDatetime } from "@sturdy/core/lib/pbTextDatetime";
 import { listChallengeParticipants, type PB, type RecordModel } from "./repos/index.js";
 
 /** Lo mínimo que hace falta de un reto para puntuarlo. */

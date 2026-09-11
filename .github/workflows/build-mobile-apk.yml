@@ -114,7 +114,7 @@ jobs:
         # uninstall to update). Set the secrets to enable stable signing:
         #   keytool -genkeypair -v -keystore calistenia-release.jks -alias calistenia \
         #     -keyalg RSA -keysize 2048 -validity 10000 -storepass <PW> -keypass <PW> \
-        #     -dname "CN=Calistenia, O=Guille, C=US"
+        #     -dname "CN=Sturdy, O=Guille, C=US"
         #   base64 -i calistenia-release.jks | gh secret set ANDROID_KEYSTORE_BASE64
         #   gh secret set ANDROID_KEYSTORE_PASSWORD --body <PW>
         #   gh secret set ANDROID_KEY_ALIAS --body calistenia
@@ -188,13 +188,13 @@ jobs:
       - name: Rename APK
         run: |
           APK_PATH=$(find apps/mobile/android/app/build/outputs/apk/release -name "*.apk" | head -1)
-          cp "$APK_PATH" "Calistenia-${{ steps.version.outputs.version }}.apk"
+          cp "$APK_PATH" "Sturdy-${{ steps.version.outputs.version }}.apk"
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: calistenia-apk
-          path: Calistenia-${{ steps.version.outputs.version }}.apk
+          name: sturdy-apk
+          path: Sturdy-${{ steps.version.outputs.version }}.apk
           retention-days: 30
 
   release:
@@ -216,7 +216,7 @@ jobs:
       - name: Download APK artifact
         uses: actions/download-artifact@v4
         with:
-          name: calistenia-apk
+          name: sturdy-apk
 
       # El body salía siempre como 'Automated build' mientras la copia curada
       # (bilingüe, la misma que ven web y móvil en "Novedades") se quedaba en
@@ -232,7 +232,7 @@ jobs:
           COMMIT_SHA: ${{ github.sha }}
         run: |
           {
-            echo "## Calistenia $VERSION"
+            echo "## Sturdy $VERSION"
             echo
             if [ "$IS_DISPATCH" = "true" ]; then
               echo "$DISPATCH_NOTES"
@@ -256,9 +256,9 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ needs.build.outputs.tag_name }}
-          name: Calistenia ${{ needs.build.outputs.tag_name }}
+          name: Sturdy ${{ needs.build.outputs.tag_name }}
           body_path: release-notes.md
-          files: Calistenia-${{ needs.build.outputs.version }}.apk
+          files: Sturdy-${{ needs.build.outputs.version }}.apk
           draft: false
           prerelease: ${{ github.event_name == 'workflow_dispatch' }}
           generate_release_notes: true

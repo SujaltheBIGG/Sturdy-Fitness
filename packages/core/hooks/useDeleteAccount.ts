@@ -44,7 +44,7 @@ export function useDeleteAccount(): UseDeleteAccountReturn {
   const deleteAccount = useCallback(async () => {
     // Se captura el id ANTES de borrar: después el authStore queda vacío.
     const userId = pb.authStore.record?.id ?? (pb.authStore as { model?: { id?: string } }).model?.id
-    if (!userId) throw new Error('[account] no hay sesión que borrar')
+    if (!userId) throw new Error('[account] no session to delete')
 
     setDeleting(true)
     try {

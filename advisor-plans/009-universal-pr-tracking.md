@@ -8,7 +8,7 @@
 > reviewer dispatched you and told you they maintain the index.
 >
 > **Drift check (run first)**: from the repo root
-> `/Users/guillermomarin/Documents/ejercicios/calistenia-app`, run:
+> `/Users/guillermomarin/Documents/ejercicios/sturdy-app`, run:
 > `git diff --stat 943f558..HEAD -- packages/core/hooks/useProgress.ts packages/core/types/index.ts`
 > If either changed since this plan was written, compare the "Current state"
 > excerpts below against the live code before proceeding. On any mismatch in
@@ -230,7 +230,7 @@ non-breaking. Confirm how Settings is persisted in Step 1 before relying on this
 1. `grep -rn 'pr_pushups\|pr_pullups\|pr_lsit\|pr_pistol\|pr_handstand' packages apps --include=*.ts --include=*.tsx`
    — list every consumer. Confirm they only **read** the 5 fields for display
    (so keeping them populated preserves behavior).
-2. Confirm `Settings` is serialized as JSON (localStorage key `calistenia_settings`
+2. Confirm `Settings` is serialized as JSON (localStorage key `sturdy_settings`
    in `useProgress.ts:11`, and the PB user-settings write path). This is what
    makes adding `prs?` non-breaking.
 

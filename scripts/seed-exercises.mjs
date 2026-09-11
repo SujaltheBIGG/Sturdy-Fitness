@@ -12,9 +12,9 @@
  *   --clean         Delete all official exercises before seeding (fresh start)
  *
  * Example:
- *   node scripts/seed-exercises.mjs https://gym.guille.tech admin@app.com pass123
- *   node scripts/seed-exercises.mjs https://gym.guille.tech admin@app.com pass123 --category=push
- *   node scripts/seed-exercises.mjs https://gym.guille.tech admin@app.com pass123 --dry-run
+ *   node scripts/seed-exercises.mjs https://sturdy.app admin@app.com pass123
+ *   node scripts/seed-exercises.mjs https://sturdy.app admin@app.com pass123 --category=push
+ *   node scripts/seed-exercises.mjs https://sturdy.app admin@app.com pass123 --dry-run
  */
 
 import { readFileSync, readdirSync, existsSync, createReadStream } from "fs";

@@ -25,11 +25,11 @@ import type { FeedItem } from '../types/feed'
 const MAX_NAMED_EXERCISES = 3
 
 export interface FeedItemView {
-  /** Frase de acción bajo el autor: "completó una sesión libre 🔥". */
+  /** Frase de acción bajo el autor: "completed a free session 🔥". */
   action: string
   /**
    * Verbo suelto para las listas de una línea (widget de actividad reciente),
-   * donde `action` sobra: "Ana completó un entrenamiento 💪 Sesión Libre" dice
+   * donde `action` sobra: "Ana completed a workout 💪 Sesión Libre" dice
    * dos veces lo mismo. Con el verbo queda "Ana completó Sesión Libre".
    */
   verb: string
@@ -130,8 +130,8 @@ function workoutView(item: FeedItem): FeedItemView {
   }
   return {
     action: isFree
-      ? tr('feed.completedFreeSession', 'completó una sesión libre')
-      : tr('feed.completedWorkout', 'completó un entrenamiento'),
+      ? tr('feed.completedFreeSession', 'completed a free session')
+      : tr('feed.completedWorkout', 'completed a workout'),
     verb: tr('widgets.completed', 'completó'),
     title: workoutTitleFor(item),
     detail: exercisesLine(exerciseNames),
@@ -162,7 +162,7 @@ function circuitView(item: FeedItem): FeedItemView {
     ? tr('feed.roundsDone', `${c.roundsCompleted} rondas`, { count: c.roundsCompleted })
     : null
   return {
-    action: tr('feed.completedCircuit', 'completó un circuito'),
+    action: tr('feed.completedCircuit', 'completed a circuit'),
     verb: tr('widgets.completed', 'completó'),
     // `circuit_name` es un campo localizable de PocketBase (`{es, en}`).
     title: localize(c?.name, currentLanguage()) || tr('feed.circuitGeneric', 'Circuito'),
@@ -182,8 +182,8 @@ function challengeView(item: FeedItem): FeedItemView {
   const c = item.challenge
   return {
     action: c?.role === 'created'
-      ? tr('feed.createdChallenge', 'creó un reto')
-      : tr('feed.joinedChallenge', 'se apuntó a un reto'),
+      ? tr('feed.createdChallenge', 'created a challenge')
+      : tr('feed.joinedChallenge', 'joined a challenge'),
     verb: c?.role === 'created'
       ? tr('feed.verbCreated', 'creó')
       : tr('feed.verbJoined', 'se apuntó a'),
@@ -204,7 +204,7 @@ function raceView(item: FeedItem): FeedItemView {
     // no hay rama de "se apuntó": mientras la carrera está viva la fila se
     // reescribe con cada punto GPS y el post saltaría al principio del muro sin
     // parar. Ver el comentario de la consulta.
-    action: tr('feed.finishedRace', 'terminó una carrera'),
+    action: tr('feed.finishedRace', 'finished a race'),
     verb: tr('feed.verbFinished', 'terminó'),
     title: r?.name || tr('feed.raceGeneric', 'Carrera'),
     detail: r?.activityType ? cardioLabel(r.activityType) : null,
@@ -219,8 +219,8 @@ function battleView(item: FeedItem): FeedItemView {
   const preset = b ? findBattlePreset(b.templateId) : null
   return {
     action: b?.outcome === 'won'
-      ? tr('feed.wonBattle', 'ganó una batalla')
-      : tr('feed.finishedBattle', 'terminó una batalla'),
+      ? tr('feed.wonBattle', 'won a battle')
+      : tr('feed.finishedBattle', 'finished a battle'),
     verb: b?.outcome === 'won'
       ? tr('feed.verbWon', 'ganó')
       : tr('feed.verbFinished', 'terminó'),
@@ -244,7 +244,7 @@ const VIEWS: Record<FeedItem['type'], (item: FeedItem) => FeedItemView> = {
 /**
  * Primera letra en mayúscula, respetando acentos y emoji.
  *
- * Las frases de acción se guardan en minúscula (`"completó un entrenamiento 💪"`)
+ * Las frases de acción se guardan en minúscula (`"completed a workout 💪"`)
  * porque en el widget van a mitad de una oración. En la tarjeta encabezan línea y
  * hay que capitalizarlas: la web podía con `first-letter:uppercase`, pero
  * NativeWind no implementa esa pseudo-clase, así que la app nativa se quedaba en

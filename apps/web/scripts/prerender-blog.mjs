@@ -29,10 +29,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
 const DIST = path.join(ROOT, 'dist')
 const CONTENT_DIR = path.join(ROOT, 'src/content/blog')
-const SITE_URL = (process.env.SITE_URL || 'https://gym.guille.tech').replace(/\/$/, '')
+const SITE_URL = (process.env.SITE_URL || 'https://sturdy.app').replace(/\/$/, '')
 
 const CATEGORY_LABELS = {
-  calistenia: { es: 'Calistenia', en: 'Calisthenics' },
+  calistenia: { es: 'Sturdy', en: 'Calisthenics' },
   tutoriales: { es: 'Tutoriales', en: 'Tutorials' },
   nutricion: { es: 'Nutrición', en: 'Nutrition' },
   consejos: { es: 'Consejos', en: 'Tips' },
@@ -166,7 +166,7 @@ function postHead(post, translation) {
     datePublished: post.publishedAt,
     inLanguage: post.lang,
     author: { '@type': 'Person', name: post.author?.name },
-    publisher: { '@type': 'Organization', name: 'Calistenia App', url: SITE_URL },
+    publisher: { '@type': 'Organization', name: 'Sturdy', url: SITE_URL },
     mainEntityOfPage: url,
   })
 
@@ -291,7 +291,7 @@ async function main() {
     const translation = posts.find((p) => p.key === post.key && p.lang !== post.lang) ?? null
     const html = injectIntoShell(shell, {
       lang: post.lang,
-      title: `${post.seoTitle ?? post.title} | Calistenia App`,
+      title: `${post.seoTitle ?? post.title} | Sturdy`,
       description: post.seoDescription ?? post.excerpt,
       headExtra: postHead(post, translation),
       bodyHtml: renderPostBody(post),
@@ -306,12 +306,12 @@ async function main() {
   // Listado: el español es el idioma principal de la audiencia
   const listingHtml = injectIntoShell(shell, {
     lang: 'es',
-    title: 'Blog - Consejos y Tutoriales de Calistenia | Calistenia App',
+    title: 'Blog - Consejos y Tutoriales de Sturdy | Sturdy',
     description: 'Consejos, tutoriales y guías para tu entrenamiento de calistenia',
     headExtra: `
   <link rel="canonical" href="${SITE_URL}/blog" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Blog - Consejos y Tutoriales de Calistenia" />
+  <meta property="og:title" content="Blog - Consejos y Tutoriales de Sturdy" />
   <meta property="og:url" content="${SITE_URL}/blog" />
   <style>${PRERENDER_STYLES}</style>`,
     bodyHtml: renderListingBody(posts, 'es'),

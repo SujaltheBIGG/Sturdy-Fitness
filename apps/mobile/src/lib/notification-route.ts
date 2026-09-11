@@ -18,7 +18,7 @@
  * Aún NO existe una vista de post individual, así que ese caso cae al feed
  * (ver comentario en `reaction`/`comment`/`comment_reply`).
  */
-import type { AppNotification } from '@calistenia/core/hooks/useNotifications'
+import type { AppNotification } from '@sturdy/core/hooks/useNotifications'
 
 /** Ruta para `router.push`. String porque construimos paths dinámicos (`/u/<id>`). */
 export type NotifRoute = string

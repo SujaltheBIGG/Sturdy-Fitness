@@ -65,7 +65,7 @@ function jwtExpiresAt(token: string): number {
 export function pocketbaseOAuthBridge(pbUrl: string, serverUrl: string) {
   return oauthCustomProvider<BridgeUser>({
     resource: `${serverUrl}/mcp`,
-    resourceName: "Calistenia",
+    resourceName: "Sturdy",
     scopesSupported: ["mcp:tools"],
     oauthMetadata: {
       issuer: serverUrl,

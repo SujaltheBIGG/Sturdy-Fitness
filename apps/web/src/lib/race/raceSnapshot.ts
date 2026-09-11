@@ -1,4 +1,4 @@
-import type { RaceGpsPoint } from '@calistenia/core/types/race'
+import type { RaceGpsPoint } from '@sturdy/core/types/race'
 
 /**
  * Mid-race snapshot persisted to sessionStorage so a page refresh during an
@@ -9,7 +9,7 @@ import type { RaceGpsPoint } from '@calistenia/core/types/race'
  * closing the tab is a legitimate quit, but F5 is not.
  */
 
-const KEY = 'calistenia_race_snapshot'
+const KEY = 'sturdy_race_snapshot'
 const MAX_AGE_MS = 6 * 60 * 60 * 1000 // 6h — hard floor on stale rehydrate
 
 export interface RaceSnapshot {

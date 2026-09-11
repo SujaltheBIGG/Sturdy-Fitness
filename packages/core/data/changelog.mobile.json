@@ -1329,7 +1329,7 @@
               "hash": "ae4aeba"
             },
             {
-              "description": "Mover lib/race/{raceApi,raceRealtime,errors} a @calistenia/core (#466) (#512)",
+              "description": "Mover lib/race/{raceApi,raceRealtime,errors} a @sturdy/core (#466) (#512)",
               "scope": "core",
               "breaking": false,
               "hash": "4c956da"
@@ -3780,8 +3780,8 @@
             "en": "First mobile release"
           },
           "body": {
-            "es": "La app de Calistenia llega a Android con tu programa, sesiones y progreso.",
-            "en": "The Calistenia app arrives on Android with your program, sessions and progress."
+            "es": "La app de Sturdy llega a Android con tu programa, sesiones y progreso.",
+            "en": "The Sturdy app arrives on Android with your program, sessions and progress."
           }
         },
         {

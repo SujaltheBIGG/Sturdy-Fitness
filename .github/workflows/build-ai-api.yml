@@ -46,7 +46,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # `@calistenia/core` es un `file:../packages/core`, así que npm lo enlaza
+      # `@sturdy/core` es un `file:../packages/core`, así que npm lo enlaza
       # con un symlink pero NO instala sus dependencias. Node resuelve por la
       # ruta REAL, de modo que un `import 'dayjs'` dentro de
       # packages/core/lib/*.ts busca en packages/core/node_modules → ausente

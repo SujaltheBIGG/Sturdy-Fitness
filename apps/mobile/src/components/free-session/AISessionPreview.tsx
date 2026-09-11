@@ -15,7 +15,7 @@ import { aiExerciseToExercise, type AIExercise } from '@/lib/ai-exercise-to-exer
 import { useExerciseSearch } from '@/lib/use-exercise-search'
 import { useStartFreeSession } from '@/lib/start-free-session'
 import { ReorderControls } from '@/components/free-session/ReorderControls'
-import { localize } from '@calistenia/core/lib/i18n-db'
+import { localize } from '@sturdy/core/lib/i18n-db'
 
 const PHASE_LABEL: Record<string, string> = {
   warmup: 'Calentamiento',

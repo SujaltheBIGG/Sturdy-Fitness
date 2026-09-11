@@ -1,6 +1,6 @@
 import {
   Button, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Badge, Progress,
-} from '@calistenia/web'
+} from '@sturdy/web'
 import { MoreVertical } from 'lucide-react'
 
 export const Sesion = () => (

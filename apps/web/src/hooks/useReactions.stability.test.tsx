@@ -18,7 +18,7 @@ import { renderHook } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import type { ReactNode } from 'react'
 
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: {
     filter: (expr: string) => expr,
     collection: () => ({ getFullList: async () => [] }),
@@ -27,7 +27,7 @@ vi.mock('@calistenia/core/lib/pocketbase', () => ({
   isPocketBaseAvailable: async () => false,
 }))
 
-import { useReactions } from '@calistenia/core/hooks/useReactions'
+import { useReactions } from '@sturdy/core/hooks/useReactions'
 
 function wrapper({ children }: { children: ReactNode }) {
   const qc = new QueryClient({

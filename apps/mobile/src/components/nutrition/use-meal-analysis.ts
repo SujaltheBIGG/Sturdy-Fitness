@@ -8,7 +8,7 @@ import type { useTranslation } from 'react-i18next'
 
 import { haptics } from '@/lib/haptics'
 import { Sentry } from '@/lib/instrument'
-import type { FoodItem, MealType } from '@calistenia/core/types'
+import type { FoodItem, MealType } from '@sturdy/core/types'
 
 import {
   type AnalysisQuality,

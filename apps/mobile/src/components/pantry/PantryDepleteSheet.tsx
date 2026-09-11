@@ -4,9 +4,9 @@ import { KeyboardAvoidingView, KeyboardProvider } from 'react-native-keyboard-co
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Check, X } from 'lucide-react-native'
 import { useTranslation } from 'react-i18next'
-import type { PantryItem } from '@calistenia/core/types'
-import type { DepleteRow } from '@calistenia/core/hooks/usePantryDepletion'
-import { parseLocaleNumber } from '@calistenia/core/lib/money'
+import type { PantryItem } from '@sturdy/core/types'
+import type { DepleteRow } from '@sturdy/core/hooks/usePantryDepletion'
+import { parseLocaleNumber } from '@sturdy/core/lib/money'
 
 interface RowState { checked: boolean; qty: string }
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import type { AppNotification } from '@calistenia/core/hooks/useNotifications'
+import type { AppNotification } from '@sturdy/core/hooks/useNotifications'
 import { getNotifRoute, resolveNotifUrl } from '../notification-route'
 
 function notification(over: Partial<AppNotification>): AppNotification {

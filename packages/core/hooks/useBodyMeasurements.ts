@@ -5,7 +5,7 @@ import { pb } from '../lib/pocketbase'
 import { qk } from '../lib/query-keys'
 import { makeOptimisticListHandlers, type OptimisticContext } from '../lib/optimistic'
 
-const LS_KEY = 'calistenia_body_measurements'
+const LS_KEY = 'sturdy_body_measurements'
 
 export interface BodyMeasurement {
   id: string

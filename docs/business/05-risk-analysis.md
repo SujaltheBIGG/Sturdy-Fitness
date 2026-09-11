@@ -137,7 +137,7 @@ Every AI meal analysis, food lookup, and meal plan generation costs API tokens. 
 **Severity: MEDIUM**
 
 ### The problem
-PWAs don't appear in the App Store or Google Play. Users can't search "calistenia" and find you. You're invisible to the primary app discovery channel.
+PWAs don't appear in the App Store or Google Play. Users can't search "sturdy" and find you. You're invisible to the primary app discovery channel.
 
 ### What kills you
 - Relying on app store organic discovery (you have none)
@@ -158,14 +158,14 @@ PWAs don't appear in the App Store or Google Play. Users can't search "calisteni
 **Severity: MEDIUM**
 
 ### The problem
-`gym.guille.tech` looks like a personal project, not a product. Perception matters:
+`sturdy.app` looks like a personal project, not a product. Perception matters:
 - Users hesitate to enter payment info on personal domains
 - It's not memorable or shareable
 - It undermines the professional image of the app itself
 
 ### How to survive
 - Buy a proper domain ($10-15/year)
-- Good options: `calistenia.app`, `entrenarconproposito.com`, `caliste.app`
+- Good options: `sturdy.app`, `entrenarconproposito.com`, `caliste.app`
 - Redirect old domain to new one
 - Update all referral links, share cards, and email templates
 

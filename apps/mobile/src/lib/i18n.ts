@@ -8,10 +8,10 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import { getLocales } from 'expo-localization'
-import { storage } from '@calistenia/core/platform'
+import { storage } from '@sturdy/core/platform'
 
-import es from '@calistenia/core/locales/es/translation.json'
-import en from '@calistenia/core/locales/en/translation.json'
+import es from '@sturdy/core/locales/es/translation.json'
+import en from '@sturdy/core/locales/en/translation.json'
 
 const LANG_KEY = 'i18nextLng'
 

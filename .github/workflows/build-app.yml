@@ -67,12 +67,12 @@ jobs:
 
       - name: Compute Sentry release
         id: sentry
-        # `calistenia-app@<version>+<sha corto>`, mismo formato que móvil. La
+        # `sturdy-app@<version>+<sha corto>`, mismo formato que móvil. La
         # versión da legibilidad en la UI de Sentry; el sha la hace única por
         # deploy, que es lo que hacía falta.
         run: |
           VERSION=$(node -p "require('./apps/web/package.json').version")
-          echo "release=calistenia-app@${VERSION}+${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+          echo "release=sturdy-app@${VERSION}+${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -135,8 +135,8 @@ jobs:
         continue-on-error: true
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_ORG: guillermoscript
-          SENTRY_PROJECT: gym-guille
+          SENTRY_ORG: ${{ vars.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ vars.SENTRY_PROJECT }}
           RELEASE: ${{ steps.sentry.outputs.release }}
         run: |
           if [ -z "$SENTRY_AUTH_TOKEN" ]; then
@@ -168,8 +168,8 @@ jobs:
         continue-on-error: true
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          SENTRY_ORG: guillermoscript
-          SENTRY_PROJECT: gym-guille
+          SENTRY_ORG: ${{ vars.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ vars.SENTRY_PROJECT }}
           RELEASE: ${{ needs.build-app.outputs.sentry-release }}
         run: |
           if [ -z "$SENTRY_AUTH_TOKEN" ]; then

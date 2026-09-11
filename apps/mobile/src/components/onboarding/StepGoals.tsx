@@ -8,9 +8,9 @@ import { Label } from '@/components/ui/label'
 import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
-import { calculateBmi, bmiCategoryKey, bmiColorClass, parseDecimal, calculateWhtr, whtrCategoryKey, whtrColorClass } from '@calistenia/core/lib/bmi'
-import { primaryGoalImpliesWeightChange } from '@calistenia/core/lib/primaryGoal'
-import type { ActivityLevel, GoalsValues, Pace, PrimaryGoal } from '@calistenia/core/types/onboarding'
+import { calculateBmi, bmiCategoryKey, bmiColorClass, parseDecimal, calculateWhtr, whtrCategoryKey, whtrColorClass } from '@sturdy/core/lib/bmi'
+import { primaryGoalImpliesWeightChange } from '@sturdy/core/lib/primaryGoal'
+import type { ActivityLevel, GoalsValues, Pace, PrimaryGoal } from '@sturdy/core/types/onboarding'
 
 export type { ActivityLevel, GoalsValues, Pace }
 

@@ -16,7 +16,7 @@ const h = vi.hoisted(() => ({
   deleteAccount: vi.fn(async () => {}),
 }))
 
-vi.mock('@calistenia/core/hooks/useDeleteAccount', () => ({
+vi.mock('@sturdy/core/hooks/useDeleteAccount', () => ({
   useDeleteAccount: () => ({ deleteAccount: h.deleteAccount, deleting: false }),
 }))
 

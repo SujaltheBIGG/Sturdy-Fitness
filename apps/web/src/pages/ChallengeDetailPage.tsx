@@ -1,24 +1,24 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useParams, useNavigate } from 'react-router-dom'
-import { useChallengeDetail } from '@calistenia/core/hooks/useChallengeDetail'
-import { useExpressProgress, type ExpressProgress } from '@calistenia/core/hooks/useChallengeExpress'
-import { useFollows } from '@calistenia/core/hooks/useFollows'
+import { useChallengeDetail } from '@sturdy/core/hooks/useChallengeDetail'
+import { useExpressProgress, type ExpressProgress } from '@sturdy/core/hooks/useChallengeExpress'
+import { useFollows } from '@sturdy/core/hooks/useFollows'
 import { cn } from '../lib/utils'
 import { Button } from '../components/ui/button'
-import { getMetricUnit, daysRemaining, getMetricLabel, RANK_MEDALS } from '@calistenia/core/lib/challenges'
-import { getChallengeLayout, getGoalProgress } from '@calistenia/core/lib/challenge-layout'
-import { isCumulativeMetric } from '@calistenia/core/lib/cumulative-scoring'
-import { formatDateRange } from '@calistenia/core/lib/dateUtils'
+import { getMetricUnit, daysRemaining, getMetricLabel, RANK_MEDALS } from '@sturdy/core/lib/challenges'
+import { getChallengeLayout, getGoalProgress } from '@sturdy/core/lib/challenge-layout'
+import { isCumulativeMetric } from '@sturdy/core/lib/cumulative-scoring'
+import { formatDateRange } from '@sturdy/core/lib/dateUtils'
 import {
   resolvePresetChallengeDescription,
   resolvePresetChallengeTitle,
-} from '@calistenia/core/lib/challenge-presets'
+} from '@sturdy/core/lib/challenge-presets'
 import { WhatsAppIcon } from '../components/icons/WhatsAppIcon'
 import { ShareButton } from '../components/ShareButton'
 import { shareChallenge } from '../lib/share'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import type { LeaderboardEntry } from '@calistenia/core/hooks/useLeaderboard'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import type { LeaderboardEntry } from '@sturdy/core/hooks/useLeaderboard'
 
 // Métricas con semántica de ventana (cuentan lo registrado entre inicio y fin
 // del reto). PR-style ('most_pullups', 'most_lsit'...) y 'custom' no la tienen.

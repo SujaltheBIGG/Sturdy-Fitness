@@ -8,7 +8,7 @@ import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
 import Confetti from '@/components/Confetti'
 import { haptics } from '@/lib/haptics'
-import type { ProgramMeta } from '@calistenia/core/types'
+import type { ProgramMeta } from '@sturdy/core/types'
 import type { Pace } from './StepGoals'
 
 const PHASE_DURATION_MS = 2400

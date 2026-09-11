@@ -8,9 +8,9 @@ import { Platform } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import * as Sentry from '@sentry/react-native'
 import i18n from 'i18next'
-import { todayStr, getTimezone } from '@calistenia/core/lib/dateUtils'
+import { todayStr, getTimezone } from '@sturdy/core/lib/dateUtils'
 import { NUTRITION_WIDGET_SNAPSHOT_KEY, type NutritionWidgetSnapshot } from './nutrition-widget-snapshot'
-import type { DailyTotals, NutritionGoal } from '@calistenia/core/types'
+import type { DailyTotals, NutritionGoal } from '@sturdy/core/types'
 
 let lastJson: string | null = null
 

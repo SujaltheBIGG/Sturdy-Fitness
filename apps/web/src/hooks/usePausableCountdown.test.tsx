@@ -14,7 +14,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { act, renderHook } from '@testing-library/react'
 
-import { usePausableCountdown } from '@calistenia/core/hooks/usePausableCountdown'
+import { usePausableCountdown } from '@sturdy/core/hooks/usePausableCountdown'
 
 let clock = 0
 const now = (): number => clock

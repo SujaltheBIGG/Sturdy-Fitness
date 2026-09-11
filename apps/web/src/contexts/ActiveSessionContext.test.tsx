@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, afterEach, beforeEach } from 'vitest'
 import { renderHook, act } from '@testing-library/react'
-import type { Exercise, Workout } from '@calistenia/core/types'
+import type { Exercise, Workout } from '@sturdy/core/types'
 
 // op (core) hace tracking de analytics — se mockea entero; aquí solo se
 // verifica que el context llame a track() con los eventos/props correctos.
@@ -19,7 +19,7 @@ const { mockTrack, lifecycleBus, activeProgramId } = vi.hoisted(() => ({
 // #636: `lib/session-funnel` lee la plataforma y el programa activo de este
 // mismo módulo, así que el mock tiene que traerlos o el bloque de propiedades
 // revienta con un TypeError en cada evento.
-vi.mock('@calistenia/core/lib/analytics', () => ({
+vi.mock('@sturdy/core/lib/analytics', () => ({
   op: { track: mockTrack },
   analyticsPlatform: () => 'web',
   getAnalyticsProgramId: () => activeProgramId.current,
@@ -29,7 +29,7 @@ vi.mock('@calistenia/core/lib/analytics', () => ({
 // #482: el storage del entreno pasó de `localStorage` global al facade de core,
 // que exige initCore(). Se inyecta aquí respaldado por el localStorage de jsdom,
 // para que los tests sigan asertando sobre `window.localStorage`.
-vi.mock('@calistenia/core/platform', () => ({
+vi.mock('@sturdy/core/platform', () => ({
   storage: {
     getItem: (k: string) => window.localStorage.getItem(k),
     setItem: (k: string, v: string) => window.localStorage.setItem(k, v),
@@ -51,10 +51,10 @@ vi.mock('@calistenia/core/platform', () => ({
 
 // El singleton pb exige initCore() al evaluarse y el sync con el server no
 // aplica a estos tests (sin auth) — ambos se mockean enteros.
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: { authStore: { isValid: false, onChange: vi.fn(() => () => {}) } },
 }))
-vi.mock('@calistenia/core/lib/activeSessionSync', () => ({
+vi.mock('@sturdy/core/lib/activeSessionSync', () => ({
   scheduleActiveSessionPush: vi.fn(),
   flushActiveSessionPush: vi.fn(),
   pushActiveSessionNow: vi.fn(),
@@ -64,8 +64,8 @@ vi.mock('@calistenia/core/lib/activeSessionSync', () => ({
 
 import { ActiveSessionProvider, useActiveSession, useActiveSessionProgress, getCurrentSection } from './ActiveSessionContext'
 
-const STORAGE_KEY = 'calistenia_strength_active'
-const FREE_QUEUE_KEY = 'calistenia_free_session_queue'
+const STORAGE_KEY = 'sturdy_strength_active'
+const FREE_QUEUE_KEY = 'sturdy_free_session_queue'
 const INITIAL_PROGRESS = { stepIdx: 0, phase: 'exercise', setsCount: 0 }
 
 // Solo los campos que usa ActiveSessionContext: `section` y `sets` en

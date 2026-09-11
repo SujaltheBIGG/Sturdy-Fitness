@@ -129,7 +129,7 @@ En PocketBase hay dos trampas más, ambas silenciosas:
 Con datos, no con intuición:
 
 ```bash
-node scripts/client-versions.mjs https://gym.guille.tech <email> '<pass>' --min 31
+node scripts/client-versions.mjs https://sturdy.app <email> '<pass>' --min 31
 ```
 
 Imprime la distribución de builds entre los usuarios activos de los últimos 30

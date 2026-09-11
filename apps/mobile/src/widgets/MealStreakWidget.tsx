@@ -34,7 +34,7 @@ export function MealStreakWidget({ snapshot, today }: { snapshot: NutritionWidge
   // tz del snapshot para que este guard no salte en falso (ver widget-task-handler).
   if (!snapshot || snapshot.date !== today) {
     return (
-      <FlexWidget clickAction="OPEN_URI" clickActionData={{ uri: 'calistenia://nutrition' }} style={SHELL}>
+      <FlexWidget clickAction="OPEN_URI" clickActionData={{ uri: 'sturdy://nutrition' }} style={SHELL}>
         <TextWidget text={tr.stale} style={{ fontSize: 12, color: MUTED, fontFamily: 'JetBrainsMono_400Regular' }} />
       </FlexWidget>
     )
@@ -50,7 +50,7 @@ export function MealStreakWidget({ snapshot, today }: { snapshot: NutritionWidge
     : `${tr.streak} · ${streak === 1 ? tr.day : tr.days}`
 
   return (
-    <FlexWidget clickAction="OPEN_URI" clickActionData={{ uri: 'calistenia://nutrition' }} style={SHELL}>
+    <FlexWidget clickAction="OPEN_URI" clickActionData={{ uri: 'sturdy://nutrition' }} style={SHELL}>
       <TextWidget
         text={String(streak)}
         style={{ fontSize: 44, color, fontFamily: 'BebasNeue_400Regular' }}

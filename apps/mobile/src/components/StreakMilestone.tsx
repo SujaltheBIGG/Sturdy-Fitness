@@ -19,8 +19,8 @@ import {
   getShownMilestones,
   markMilestoneShown,
 } from '@/lib/streak-milestones'
-import { WEB_BASE_URL } from '@calistenia/core/lib/app-urls'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+import { WEB_BASE_URL } from '@sturdy/core/lib/app-urls'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 
 export interface StreakMilestoneProps {
   streak: number
@@ -96,7 +96,7 @@ export default function StreakMilestone({
     if (!milestone) return
     const message = referralCode
       ? shareReferralInvite(userName, referralCode).message
-      : `¡${milestone} días de racha en Calistenia App! 🔥`
+      : `¡${milestone} días de racha en Sturdy! 🔥`
     try {
       // Fonts are loaded by _layout boot; small RAF guards against a blank capture.
       await new Promise((r) => requestAnimationFrame(() => r(null)))

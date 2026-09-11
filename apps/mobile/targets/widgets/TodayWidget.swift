@@ -70,7 +70,7 @@ struct TodayWidgetView: View {
     .padding(14)
     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     .modifier(WidgetBackground())
-    .widgetURL(URL(string: "calistenia://"))
+    .widgetURL(URL(string: "sturdy://"))
   }
 }
 

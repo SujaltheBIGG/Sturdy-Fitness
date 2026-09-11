@@ -4,8 +4,8 @@ import { Card, CardContent } from '../ui/card'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Badge } from '../ui/badge'
-import { todayStr } from '@calistenia/core/lib/dateUtils'
-import { useBodyPhotos } from '@calistenia/core/hooks/useBodyPhotos'
+import { todayStr } from '@sturdy/core/lib/dateUtils'
+import { useBodyPhotos } from '@sturdy/core/hooks/useBodyPhotos'
 
 const CATEGORIES = [
   { value: 'front', labelKey: 'progress.bodyPhotos.front' },

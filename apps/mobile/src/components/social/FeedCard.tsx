@@ -21,12 +21,12 @@ import { useTranslation } from 'react-i18next'
 import { ChevronRight } from 'lucide-react-native'
 import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
-import { timeAgo } from '@calistenia/core/lib/dateUtils'
-import { capitalizeFirst, describeFeedItem } from '@calistenia/core/lib/feed-item'
+import { timeAgo } from '@sturdy/core/lib/dateUtils'
+import { capitalizeFirst, describeFeedItem } from '@sturdy/core/lib/feed-item'
 import { openFeedItem, shareFeedItem, feedItemHref } from '@/lib/feed-routes'
 import { EmojiPicker } from './EmojiPicker'
-import type { FeedItem } from '@calistenia/core/types'
-import type { EmojiReactions } from '@calistenia/core/hooks/useReactions'
+import type { FeedItem } from '@sturdy/core/types'
+import type { EmojiReactions } from '@sturdy/core/hooks/useReactions'
 
 interface FeedCardProps {
   item: FeedItem

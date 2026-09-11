@@ -1,4 +1,4 @@
-# Catálogo Maestro — Calistenia
+# Catálogo Maestro — Sturdy
 
 Fuente de verdad para todos los ejercicios de calistenia en la app.
 Cada ejercicio base agrupa sus variaciones y progresiones.

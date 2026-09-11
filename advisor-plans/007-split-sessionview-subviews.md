@@ -52,7 +52,7 @@ the executor creates it; verified absent at 943f558).
 The sibling components live one level up, in `apps/mobile/src/components/`
 (e.g. `Confetti.tsx`, `RepeatTrainingButton.tsx`). Because the project uses the
 absolute path alias `@/* -> ./src/*` (verified in `apps/mobile/tsconfig.json`,
-`compilerOptions.paths`), every `@/...` and `@calistenia/core/...` import string
+`compilerOptions.paths`), every `@/...` and `@sturdy/core/...` import string
 moves **verbatim** to the new files — being one directory deeper does **not**
 change those import strings.
 
@@ -267,8 +267,8 @@ component.
   The moved blocks already use inline `style={{...}}` only for SVG sizing and a
   few dynamic colors — keep those exactly.
 - Imports use the absolute alias `@/*` (= `apps/mobile/src/*`) and
-  `@calistenia/core/*`. Do **not** rewrite these to relative paths. The
-  `@calistenia/core/types` subpath resolves to the package's `types/` directory
+  `@sturdy/core/*`. Do **not** rewrite these to relative paths. The
+  `@sturdy/core/types` subpath resolves to the package's `types/` directory
   and is used verbatim in `SessionView.tsx:38` today — reuse the exact string.
 - Exemplar sibling component for file/import shape: `apps/mobile/src/components/Confetti.tsx`.
 
@@ -346,7 +346,7 @@ definition and re-imports it in the same step).
 2. Create `apps/mobile/src/components/session/types.ts` with exactly:
 
    ```ts
-   import type { Exercise } from '@calistenia/core/types'
+   import type { Exercise } from '@sturdy/core/types'
 
    export interface Step {
      exercise: Exercise

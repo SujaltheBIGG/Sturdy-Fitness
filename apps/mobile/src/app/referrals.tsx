@@ -45,16 +45,16 @@ import {
   REFERRAL_BONUS_POINTS,
   type Referral,
   type ReferralDataError,
-} from '@calistenia/core/hooks/useReferrals'
+} from '@sturdy/core/hooks/useReferrals'
 import {
   useReferralPoints,
   type PointTransaction,
-} from '@calistenia/core/hooks/useReferralPoints'
-import { utcToLocalDateStr } from '@calistenia/core/lib/dateUtils'
+} from '@sturdy/core/hooks/useReferralPoints'
+import { utcToLocalDateStr } from '@sturdy/core/lib/dateUtils'
 import {
   CANONICAL_ANALYTICS_EVENTS,
   trackCanonicalEvent,
-} from '@calistenia/core/lib/analytics'
+} from '@sturdy/core/lib/analytics'
 
 type Tab = 'referrals' | 'history'
 

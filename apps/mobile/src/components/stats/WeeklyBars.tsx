@@ -2,7 +2,7 @@
 import { View } from 'react-native'
 import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
-import type { WeeklyStat } from '@calistenia/core/lib/training-stats'
+import type { WeeklyStat } from '@sturdy/core/lib/training-stats'
 
 interface Props {
   weekly: WeeklyStat[]

@@ -1,15 +1,15 @@
 import { lazy, Suspense, useState, useEffect, useMemo } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { pb, getUserAvatarUrl } from '@calistenia/core/lib/pocketbase'
-import { assessTrackQuality } from '@calistenia/core/lib/geo'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import { fetchCardioRoute } from '@calistenia/core/lib/cardioRoutes'
+import { pb, getUserAvatarUrl } from '@sturdy/core/lib/pocketbase'
+import { assessTrackQuality } from '@sturdy/core/lib/geo'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import { fetchCardioRoute } from '@sturdy/core/lib/cardioRoutes'
 import { useAuthState } from '../contexts/AuthContext'
 import CardioSessionStatsPanel from '../components/cardio/CardioSessionStatsPanel'
 import ElevationProfile from '../components/cardio/ElevationProfile'
 import CardioShareCard from '../components/cardio/CardioShareCard'
-import type { CardioSession } from '@calistenia/core/types'
+import type { CardioSession } from '@sturdy/core/types'
 
 // Leaflet + RouteMap is ~150kb gzipped — split into its own chunk
 const RouteMap = lazy(() => import('../components/cardio/RouteMap'))

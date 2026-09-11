@@ -16,8 +16,8 @@ import { Text } from '@/components/ui/text'
 import { Kicker } from '@/components/ui/kicker'
 import { useActiveSession } from '@/contexts/ActiveSessionContext'
 import { useCardioSessionContext } from '@/contexts/CardioSessionContext'
-import { findMyActiveBattle } from '@calistenia/core/lib/battleApi'
-import { qk } from '@calistenia/core/lib/query-keys'
+import { findMyActiveBattle } from '@sturdy/core/lib/battleApi'
+import { qk } from '@sturdy/core/lib/query-keys'
 
 export default function ActiveBattleBar() {
   const { t } = useTranslation()

@@ -5,10 +5,10 @@ import { useTranslation } from 'react-i18next'
 import { Text } from '@/components/ui/text'
 import { Kicker } from '@/components/ui/kicker'
 import { cn } from '@/lib/utils'
-import { formatPace, formatDuration, formatSpeed } from '@calistenia/core/lib/geo'
-import { CARDIO_ACTIVITY } from '@calistenia/core/lib/style-tokens'
-import type { CardioAggregateStats, PersonalRecords, WeeklyTrendPoint } from '@calistenia/core/hooks/useCardioStats'
-import type { CardioSession } from '@calistenia/core/types'
+import { formatPace, formatDuration, formatSpeed } from '@sturdy/core/lib/geo'
+import { CARDIO_ACTIVITY } from '@sturdy/core/lib/style-tokens'
+import type { CardioAggregateStats, PersonalRecords, WeeklyTrendPoint } from '@sturdy/core/hooks/useCardioStats'
+import type { CardioSession } from '@sturdy/core/types'
 
 interface Props {
   weeklyStats: CardioAggregateStats

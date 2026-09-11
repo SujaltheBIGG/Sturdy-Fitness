@@ -39,7 +39,7 @@ const h = vi.hoisted(() => {
   return { state, respond }
 })
 
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: {
     baseUrl: 'http://pb.test',
     filter: (expr: string) => expr,
@@ -54,9 +54,9 @@ vi.mock('@calistenia/core/lib/pocketbase', () => ({
   isPocketBaseAvailable: () => Promise.resolve(true),
 }))
 
-import { usePublicProfile } from '@calistenia/core/hooks/usePublicProfile'
-import { useRoutineView } from '@calistenia/core/hooks/useRoutineView'
-import { localize } from '@calistenia/core/lib/i18n-db'
+import { usePublicProfile } from '@sturdy/core/hooks/usePublicProfile'
+import { useRoutineView } from '@sturdy/core/hooks/useRoutineView'
+import { localize } from '@sturdy/core/lib/i18n-db'
 
 /**
  * El idioma se pasa como parámetro a `localize` en lugar de cambiarlo en i18next.

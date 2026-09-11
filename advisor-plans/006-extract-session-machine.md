@@ -78,7 +78,7 @@ line 57 is blank.)
 Note: `Step` is currently a non-exported, file-local `interface`. The extraction
 must EXPORT it from the new module so the component can import it. `Exercise`
 already comes from core — `SessionView.tsx:38` imports it:
-`import type { Exercise, Workout, ExerciseLog, SetData, ExerciseTiming } from '@calistenia/core/types'`.
+`import type { Exercise, Workout, ExerciseLog, SetData, ExerciseTiming } from '@sturdy/core/types'`.
 
 **`Step` is referenced in 4 more places in the file beyond its definition** — you
 must NOT touch these; they keep working once `Step` is imported at the top:
@@ -231,12 +231,12 @@ change it.
   with no config change. Verified: today `vitest run` finds 3 files / 13 tests
   under `src/lib/__tests__/`.
 - The new module imports `Exercise` from core **type-only**
-  (`import type { Exercise } from '@calistenia/core/types'`). Because it is a
+  (`import type { Exercise } from '@sturdy/core/types'`). Because it is a
   `type`-only import it is erased before runtime, so vitest never has to resolve
-  the `@calistenia/core` workspace package — confirmed by running a throwaway
+  the `@sturdy/core` workspace package — confirmed by running a throwaway
   probe test with this exact import + an `as Exercise` cast fixture (it passed).
   Keep ALL `Exercise` usage in the module and test as `import type` / `as`
-  casts; do not add a runtime `import { something } from '@calistenia/core'`.
+  casts; do not add a runtime `import { something } from '@sturdy/core'`.
 - Core tests live under `packages/core/lib/*.test.ts` but `packages/core` has NO
   vitest installed and NO `test` script. Core tests are run via mobile's vitest
   with an explicit `--dir`. Verified command below.
@@ -330,7 +330,7 @@ Create `apps/mobile/src/lib/session-machine.ts` with the four pure functions and
 the exported `Step` type. Copy the logic VERBATIM from the excerpts above — do
 not "improve" it. Import `Exercise` from core **type-only**. The file must
 contain ZERO React imports (no `react`, no `react-native`, no hooks) and no
-runtime import from `@calistenia/core`.
+runtime import from `@sturdy/core`.
 
 Produce exactly this shape (the bodies are copied from the "Current state"
 excerpts):
@@ -338,7 +338,7 @@ excerpts):
 ```ts
 // Lógica pura de la máquina de estados de la sesión, extraída de SessionView.
 // Sin React ni hooks: funciones puras testeables. La base para el plan 007.
-import type { Exercise } from '@calistenia/core/types'
+import type { Exercise } from '@sturdy/core/types'
 
 export interface Step {
   exercise: Exercise
@@ -447,7 +447,7 @@ functions never read the other required fields). Keep `Exercise` as a
 
 ```ts
 import { describe, it, expect } from 'vitest'
-import type { Exercise } from '@calistenia/core/types'
+import type { Exercise } from '@sturdy/core/types'
 import {
   buildSteps,
   computeExerciseBoundaries,

@@ -5,7 +5,7 @@
  */
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import * as Sentry from '@sentry/react-native'
-import type { CoreStorage } from '@calistenia/core/platform'
+import type { CoreStorage } from '@sturdy/core/platform'
 
 const cache = new Map<string, string>()
 let hydrated = false

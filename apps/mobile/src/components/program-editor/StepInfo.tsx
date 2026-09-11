@@ -21,9 +21,9 @@ import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
-import type { ProgramEditorState } from '@calistenia/core/hooks/useProgramEditor'
-import { EQUIPMENT_CATALOG, getEquipmentLabelKey } from '@calistenia/core/lib/equipment'
-import { CONDITION_IDS, INJURY_IDS } from '@calistenia/core/types/onboarding'
+import type { ProgramEditorState } from '@sturdy/core/hooks/useProgramEditor'
+import { EQUIPMENT_CATALOG, getEquipmentLabelKey } from '@sturdy/core/lib/equipment'
+import { CONDITION_IDS, INJURY_IDS } from '@sturdy/core/types/onboarding'
 import { pickCover, type MediaSource } from '@/lib/program-media'
 
 const DIFFICULTIES = ['beginner', 'intermediate', 'advanced'] as const

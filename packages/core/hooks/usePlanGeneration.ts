@@ -78,7 +78,7 @@ export function usePlanGeneration(params: PlanGenerationParams) {
 
   const mutation = useMutation<PlanRunResult, Error, void>({
     mutationFn: async () => {
-      if (!budget) throw new Error('Configura tus metas de nutrición primero')
+      if (!budget) throw new Error('Set your nutrition goals first')
 
       const snapshot = buildPantrySnapshot(pantryItems)
       const dispatch = resolveDispatch({

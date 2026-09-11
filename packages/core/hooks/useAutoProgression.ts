@@ -270,7 +270,7 @@ export function useAcceptProgression(): (args: AcceptProgressionArgs) => Promise
       await qc.invalidateQueries({ queryKey: qk.programs.overrides(userId, programId) })
       return true
     } catch (e) {
-      console.error('useAcceptProgression: no se pudo guardar la progresión', e)
+      console.error('useAcceptProgression: could not save the progression', e)
       return false
     }
   }, [qc])

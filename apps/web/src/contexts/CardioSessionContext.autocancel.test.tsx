@@ -21,7 +21,7 @@ const pbStub = await vi.hoisted(async () => {
   return createPbAutoCancelStub()
 })
 
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: {
     baseUrl: 'http://pb.test',
     filter: (expr: string) => expr,
@@ -34,7 +34,7 @@ vi.mock('../lib/i18n', () => ({
   default: { t: (key: string) => key },
 }))
 
-vi.mock('@calistenia/core/platform', () => ({
+vi.mock('@sturdy/core/platform', () => ({
   storage: {
     getItem: (k: string) => window.localStorage.getItem(k),
     setItem: (k: string, v: string) => window.localStorage.setItem(k, v),
@@ -49,8 +49,8 @@ vi.mock('@calistenia/core/platform', () => ({
 }))
 
 import { CardioSessionProvider, useCardioSessionContext } from './CardioSessionContext'
-import { fetchCardioSessions } from '@calistenia/core/hooks/useCardioStats'
-import type { CardioSession } from '@calistenia/core/types'
+import { fetchCardioSessions } from '@sturdy/core/hooks/useCardioStats'
+import type { CardioSession } from '@sturdy/core/types'
 
 function makeWrapper() {
   const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } })

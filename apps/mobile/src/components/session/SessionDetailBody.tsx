@@ -13,9 +13,9 @@ import { Clock, ChevronRight } from 'lucide-react-native'
 import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
 import { getCatalogExercise } from '@/lib/catalog'
-import type { SessionDetailResult, SessionExercise } from '@calistenia/core/hooks/useSessionDetail'
-import { formatTimingClock } from '@calistenia/core/lib/exerciseTiming'
-import { localize } from '@calistenia/core/lib/i18n-db'
+import type { SessionDetailResult, SessionExercise } from '@sturdy/core/hooks/useSessionDetail'
+import { formatTimingClock } from '@sturdy/core/lib/exerciseTiming'
+import { localize } from '@sturdy/core/lib/i18n-db'
 
 const MUTED = 'hsl(0 0% 55%)'
 

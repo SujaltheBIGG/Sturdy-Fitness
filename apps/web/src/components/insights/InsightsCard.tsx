@@ -4,14 +4,14 @@ import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/button'
 import { cn } from '../../lib/utils'
-import { op } from '@calistenia/core/lib/analytics'
+import { op } from '@sturdy/core/lib/analytics'
 import {
   useCrossInsights,
   MIN_INSIGHT_DAYS,
   type CrossInsightCorrelation,
   type CrossInsightAction,
   type CrossInsightActionType,
-} from '@calistenia/core/hooks/useCrossInsights'
+} from '@sturdy/core/hooks/useCrossInsights'
 
 /**
  * Ruta web más cercana para cada tipo de acción sugerida (issue #135). No hay
@@ -348,7 +348,7 @@ export default function InsightsCard({ userId }: InsightsCardProps) {
       ) : needsMoreData ? (
         <div className="space-y-3">
           <p className="text-sm text-muted-foreground">
-            {t('insights.card.needMore', 'Sigue registrando — necesitas al menos {{n}} días con datos.', {
+            {t('insights.card.needMore', 'Keep logging — you need at least {{n}} days with data.', {
               n: MIN_INSIGHT_DAYS,
             })}
           </p>
@@ -373,7 +373,7 @@ export default function InsightsCard({ userId }: InsightsCardProps) {
             {t('insights.card.emptyTitle', 'Descubre tus patrones')}
           </div>
           <p className="text-sm text-muted-foreground">
-            {t('insights.card.emptyBody', 'Cruza sueño, entrenos, nutrición y más de tu semana.')}
+            {t('insights.card.emptyBody', 'Cross-references sleep, workouts, nutrition and more from your week.')}
           </p>
           <GenerateButton
             isGenerating={isGenerating}

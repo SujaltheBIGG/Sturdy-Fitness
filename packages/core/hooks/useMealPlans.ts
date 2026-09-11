@@ -15,7 +15,7 @@ import type {
   WeeklyPlannedMeal,
 } from '../types'
 
-const LS_KEY = 'calistenia_day_plans'
+const LS_KEY = 'sturdy_day_plans'
 
 /**
  * Cuántos días hacia atrás se traen. Se conserva el de ayer para que un plan
@@ -135,7 +135,7 @@ export function useMealPlans(userId: string | null) {
    * vez de con nada.
    */
   const saveDayPlan = useCallback(async (input: SaveDayPlanInput): Promise<MealDayPlan> => {
-    if (!userId) throw new Error('Sesión requerida')
+    if (!userId) throw new Error('Sign-in required')
 
     const meals: WeeklyPlannedMeal[] = input.meals.map((m, i) => ({
       ...m,

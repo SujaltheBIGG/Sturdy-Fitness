@@ -5,7 +5,7 @@ import type { ReactNode } from 'react'
 // useAuth (core) habla con PocketBase — se mockea entero; aquí solo se prueba
 // que el provider derive el estado/acciones correctamente.
 const mockUseAuth = vi.fn()
-vi.mock('@calistenia/core/hooks/useAuth', () => ({
+vi.mock('@sturdy/core/hooks/useAuth', () => ({
   useAuth: () => mockUseAuth(),
 }))
 

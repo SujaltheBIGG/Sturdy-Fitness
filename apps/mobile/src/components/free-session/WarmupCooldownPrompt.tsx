@@ -3,9 +3,9 @@ import { View, Modal, Pressable } from 'react-native'
 import { Text } from '@/components/ui/text'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { detectDayType } from '@calistenia/core/lib/detect-day-type'
-import { stretchTemplates } from '@calistenia/core/data/stretch-templates'
-import type { Exercise } from '@calistenia/core/types'
+import { detectDayType } from '@sturdy/core/lib/detect-day-type'
+import { stretchTemplates } from '@sturdy/core/data/stretch-templates'
+import type { Exercise } from '@sturdy/core/types'
 
 // ── Sub-components ─────────────────────────────────────────────────────────
 

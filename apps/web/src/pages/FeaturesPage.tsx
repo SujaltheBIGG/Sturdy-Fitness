@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowRight } from 'lucide-react'
-import { op } from '@calistenia/core/lib/analytics'
+import { op } from '@sturdy/core/lib/analytics'
 import { FEATURES } from '../data/features'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import {

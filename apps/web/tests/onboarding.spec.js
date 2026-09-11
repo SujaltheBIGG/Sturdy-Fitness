@@ -65,8 +65,8 @@ test('onboarding completo activa el programa elegido (wizard de 8 pasos)', async
   expect(userId, 'no hay userId tras el signup').toBeTruthy()
   await page.evaluate((uid) => {
     ;['dashboard', 'workout', 'programs'].forEach((p) => {
-      localStorage.setItem(`calistenia_tour_${p}`, 'true')
-      localStorage.setItem(`calistenia_tour_${p}_${uid}`, 'true')
+      localStorage.setItem(`sturdy_tour_${p}`, 'true')
+      localStorage.setItem(`sturdy_tour_${p}_${uid}`, 'true')
     })
   }, userId)
 
@@ -130,12 +130,12 @@ test('onboarding completo activa el programa elegido (wizard de 8 pasos)', async
   await expect(page.locator('header nav')).toBeVisible({ timeout: 15000 })
   // El enlace cae en /workout, donde conviven dos tours (página + detalle)
   // cuyos popovers se tapan entre sí y el helper no puede cerrarlos. Los
-  // tours van por usuario (`calistenia_tour_<page>_<uid>`), así que se marcan
+  // tours van por usuario (`sturdy_tour_<page>_<uid>`), así que se marcan
   // hechos ya con el uid conocido y el resto se comprueba desde el dashboard.
   const { userId: tourUid } = await readAuth(page)
   await page.evaluate((uid) => {
     for (const p of ['dashboard', 'workout', 'workout-detail', 'programs']) {
-      localStorage.setItem(`calistenia_tour_${p}_${uid}`, 'true')
+      localStorage.setItem(`sturdy_tour_${p}_${uid}`, 'true')
     }
   }, tourUid)
   await page.goto('/')
@@ -147,7 +147,7 @@ test('onboarding completo activa el programa elegido (wizard de 8 pasos)', async
 
   // onboarding marcado como completado para este usuario
   const onboardingDone = await page.evaluate(
-    (uid) => localStorage.getItem(`calistenia_onboarding_done_${uid}`),
+    (uid) => localStorage.getItem(`sturdy_onboarding_done_${uid}`),
     userId,
   )
   expect(onboardingDone).toBe('true')
@@ -234,8 +234,8 @@ test('el último paso del onboarding arranca el primer entreno en /session', asy
     const parsed = JSON.parse(localStorage.getItem('pocketbase_auth') || '{}')
     const uid = parsed?.record?.id || parsed?.model?.id || ''
     return {
-      onboardingDone: localStorage.getItem(`calistenia_onboarding_done_${uid}`),
-      pending: localStorage.getItem('calistenia_first_workout_pending'),
+      onboardingDone: localStorage.getItem(`sturdy_onboarding_done_${uid}`),
+      pending: localStorage.getItem('sturdy_first_workout_pending'),
     }
   })
   expect(state.onboardingDone).toBe('true')

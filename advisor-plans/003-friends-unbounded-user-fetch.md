@@ -8,7 +8,7 @@
 > they maintain the index.
 >
 > **Drift check (run first)**: from the repo root
-> `/Users/guillermomarin/Documents/ejercicios/calistenia-app`, run:
+> `/Users/guillermomarin/Documents/ejercicios/sturdy-app`, run:
 > `git diff --stat 943f558..HEAD -- apps/mobile/src/app/friends.tsx`
 > If `apps/mobile/src/app/friends.tsx` changed since this plan was written,
 > compare the "Current state" excerpts below against the live code before
@@ -213,7 +213,7 @@ Verified in
 | Inspect users list rule | `cat pb_migrations/1774000036_update_users_list_rule.js` | shows `listRule = '@request.auth.id != ""'` |
 
 All commands above are run from the repo root
-`/Users/guillermomarin/Documents/ejercicios/calistenia-app` unless they begin
+`/Users/guillermomarin/Documents/ejercicios/sturdy-app` unless they begin
 with `cd apps/mobile`.
 
 > Note on the mobile test runner: `cd apps/mobile && npm run test` runs `vitest run`

@@ -19,7 +19,7 @@ import {
   useSleepInsight,
   MIN_SLEEP_INSIGHT_DAYS,
   type SleepInsightPayload,
-} from '@calistenia/core/hooks/useSleepInsight'
+} from '@sturdy/core/hooks/useSleepInsight'
 
 type Trend = SleepInsightPayload['trend']
 

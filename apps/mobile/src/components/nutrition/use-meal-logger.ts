@@ -10,11 +10,11 @@ import { useTranslation } from 'react-i18next'
 
 import { Sentry } from '@/lib/instrument'
 import { haptics } from '@/lib/haptics'
-import { isMidnightEatenAt } from '@calistenia/core/lib/meal-time'
-import { nowLocalForPB, localHMFromPB } from '@calistenia/core/lib/dateUtils'
-import { calcMacros, createEmptyFood, normalizeToBase100 } from '@calistenia/core/lib/macro-calc'
-import { useFoodHistory } from '@calistenia/core/hooks/useFoodHistory'
-import type { FoodItem, MealType, NutritionEntry, PortionUnit } from '@calistenia/core/types'
+import { isMidnightEatenAt } from '@sturdy/core/lib/meal-time'
+import { nowLocalForPB, localHMFromPB } from '@sturdy/core/lib/dateUtils'
+import { calcMacros, createEmptyFood, normalizeToBase100 } from '@sturdy/core/lib/macro-calc'
+import { useFoodHistory } from '@sturdy/core/hooks/useFoodHistory'
+import type { FoodItem, MealType, NutritionEntry, PortionUnit } from '@sturdy/core/types'
 
 import {
   type AnalysisQuality,

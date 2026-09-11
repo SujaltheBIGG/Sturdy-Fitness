@@ -2,9 +2,9 @@
 import { View, Pressable } from 'react-native'
 import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
-import { REACTION_EMOJIS } from '@calistenia/core/hooks/useReactions'
-import type { EmojiReactions } from '@calistenia/core/hooks/useReactions'
-import { REACTION_EMOJI_COLORS, getEmojiReactionState } from '@calistenia/core/lib/emoji-picker'
+import { REACTION_EMOJIS } from '@sturdy/core/hooks/useReactions'
+import type { EmojiReactions } from '@sturdy/core/hooks/useReactions'
+import { REACTION_EMOJI_COLORS, getEmojiReactionState } from '@sturdy/core/lib/emoji-picker'
 
 interface EmojiPickerProps {
   reactions: EmojiReactions

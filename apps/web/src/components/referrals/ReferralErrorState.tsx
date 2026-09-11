@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { AlertTriangle, RotateCw } from 'lucide-react'
-import type { ReferralDataError } from '@calistenia/core/hooks/useReferrals'
+import type { ReferralDataError } from '@sturdy/core/hooks/useReferrals'
 
 interface ReferralErrorStateProps {
   error: ReferralDataError | Error

@@ -11,8 +11,8 @@ import {
 } from '../ai-elements/conversation'
 import { Message, MessageContent, MessageResponse } from '../ai-elements/message'
 import { Shimmer } from '../ai-elements/shimmer'
-import { pb } from '@calistenia/core/lib/pocketbase'
-import { AI_API_URL } from '@calistenia/core/lib/ai-api'
+import { pb } from '@sturdy/core/lib/pocketbase'
+import { AI_API_URL } from '@sturdy/core/lib/ai-api'
 import { cn } from '../../lib/utils'
 import {
   type AIExercise,

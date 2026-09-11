@@ -3,7 +3,7 @@ import { View } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
-import type { BalanceFamily } from '@calistenia/core/lib/training-stats'
+import type { BalanceFamily } from '@sturdy/core/lib/training-stats'
 
 interface Props {
   balance: Record<BalanceFamily, number>

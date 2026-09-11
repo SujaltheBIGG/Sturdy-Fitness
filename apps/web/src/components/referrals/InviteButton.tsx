@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/button'
 import { cn } from '../../lib/utils'
 import { shareContent, type ShareMethod } from '../../lib/share'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import { WEB_BASE_URL } from '@calistenia/core/lib/app-urls'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import { WEB_BASE_URL } from '@sturdy/core/lib/app-urls'
 
 
 interface InviteButtonProps {

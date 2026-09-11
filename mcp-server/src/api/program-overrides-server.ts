@@ -27,8 +27,8 @@ import {
   applyOverrideToExercise,
   indexOverrides,
   type ProgramOverride,
-} from "@calistenia/core/lib/programOverrides";
-import type { Exercise } from "@calistenia/core/types";
+} from "@sturdy/core/lib/programOverrides";
+import type { Exercise } from "@sturdy/core/types";
 import { localize } from "../lib/i18n.js";
 import type { RecordModel } from "./repos/index.js";
 

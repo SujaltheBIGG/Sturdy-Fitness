@@ -1,4 +1,4 @@
-import { Card, CardContent, Tabs, TabsContent, TabsList, TabsTrigger } from '@calistenia/web'
+import { Card, CardContent, Tabs, TabsContent, TabsList, TabsTrigger } from '@sturdy/web'
 
 export const HoyPlanificar = () => (
   <Tabs defaultValue="hoy" className="w-96">

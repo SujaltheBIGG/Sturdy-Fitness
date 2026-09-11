@@ -29,26 +29,26 @@ const h = vi.hoisted(() => ({
   express: { progress: [] as unknown[], loading: false },
 }))
 
-vi.mock('@calistenia/core/hooks/useChallengeDetail', () => ({
+vi.mock('@sturdy/core/hooks/useChallengeDetail', () => ({
   useChallengeDetail: () => h.detail,
 }))
 
-vi.mock('@calistenia/core/hooks/useChallengeExpress', () => ({
+vi.mock('@sturdy/core/hooks/useChallengeExpress', () => ({
   useExpressProgress: () => h.express,
 }))
 
-vi.mock('@calistenia/core/hooks/useFollows', () => ({
+vi.mock('@sturdy/core/hooks/useFollows', () => ({
   useFollows: () => ({ following: [] }),
 }))
 
-vi.mock('@calistenia/core/lib/analytics', () => ({
+vi.mock('@sturdy/core/lib/analytics', () => ({
   CANONICAL_ANALYTICS_EVENTS: new Proxy({}, { get: (_t, p) => String(p) }),
   trackCanonicalEvent: vi.fn(),
 }))
 
 // Etiquetas de métrica y fechas no son lo que se prueba aquí, y las reales tiran
 // de la instancia de i18next de verdad.
-vi.mock('@calistenia/core/lib/challenges', () => ({
+vi.mock('@sturdy/core/lib/challenges', () => ({
   getMetricUnit: () => 'reps',
   getMetricLabel: () => 'metric-label',
   daysRemaining: () => 'days-left',
@@ -57,11 +57,11 @@ vi.mock('@calistenia/core/lib/challenges', () => ({
   RANK_MEDALS: ['🥇', '🥈', '🥉'],
 }))
 
-vi.mock('@calistenia/core/lib/dateUtils', () => ({
+vi.mock('@sturdy/core/lib/dateUtils', () => ({
   formatDateRange: () => '1 ago – 30 ago',
 }))
 
-vi.mock('@calistenia/core/lib/challenge-presets', () => ({
+vi.mock('@sturdy/core/lib/challenge-presets', () => ({
   resolvePresetChallengeTitle: (c: { title: string }) => c.title,
   resolvePresetChallengeDescription: (c: { description?: string }) => c.description ?? '',
 }))

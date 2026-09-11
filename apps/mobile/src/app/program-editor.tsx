@@ -18,7 +18,7 @@ import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
 import { useAuthUser } from '@/lib/use-auth-user'
 import { useWorkoutActions } from '@/contexts/WorkoutContext'
-import { useProgramEditor, deriveDaysPerWeek, type EditorExercise } from '@calistenia/core/hooks/useProgramEditor'
+import { useProgramEditor, deriveDaysPerWeek, type EditorExercise } from '@sturdy/core/hooks/useProgramEditor'
 
 import { STEP_LABEL_KEYS } from '@/components/program-editor/constants'
 import { StepInfo } from '@/components/program-editor/StepInfo'

@@ -279,7 +279,7 @@ export function useCommunityPrograms(userId: string | null) {
 function emitDerivedEvents(userId: string, programId: string, progress: CommunityProgramProgress): void {
   for (const milestone of progress.milestones) {
     if (!milestone.isComplete) continue
-    emitOnce(`calistenia_community_milestone_${userId}_${programId}_${milestone.milestone.id}`, () => {
+    emitOnce(`sturdy_community_milestone_${userId}_${programId}_${milestone.milestone.id}`, () => {
       trackCanonicalEvent(CANONICAL_ANALYTICS_EVENTS.communityProgramMilestoneCompleted, {
         surface: SURFACE,
         source: 'progress_recompute',
@@ -291,7 +291,7 @@ function emitDerivedEvents(userId: string, programId: string, progress: Communit
   }
 
   if (progress.isComplete) {
-    emitOnce(`calistenia_community_program_done_${userId}_${programId}`, () => {
+    emitOnce(`sturdy_community_program_done_${userId}_${programId}`, () => {
       trackCanonicalEvent(CANONICAL_ANALYTICS_EVENTS.communityProgramCompleted, {
         surface: SURFACE,
         source: 'progress_recompute',

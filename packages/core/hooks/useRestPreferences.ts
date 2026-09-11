@@ -5,7 +5,7 @@ import { pb, isPocketBaseAvailable } from '../lib/pocketbase'
 import { qk } from '../lib/query-keys'
 import { makeOptimisticListHandlers, type OptimisticContext } from '../lib/optimistic'
 
-const LS_KEY = 'calistenia_rest_prefs'
+const LS_KEY = 'sturdy_rest_prefs'
 
 // — Helpers de persistencia local —
 const lsGet = (): Record<string, number> => {

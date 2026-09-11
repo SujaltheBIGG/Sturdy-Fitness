@@ -10,7 +10,7 @@ import {
   DialogDescription,
 } from '../ui/dialog'
 import { Button } from '../ui/button'
-import { REPORT_REASONS, type ReportReason } from '@calistenia/core/hooks/useReports'
+import { REPORT_REASONS, type ReportReason } from '@sturdy/core/hooks/useReports'
 
 interface ReportDialogProps {
   open: boolean

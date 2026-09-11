@@ -131,7 +131,7 @@ Si el workout no tiene ejercicios con `section: 'warmup'` o `'cooldown'`, el flu
 
 ### Persistencia
 
-Se extiende `calistenia_strength_active` en localStorage con `sectionStartTime` para sobrevivir refresh/navegacion. `currentSection` se recalcula al restaurar desde el array de ejercicios y `stepIdx`.
+Se extiende `sturdy_strength_active` en localStorage con `sectionStartTime` para sobrevivir refresh/navegacion. `currentSection` se recalcula al restaurar desde el array de ejercicios y `stepIdx`.
 
 ---
 

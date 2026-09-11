@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import type { ReactNode } from 'react'
-import { getMuscleGroupLabelKey } from '@calistenia/core/lib/muscles'
-import type { MuscleStat } from '@calistenia/core/lib/training-stats'
+import { getMuscleGroupLabelKey } from '@sturdy/core/lib/muscles'
+import type { MuscleStat } from '@sturdy/core/lib/training-stats'
 import { Card, CardContent } from '../../ui/card'
 import { Kicker } from '../../ui/kicker'
 

@@ -64,7 +64,7 @@ export function getVariants(exerciseId: string, limit = 12): VariantEntry[] {
     (DIFF_ORDER[v.difficulty ?? 'intermediate'] ?? 1)
   return familyOf(idx, ex.family)
     .filter(v => v.id !== exerciseId)
-    .sort((a, b) => rank(a) - rank(b) || (a.name.es ?? '').localeCompare(b.name.es ?? ''))
+    .sort((a, b) => rank(a) - rank(b) || (a.name.en ?? a.name.es ?? '').localeCompare(b.name.en ?? b.name.es ?? ''))
     .slice(0, limit)
 }
 
@@ -91,7 +91,7 @@ export function getVariantsByLevel(exerciseId: string, limitPerLevel = 6): Varia
     (v.source === 'exercisedb' ? 100 : 0) +
     ((v.equipment ?? []).some(e => ownEquip.has(e)) ? 0 : 10)
   const sorted = [...family].sort(
-    (a, b) => rank(a) - rank(b) || (a.name.es ?? '').localeCompare(b.name.es ?? ''),
+    (a, b) => rank(a) - rank(b) || (a.name.en ?? a.name.es ?? '').localeCompare(b.name.en ?? b.name.es ?? ''),
   )
   const level = (v: VariantEntry) => DIFF_ORDER[v.difficulty ?? 'intermediate'] ?? 1
   return {
@@ -128,7 +128,7 @@ export function getRelatedExercises(exerciseId: string, limit = 6): VariantEntry
     return shared * 10 + (v.category === ex.category ? 4 : 0) + (sameEquip ? 3 : 0) - diffGap * 2
   }
   return candidates
-    .sort((a, b) => score(b) - score(a) || (a.name.es ?? '').localeCompare(b.name.es ?? ''))
+    .sort((a, b) => score(b) - score(a) || (a.name.en ?? a.name.es ?? '').localeCompare(b.name.en ?? b.name.es ?? ''))
     .slice(0, limit)
 }
 

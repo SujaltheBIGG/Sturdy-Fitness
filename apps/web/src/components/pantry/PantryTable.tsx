@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { X } from 'lucide-react'
-import { daysUntil, groupPantryByCategory } from '@calistenia/core/lib/pantry'
-import { formatMoney, roundQty } from '@calistenia/core/lib/shopping'
-import { todayStr } from '@calistenia/core/lib/dateUtils'
+import { daysUntil, groupPantryByCategory } from '@sturdy/core/lib/pantry'
+import { formatMoney, roundQty } from '@sturdy/core/lib/shopping'
+import { todayStr } from '@sturdy/core/lib/dateUtils'
 import { ConfirmDialog } from '../ui/confirm-dialog'
 import { cn } from '../../lib/utils'
-import type { PantryItem } from '@calistenia/core/types'
+import type { PantryItem } from '@sturdy/core/types'
 
 const CONFIDENCE_DOT: Record<string, string> = {
   high: 'bg-lime-400',

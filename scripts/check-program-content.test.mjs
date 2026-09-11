@@ -11,7 +11,7 @@
  * no declared equipment) so the catalog-cross-checks (#2, #6) exercise their
  * real lookup tables instead of a synthetic stand-in.
  *
- * Run with: pnpm --filter @calistenia/core exec vitest run ../../scripts/check-program-content.test.mjs
+ * Run with: pnpm --filter @sturdy/core exec vitest run ../../scripts/check-program-content.test.mjs
  * Or:       node --experimental-vm-modules packages/core/node_modules/.bin/vitest run scripts/check-program-content.test.mjs
  */
 

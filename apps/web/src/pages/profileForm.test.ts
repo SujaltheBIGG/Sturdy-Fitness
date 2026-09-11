@@ -10,7 +10,7 @@ import { describe, it, expect, vi } from 'vitest'
 // `useProfileForm` importa `pb` en top-level, y eso exige un `initCore()` que en
 // un test unitario no tiene sentido montar. Aquí solo se ejercitan funciones
 // puras, así que basta con que el módulo de PocketBase exista.
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: { collection: () => ({}), filter: () => '' },
 }))
 
@@ -19,7 +19,7 @@ import {
   bodyUserPatch,
   bodyFromUserRecord,
   EMPTY_PROFILE_FORM,
-} from '@calistenia/core/hooks/useProfileForm'
+} from '@sturdy/core/hooks/useProfileForm'
 
 describe('profileFormReducer', () => {
   it('set cambia solo el campo indicado', () => {

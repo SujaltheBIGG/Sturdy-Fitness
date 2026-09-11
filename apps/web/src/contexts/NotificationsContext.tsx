@@ -1,5 +1,5 @@
 import { createContext, use, type ReactNode } from 'react'
-import { useNotifications } from '@calistenia/core/hooks/useNotifications'
+import { useNotifications } from '@sturdy/core/hooks/useNotifications'
 
 type NotificationsContextType = ReturnType<typeof useNotifications>
 

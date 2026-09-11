@@ -4,9 +4,9 @@ import { Button } from '../ui/button'
 import { cn } from '../../lib/utils'
 import { shareImage, canvasToBlob } from '../../lib/share'
 import { renderShareCard, formatDate, type ShareCardVariant } from '../../lib/nutrition-share-card'
-import { trackShareCardShared } from '@calistenia/core/lib/analytics'
-import { buildShareMeals } from '@calistenia/core/lib/share-meals'
-import type { DailyTotals, NutritionGoal, NutritionEntry, QualityScore } from '@calistenia/core/types'
+import { trackShareCardShared } from '@sturdy/core/lib/analytics'
+import { buildShareMeals } from '@sturdy/core/lib/share-meals'
+import type { DailyTotals, NutritionGoal, NutritionEntry, QualityScore } from '@sturdy/core/types'
 
 interface DailySummaryCardProps {
   date: string

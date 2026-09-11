@@ -7,7 +7,7 @@ COPY packages/core/ ./packages/core/
 WORKDIR /app/mcp-server
 RUN npm ci
 
-# `@calistenia/core` entra como `file:../packages/core`: npm lo enlaza con un
+# `@sturdy/core` entra como `file:../packages/core`: npm lo enlaza con un
 # symlink pero NO instala sus dependencias, y Node resuelve por la ruta REAL —
 # un `import 'dayjs'` dentro de packages/core/lib/*.ts busca en
 # packages/core/node_modules, que aquí no existe (lo crea el `pnpm install` de

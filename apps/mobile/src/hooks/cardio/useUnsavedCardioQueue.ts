@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { AppState } from 'react-native'
-import { pb } from '@calistenia/core/lib/pocketbase'
-import { CARDIO_UNSAVED_KEY as UNSAVED_KEY } from '@calistenia/core/lib/storage-keys'
-import { saveCardioRoute, splitRoute } from '@calistenia/core/lib/cardioRoutes'
-import { isCardioSessionTooShort } from '@calistenia/core/lib/cardioMinimum'
+import { pb } from '@sturdy/core/lib/pocketbase'
+import { CARDIO_UNSAVED_KEY as UNSAVED_KEY } from '@sturdy/core/lib/storage-keys'
+import { saveCardioRoute, splitRoute } from '@sturdy/core/lib/cardioRoutes'
+import { isCardioSessionTooShort } from '@sturdy/core/lib/cardioMinimum'
 
 import { syncStorage } from '@/lib/storage'
 import { onOnline } from '@/lib/connectivity'

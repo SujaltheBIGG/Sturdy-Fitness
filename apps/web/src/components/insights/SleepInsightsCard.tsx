@@ -7,7 +7,7 @@ import {
   useSleepInsight,
   MIN_SLEEP_INSIGHT_DAYS,
   type SleepInsightPayload,
-} from '@calistenia/core/hooks/useSleepInsight'
+} from '@sturdy/core/hooks/useSleepInsight'
 
 type Trend = SleepInsightPayload['trend']
 
@@ -261,10 +261,10 @@ export default function SleepInsightsCard({ userId }: SleepInsightsCardProps) {
       ) : (
         <div className="space-y-3">
           <div className="font-bebas text-2xl leading-none text-foreground">
-            {t('sleep.insight.empty', 'Descubre tus patrones de sueño')}
+            {t('sleep.insight.empty', 'Discover your sleep patterns')}
           </div>
           <p className="text-sm text-muted-foreground">
-            {t('sleep.insight.emptyBody', 'Duración, calidad, consistencia y más de tu semana.')}
+            {t('sleep.insight.emptyBody', 'Duration, quality, consistency and more from your week.')}
           </p>
           <GenerateButton
             isGenerating={isGenerating}

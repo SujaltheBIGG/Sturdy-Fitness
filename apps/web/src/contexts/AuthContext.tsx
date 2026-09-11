@@ -1,6 +1,6 @@
 import { createContext, use, useMemo, type ReactNode } from 'react'
-import { useAuth } from '@calistenia/core/hooks/useAuth'
-import type { AuthUser, UserRole, UserTier } from '@calistenia/core/types'
+import { useAuth } from '@sturdy/core/hooks/useAuth'
+import type { AuthUser, UserRole, UserTier } from '@sturdy/core/types'
 
 // ── Context interface ───────────────────────────────────────────────────────
 

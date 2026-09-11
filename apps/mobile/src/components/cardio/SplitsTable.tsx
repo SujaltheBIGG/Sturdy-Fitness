@@ -1,8 +1,8 @@
 /** Tabla de splits por km — port móvil del SplitsTable web. */
 import { View } from 'react-native'
 import { Text } from '@/components/ui/text'
-import { formatPace, formatDuration } from '@calistenia/core/lib/geo'
-import type { KmSplit } from '@calistenia/core/types'
+import { formatPace, formatDuration } from '@sturdy/core/lib/geo'
+import type { KmSplit } from '@sturdy/core/types'
 
 export default function SplitsTable({ splits }: { splits: KmSplit[] }) {
   if (splits.length === 0) return null

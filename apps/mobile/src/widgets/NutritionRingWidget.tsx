@@ -40,7 +40,7 @@ export function NutritionRingWidget({ snapshot, today }: { snapshot: NutritionWi
     return (
       <FlexWidget
         clickAction="OPEN_URI"
-        clickActionData={{ uri: 'calistenia://nutrition' }}
+        clickActionData={{ uri: 'sturdy://nutrition' }}
         style={{
           height: 'match_parent', width: 'match_parent', flexDirection: 'column',
           justifyContent: 'center', alignItems: 'center', backgroundColor: BG,
@@ -63,7 +63,7 @@ export function NutritionRingWidget({ snapshot, today }: { snapshot: NutritionWi
   return (
     <FlexWidget
       clickAction="OPEN_URI"
-      clickActionData={{ uri: 'calistenia://nutrition' }}
+      clickActionData={{ uri: 'sturdy://nutrition' }}
       style={{
         height: 'match_parent', width: 'match_parent', flexDirection: 'column',
         justifyContent: 'center', alignItems: 'center', backgroundColor: BG,

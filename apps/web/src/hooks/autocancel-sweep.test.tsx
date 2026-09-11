@@ -25,7 +25,7 @@ const pbStub = await vi.hoisted(async () => {
   return createPbAutoCancelStub()
 })
 
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: {
     baseUrl: 'http://pb.test',
     filter: (expr: string) => expr,
@@ -35,10 +35,10 @@ vi.mock('@calistenia/core/lib/pocketbase', () => ({
   isPocketBaseAvailable: () => Promise.resolve(true),
 }))
 
-import { useBodyProfile } from '@calistenia/core/hooks/useBodyProfile'
-import { useUserCurrency } from '@calistenia/core/hooks/useUserCurrency'
-import { usePantryItems, usePantryHistory } from '@calistenia/core/hooks/usePantry'
-import { fetchMonthActivity } from '@calistenia/core/lib/monthActivity'
+import { useBodyProfile } from '@sturdy/core/hooks/useBodyProfile'
+import { useUserCurrency } from '@sturdy/core/hooks/useUserCurrency'
+import { usePantryItems, usePantryHistory } from '@sturdy/core/hooks/usePantry'
+import { fetchMonthActivity } from '@sturdy/core/lib/monthActivity'
 
 function makeWrapper() {
   const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } })

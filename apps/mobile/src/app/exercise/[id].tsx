@@ -9,10 +9,10 @@ import { Text } from '@/components/ui/text'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { getCatalogExercise } from '@/lib/catalog'
-import { localize, type TranslatableField } from '@calistenia/core/lib/i18n-db'
-import { getExerciseEquipment, getEquipmentLabelKey } from '@calistenia/core/lib/equipment'
-import { getVariantsByLevel, getRelatedExercises, type VariantEntry } from '@calistenia/core/lib/variants'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+import { localize, type TranslatableField } from '@sturdy/core/lib/i18n-db'
+import { getExerciseEquipment, getEquipmentLabelKey } from '@sturdy/core/lib/equipment'
+import { getVariantsByLevel, getRelatedExercises, type VariantEntry } from '@sturdy/core/lib/variants'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 
 export default function ExerciseDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>()

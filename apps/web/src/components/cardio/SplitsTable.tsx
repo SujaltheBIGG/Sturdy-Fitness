@@ -1,5 +1,5 @@
-import { formatPace, formatDuration } from '@calistenia/core/lib/geo'
-import type { KmSplit } from '@calistenia/core/types'
+import { formatPace, formatDuration } from '@sturdy/core/lib/geo'
+import type { KmSplit } from '@sturdy/core/types'
 
 interface SplitsTableProps {
   splits: KmSplit[]
@@ -40,7 +40,7 @@ export default function SplitsTable({ splits }: SplitsTableProps) {
                 <td className="px-3 sm:px-4 py-2">
                   <span className="font-bebas text-base tabular-nums">{split.km}</span>
                   {isFastest && <span className="ml-1.5 text-[9px] text-lime">MEJOR</span>}
-                  {isSlowest && <span className="ml-1.5 text-[9px] text-red-500">MÁS LENTO</span>}
+                  {isSlowest && <span className="ml-1.5 text-[9px] text-red-500">SLOWEST</span>}
                 </td>
                 <td className="px-3 sm:px-4 py-2 text-right font-bebas text-base tabular-nums">
                   {formatDuration(split.time_seconds)}

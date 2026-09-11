@@ -13,20 +13,20 @@ import {
   type ReactNode, type MutableRefObject,
 } from 'react'
 import i18n from 'i18next'
-import { lifecycle } from '@calistenia/core/platform'
+import { lifecycle } from '@sturdy/core/platform'
 import { useQueryClient } from '@tanstack/react-query'
-import { pb } from '@calistenia/core/lib/pocketbase'
-import { qk } from '@calistenia/core/lib/query-keys'
+import { pb } from '@sturdy/core/lib/pocketbase'
+import { qk } from '@sturdy/core/lib/query-keys'
 import {
   calculateElevationGain,
   calculateSplitsAndDistance, calculateMaxPace, calculateMaxSpeed, calculateAvgSpeed,
-} from '@calistenia/core/lib/geo'
-import { estimateCalories } from '@calistenia/core/lib/calories'
-import { splitRoute, saveCardioRoute, hydrateCardioRoutes } from '@calistenia/core/lib/cardioRoutes'
-import { isCardioSessionTooShort } from '@calistenia/core/lib/cardioMinimum'
-import { retryTransient } from '@calistenia/core/lib/pocketbase-errors'
-import { CARDIO_HISTORY_PAGE_SIZE } from '@calistenia/core/lib/cardio-history'
-import type { GpsPoint, CardioActivityType, CardioSession } from '@calistenia/core/types'
+} from '@sturdy/core/lib/geo'
+import { estimateCalories } from '@sturdy/core/lib/calories'
+import { splitRoute, saveCardioRoute, hydrateCardioRoutes } from '@sturdy/core/lib/cardioRoutes'
+import { isCardioSessionTooShort } from '@sturdy/core/lib/cardioMinimum'
+import { retryTransient } from '@sturdy/core/lib/pocketbase-errors'
+import { CARDIO_HISTORY_PAGE_SIZE } from '@sturdy/core/lib/cardio-history'
+import type { GpsPoint, CardioActivityType, CardioSession } from '@sturdy/core/types'
 
 import { haptics } from '@/lib/haptics'
 import {
@@ -403,7 +403,7 @@ export function CardioSessionProvider({ userId, userWeight, children }: Props) {
     // caller, que distingue y reporta (#559). Antes cualquier abort/fallo
     // devolvia [] y se pintaba el estado vacio aunque hubiera datos.
     // Reintento ante 5xx/sin-respuesta: un solo 504 del gateway pintaba el
-    // historial vacío (CALISTENIA-APP-S). Los 4xx no se reintentan.
+    // historial vacío (STURDY-APP-S). Los 4xx no se reintentan.
     // El filtro por actividad va al servidor, no al array ya cargado: con la
     // lista paginada, filtrar en cliente diría «no hay ciclismo» cuando lo que
     // falta es pedir la siguiente página.

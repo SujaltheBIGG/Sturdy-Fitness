@@ -3,7 +3,7 @@ import { WEB_BASE_URL } from './app-urls'
 
 describe('WEB_BASE_URL', () => {
   it('es el origen de producción', () => {
-    expect(WEB_BASE_URL).toBe('https://gym.guille.tech')
+    expect(WEB_BASE_URL).toBe('https://sturdy.app')
   })
 
   it('no termina en barra: todos los builders le concatenan "/algo"', () => {

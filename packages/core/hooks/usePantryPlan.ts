@@ -55,8 +55,8 @@ export function usePantryPlan(userId: string | null) {
         intervalMs: POLL_INTERVAL_MS,
         maxMs: MAX_POLL_MS,
         isAlive: () => alive.current,
-        failedMessage: 'La generación del plan falló',
-        timeoutMessage: 'Tiempo de espera agotado generando el plan',
+        failedMessage: 'Plan generation failed',
+        timeoutMessage: 'Timed out generating the plan',
       })
       // null = el componente se desmontó a mitad; nadie espera el resultado.
       if (!job) return

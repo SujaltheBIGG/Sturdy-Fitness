@@ -38,12 +38,12 @@ react-native-reusables **es el port de shadcn/ui a RN** (NativeWind + cva + tail
 Un repo git separado obliga a: duplicar hooks/types/lib (rompe DRY) o publicar un paquete npm privado y sincronizar versiones a mano (fricción alta para un solo dev). La solución que da "proyecto separado" sin duplicación:
 
 ```
-calistenia-app/  (mismo repo git, pnpm workspaces)
+sturdy-app/  (mismo repo git, pnpm workspaces)
 ├── apps/
 │   ├── web/        ← la app Vite actual, movida
 │   └── mobile/     ← nueva app Expo (proyecto independiente: su propio package.json, CI, builds EAS)
 ├── packages/
-│   └── core/       ← @calistenia/core: types, hooks, lib puro, data, locales, adaptadores
+│   └── core/       ← @sturdy/core: types, hooks, lib puro, data, locales, adaptadores
 ├── pocketbase/ scripts/ docs/  (sin cambios)
 ```
 
@@ -78,7 +78,7 @@ Web inyecta localStorage/`import.meta.env`/@openpanel-web; mobile inyecta MMKV/`
 2. NativeWind v4 + react-native-reusables init; copiar theme (CSS vars light/dark) y registrar colores custom (`lime`, etc.).
 3. i18next + expo-localization reutilizando `core/locales`.
 4. Cliente PocketBase con `AsyncAuthStore` sobre MMKV.
-5. Auth: email/password + Google OAuth (expo-web-browser, deep link `calistenia://`; verificar redirect permitido en PB).
+5. Auth: email/password + Google OAuth (expo-web-browser, deep link `sturdy://`; verificar redirect permitido en PB).
 
 ### Fase 2 — MVP de ejercicios (alcance Parte 1)
 1. **Hoy/Dashboard**: workout del día (`usePrograms` + `useWorkDay` desde core).

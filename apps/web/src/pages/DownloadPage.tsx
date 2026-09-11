@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { Download, Smartphone, ShieldCheck, Loader2, AlertCircle } from 'lucide-react'
 import { Button } from '../components/ui/button'
 
-const GITHUB_REPO = 'guillermoscript/calistenia-app'
+const GITHUB_REPO = 'SujaltheBIGG/Sturdy-Fitness'
 const RELEASES_PAGE = `https://github.com/${GITHUB_REPO}/releases`
 
 interface ApkRelease {
@@ -18,7 +18,7 @@ interface ApkRelease {
 
 function formatDate(iso: string): string {
   try {
-    return new Date(iso).toLocaleDateString('es', { year: 'numeric', month: 'long', day: 'numeric' })
+    return new Date(iso).toLocaleDateString('en', { year: 'numeric', month: 'long', day: 'numeric' })
   } catch {
     return iso
   }
@@ -81,15 +81,15 @@ export default function DownloadPage() {
           onClick={() => navigate('/')}
           className="mb-8 text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
-          &larr; Volver
+          &larr; Back
         </button>
 
         <div className="flex flex-col items-center text-center">
-          <img src="/logo.png" alt="" className="w-20 h-20 rounded-2xl mb-6" />
-          <h1 className="text-3xl font-bold mb-2">Descarga Calistenia para Android</h1>
+          <img src="/logo.png" alt="" className="w-24 h-24 rounded-full object-cover mb-6" />
+          <h1 className="text-3xl font-bold mb-2">Download Sturdy for Android</h1>
           <p className="text-muted-foreground max-w-md">
-            Instala la app directamente en tu teléfono. Entrenamientos, nutrición y
-            seguimiento de progreso, también sin conexión.
+            Install the app directly on your phone. Workouts, nutrition, and progress
+            tracking, even offline.
           </p>
         </div>
 
@@ -97,7 +97,7 @@ export default function DownloadPage() {
           {status === 'loading' && (
             <div className="flex items-center justify-center gap-3 py-8 text-muted-foreground">
               <Loader2 className="w-5 h-5 animate-spin" />
-              <span>Buscando la última versión…</span>
+              <span>Looking for the latest version...</span>
             </div>
           )}
 
@@ -105,11 +105,11 @@ export default function DownloadPage() {
             <div className="flex flex-col items-center gap-4 py-6 text-center">
               <AlertCircle className="w-8 h-8 text-muted-foreground" />
               <p className="text-muted-foreground">
-                No pudimos cargar la última versión automáticamente.
+                We could not load the latest version automatically.
               </p>
               <Button asChild variant="outline">
                 <a href={RELEASES_PAGE} target="_blank" rel="noreferrer">
-                  Ver todas las versiones en GitHub
+                  View all releases on GitHub
                 </a>
               </Button>
             </div>
@@ -120,21 +120,21 @@ export default function DownloadPage() {
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Smartphone className="w-4 h-4" />
                 <span>
-                  Versión {release.version} · {release.sizeMb} MB · {formatDate(release.publishedAt)}
+                  Version {release.version} · {release.sizeMb} MB · {formatDate(release.publishedAt)}
                 </span>
               </div>
 
               <Button asChild size="lg" className="w-full sm:w-auto">
                 <a href={release.downloadUrl}>
                   <Download className="w-5 h-5" />
-                  Descargar APK
+                  Download APK
                 </a>
               </Button>
 
               {release.notes && (
                 <details className="w-full text-left mt-2">
                   <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Novedades de esta versión
+                    What's new in this version
                   </summary>
                   <pre className="mt-3 whitespace-pre-wrap break-words rounded-lg bg-muted/50 p-4 text-sm text-muted-foreground">
                     {release.notes}
@@ -149,26 +149,26 @@ export default function DownloadPage() {
         <div className="mt-10">
           <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-muted-foreground" />
-            Cómo instalar
+            How to install
           </h2>
           <ol className="space-y-3 text-sm text-muted-foreground">
             <li className="flex gap-3">
               <span className="font-bold text-foreground">1.</span>
-              Descarga el archivo APK con el botón de arriba.
+              Download the APK with the button above.
             </li>
             <li className="flex gap-3">
               <span className="font-bold text-foreground">2.</span>
-              Abre el archivo descargado. Android te pedirá permitir la instalación
-              desde esta fuente — activa <strong className="text-foreground">"Permitir de esta fuente"</strong>.
+              Open the downloaded file. Android will ask you to allow installation
+              from this source. Enable <strong className="text-foreground">"Allow from this source"</strong>.
             </li>
             <li className="flex gap-3">
               <span className="font-bold text-foreground">3.</span>
-              Toca <strong className="text-foreground">Instalar</strong> y abre la app. ¡Listo!
+              Tap <strong className="text-foreground">Install</strong> and open the app. Done!
             </li>
           </ol>
           <p className="mt-6 text-xs text-muted-foreground">
-            La app no está en Google Play todavía, por eso se instala como APK. Es
-            seguro: el archivo se publica desde nuestro repositorio oficial en GitHub.
+            The app is not on Google Play yet, so it is installed as an APK. The file
+            is published from our official GitHub repository.
           </p>
         </div>
       </div>

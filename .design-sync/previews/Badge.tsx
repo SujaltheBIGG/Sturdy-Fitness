@@ -1,4 +1,4 @@
-import { Badge } from '@calistenia/web'
+import { Badge } from '@sturdy/web'
 
 export const Variantes = () => (
   <div className="flex flex-wrap items-center gap-2">

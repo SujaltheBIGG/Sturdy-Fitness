@@ -19,7 +19,7 @@ import { haptics } from '@/lib/haptics'
 import { COLORS } from '@/lib/theme'
 import { useAuthUser } from '@/lib/use-auth-user'
 import { useStartFirstWorkout } from '@/lib/start-first-workout'
-import { estimateFirstWorkoutMinutes, normalizeFirstWorkoutLevel } from '@calistenia/core/lib/first-workout'
+import { estimateFirstWorkoutMinutes, normalizeFirstWorkoutLevel } from '@sturdy/core/lib/first-workout'
 
 export default function FirstWorkoutCard() {
   const { t } = useTranslation()

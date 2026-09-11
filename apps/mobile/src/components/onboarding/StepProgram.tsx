@@ -6,8 +6,8 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
-import type { ProgramMeta } from '@calistenia/core/types'
-import { matchUserToPrograms, type MatchUserInput, type MatchPenalty } from '@calistenia/core/lib/matchPrograms'
+import type { ProgramMeta } from '@sturdy/core/types'
+import { matchUserToPrograms, type MatchUserInput, type MatchPenalty } from '@sturdy/core/lib/matchPrograms'
 
 const DIFFICULTY_COLOR: Record<string, string> = {
   beginner: 'text-emerald-400',

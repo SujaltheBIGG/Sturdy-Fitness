@@ -1,12 +1,12 @@
 <div align="center">
 
-# 🏋️ Calistenia
+# 🏋️ Sturdy
 
 ### Your AI calisthenics & fitness coach — workouts, nutrition, and progress in one app.
 
 Train with a structured calisthenics program, log every set, track your nutrition, run cardio with live GPS, and let an AI coach adapt the plan to you. Free, open source, and self-hostable.
 
-**[📱 Download the Android app](https://gym.guille.tech/download)** &nbsp;·&nbsp; **[🌐 Try the web app](https://gym.guille.tech)** &nbsp;·&nbsp; **[⭐ Star this repo](https://github.com/guillermoscript/calistenia-app)**
+**[📱 Download the Android app](https://sturdy.app/download)** &nbsp;·&nbsp; **[🌐 Try the web app](https://sturdy.app)** &nbsp;·&nbsp; **[⭐ Star this repo](https://github.com/CLIENT-ORG/sturdy-app)**
 
 ![React Native](https://img.shields.io/badge/React_Native-Expo-000?logo=expo)
 ![React](https://img.shields.io/badge/Web-React_+_Vite-61DAFB?logo=react&logoColor=000)
@@ -17,9 +17,9 @@ Train with a structured calisthenics program, log every set, track your nutritio
 
 ---
 
-## Why Calistenia?
+## Why Sturdy?
 
-Most fitness apps are paywalled, bloated, or cloud-locked. Calistenia is the opposite:
+Most fitness apps are paywalled, bloated, or cloud-locked. Sturdy is the opposite:
 
 - **🤖 AI coach built in** — get a personalized plan, ask questions, and let the app adjust your training and nutrition.
 - **🏃 One app for everything** — strength, calisthenics skills, cardio with GPS, nutrition, and habits, instead of five separate apps.
@@ -27,7 +27,7 @@ Most fitness apps are paywalled, bloated, or cloud-locked. Calistenia is the opp
 - **🔓 Free & open source (MIT)** — no subscription, no ads. Self-host it on a cheap VPS and own your data.
 - **📲 Real native app + web PWA** — install the Android APK or use it in any browser.
 
-> **Get it now:** [gym.guille.tech/download](https://gym.guille.tech/download) (Android) or [gym.guille.tech](https://gym.guille.tech) (web).
+> **Get it now:** [sturdy.app/download](https://sturdy.app/download) (Android) or [sturdy.app](https://sturdy.app) (web).
 
 ## Features
 
@@ -68,7 +68,7 @@ A pnpm monorepo with shared business logic across native and web.
 ## Repo layout
 
 ```
-calistenia-app/
+sturdy-app/
 ├── apps/
 │   ├── mobile/      # Expo React Native app (Android APK + iOS)
 │   └── web/         # React + Vite PWA
@@ -92,7 +92,7 @@ pnpm pb:serve
 # Admin UI: http://127.0.0.1:8090/_/  (create admin on first run)
 
 # 3a. Run the web app
-pnpm --filter @calistenia/web dev      # http://localhost:5173
+pnpm --filter @sturdy/web dev      # http://localhost:5173
 
 # 3b. Run the mobile app
 cd apps/mobile && pnpm start           # Expo dev server
@@ -120,7 +120,7 @@ docker compose up --build      # http://localhost:8090
 
 ## Contributing
 
-Issues and PRs welcome. If Calistenia helps you train, a ⭐ on the repo goes a long way and helps others discover it.
+Issues and PRs welcome. If Sturdy helps you train, a ⭐ on the repo goes a long way and helps others discover it.
 
 ## License
 

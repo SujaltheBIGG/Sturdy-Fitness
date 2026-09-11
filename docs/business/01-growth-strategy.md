@@ -73,8 +73,8 @@ Your referral system is your secret weapon for the LATAM market. WhatsApp is how
 ### Channel #3: Facebook/Reddit Groups
 
 **Where your people already are:**
-- Facebook: "Calistenia y Street Workout" groups (many with 50K-200K members)
-- Facebook: Country-specific groups ("Calistenia Mexico", "Calistenia Argentina")
+- Facebook: "Sturdy y Street Workout" groups (many with 50K-200K members)
+- Facebook: Country-specific groups ("Sturdy Mexico", "Sturdy Argentina")
 - Reddit: r/bodyweightfitness — now a **primary** target since the app supports English natively
 - Reddit: r/calisthenics, r/overcominggravity (English communities you can reach directly)
 - Telegram: Calisthenics channels

@@ -48,7 +48,7 @@ test("app-config devuelve lo que se ponga en la colección", async () => {
     min_supported_build: 28,
     latest_build: 31,
     latest_version: "1.10.0",
-    store_url: "https://play.google.com/store/apps/details?id=tech.guille.calistenia",
+    store_url: "https://play.google.com/store/apps/details?id=app.sturdy.mobile",
     message_key: "update.reasonSecurity",
     flags: { battles: false },
   })

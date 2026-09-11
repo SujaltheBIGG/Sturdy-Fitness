@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next'
 import { X } from 'lucide-react'
 import { Button } from './ui/button'
 import { shareContent } from '../lib/share'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import { WEB_BASE_URL } from '@calistenia/core/lib/app-urls'
-import { pickActiveMilestone } from '@calistenia/core/lib/streak-milestones'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import { WEB_BASE_URL } from '@sturdy/core/lib/app-urls'
+import { pickActiveMilestone } from '@sturdy/core/lib/streak-milestones'
 
-const MILESTONE_KEY_PREFIX = 'calistenia_streak_milestone'
+const MILESTONE_KEY_PREFIX = 'sturdy_streak_milestone'
 
 function milestoneKey(days: number, userId: string): string {
   return `${MILESTONE_KEY_PREFIX}_${days}_${userId}`

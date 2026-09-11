@@ -1,7 +1,7 @@
 /**
  * insight-context-server.ts — server-side (cron-triggered) entry point for
  * the weekly cross-metric insight (issue #127), on top of the SHARED
- * `@calistenia/core/lib/insightContext` implementation (#480).
+ * `@sturdy/core/lib/insightContext` implementation (#480).
  *
  * This file used to be a 700-line "faithful port" of the client's
  * buildInsightContext + monthActivity math, re-declaring the InsightContext
@@ -23,10 +23,10 @@ import {
   emptyInsightActivity,
   type InsightActivity,
   type InsightContext,
-} from "@calistenia/core/lib/insightContext";
-import { addDaysIn, localMidnightAsUTCIn, utcToLocalDateStrIn } from "@calistenia/core/lib/tzDate";
+} from "@sturdy/core/lib/insightContext";
+import { addDaysIn, localMidnightAsUTCIn, utcToLocalDateStrIn } from "@sturdy/core/lib/tzDate";
 
-export type { InsightContext, InsightDayRow, InsightSummary } from "@calistenia/core/lib/insightContext";
+export type { InsightContext, InsightDayRow, InsightSummary } from "@sturdy/core/lib/insightContext";
 
 // PB `date` fields (sleep_entries/weight_entries/body_measurements) serialize
 // as "YYYY-MM-DD 00:00:00.000Z" — take the local-date prefix, same as

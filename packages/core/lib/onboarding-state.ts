@@ -1,6 +1,6 @@
 import { storage } from '../platform'
 
-const key = (userId: string) => `calistenia_onboarding_done_${userId}`
+const key = (userId: string) => `sturdy_onboarding_done_${userId}`
 
 export function isOnboardingDone(userId: string): boolean {
   return storage.getItem(key(userId)) === 'true'

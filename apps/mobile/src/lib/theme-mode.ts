@@ -11,7 +11,7 @@ import { syncStorage } from '@/lib/storage'
 
 export type ThemeMode = 'system' | 'light' | 'dark'
 
-const KEY = 'calistenia_theme_mode'
+const KEY = 'sturdy_theme_mode'
 
 export function getThemeMode(): ThemeMode {
   const v = syncStorage.getItem(KEY)

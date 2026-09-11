@@ -7,15 +7,15 @@
 // `SessionView` sigue siendo dueño de su estado local y empujándolo aquí; esta
 // refactor no invierte ese flujo.
 import { createContext, use, useCallback, useEffect, type ReactNode } from 'react'
-import { FREE_SESSION_QUEUE_KEY as FREE_QUEUE_KEY } from '@calistenia/core/lib/storage-keys'
+import { FREE_SESSION_QUEUE_KEY as FREE_QUEUE_KEY } from '@sturdy/core/lib/storage-keys'
 import {
   useActiveSessionState,
   type ActiveSessionContextValue,
   type SessionProgress,
-} from '@calistenia/core/hooks/session-contexts/useActiveSessionState'
+} from '@sturdy/core/hooks/session-contexts/useActiveSessionState'
 
-export { getCurrentSection } from '@calistenia/core/hooks/session-contexts/useActiveSessionState'
-export type { WarmupCooldownData } from '@calistenia/core/hooks/session-contexts/useActiveSessionState'
+export { getCurrentSection } from '@sturdy/core/hooks/session-contexts/useActiveSessionState'
+export type { WarmupCooldownData } from '@sturdy/core/hooks/session-contexts/useActiveSessionState'
 
 // Dos contextos a propósito: el *store* (identidad de la sesión y acciones) es
 // estable durante todo el entreno, mientras que el progreso cambia en cada

@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next'
 import { Text } from '@/components/ui/text'
 import { EmptyState } from '@/components/ui/empty-state'
 import { useAuthUser } from '@/lib/use-auth-user'
-import { useBlocks } from '@calistenia/core/hooks/useBlocks'
+import { useBlocks } from '@sturdy/core/hooks/useBlocks'
 
 export default function BlockedUsersScreen() {
   const { t } = useTranslation()

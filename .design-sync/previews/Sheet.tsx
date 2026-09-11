@@ -1,7 +1,7 @@
 import {
   Badge, Button, ButtonGroup, ButtonGroupItem, Label,
   Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle,
-} from '@calistenia/web'
+} from '@sturdy/web'
 
 // Se renderiza abierto a propósito: el estado cerrado no muestra nada.
 // `side="bottom"` es el patrón de overlay preferido en móvil.

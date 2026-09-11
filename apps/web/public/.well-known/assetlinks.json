@@ -3,7 +3,7 @@
     "relation": ["delegate_permission/handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "tech.guille.calistenia",
+      "package_name": "app.sturdy.mobile",
       "sha256_cert_fingerprints": ["TODO_ANDROID_CERT_SHA256"]
     }
   }

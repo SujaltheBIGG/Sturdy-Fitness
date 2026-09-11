@@ -11,7 +11,7 @@ import { haptics } from '@/lib/haptics'
 import {
   FOCUS_AREA_IDS, DAY_IDS,
   type DayId, type FocusAreaId, type Intensity, type TrainingValues,
-} from '@calistenia/core/types/onboarding'
+} from '@sturdy/core/types/onboarding'
 
 export { FOCUS_AREA_IDS, DAY_IDS }
 export type { DayId, FocusAreaId, Intensity, TrainingValues }

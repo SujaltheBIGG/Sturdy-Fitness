@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { QualityScoreBadge } from './QualityScoreBadge'
-import { BADGE_DEFINITIONS } from '@calistenia/core/lib/badge-definitions'
-import { MEAL_TYPE_COLORS, SCORE_BAR_COLORS, BADGE_COLORS } from '@calistenia/core/lib/style-tokens'
+import { BADGE_DEFINITIONS } from '@sturdy/core/lib/badge-definitions'
+import { MEAL_TYPE_COLORS, SCORE_BAR_COLORS, BADGE_COLORS } from '@sturdy/core/lib/style-tokens'
 import { cn } from '../../lib/utils'
-import type { NutritionEntry, NutritionCoachInsight, NutritionBadge, QualityScore } from '@calistenia/core/types'
+import type { NutritionEntry, NutritionCoachInsight, NutritionBadge, QualityScore } from '@sturdy/core/types'
 
 const SCORE_HEIGHT: Record<QualityScore, string> = {
   A: 'h-10',

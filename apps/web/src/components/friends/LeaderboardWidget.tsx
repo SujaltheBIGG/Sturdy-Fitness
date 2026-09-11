@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { cn } from '../../lib/utils'
-import type { LeaderboardEntry } from '@calistenia/core/hooks/useLeaderboard'
-import { RANK_MEDALS } from '@calistenia/core/lib/challenges'
+import type { LeaderboardEntry } from '@sturdy/core/hooks/useLeaderboard'
+import { RANK_MEDALS } from '@sturdy/core/lib/challenges'
 
 interface LeaderboardWidgetProps {
   entries: LeaderboardEntry[]

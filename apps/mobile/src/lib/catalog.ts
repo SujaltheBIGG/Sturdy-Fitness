@@ -8,10 +8,10 @@
  * que ahorrar cargándolo tarde, y las APIs síncronas de core (`resolveExerciseId`,
  * `getCatalogEntry`, `getCatalogStaticMedia`) responden desde el arranque.
  */
-import catalogData from '@calistenia/core/data/exercise-catalog.json'
-import { primeCatalogIndex, type RawCatalog } from '@calistenia/core/lib/catalogIndex'
-import type { TranslatableField } from '@calistenia/core/lib/i18n-db'
-import type { Priority, DifficultyLevel } from '@calistenia/core/types'
+import catalogData from '@sturdy/core/data/exercise-catalog.json'
+import { primeCatalogIndex, type RawCatalog } from '@sturdy/core/lib/catalogIndex'
+import type { TranslatableField } from '@sturdy/core/lib/i18n-db'
+import type { Priority, DifficultyLevel } from '@sturdy/core/types'
 
 export interface CatalogExercise {
   id: string

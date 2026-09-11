@@ -22,8 +22,8 @@ export default function NoteScreen({ workoutTitle, totalSetsLogged, durationMin,
       </div>
 
       <div className="w-full max-w-[420px] bg-card border border-border rounded-xl px-6 py-5">
-        <div className="text-[10px] text-lime tracking-[2px] mb-2.5 uppercase font-mono">Nota de sesión</div>
-        <div className="text-[13px] text-muted-foreground mb-3">¿Cómo fue? ¿Algo que destacar?</div>
+        <div className="text-[10px] text-lime tracking-[2px] mb-2.5 uppercase font-mono">Session note</div>
+        <div className="text-[13px] text-muted-foreground mb-3">How did it go? Anything worth noting?</div>
         <Textarea
           value={note}
           onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setNote(e.target.value)}

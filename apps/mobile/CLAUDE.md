@@ -18,7 +18,7 @@ App Expo del monorepo (pnpm workspaces). Stack:
   salvo en archivos que ya lo usen.
 - **TanStack Query v5** — caché/estado de servidor.
 - **PocketBase** — backend (SDK `pb`, singleton en core).
-- **`@calistenia/core`** (`workspace:*`) — lógica de negocio compartida entre
+- **`@sturdy/core`** (`workspace:*`) — lógica de negocio compartida entre
   web y mobile: types, hooks, lib, data, locales. **Sin dependencias de DOM ni
   React Native**; lo específico de plataforma se inyecta vía `initCore()`.
   **Regla**: si añades lógica reutilizable (cálculos, hooks de datos, helpers),

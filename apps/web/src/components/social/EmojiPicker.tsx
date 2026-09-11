@@ -1,6 +1,6 @@
 import { cn } from '../../lib/utils'
-import { REACTION_EMOJIS } from '@calistenia/core/hooks/useReactions'
-import { REACTION_EMOJI_COLORS, getEmojiReactionState } from '@calistenia/core/lib/emoji-picker'
+import { REACTION_EMOJIS } from '@sturdy/core/hooks/useReactions'
+import { REACTION_EMOJI_COLORS, getEmojiReactionState } from '@sturdy/core/lib/emoji-picker'
 
 interface EmojiPickerProps {
   reactions: Record<string, { count: number; hasReacted: boolean }>

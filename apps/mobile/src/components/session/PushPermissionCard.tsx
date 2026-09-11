@@ -17,7 +17,7 @@ import { Text } from '@/components/ui/text'
 import { Button } from '@/components/ui/button'
 import { haptics } from '@/lib/haptics'
 import { COLORS } from '@/lib/theme'
-import { pb } from '@calistenia/core/lib/pocketbase'
+import { pb } from '@sturdy/core/lib/pocketbase'
 import { getPushPermissionState, registerPushTokenAsync } from '@/lib/push-registration'
 import {
   shouldShowPushPrompt,
@@ -26,7 +26,7 @@ import {
   trackPushPromptAnswered,
   type PushPermissionState,
   type PushPromptResult,
-} from '@calistenia/core/lib/push-prompt'
+} from '@sturdy/core/lib/push-prompt'
 
 interface PushPermissionCardProps {
   userId: string | null | undefined

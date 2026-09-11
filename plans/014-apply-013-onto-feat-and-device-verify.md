@@ -80,8 +80,8 @@ index eba25ece1cf3fe3170cd55134df6b70c7aabd70e..d12b4b0d10e17188a6450a7906374488
 | Confirm branch | `git rev-parse --abbrev-ref HEAD` | `feat/mobile-data-perf` |
 | Apply patch | `pnpm install` | exit 0; "Done" |
 | Confirm patch landed | `grep -n "props omitted: serialization threw" apps/mobile/node_modules/react-native-css-interop/dist/runtime/native/render-component.js` | one match |
-| Mobile typecheck | `pnpm --filter @calistenia/mobile typecheck` | exit 0 |
-| Start app (device) | `pnpm --filter @calistenia/mobile start` (or `expo run:android`) | dev server / build |
+| Mobile typecheck | `pnpm --filter @sturdy/mobile typecheck` | exit 0 |
+| Start app (device) | `pnpm --filter @sturdy/mobile start` (or `expo run:android`) | dev server / build |
 
 All commands run from repo root.
 
@@ -132,12 +132,12 @@ Run `pnpm install`.
 - `grep -n "props omitted: serialization threw" apps/mobile/node_modules/react-native-css-interop/dist/runtime/native/render-component.js` → one match. If empty → the patch did not apply → see the fuzzy-apply note in "Current state", retry once, else STOP.
 
 ### Step 4: Static gate
-Run `pnpm --filter @calistenia/mobile typecheck`.
+Run `pnpm --filter @sturdy/mobile typecheck`.
 
 **Verify**: exit 0, no errors.
 
 ### Step 5: Device reproduction (the point of this plan)
-1. Start the app: `pnpm --filter @calistenia/mobile start` then launch on a device/emulator (or `expo run:android`). This must be a **dev** build — the crash only exists when `NODE_ENV !== "production"`.
+1. Start the app: `pnpm --filter @sturdy/mobile start` then launch on a device/emulator (or `expo run:android`). This must be a **dev** build — the crash only exists when `NODE_ENV !== "production"`.
 2. Go to the **Nutrition** tab → tap the lime **+** FAB to open the meal logger.
 3. Tap each meal-type chip in succession: **Desayuno**, **Snack**, **Almuerzo**, **Cena**.
 
@@ -158,7 +158,7 @@ ALL must hold:
 - [ ] `patches/react-native-css-interop@0.2.5.patch` exists with the try/catch change
 - [ ] `pnpm-workspace.yaml` has `patchedDependencies["react-native-css-interop@0.2.5"]`
 - [ ] `grep -n "props omitted: serialization threw" apps/mobile/node_modules/react-native-css-interop/dist/runtime/native/render-component.js` → one match
-- [ ] `pnpm --filter @calistenia/mobile typecheck` exits 0
+- [ ] `pnpm --filter @sturdy/mobile typecheck` exits 0
 - [ ] Step 5 device reproduction shows **no crash** when tapping meal-type chips
 - [ ] The commit on `feat/mobile-data-perf` changes only the three in-scope files
 - [ ] `plans/README.md` status row for 014 updated (and 013's "runtime OWED" note cleared)

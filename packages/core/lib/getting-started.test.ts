@@ -80,8 +80,8 @@ describe('deriveChecklist', () => {
 
 describe('claves de storage', () => {
   it('son por usuario y distintas entre sí', () => {
-    expect(checklistDismissedKey('u1')).toBe('calistenia_mobile_checklist_dismissed_u1')
-    expect(checklistCompletedKey('u1')).toBe('calistenia_mobile_checklist_completed_u1')
+    expect(checklistDismissedKey('u1')).toBe('sturdy_mobile_checklist_dismissed_u1')
+    expect(checklistCompletedKey('u1')).toBe('sturdy_mobile_checklist_completed_u1')
     expect(checklistDismissedKey('u1')).not.toBe(checklistCompletedKey('u1'))
   })
 })

@@ -1,7 +1,7 @@
 /**
  * Vista previa pública de un programa compartido (#604).
  *
- * `/shared/:id` sin sesión no puede leer `programs`: su `viewRule` exige
+ * `/shared/:id` no session no puede leer `programs`: su `viewRule` exige
  * `@request.auth.id != ""` y desde #603 además filtra por `visibility`. Este
  * hook consume `GET /api/programs/{id}/public`, la ruta de `pb_hooks` que corre
  * con `$app` y devuelve un puñado de campos solo si el programa está marcado

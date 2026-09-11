@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@calistenia/web'
+import { Card, CardContent, CardHeader, CardTitle } from '@sturdy/web'
 
 export const EnUnaTarjeta = () => (
   <Card className="w-80">

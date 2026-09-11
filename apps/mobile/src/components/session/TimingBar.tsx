@@ -4,7 +4,7 @@ import Animated, { Easing, useAnimatedStyle, useSharedValue, withDelay, withTimi
 
 import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
-import { formatTimingClock } from '@calistenia/core/lib/exerciseTiming'
+import { formatTimingClock } from '@sturdy/core/lib/exerciseTiming'
 
 interface TimingBarProps {
   name: string

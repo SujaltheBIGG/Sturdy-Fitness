@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import { useRacePRs } from '@calistenia/core/hooks/useRacePRs'
-import { formatDuration, formatPace } from '@calistenia/core/lib/geo'
+import { useRacePRs } from '@sturdy/core/hooks/useRacePRs'
+import { formatDuration, formatPace } from '@sturdy/core/lib/geo'
 
 interface Props {
   userId: string | null

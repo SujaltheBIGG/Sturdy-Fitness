@@ -258,7 +258,7 @@ Nota: verificar cómo importa `pb` el resto de hooks de core (`grep -n "from '..
 
 - [ ] **Step 5: Verificar**
 
-Run: `pnpm --filter @calistenia/core test`
+Run: `pnpm --filter @sturdy/core test`
 Expected: 187 tests pass (sin cambios — no hay lib pura nueva).
 
 Run: `cd apps/mobile && npx tsc --noEmit`
@@ -335,8 +335,8 @@ import { ArrowLeft, ChevronDown, ChevronUp, Star } from 'lucide-react-native'
 Después del import de `usePantryItems` (línea 18) agregar:
 
 ```ts
-import { useSavedRecipes, useToggleSavedRecipe } from '@calistenia/core/hooks/useSavedRecipes'
-import { normalizePantryName } from '@calistenia/core/lib/pantry'
+import { useSavedRecipes, useToggleSavedRecipe } from '@sturdy/core/hooks/useSavedRecipes'
+import { normalizePantryName } from '@sturdy/core/lib/pantry'
 ```
 
 - [ ] **Step 2: Constante lime**
@@ -420,10 +420,10 @@ import { useTranslation } from 'react-i18next'
 import { ArrowLeft, X } from 'lucide-react-native'
 import { Text } from '@/components/ui/text'
 import { useAuthUser } from '@/lib/use-auth-user'
-import { usePantryItems } from '@calistenia/core/hooks/usePantry'
-import { useDeleteSavedRecipe, useSavedRecipes } from '@calistenia/core/hooks/useSavedRecipes'
-import { computeRecipeCost, formatMoney } from '@calistenia/core/lib/shopping'
-import type { PantryItem, SavedRecipe } from '@calistenia/core/types'
+import { usePantryItems } from '@sturdy/core/hooks/usePantry'
+import { useDeleteSavedRecipe, useSavedRecipes } from '@sturdy/core/hooks/useSavedRecipes'
+import { computeRecipeCost, formatMoney } from '@sturdy/core/lib/shopping'
+import type { PantryItem, SavedRecipe } from '@sturdy/core/types'
 
 const MUTED = 'hsl(0 0% 55%)'
 
@@ -564,7 +564,7 @@ export default function SavedRecipesScreen() {
 }
 ```
 
-Nota: si `PantryItem` no está re-exportado desde `@calistenia/core/types`, importar desde `@calistenia/core/types/pantry` (verificar con grep cómo lo importa `usePantry.ts` / otras pantallas).
+Nota: si `PantryItem` no está re-exportado desde `@sturdy/core/types`, importar desde `@sturdy/core/types/pantry` (verificar con grep cómo lo importa `usePantry.ts` / otras pantallas).
 
 - [ ] **Step 2: Verificar**
 
@@ -624,7 +624,7 @@ Expected: exit 0
 ## Integración (controller, después de los tracks)
 
 - [ ] `cd apps/mobile && npx tsc --noEmit && npx expo lint` → verde
-- [ ] `pnpm --filter @calistenia/core test` → 187 pass
+- [ ] `pnpm --filter @sturdy/core test` → 187 pass
 - [ ] `cd mcp-server && npx tsc --noEmit` → verde (no debería tocarse, sanity)
 - [ ] Aplicar migración al PB local (`migrate up`) y **REINICIAR `pocketbase serve`** (gotcha F3: serve corriendo no ve colecciones creadas por migrate externo)
 - [ ] Commits seriales con paths explícitos:

@@ -6,7 +6,7 @@
  *   node scripts/seed-program.mjs <PB_URL> <SUPERUSER_EMAIL> <SUPERUSER_PASSWORD>
  *
  * Example:
- *   node scripts/seed-program.mjs https://your-pb.guille.tech admin@calistenia.app admin123456
+ *   node scripts/seed-program.mjs https://your-pb.guille.tech admin@sturdy.app admin123456
  *
  * The script will:
  *   1. Auth as superuser

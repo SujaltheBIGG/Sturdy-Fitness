@@ -1,0 +1,71 @@
+/// <reference path="../pb_data/types.d.ts" />
+
+/**
+ * Backfill the English half of program exercise names and muscle lists.
+ *
+ * The 15 official programs were seeded from `programs/*.json`, whose exercise
+ * copy is plain Spanish; the generator wrapped it as `{ es: ... }` with no
+ * `en`. The web app ships English-only, so `localize()` fell through to the
+ * Spanish and the workout screen rendered in Spanish once a user enrolled.
+ *
+ * Every program exercise references an id that exists in the bundled, fully
+ * bilingual `packages/core/data/exercise-catalog.json` (166 ids, 100% resolved),
+ * so the English here is the catalog's own copy rather than a machine
+ * translation. Only `exercise_name` and `muscles` are covered: a program
+ * `note` is program-specific coaching with no catalog equivalent, so it is
+ * deliberately left alone rather than replaced with unrelated text.
+ *
+ * Idempotent: rows that already carry an `en` value are skipped.
+ */
+const CATALOG_EN = {"arm_circles":{"n":"Arm Circles","m":"Shoulders, rotator cuff"},"scapular_activation":{"n":"Scapular Activation","m":"Scapulae, upper back"},"inchworm":{"n":"Inchworm","m":"Hamstrings, core, shoulders"},"clapping_pushup":{"n":"Clapping Push-up","m":"Chest, triceps, explosiveness"},"dips_parallel":{"n":"Parallel Dips (2 chairs)","m":"Triceps, lower chest"},"diamond_pushup":{"n":"Diamond Push-up","m":"Triceps, inner chest"},"archer_pushup":{"n":"Archer Push-up (Regression)","m":"Unilateral chest"},"pike_elevated":{"n":"Elevated Pike Push-up","m":"Deltoids, triceps"},"tiger_bend_pushup":{"n":"Tiger Bend Push-up","m":"Triceps, shoulders, chest"},"burpees":{"n":"Burpees","m":"Full body, cardio"},"pectoral_stretch":{"n":"Pectoral Stretch","m":"Chest"},"triceps_stretch":{"n":"Triceps Stretch","m":"Triceps"},"deep_breathing":{"n":"Deep Breathing","m":"Diaphragm, recovery"},"shoulder_dislocates":{"n":"Shoulder Dislocates","m":"Shoulders, mobility"},"scap_retract":{"n":"Scapular Retraction","m":"Rhomboids, traps"},"cat_cow":{"n":"Cat-Cow","m":"Spine, core"},"pullup_strict":{"n":"Strict Pull-up","m":"Lats, biceps"},"chinup":{"n":"Chin-up (supine grip)","m":"Biceps, lats"},"wide_pullup":{"n":"Wide Grip Pull-up","m":"Lats, teres major"},"commando_pullup":{"n":"Commando Pull-up","m":"Lats, biceps, obliques"},"face_pull":{"n":"Face Pull (band/towel)","m":"Rear deltoids, rotator cuff"},"close_grip_pullup":{"n":"Close Grip Pull-up","m":"Biceps, lower lats"},"mountain_climbers":{"n":"Mountain Climbers","m":"Core, shoulders, cardio"},"lat_stretch":{"n":"Lat Stretch","m":"Lats, back"},"leg_swings":{"n":"Leg Swings","m":"Hips, hamstrings, adductors"},"hip_circles":{"n":"Hip Circles","m":"Hips, glutes"},"hip_flexor":{"n":"Hip Flexor Stretch (Psoas)","m":"Psoas, iliacus"},"pistol_prog":{"n":"Pistol Squat Progression","m":"Quads, glutes, balance"},"nordic_curl":{"n":"Nordic Curl (Regression)","m":"Hamstrings"},"jump_squat":{"n":"Jump Squat","m":"Legs, explosiveness"},"reverse_lunge":{"n":"Reverse Lunge","m":"Quads, glutes, hamstrings"},"squat_pause":{"n":"Pause Squat (3s)","m":"Quads, glutes"},"calf_uni":{"n":"Unilateral Calf Raise","m":"Gastrocnemius, soleus"},"tuck_jumps":{"n":"Tuck Jumps","m":"Quads, glutes, explosiveness"},"quad_stretch":{"n":"Quad Stretch","m":"Quads"},"hamstring_stretch":{"n":"Hamstring Stretch","m":"Hamstrings"},"hip_flexor_stretch":{"n":"Hip Flexor Stretch","m":"Hip flexors, psoas"},"wrist_mobility":{"n":"Wrist Mobility Routine","m":"Wrists, forearms"},"thoracic_rotation":{"n":"Thoracic Rotation","m":"Thoracic spine, obliques"},"jumping_jacks":{"n":"Jumping Jacks","m":"Full body, cardio"},"muscleup_neg":{"n":"Negative Muscle-up","m":"Pull and push eccentric"},"pike_hspu":{"n":"Pike HSPU","m":"Deltoids, triceps"},"towel_pullup":{"n":"Towel Pull-up","m":"Lats, grip, biceps"},"one_arm_prog":{"n":"One-Arm Push-up Progression","m":"Full unilateral chest"},"high_knees":{"n":"High Knees","m":"Core, hip flexors, cardio"},"handstand_wall":{"n":"Wall Handstand","m":"Shoulders, core, balance"},"planche_lean":{"n":"Planche Lean","m":"Shoulders, wrists, core"},"lsit_full":{"n":"L-sit on Parallettes/Chairs","m":"Core, hip flexors, shoulders"},"front_lever_tuck":{"n":"Front Lever Tucked","m":"Lats, core, scapulae"},"dragon_flag":{"n":"Dragon Flag","m":"Total core, lats"},"windshield_wipers":{"n":"Windshield Wipers","m":"Obliques, rotational core"},"hollow_rock":{"n":"Hollow Body Rock","m":"Deep core, coordination"},"bear_crawl":{"n":"Bear Crawl","m":"Shoulders, core, quads"},"pike_stretch":{"n":"Pike Stretch","m":"Hamstrings, calves"},"typewriter_pullup":{"n":"Typewriter Pull-up","m":"Unilateral lats"},"lsit_pullup":{"n":"L-sit Pull-up","m":"Lats, core, hip flexors"},"skaters":{"n":"Skater Jumps","m":"Glute medius, balance, cardio"},"shrimp_squat":{"n":"Shrimp Squat Progression","m":"Quads, balance"},"nordic_adv":{"n":"Full Nordic Curl","m":"Hamstrings"},"good_morning":{"n":"Good Morning (no weight)","m":"Hamstrings, lower back, glutes"},"handstand_free":{"n":"Freestanding Handstand (attempts)","m":"Balance, shoulders, core"},"front_lever_single":{"n":"Front Lever Single Leg","m":"Lats, core"},"back_lever":{"n":"Back Lever Progression","m":"Shoulders, chest, core"},"hanging_leg_raise":{"n":"Hanging Leg Raise","m":"Lower core, hip flexors"},"ab_wheel_rollout":{"n":"Ab Wheel Rollout","m":"Deep core, shoulders"},"v_ups":{"n":"V-ups","m":"Upper and lower core"},"skin_the_cat":{"n":"Skin the Cat","m":"Shoulders, lats, mobility"},"archer2":{"n":"Archer Push-up","m":"Unilateral chest"},"one_arm_pullup_prog":{"n":"One-Arm Pull-up Progression","m":"Unilateral lats"},"archer_pull_up":{"n":"Archer Pull-up","m":"Unilateral lats"},"front_lever_full":{"n":"Full Front Lever","m":"Lats, core, scapulae"},"planche_tuck":{"n":"Tuck Planche","m":"Anterior shoulders, core"},"pistol_free":{"n":"Free Pistol Squat","m":"Quads, glutes, balance"},"nordic_full":{"n":"Nordic Curl Full","m":"Hamstrings"},"shrimp_full":{"n":"Full Shrimp Squat","m":"Quads, ankle, balance"},"single_rdl":{"n":"Single Leg RDL","m":"Hamstrings, glutes, lower back"},"one_arm_actual":{"n":"One-Arm Push-up","m":"Full unilateral chest"},"handstand_60":{"n":"Freestanding Handstand 60s","m":"Total balance"},"human_flag_prog":{"n":"Human Flag Progression","m":"Obliques, shoulders, lats"},"pistol_vol":{"n":"Pistol Squat Volume","m":"Quads, glutes"},"bulgarian_adv":{"n":"Bulgarian Split + Jump","m":"Leg explosiveness"},"pushup_std":{"n":"Standard Push-up","m":"Chest, shoulders, triceps"},"inverted_row_pause":{"n":"Inverted Row with Pause","m":"Rhomboids, mid traps"},"sphinx_pushup":{"n":"Sphinx Push-up","m":"Triceps, core"},"glute_bridge_uni":{"n":"Unilateral Glute Bridge","m":"Glutes, hamstrings"},"lsit_45":{"n":"L-sit 45s Goal","m":"Core, flexors, shoulders"},"hollow_hold":{"n":"Hollow Body Hold","m":"Deep core, transverse abdominis"},"muscleup_real":{"n":"Muscle-up","m":"Full pull + push"},"pike_pushup":{"n":"Pike Push-up","m":"Deltoids, triceps"},"plank_shoulder":{"n":"Plank Shoulder Taps","m":"Anti-rotation core"},"dead_bug":{"n":"Dead Bug","m":"Deep core, TvA"},"plank":{"n":"Plank","m":"Total core"},"crow_pose":{"n":"Crow Pose / Frog Stand","m":"Shoulders, core, balance"},"bird_dog":{"n":"Bird-Dog","m":"Lower back, core, glutes"},"superman":{"n":"Superman Hold","m":"Erectors, glutes, lower back"},"side_plank":{"n":"Side Plank","m":"Obliques, quadratus lumborum"},"glute_bridge":{"n":"Glute Bridge","m":"Glutes, hamstrings, lower back"},"handstand_kick_ups":{"n":"Handstand Kick-ups","m":"Shoulders, coordination"},"lsit_prog":{"n":"L-sit Progression","m":"Core, hip flexors"},"hindu_pushup":{"n":"Hindu Push-up","m":"Shoulders, chest, flexibility"},"elbow_lever":{"n":"Elbow Lever","m":"Core, shoulders, balance"},"decline_pushup":{"n":"Decline Push-up","m":"Upper chest, shoulders"},"australian_pullup":{"n":"Australian Pull-up","m":"Lats, biceps, rhomboids"},"scapular_pull_up":{"n":"Scapular pull-up","m":"Traps, Biceps, Rhomboids, Rear deltoids"},"hanging_knee_raise":{"n":"Hanging Knee Raise","m":"Lower core, grip"},"glute_bridge_warmup":{"n":"Glute Bridge Warm-up","m":"Glutes, core"},"calf_raise":{"n":"Calf Raises","m":"Calves, soleus"},"wide_pushup":{"n":"Wide Push-up","m":"Outer chest, deltoids"},"goblet_squat":{"n":"Goblet Squat","m":"Quads, glutes, core"},"calf_stretch":{"n":"Calf Stretch","m":"Calves"},"sit_up":{"n":"Sit-up","m":"Rectus abdominis, hip flexors"},"bulgarian":{"n":"Bulgarian Split Squat","m":"Quads, glutes, hamstrings"},"lsit_30s":{"n":"L-sit 30s","m":"Core, flexors, shoulders"},"neg_pullup":{"n":"Negative Pull-ups","m":"Lats, biceps (eccentric)"},"lateral_lunge":{"n":"Lateral Lunge","m":"Adductors, quads"},"run":{"n":"Run","m":"Cardiovascular system, Quadriceps, Hamstrings, Calves"},"worlds_stretch":{"n":"World's Greatest Stretch","m":"Full body, posterior chain"},"resistance_band_seated_straight_back_row":{"n":"Resistance band seated straight back row","m":"Upper back, Biceps, Shoulders"},"thoracic_mobility":{"n":"Thoracic Mobility Full","m":"Full thoracic spine"},"deep_hip_mobility":{"n":"Hip Mobility Full Routine","m":"Full hips, lower back"},"glute_bridge_march":{"n":"Glute Bridge March","m":"Glutes, core stabilizer"},"renegade_row":{"n":"Renegade Row","m":"Lats, anti-rotation core"},"cossack_squat":{"n":"Cossack Squat","m":"Adductors, hips, mobility"},"forward_fold":{"n":"Seated Forward Fold","m":"Hamstrings, lower back"},"incline_push_up":{"n":"Incline Push-up","m":"Chest, triceps (lower load)"},"bodyweight_standing_row":{"n":"Bodyweight standing row","m":"Upper back, Biceps, Shoulders"},"bodyweight_standing_one_arm_row":{"n":"Bodyweight standing one arm row","m":"Upper back, Biceps, Forearms"},"chest_and_front_of_shoulder_stretch":{"n":"Chest and front of shoulder stretch","m":"Pectorals, Deltoids"},"ankle_mobility":{"n":"Ankle Mobility Drill","m":"Ankle, soleus"},"bodyweight_squat":{"n":"Bodyweight Squat","m":"Quads, glutes"},"split_squats":{"n":"Split squats","m":"Quads, Glutes, Hamstrings, Calves"},"crunch":{"n":"Crunch","m":"Rectus abdominis"},"russian_twist":{"n":"Russian Twist","m":"Obliques"},"bodyweight_squatting_row":{"n":"Bodyweight squatting row","m":"Upper back, Biceps, Shoulders"},"pull_apart":{"n":"Towel Pull Apart","m":"Rear deltoids"},"facepull":{"n":"Long-Pulley (low Row)","m":"Core, Biceps, Pantorrillas"},"close_grip_push_up":{"n":"Close-grip push-up","m":"Triceps, Chest, Shoulders"},"bicycle_crunch":{"n":"Bicycle Crunch","m":"Obliques, rectus abdominis"},"l_sit_on_floor":{"n":"L-sit on floor","m":"Abs, Hip flexors"},"childs_pose":{"n":"Child's Pose with Traction","m":"Lower back, lats, hips"},"spine_stretch":{"n":"Spine stretch","m":"Spine, Hamstrings, Glutes"},"hip_thrust_bodyweight":{"n":"Hip Thrust (bodyweight)","m":"Glutes, hamstrings"},"band_hip_lift":{"n":"Band hip lift","m":"Glutes, Hamstrings, Quadriceps"},"single_leg_bridge_with_outstretched_leg":{"n":"Single leg bridge with outstretched leg","m":"Glutes, Hamstrings, Quadriceps"},"seated_glute_stretch":{"n":"Seated glute stretch","m":"Glutes, Hamstrings"},"band_close_grip_pulldown":{"n":"Band close-grip pulldown","m":"Lats, Biceps, Forearms"},"band_shoulder_press":{"n":"Band shoulder press","m":"Delts, Triceps, Upper back"},"curtsy_lunge":{"n":"Curtsy Lunge","m":"Glute medius, quads"},"donkey_kick":{"n":"Donkey Kick","m":"Glutes"},"band_squat":{"n":"Band squat","m":"Glutes, Quadriceps, Hamstrings, Calves"},"side_hip_abduction":{"n":"Side hip abduction","m":"Abductors, Glutes, Quadriceps"},"band_squat_row":{"n":"Band squat row","m":"Glutes, Hamstrings, Quadriceps, Back"},"band_one_arm_standing_low_row":{"n":"Band one arm standing low row","m":"Upper back, Biceps, Shoulders"},"biceps_stretch":{"n":"Biceps Stretch","m":"Biceps"},"weighted_pullup":{"n":"Weighted Pull-up (backpack)","m":"Lats, biceps"},"muscleup_flow":{"n":"Muscle-up x5 Flow","m":"Pull and push endurance"},"pseudo_planche":{"n":"Pseudo Planche Push-up","m":"Anterior shoulders, chest"},"tuck_planche_pushup":{"n":"Tuck Planche Push-up","m":"Shoulders, chest, core"},"dead_bug_adv":{"n":"Advanced Dead Bug","m":"Core, TVA"},"glute_bridge_pause":{"n":"Glute Bridge with Pause (3s)","m":"Glutes, hamstrings"},"wall_sit":{"n":"Wall Sit","m":"Quads, core"},"one_arm_towel_row":{"n":"One arm towel row","m":"Upper back, Biceps, Forearms"},"hip_raise_lying":{"n":"Leg Raise","m":"Cuadriceps, Core"},"dips_chair":{"n":"Chair Dips","m":"Triceps, shoulders"},"step_up":{"n":"Explosive Step-up","m":"Glutes, quads, power"},"pullup_neg2":{"n":"Assisted Pull-up or Negatives","m":"Lats, biceps"}}
+
+migrate((app) => {
+  function readMap(rec, field) {
+    const val = rec.get(field)
+    if (val === null || val === undefined) return null
+    if (typeof val === "object" && typeof val.es === "string") return val
+    let text
+    try { text = String(val) } catch (e) { return null }
+    if (!text || text === "null") return null
+    if (text.charAt(0) !== "{") return { es: text }
+    try {
+      const parsed = JSON.parse(text)
+      return parsed && typeof parsed === "object" ? parsed : null
+    } catch (e) { return null }
+  }
+
+  function setEnglish(rec, field, en) {
+    if (!en) return false
+    const map = readMap(rec, field)
+    if (!map) return false
+    if (map.en !== undefined && String(map.en).trim() !== "") return false
+    map.en = en
+    rec.set(field, map)
+    return true
+  }
+
+  let scanned = 0, fixed = 0, unmatched = 0
+  const PAGE = 500
+  for (let offset = 0; ; offset += PAGE) {
+    let rows
+    try {
+      rows = app.findRecordsByFilter("program_exercises", "id != ''", "id", PAGE, offset)
+    } catch (e) {
+      console.log("[backfill_en_exercises] query: " + e); break
+    }
+    if (!rows || rows.length === 0) break
+    for (const rec of rows) {
+      scanned++
+      const entry = CATALOG_EN[rec.get("exercise_id")]
+      if (!entry) { unmatched++; continue }
+      let changed = false
+      if (setEnglish(rec, "exercise_name", entry.n)) changed = true
+      if (setEnglish(rec, "muscles", entry.m)) changed = true
+      if (changed) { app.save(rec); fixed++ }
+    }
+    if (rows.length < PAGE) break
+  }
+  console.log("[backfill_en_exercises] scanned=" + scanned + " fixed=" + fixed + " unmatched=" + unmatched)
+}, (app) => {
+  // Down: nothing to undo.
+})

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import type { Recipe, WeeklyPlannedMeal } from '@calistenia/core/types'
+import type { Recipe, WeeklyPlannedMeal } from '@sturdy/core/types'
 import { cn } from '../../../lib/utils'
 
 const MEAL_DOT: Record<string, string> = {

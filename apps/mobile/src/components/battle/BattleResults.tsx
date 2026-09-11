@@ -18,7 +18,7 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { View, ScrollView, Alert } from 'react-native'
 import { useRouter } from 'expo-router'
 import { useTranslation } from 'react-i18next'
-import { useLocalize } from '@calistenia/core/hooks/useLocalize'
+import { useLocalize } from '@sturdy/core/hooks/useLocalize'
 import { RotateCcw } from 'lucide-react-native'
 
 import { Text } from '@/components/ui/text'
@@ -30,9 +30,9 @@ import { useAuthUser } from '@/lib/use-auth-user'
 import { useBattleContext } from '@/contexts/BattleContext'
 import BattleScoreCell from '@/components/battle/BattleScoreCell'
 import BattleResultShareButton from '@/components/battle/BattleResultShareButton'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import { battleResultView, battleWorkColumns, type BattleResultRow } from '@calistenia/core/lib/battle'
-import { findBattlePreset } from '@calistenia/core/data/battle-presets'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import { battleResultView, battleWorkColumns, type BattleResultRow } from '@sturdy/core/lib/battle'
+import { findBattlePreset } from '@sturdy/core/data/battle-presets'
 
 export default function BattleResults() {
   const { t } = useTranslation()

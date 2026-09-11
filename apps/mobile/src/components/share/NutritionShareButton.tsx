@@ -41,9 +41,9 @@ import { useTranslation } from 'react-i18next'
 import { Text } from '@/components/ui/text'
 import { Button } from '@/components/ui/button'
 import { MOBILE_SHARE_CARD_CONTEXTS, shareCardImage, shareNutritionDay } from '@/lib/share'
-import type { NutritionEntry, QualityScore } from '@calistenia/core/types'
-import { buildShareMeals } from '@calistenia/core/lib/share-meals'
-import { computeDailyQualityScore } from '@calistenia/core/lib/nutrition-quality'
+import type { NutritionEntry, QualityScore } from '@sturdy/core/types'
+import { buildShareMeals } from '@sturdy/core/lib/share-meals'
+import { computeDailyQualityScore } from '@sturdy/core/lib/nutrition-quality'
 
 import ShareCardCapture, {
   type ShareCardCaptureHandle,

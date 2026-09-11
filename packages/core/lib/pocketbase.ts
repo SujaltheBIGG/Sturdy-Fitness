@@ -130,7 +130,7 @@ export const loginWithOAuth2 = async (
  *
  * @param redirectUrl URL https registrada como "Authorized redirect URI" en el cliente
  *   OAuth de Google y servida en pb_public; su única función es reenviar el code+state
- *   al esquema de la app (calistenia://). Debe ser IDÉNTICA en la request de
+ *   al esquema de la app (sturdy://). Debe ser IDÉNTICA en la request de
  *   autorización y en el intercambio del código (Google lo exige).
  * @param getCode abre authUrl en el navegador y devuelve el code+state del redirect.
  */
@@ -175,7 +175,7 @@ export const tryRefreshAuth = async (): Promise<boolean> => {
     // Sesión fantasma: el JWT local no había caducado pero el server lo
     // rechazó (cambio de contraseña, rotación de tokenKey, usuario borrado).
     const status = (e as { status?: number })?.status
-    getPlatform().reportError?.(new Error(`[auth] token rechazado por el server (status ${status}): authStore limpiado`))
+    getPlatform().reportError?.(new Error(`[auth] token rejected by the server (status ${status}): authStore cleared`))
     pb.authStore.clear()
     return false
   }
@@ -212,7 +212,7 @@ export const verifyAuth = (): Promise<boolean> => {
 pb.afterSend = (response: Response, data: unknown) => {
   if (pb.authStore.isValid && !response.url.includes('/auth-refresh')) {
     if (response.status === 401) {
-      getPlatform().reportError?.(new Error(`[auth] 401 con token local válido (${response.url}): authStore limpiado`))
+      getPlatform().reportError?.(new Error(`[auth] 401 with a valid local token (${response.url}): authStore cleared`))
       pb.authStore.clear()
     } else if (response.status === 400 || response.status === 403 || response.status === 404) {
       void verifyAuth().catch(() => {})

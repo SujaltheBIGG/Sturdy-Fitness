@@ -60,7 +60,7 @@ migrate((app) => {
       platform: 'android',
       latest_build: 30, // = app.json → expo.android.versionCode al crear esto
       latest_version: '1.9.0',
-      store_url: 'https://play.google.com/store/apps/details?id=tech.guille.calistenia',
+      store_url: 'https://play.google.com/store/apps/details?id=app.sturdy.mobile',
     },
     { platform: 'ios', latest_build: 0, latest_version: '', store_url: '' },
     // La web se actualiza sola (service worker en modo prompt): manda build 0 y

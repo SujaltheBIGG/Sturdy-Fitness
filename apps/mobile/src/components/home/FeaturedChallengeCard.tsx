@@ -20,10 +20,10 @@ import { Text } from '@/components/ui/text'
 import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
 import { COLORS } from '@/lib/theme'
-import { useFeaturedChallenge } from '@calistenia/core/hooks/useFeaturedChallenge'
-import { trackFeaturedChallengeViewed, trackFeaturedChallengeOpened } from '@calistenia/core/lib/featured-challenge'
-import { getMetricLabel } from '@calistenia/core/lib/challenges'
-import { resolvePresetChallengeTitle } from '@calistenia/core/lib/challenge-presets'
+import { useFeaturedChallenge } from '@sturdy/core/hooks/useFeaturedChallenge'
+import { trackFeaturedChallengeViewed, trackFeaturedChallengeOpened } from '@sturdy/core/lib/featured-challenge'
+import { getMetricLabel } from '@sturdy/core/lib/challenges'
+import { resolvePresetChallengeTitle } from '@sturdy/core/lib/challenge-presets'
 
 interface FeaturedChallengeCardProps {
   userId: string | null

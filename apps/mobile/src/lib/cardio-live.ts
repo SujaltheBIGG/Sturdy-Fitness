@@ -9,9 +9,9 @@
 import { Platform } from 'react-native'
 import * as Sentry from '@sentry/react-native'
 import i18n from 'i18next'
-import { formatPace, formatSpeed } from '@calistenia/core/lib/geo'
-import { CARDIO_ACTIVITY } from '@calistenia/core/lib/style-tokens'
-import type { CardioActivityType } from '@calistenia/core/types'
+import { formatPace, formatSpeed } from '@sturdy/core/lib/geo'
+import { CARDIO_ACTIVITY } from '@sturdy/core/lib/style-tokens'
+import type { CardioActivityType } from '@sturdy/core/types'
 
 const NOTIF_ID = 'cardio-live'
 // Canal con sufijo -active: Android congela la importance de un canal tras

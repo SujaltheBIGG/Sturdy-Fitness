@@ -54,7 +54,7 @@ On `visibilitychange: hidden`, after `persistSnapshot()`:
 **File:** `src/contexts/CardioSessionContext.tsx` — `finish()` method (~line 372)
 
 On PocketBase save failure:
-1. Store the full `CardioSession` payload in localStorage under key `calistenia_cardio_unsaved` (as a JSON array).
+1. Store the full `CardioSession` payload in localStorage under key `sturdy_cardio_unsaved` (as a JSON array).
 2. On next `CardioSessionProvider` mount (app reopen), check for unsaved sessions.
 3. Attempt to save them. On success, remove from queue. On failure, keep for next time.
 4. Expose `unsavedCount` in the `CardioSessionContextValue` interface so UI can show a subtle indicator.

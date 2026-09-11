@@ -10,9 +10,9 @@ import {
   completeNewUserRegistration,
   discardCapturedReferralCode,
   useAuth,
-} from '@calistenia/core/hooks/useAuth'
-import { CANONICAL_ANALYTICS_EVENTS, op, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import { pb } from '@calistenia/core/lib/pocketbase'
+} from '@sturdy/core/hooks/useAuth'
+import { CANONICAL_ANALYTICS_EVENTS, op, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import { pb } from '@sturdy/core/lib/pocketbase'
 
 import { Sentry } from '@/lib/instrument'
 import { haptics } from '@/lib/haptics'
@@ -122,7 +122,7 @@ export default function LoginScreen() {
                 style={{ width: 80, height: 80 }}
                 contentFit="contain"
               />
-              <Text className="font-bebas text-5xl leading-none tracking-[6px] text-foreground">CALISTENIA</Text>
+              <Text className="font-bebas text-5xl leading-none tracking-[6px] text-foreground">STURDY</Text>
               <Kicker>{t('auth.tagline')}</Kicker>
             </View>
 

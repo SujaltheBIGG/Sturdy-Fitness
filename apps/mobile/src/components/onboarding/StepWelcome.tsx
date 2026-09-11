@@ -6,7 +6,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Text } from '@/components/ui/text'
 import { haptics } from '@/lib/haptics'
 import { cn } from '@/lib/utils'
-import { DISCOVERY_SOURCES, type DiscoverySourceId } from '@calistenia/core/lib/discovery-source'
+import { DISCOVERY_SOURCES, type DiscoverySourceId } from '@sturdy/core/lib/discovery-source'
 
 interface Props {
   firstName: string
@@ -36,7 +36,7 @@ export function StepWelcome({
   return (
     <Animated.View entering={FadeInDown.duration(500)} className="items-center">
       <Text className="font-bebas text-7xl leading-none text-lime mb-2">
-        CALISTENIA
+        STURDY
       </Text>
 
       <Text className="text-muted-foreground text-sm mb-6 text-center">

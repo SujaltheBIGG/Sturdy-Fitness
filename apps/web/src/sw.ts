@@ -109,7 +109,7 @@ self.addEventListener('push', (event) => {
 
   const data = event.data.json()
   // Fallback title — push data should include a translated title from the server
-  const title = data.title || 'Calistenia App'
+  const title = data.title || 'Sturdy'
   const options: NotificationOptions & { vibrate?: number[] } = {
     body: data.body || '',
     icon: '/icons/icon-192.png',

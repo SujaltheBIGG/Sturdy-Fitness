@@ -11,8 +11,8 @@ import {
   requestCameraPermission as askCameraPermission,
   requestMediaPermission as askMediaPermission,
 } from '@/lib/image-upload'
-import { parseExifDateTimeToHM } from '@calistenia/core/lib/meal-time'
-import type { NutritionEntry } from '@calistenia/core/types'
+import { parseExifDateTimeToHM } from '@sturdy/core/lib/meal-time'
+import type { NutritionEntry } from '@sturdy/core/types'
 
 import { type ImageAsset, MAX_PHOTOS } from './meal-logger-shared'
 

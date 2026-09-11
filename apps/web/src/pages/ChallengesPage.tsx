@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { useChallenges, type ChallengeWithMeta } from '@calistenia/core/hooks/useChallenges'
+import { useChallenges, type ChallengeWithMeta } from '@sturdy/core/hooks/useChallenges'
 import { cn } from '../lib/utils'
 import { Button } from '../components/ui/button'
 import { EmptyState } from '../components/ui/empty-state'
-import { daysRemaining, getMetricLabel } from '@calistenia/core/lib/challenges'
+import { daysRemaining, getMetricLabel } from '@sturdy/core/lib/challenges'
 import {
   BEGINNER_CHALLENGE_PRESETS,
   getVisibleBeginnerChallengePresets,
@@ -13,9 +13,9 @@ import {
   getPresetTargetLabel,
   resolvePresetChallengeTitle,
   type BeginnerChallengePreset,
-} from '@calistenia/core/lib/challenge-presets'
+} from '@sturdy/core/lib/challenge-presets'
 import { toast } from 'sonner'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 
 type Filter = 'active' | 'past'
 

@@ -55,10 +55,10 @@ beforeEach(() => {
 describe('referral attribution lifecycle', () => {
   it('captures and explicitly discards pending attribution', () => {
     captureReferralCode('INVITE-1')
-    expect(storage.setItem).toHaveBeenCalledWith('calistenia_referral_code', 'INVITE-1')
+    expect(storage.setItem).toHaveBeenCalledWith('sturdy_referral_code', 'INVITE-1')
 
     discardCapturedReferralCode()
-    expect(storage.removeItem).toHaveBeenCalledWith('calistenia_referral_code')
+    expect(storage.removeItem).toHaveBeenCalledWith('sturdy_referral_code')
   })
 
   it('finalizes Google signup through the same referral and reward path', async () => {
@@ -72,7 +72,7 @@ describe('referral attribution lifecycle', () => {
 
     expect(op.track).toHaveBeenCalledWith('signup_completed', { method: 'google' })
     expect(update).toHaveBeenCalledWith('new-user', expect.objectContaining({ referral_code: expect.any(String) }))
-    expect(storage.removeItem).toHaveBeenCalledWith('calistenia_referral_code')
+    expect(storage.removeItem).toHaveBeenCalledWith('sturdy_referral_code')
     expect(create).toHaveBeenCalledWith({
       referrer: 'referrer-1',
       referred: 'new-user',

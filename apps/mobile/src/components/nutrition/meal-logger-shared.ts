@@ -2,9 +2,9 @@
  * Shared types, constants and pure helpers for the MealLogger feature.
  * No React / component dependencies — safe to import from the hook, steps and views.
  */
-import { migrateLegacyFood } from '@calistenia/core/lib/macro-calc'
-import { localHour } from '@calistenia/core/lib/dateUtils'
-import { storage } from '@calistenia/core/platform'
+import { migrateLegacyFood } from '@sturdy/core/lib/macro-calc'
+import { localHour } from '@sturdy/core/lib/dateUtils'
+import { storage } from '@sturdy/core/platform'
 import type {
   FoodItem,
   NutritionEntry,
@@ -14,7 +14,7 @@ import type {
   QualityScore,
   QualityBreakdown,
   QualitySuggestion,
-} from '@calistenia/core/types'
+} from '@sturdy/core/types'
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -95,7 +95,7 @@ export function getDefaultMealType(): MealType {
   return 'cena'
 }
 
-const LS_LAST_MEAL_TYPE = 'calistenia_last_meal_type'
+const LS_LAST_MEAL_TYPE = 'sturdy_last_meal_type'
 const VALID_MEAL_TYPES = MEAL_OPTIONS.map((o) => o.id) as MealType[]
 
 /** Last meal type the user logged, if any (validated against MEAL_OPTIONS). */

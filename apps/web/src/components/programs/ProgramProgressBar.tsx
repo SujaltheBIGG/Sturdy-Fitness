@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { cn } from '../../lib/utils'
-import type { ProgramProgress } from '@calistenia/core/lib/programProgress'
+import type { ProgramProgress } from '@sturdy/core/lib/programProgress'
 
 interface ProgramProgressBarProps {
   progress: ProgramProgress

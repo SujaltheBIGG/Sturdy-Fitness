@@ -40,10 +40,10 @@ vi.mock('../contexts/NotificationsContext', () => ({
 vi.mock('../contexts/AuthContext', () => ({
   useAuthState: () => ({ user: { id: 'me' } }),
 }))
-vi.mock('@calistenia/core/hooks/useFollows', () => ({
+vi.mock('@sturdy/core/hooks/useFollows', () => ({
   useFollows: () => h.follows,
 }))
-vi.mock('@calistenia/core/lib/dateUtils', () => ({ timeAgoShort: () => 'ahora' }))
+vi.mock('@sturdy/core/lib/dateUtils', () => ({ timeAgoShort: () => 'ahora' }))
 
 import NotificationsPage from './NotificationsPage'
 

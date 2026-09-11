@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { cn } from '../../lib/utils'
-import { timeAgo } from '@calistenia/core/lib/dateUtils'
+import { timeAgo } from '@sturdy/core/lib/dateUtils'
 import { Loader } from '../ui/loader'
 import { Sheet, SheetContent, SheetTitle } from '../ui/sheet'
-import { REACTION_EMOJIS, type EmojiReactions } from '@calistenia/core/hooks/useReactions'
-import { COMMENT_REACTION_EMOJIS, type CommentEmojiReactions } from '@calistenia/core/hooks/useCommentReactions'
-import type { Comment } from '@calistenia/core/hooks/useComments'
-import { useReports } from '@calistenia/core/hooks/useReports'
+import { REACTION_EMOJIS, type EmojiReactions } from '@sturdy/core/hooks/useReactions'
+import { COMMENT_REACTION_EMOJIS, type CommentEmojiReactions } from '@sturdy/core/hooks/useCommentReactions'
+import type { Comment } from '@sturdy/core/hooks/useComments'
+import { useReports } from '@sturdy/core/hooks/useReports'
 import { ReportDialog } from './ReportDialog'
 
 // ── Reaction color map ──────────────────────────────────────────────────────

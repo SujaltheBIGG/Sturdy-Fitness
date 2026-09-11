@@ -8,7 +8,7 @@ import { qk } from '../lib/query-keys'
 import { makeOptimisticListHandlers } from '../lib/optimistic'
 import { persistOrQueue, cancelQueuedByTempId } from '../lib/offlineQueue'
 
-const LS_KEY = 'calistenia_water'
+const LS_KEY = 'sturdy_water'
 const DEFAULT_GOAL = 2500 // ml
 
 export interface WaterEntry {
@@ -43,9 +43,9 @@ const lsGet = (): Record<string, DayWater> => {
 }
 const lsSet = (d: Record<string, DayWater>) => storage.setItem(LS_KEY, JSON.stringify(d))
 const lsGetGoal = (): number => {
-  try { return Number(storage.getItem('calistenia_water_goal')) || DEFAULT_GOAL } catch { return DEFAULT_GOAL }
+  try { return Number(storage.getItem('sturdy_water_goal')) || DEFAULT_GOAL } catch { return DEFAULT_GOAL }
 }
-const lsSetGoal = (ml: number) => storage.setItem('calistenia_water_goal', String(ml))
+const lsSetGoal = (ml: number) => storage.setItem('sturdy_water_goal', String(ml))
 
 // Helper: extrae DayWater para una fecha desde el mapa de localStorage
 const lsGetDay = (date: string): DayWater =>

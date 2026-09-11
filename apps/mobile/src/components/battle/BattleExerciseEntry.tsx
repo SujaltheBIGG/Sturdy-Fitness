@@ -19,8 +19,8 @@ import { cn } from '@/lib/utils'
 import { RepStepper } from '@/components/training/RepStepper'
 import { TimerPanel } from '@/components/training/TimerPanel'
 import { timerCues } from '@/lib/training-cues'
-import { useExerciseTimer } from '@calistenia/core/hooks/useExerciseTimer'
-import { serverNow } from '@calistenia/core/lib/serverClock'
+import { useExerciseTimer } from '@sturdy/core/hooks/useExerciseTimer'
+import { serverNow } from '@sturdy/core/lib/serverClock'
 
 export interface BattleExerciseEntryProps {
   /** Nombre ya traducido del ejercicio. */

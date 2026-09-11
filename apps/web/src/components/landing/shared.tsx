@@ -6,7 +6,8 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowRight, Check, ChevronRight, Menu, X } from 'lucide-react'
-import { op } from '@calistenia/core/lib/analytics'
+import { op } from '@sturdy/core/lib/analytics'
+import { promptInstall } from '../InstallPrompt'
 
 export function usePrefersReducedMotion() {
   const [reduced, setReduced] = useState(false)
@@ -71,7 +72,12 @@ export function AndroidButton({ location, className = '' }: { location: string; 
   return (
     <Link
       to="/download"
-      onClick={() => op.track('cta_clicked', { location, intent: 'android_download' })}
+      onClick={async (event) => {
+        event.preventDefault()
+        op.track('cta_clicked', { location, intent: 'pwa_install' })
+        const installed = await promptInstall()
+        if (!installed) window.location.assign('/download')
+      }}
       className={`group inline-flex min-h-13 items-center justify-center gap-2 rounded-lg bg-lime px-7 py-3.5 text-[15px] font-bold text-[hsl(75_8%_5%)] transition hover:brightness-110 active:scale-[.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime focus-visible:ring-offset-2 focus-visible:ring-offset-[hsl(75_8%_3%)] ${className}`}
     >
       {t('landing.androidCta')} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -179,8 +185,8 @@ export function PublicHeader({ onGetStarted }: { onGetStarted?: () => void }) {
     <header className="absolute inset-x-0 top-0 z-20 px-6 py-6 md:px-10">
       <div className="flex items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
-          <img src="/logo.png" alt="" className="h-8 w-8 rounded-lg" />
-          <span className="font-bebas text-2xl tracking-[.15em]">CALISTENIA</span>
+          <img src="/logo.png" alt="" className="h-10 w-10 rounded-full object-cover" />
+          <span className="font-bebas text-2xl tracking-[.15em]">STURDY</span>
         </Link>
 
         <nav className="hidden items-center gap-6 sm:flex">
@@ -225,8 +231,8 @@ export function PublicFooter({ featureLinks }: { featureLinks: Array<{ slug: str
       <div className="mx-auto grid max-w-6xl gap-10 text-xs text-white/45 lg:grid-cols-[1fr_auto]">
         <div>
           <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="" className="h-5 w-5 rounded" />
-            <span className="font-bebas text-sm tracking-[.18em] text-white/70">CALISTENIA</span>
+            <img src="/logo.png" alt="" className="h-6 w-6 rounded-full object-cover" />
+            <span className="font-bebas text-sm tracking-[.18em] text-white/70">STURDY</span>
           </div>
           <p className="mt-3 max-w-xs leading-relaxed">{t('landing.footerAbout')}</p>
           <p className="mt-2 max-w-xs leading-relaxed text-white/30">{t('landing.footerBuiltDesc')}</p>

@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { renderHook, act } from '@testing-library/react'
 import { createRef, type MutableRefObject } from 'react'
-import type { Race } from '@calistenia/core/types/race'
+import type { Race } from '@sturdy/core/types/race'
 
 // El reintento del push sólo se observa por telemetría: no cambia nada en
 // pantalla, así que el espía sobre Sentry es la única prueba de que reporta.

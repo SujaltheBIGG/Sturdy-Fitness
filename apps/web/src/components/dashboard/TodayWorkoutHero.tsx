@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import { cn } from '../../lib/utils'
-import { localDay } from '@calistenia/core/lib/dateUtils'
-import { DAY_BY_INDEX, nextTrainingDay } from '@calistenia/core/lib/training-day'
-import { CARDIO_ACTIVITY } from '@calistenia/core/lib/style-tokens'
-import type { WeekDay, ProgramMeta } from '@calistenia/core/types'
-import type { ProgramProgress } from '@calistenia/core/lib/programProgress'
+import { localDay } from '@sturdy/core/lib/dateUtils'
+import { DAY_BY_INDEX, nextTrainingDay } from '@sturdy/core/lib/training-day'
+import { CARDIO_ACTIVITY } from '@sturdy/core/lib/style-tokens'
+import type { WeekDay, ProgramMeta } from '@sturdy/core/types'
+import type { ProgramProgress } from '@sturdy/core/lib/programProgress'
 
 interface TodayWorkoutHeroProps {
   weekDays: WeekDay[]

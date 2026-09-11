@@ -18,14 +18,14 @@ import { cn } from '@/lib/utils'
 import { haptics as haptic } from '@/lib/haptics'
 import { shareReferralInvite, shareReferralInviteByChannel, shareText, type ReferralShareChannel } from '@/lib/share'
 import { LIME, MUTED } from '@/components/session/constants'
-import { buildPostWorkoutActions, trackPostWorkoutAction, type PostWorkoutActionId } from '@calistenia/core/lib/post-workout-actions'
-import { usePostWorkoutChallenge } from '@calistenia/core/hooks/usePostWorkoutChallenge'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+import { buildPostWorkoutActions, trackPostWorkoutAction, type PostWorkoutActionId } from '@sturdy/core/lib/post-workout-actions'
+import { usePostWorkoutChallenge } from '@sturdy/core/hooks/usePostWorkoutChallenge'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 import {
   markReferralPromptHandled,
   markReferralPromptViewed,
   shouldShowReferralPrompt,
-} from '@calistenia/core/lib/referral-prompt'
+} from '@sturdy/core/lib/referral-prompt'
 
 const LIME_FG = 'hsl(0 0% 4%)'
 

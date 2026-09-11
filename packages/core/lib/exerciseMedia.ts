@@ -70,12 +70,12 @@ export interface CatalogMediaRecord {
 }
 
 export interface ExerciseMediaOpts {
-  /** PocketBase base URL (e.g. "https://gym.guille.tech") */
+  /** PocketBase base URL (e.g. "https://sturdy.app") */
   pbBaseUrl?: string
   /**
    * Base URL (origin) to prefix onto origin-relative static media paths.
    * Used on mobile where "/exercise-media/…" is not same-origin.
-   * Example: "https://gym.guille.tech"
+   * Example: "https://sturdy.app"
    * If omitted, paths are returned as-is (web same-origin).
    */
   mediaBaseUrl?: string

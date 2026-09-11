@@ -82,10 +82,10 @@ This file is **build output** — it has no TypeScript source in our repo. We pa
 | Start patch | `pnpm patch react-native-css-interop@0.2.5 --edit-dir /tmp/csi-patch` | prints `/tmp/csi-patch`, creates that dir |
 | Commit patch | `pnpm patch-commit /tmp/csi-patch` | writes `patches/react-native-css-interop@0.2.5.patch`, updates root `package.json` |
 | Apply | `pnpm install` | exit 0, "Done" |
-| Mobile typecheck | `pnpm --filter @calistenia/mobile typecheck` | exit 0, no errors |
+| Mobile typecheck | `pnpm --filter @sturdy/mobile typecheck` | exit 0, no errors |
 | Confirm patch landed | `grep -n "catch" apps/mobile/node_modules/react-native-css-interop/dist/runtime/native/render-component.js` | shows the new try/catch |
 
-All commands run from the repo root: `/Users/guillermomarin/Documents/ejercicios/calistenia-app`.
+All commands run from the repo root: `/Users/guillermomarin/Documents/ejercicios/sturdy-app`.
 
 ## Scope
 
@@ -193,7 +193,7 @@ grep -n "props omitted: serialization threw" apps/mobile/node_modules/react-nati
 
 Run:
 ```
-pnpm --filter @calistenia/mobile typecheck
+pnpm --filter @sturdy/mobile typecheck
 ```
 **Verify**: exit 0, no errors (the patch is to JS dependency output and adds no types, so typecheck must be unaffected).
 
@@ -201,7 +201,7 @@ pnpm --filter @calistenia/mobile typecheck
 
 This bug only reproduces at runtime in a dev build, so the final gate is manual. The operator (or you, if you have a device attached) must:
 
-1. Start the app: `pnpm --filter @calistenia/mobile start` (or `expo run:android`).
+1. Start the app: `pnpm --filter @sturdy/mobile start` (or `expo run:android`).
 2. Go to the **Nutrition** tab → tap the lime **+** FAB to open the meal logger.
 3. Tap several meal-type chips (**Desayuno**, **Snack**, **Almuerzo**, **Cena**) in succession.
 
@@ -213,7 +213,7 @@ If a device is not available, mark Step 7 as **owed** in the status note rather 
 
 There is no unit-test harness that exercises NativeWind's dev upgrade-warning path (the mobile app uses `vitest` for logic, not RN render-with-css-interop). Do **not** invent a brittle test that imports css-interop internals.
 
-- Static gate: `pnpm --filter @calistenia/mobile typecheck` → exit 0.
+- Static gate: `pnpm --filter @sturdy/mobile typecheck` → exit 0.
 - Patch-applied gate: the Step 5 grep finds the new try/catch in the linked package.
 - Behavioral gate: the manual Step 7 reproduction no longer crashes.
 
@@ -226,7 +226,7 @@ ALL must hold:
 - [ ] `patches/react-native-css-interop@0.2.5.patch` exists and contains the try/catch change
 - [ ] Root `package.json` has `pnpm.patchedDependencies["react-native-css-interop@0.2.5"]` pointing at that patch
 - [ ] `grep -n "props omitted: serialization threw" apps/mobile/node_modules/react-native-css-interop/dist/runtime/native/render-component.js` → one match (patch applied)
-- [ ] `pnpm --filter @calistenia/mobile typecheck` exits 0
+- [ ] `pnpm --filter @sturdy/mobile typecheck` exits 0
 - [ ] No files outside the in-scope list are modified (`git status` shows only the patch file, `package.json`, `pnpm-lock.yaml`, and — if still present — the pre-existing uncommitted meal-logger edits you did not author)
 - [ ] Manual Step 7 reproduction no longer crashes (or is explicitly recorded as "owed" if no device)
 - [ ] `plans/README.md` status row for 013 updated

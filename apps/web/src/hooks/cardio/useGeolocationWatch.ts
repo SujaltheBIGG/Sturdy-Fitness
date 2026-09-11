@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react'
-import type { CardioFixInput } from '@calistenia/core/lib/cardio-fix'
+import type { CardioFixInput } from '@sturdy/core/lib/cardio-fix'
 
 const WATCH_OPTIONS: PositionOptions = { enableHighAccuracy: true, maximumAge: 3000, timeout: 10000 }
 const ONE_SHOT_OPTIONS: PositionOptions = { enableHighAccuracy: true, timeout: 3000 }

@@ -15,13 +15,13 @@ import {
 } from '../ui/dialog'
 import { useCircuitSession } from '../../contexts/CircuitSessionContext'
 import { useWakeLock } from '../../hooks/useWakeLock'
-import { useLocalize } from '@calistenia/core/hooks/useLocalize'
-import { usePausableCountdown } from '@calistenia/core/hooks/usePausableCountdown'
+import { useLocalize } from '@sturdy/core/hooks/useLocalize'
+import { usePausableCountdown } from '@sturdy/core/hooks/usePausableCountdown'
 import * as sounds from '../../lib/sounds'
 import { circuitCues } from '../../lib/training-cues'
-import type { CircuitDefinition } from '@calistenia/core/types'
-import { getLocalQuote } from '@calistenia/core/lib/quotes'
-import { formatCountdown } from '@calistenia/core/lib/countdown'
+import type { CircuitDefinition } from '@sturdy/core/types'
+import { getLocalQuote } from '@sturdy/core/lib/quotes'
+import { formatCountdown } from '@sturdy/core/lib/countdown'
 
 // ── Timer ring (simplified from Timer.tsx for inline use) ────────────────────
 

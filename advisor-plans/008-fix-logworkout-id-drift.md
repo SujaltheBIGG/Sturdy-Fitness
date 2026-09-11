@@ -8,7 +8,7 @@
 > reviewer dispatched you and told you they maintain the index.
 >
 > **Drift check (run first)**: from the repo root
-> `/Users/guillermomarin/Documents/ejercicios/calistenia-app`, run:
+> `/Users/guillermomarin/Documents/ejercicios/sturdy-app`, run:
 > `git diff --stat 943f558..HEAD -- apps/web/src/pages/LogWorkoutPage.tsx`
 > If `LogWorkoutPage.tsx` changed since this plan was written, compare the
 > "Current state" excerpts below against the live code before proceeding. On any

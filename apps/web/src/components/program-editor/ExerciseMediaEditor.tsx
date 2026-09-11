@@ -12,10 +12,10 @@
  */
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { getProgramFileUrl } from '@calistenia/core/lib/pocketbase'
-import { remainingImageSlots } from '@calistenia/core/lib/programMedia'
-import type { EditorExercise } from '@calistenia/core/hooks/useProgramEditor'
-import { exerciseMediaOf } from '@calistenia/core/hooks/useProgramEditor'
+import { getProgramFileUrl } from '@sturdy/core/lib/pocketbase'
+import { remainingImageSlots } from '@sturdy/core/lib/programMedia'
+import type { EditorExercise } from '@sturdy/core/hooks/useProgramEditor'
+import { exerciseMediaOf } from '@sturdy/core/hooks/useProgramEditor'
 import {
   DEMO_IMAGE_ACCEPT,
   DEMO_VIDEO_ACCEPT,

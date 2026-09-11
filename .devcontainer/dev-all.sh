@@ -18,6 +18,6 @@ echo "==> AI API      http://0.0.0.0:3001"
 ( cd mcp-server && pnpm dev:simple ) & pids+=($!)
 
 echo "==> Web (Vite)  http://0.0.0.0:5173"
-pnpm --filter @calistenia/web dev & pids+=($!)
+pnpm --filter @sturdy/web dev & pids+=($!)
 
 wait

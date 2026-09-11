@@ -56,8 +56,8 @@ test('cardio session shows in a friend feed as a commentable activity item', asy
   // register()'s tour list omits 'feed' — seed it so the feed tour popover
   // doesn't cover the comment button.
   await pageB.evaluate((uid) => {
-    localStorage.setItem('calistenia_tour_feed', 'true')
-    localStorage.setItem(`calistenia_tour_feed_${uid}`, 'true')
+    localStorage.setItem('sturdy_tour_feed', 'true')
+    localStorage.setItem(`sturdy_tour_feed_${uid}`, 'true')
   }, B.id)
   await pageB.goto('/feed')
   await pageB.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {})

@@ -1,5 +1,5 @@
 {
-  "name": "@calistenia/mobile",
+  "name": "@sturdy/mobile",
   "main": "./index.js",
   "version": "1.0.0",
   "scripts": {
@@ -7,10 +7,10 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "_comment:release": "Pin prod backend so .env.local (LAN dev URL) can't leak into a local release APK — shell env beats .env files. See memory project_mobile_env_leak.",
-    "build:android:release": "EXPO_PUBLIC_PB_URL=https://gym.guille.tech EXPO_PUBLIC_AI_API_URL=https://gym-server.guille.tech expo run:android --variant release",
+    "build:android:release": "EXPO_PUBLIC_PB_URL=https://sturdy.app EXPO_PUBLIC_AI_API_URL=https://api.sturdy.app expo run:android --variant release",
     "_comment:fast": "Local test build: single ABI (arm64-v8a) = ~3-4x faster native compile. Solo para tu telefono moderno; NO subir a Play Store (excluye otras arquitecturas).",
-    "build:android:fast": "ORG_GRADLE_PROJECT_reactNativeArchitectures=arm64-v8a EXPO_PUBLIC_PB_URL=https://gym.guille.tech EXPO_PUBLIC_AI_API_URL=https://gym-server.guille.tech expo run:android --variant release",
-    "build:ios:release": "EXPO_PUBLIC_PB_URL=https://gym.guille.tech EXPO_PUBLIC_AI_API_URL=https://gym-server.guille.tech expo run:ios --configuration Release",
+    "build:android:fast": "ORG_GRADLE_PROJECT_reactNativeArchitectures=arm64-v8a EXPO_PUBLIC_PB_URL=https://sturdy.app EXPO_PUBLIC_AI_API_URL=https://api.sturdy.app expo run:android --variant release",
+    "build:ios:release": "EXPO_PUBLIC_PB_URL=https://sturdy.app EXPO_PUBLIC_AI_API_URL=https://api.sturdy.app expo run:ios --configuration Release",
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
     "lint": "expo lint",
@@ -19,7 +19,7 @@
   "dependencies": {
     "@ai-sdk/react": "^4.0.86",
     "@bacons/apple-targets": "^4.0.7",
-    "@calistenia/core": "workspace:*",
+    "@sturdy/core": "workspace:*",
     "@expo-google-fonts/bebas-neue": "^0.4.1",
     "@expo-google-fonts/dm-sans": "^0.4.2",
     "@expo-google-fonts/jetbrains-mono": "^0.4.1",

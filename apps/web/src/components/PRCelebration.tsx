@@ -2,8 +2,8 @@ import { useState, useEffect, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from './ui/button'
 import PRShareCard from './PRShareCard'
-import type { PREvent } from '@calistenia/core/hooks/useProgress'
-import { resolveExerciseDisplayName } from '@calistenia/core/lib/exercise-resolver'
+import type { PREvent } from '@sturdy/core/hooks/useProgress'
+import { resolveExerciseDisplayName } from '@sturdy/core/lib/exercise-resolver'
 import { useSessionIdentity } from '../hooks/useSessionIdentity'
 
 const PR_KEY_NAMES: Record<string, string> = {

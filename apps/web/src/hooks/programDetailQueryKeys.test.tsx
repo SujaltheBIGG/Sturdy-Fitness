@@ -66,7 +66,7 @@ const fx = vi.hoisted(() => {
 
 const { USER_ID, PROGRAM_ID } = fx
 
-vi.mock('@calistenia/core/lib/pocketbase', () => {
+vi.mock('@sturdy/core/lib/pocketbase', () => {
   const list = (items: unknown[]) => ({
     items, page: 1, perPage: items.length, totalItems: items.length, totalPages: 1,
   })
@@ -108,9 +108,9 @@ vi.mock('@calistenia/core/lib/pocketbase', () => {
   }
 })
 
-import { usePrograms } from '@calistenia/core/hooks/usePrograms'
-import { useProgramDetail } from '@calistenia/core/hooks/useProgramDetail'
-import { qk } from '@calistenia/core/lib/query-keys'
+import { usePrograms } from '@sturdy/core/hooks/usePrograms'
+import { useProgramDetail } from '@sturdy/core/hooks/useProgramDetail'
+import { qk } from '@sturdy/core/lib/query-keys'
 
 function mountBoth() {
   // Un ÚNICO QueryClient para los dos hooks: es lo que hace la app real y sin

@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next'
 
 import { Text } from '@/components/ui/text'
 import { Kicker } from '@/components/ui/kicker'
-import { useCommunityPrograms } from '@calistenia/core/hooks/useCommunityPrograms'
+import { useCommunityPrograms } from '@sturdy/core/hooks/useCommunityPrograms'
 
 interface CommunityProgramCardProps {
   userId: string | null

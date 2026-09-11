@@ -1,6 +1,6 @@
 /**
  * PocketBase Migration Script — v0.21 compatible
- * Crea/actualiza las colecciones necesarias + seed del programa Calistenia 6M.
+ * Crea/actualiza las colecciones necesarias + seed del programa Sturdy 6M.
  *
  * USO:
  *   PB_SUPERUSER_EMAIL=tu@email.com PB_SUPERUSER_PASSWORD=pass node scripts/pb-migrate.js
@@ -540,19 +540,19 @@ async function main() {
   }
   console.log()
 
-  // ── 11. Seed: Calistenia 6M program ─────────────────────────────────────────
+  // ── 11. Seed: Sturdy 6M program ─────────────────────────────────────────
   // Idempotent: skip if already seeded
   const existingPrograms = await pb.collection('programs').getList(1, 10)
-  const alreadySeeded = existingPrograms.items.some(p => p.name === 'Calistenia 6M')
+  const alreadySeeded = existingPrograms.items.some(p => p.name === 'Sturdy 6M')
 
   if (alreadySeeded) {
-    console.log('Programa "Calistenia 6M" ya existe, omitiendo seed.')
+    console.log('Programa "Sturdy 6M" ya existe, omitiendo seed.')
   } else {
-    console.log('Seeding programa "Calistenia 6M"...')
+    console.log('Seeding programa "Sturdy 6M"...')
 
     // Create program
     const program = await pb.collection('programs').create({
-      name: 'Calistenia 6M',
+      name: 'Sturdy 6M',
       description: 'Programa de 26 semanas de calistenia con enfoque en fuerza, movilidad lumbar y skills avanzados. Ideal para programadores y trabajadores de oficina.',
       duration_weeks: 26,
       is_active: true,

@@ -58,9 +58,9 @@ import {
   computeProgramProgress,
   type CompletedWorkout,
   type ProgramProgress,
-} from "@calistenia/core/lib/programProgress";
-import { utcToLocalDateStrIn } from "@calistenia/core/lib/tzDate";
-import type { DayType, Phase, WeekDay } from "@calistenia/core/types";
+} from "@sturdy/core/lib/programProgress";
+import { utcToLocalDateStrIn } from "@sturdy/core/lib/tzDate";
+import type { DayType, Phase, WeekDay } from "@sturdy/core/types";
 import { localize } from "../lib/i18n.js";
 import {
   getCurrentProgram,

@@ -9,8 +9,8 @@
 import i18n from './i18n'
 import { loadLogo } from './share'
 import { loadImage, fillRRect } from './canvas-helpers'
-import type { ShareMeal } from '@calistenia/core/lib/share-meals'
-import type { DailyTotals, NutritionGoal, QualityScore } from '@calistenia/core/types'
+import type { ShareMeal } from '@sturdy/core/lib/share-meals'
+import type { DailyTotals, NutritionGoal, QualityScore } from '@sturdy/core/types'
 
 // ── Brand palette (mirrors NutritionShareCard.tsx native) ────────────────────
 const CARD_BG   = '#0a0a0b'
@@ -199,7 +199,7 @@ function drawSummaryCard(
 
   ctx.fillStyle = '#fafafa'
   ctx.font = '700 16px system-ui, -apple-system, sans-serif'
-  ctx.fillText('CALISTENIA APP', textX, headerY + 20)
+  ctx.fillText('STURDY APP', textX, headerY + 20)
 
   ctx.fillStyle = '#525252'
   ctx.font = '400 12px system-ui, -apple-system, sans-serif'
@@ -318,7 +318,7 @@ function drawSummaryCard(
   }
   ctx.fillStyle = '#404040'
   ctx.font = '400 12px system-ui, -apple-system, sans-serif'
-  ctx.fillText('calistenia-app.com', pad + (logo ? footerLogoSize + 8 : 0), footerY + 28)
+  ctx.fillText('sturdy-app.com', pad + (logo ? footerLogoSize + 8 : 0), footerY + 28)
 }
 
 // ── Draw: RICH variant ────────────────────────────────────────────────────────
@@ -581,13 +581,13 @@ function drawRichCard(
   ctx.fillStyle = INK_DIM
   ctx.font = '700 11px "DM Sans", system-ui, sans-serif'
   ctx.letterSpacing = '1.5px'
-  ctx.fillText('CALISTENIA', footerTextX, footerY + 14)
+  ctx.fillText('STURDY', footerTextX, footerY + 14)
   ctx.letterSpacing = '0px'
 
   ctx.fillStyle = INK_FAINT
   ctx.font = '400 10px "DM Sans", system-ui, sans-serif'
   ctx.textAlign = 'right'
-  ctx.fillText('calistenia-app.com', pad + barW, footerY + 14)
+  ctx.fillText('sturdy-app.com', pad + barW, footerY + 14)
   ctx.textAlign = 'left'
 }
 

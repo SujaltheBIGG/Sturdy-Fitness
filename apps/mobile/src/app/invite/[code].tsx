@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import { useLocalSearchParams, useRouter } from 'expo-router'
 
-import { captureReferralCode } from '@calistenia/core/hooks/useAuth'
-import { pb } from '@calistenia/core/lib/pocketbase'
+import { captureReferralCode } from '@sturdy/core/hooks/useAuth'
+import { pb } from '@sturdy/core/lib/pocketbase'
 import {
   CANONICAL_ANALYTICS_EVENTS,
   trackCanonicalEvent,
-} from '@calistenia/core/lib/analytics'
+} from '@sturdy/core/lib/analytics'
 
 /** Captura la atribución del enlace universal antes de entrar al registro. */
 export default function InviteLinkScreen() {

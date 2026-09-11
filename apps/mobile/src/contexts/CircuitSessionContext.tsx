@@ -10,10 +10,10 @@ import {
   useCircuitSessionState,
   type CircuitSessionState,
   type CircuitErrorOp,
-} from '@calistenia/core/hooks/session-contexts/useCircuitSessionState'
+} from '@sturdy/core/hooks/session-contexts/useCircuitSessionState'
 import { Sentry } from '@/lib/instrument'
 
-export type { CircuitProgress } from '@calistenia/core/hooks/session-contexts/useCircuitSessionState'
+export type { CircuitProgress } from '@sturdy/core/hooks/session-contexts/useCircuitSessionState'
 
 const CircuitSessionContext = createContext<CircuitSessionState | null>(null)
 

@@ -116,7 +116,7 @@ es correcta y debe conservarse.
 | Checkout del branch | `git checkout feat/mobile-data-perf`                        | branch cambiado          |
 | Typecheck web       | `cd apps/web && pnpm exec tsc --noEmit`                     | exit 0, sin errores      |
 | Typecheck mobile    | `cd apps/mobile && pnpm exec tsc --noEmit`                  | exit 0, sin errores      |
-| Build raíz          | `pnpm build` (desde `/Users/guillermomarin/Documents/ejercicios/calistenia-app`) | exit 0 |
+| Build raíz          | `pnpm build` (desde `/Users/guillermomarin/Documents/ejercicios/sturdy-app`) | exit 0 |
 | Drift check         | `git diff --stat 4659cd6..HEAD -- packages/core/hooks/usePrograms.ts packages/core/lib/query-keys.ts` | sin cambios relevantes |
 
 ## Scope
@@ -245,7 +245,7 @@ cd apps/mobile && pnpm exec tsc --noEmit
 ### Step 6: Build
 
 ```bash
-cd /Users/guillermomarin/Documents/ejercicios/calistenia-app && pnpm build
+cd /Users/guillermomarin/Documents/ejercicios/sturdy-app && pnpm build
 ```
 → exit 0.
 

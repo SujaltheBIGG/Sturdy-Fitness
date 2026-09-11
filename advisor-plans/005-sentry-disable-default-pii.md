@@ -8,7 +8,7 @@
 > they maintain the index.
 >
 > **Drift check (run first)**: from the repo root
-> `/Users/guillermomarin/Documents/ejercicios/calistenia-app`, run:
+> `/Users/guillermomarin/Documents/ejercicios/sturdy-app`, run:
 > `git diff --stat 943f558..HEAD -- apps/mobile/src/lib/instrument.ts`
 > If `apps/mobile/src/lib/instrument.ts` changed since this plan was written,
 > compare the "Current state" excerpt below against the live file before
@@ -61,7 +61,7 @@ keep it unchanged:
 import * as Sentry from '@sentry/react-native'
 
 Sentry.init({
-  // Proyecto Sentry propio de RN (guillermoscript/calistenia-app), distinto del
+  // Proyecto Sentry propio de RN (CLIENT-ORG/sturdy-app), distinto del
   // de la web. Override por env para builds que quieran apuntar a otro entorno.
   dsn: process.env.EXPO_PUBLIC_SENTRY_DSN ||
     '<<Sentry DSN — public ingest key, redacted in this plan; see instrument.ts:11-12 in the real file>>',
@@ -149,7 +149,7 @@ Also permitted (index bookkeeping only):
 
 ### Step 1: Create the working branch
 
-From the repo root `/Users/guillermomarin/Documents/ejercicios/calistenia-app`,
+From the repo root `/Users/guillermomarin/Documents/ejercicios/sturdy-app`,
 on a clean tree at commit `943f558` (branch `main`), create and switch to the
 plan branch.
 

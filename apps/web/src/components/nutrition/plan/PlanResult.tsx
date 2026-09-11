@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import type { MealDayPlan, Recipe } from '@calistenia/core/types'
+import type { MealDayPlan, Recipe } from '@sturdy/core/types'
 import { Kicker } from '../../ui/kicker'
 import { PlanMealRow } from './PlanMealRow'
 

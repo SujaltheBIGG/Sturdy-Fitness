@@ -34,7 +34,7 @@
 
 - Create new context following `ActiveSessionContext.tsx` pattern
 - State: `circuitDefinition`, `currentRound`, `currentExerciseIndex`, `phase` ('exercise' | 'rest' | 'roundRest' | 'work' | 'celebrate'), `isActive`, `isPaused`, `startedAt`, `elapsedSeconds`
-- localStorage persistence with key `calistenia_circuit_active`, 24h expiry
+- localStorage persistence with key `sturdy_circuit_active`, 24h expiry
 - Persist circuit definition **before** navigation (for program launch + page refresh survival)
 - Functions: `startCircuit(def)`, `advanceExercise()`, `advanceRound()`, `pause()`, `resume()`, `completeCircuit()`, `abandonCircuit()`
 - Auto-redirect to `/circuit/active` if persisted session exists (same as ActiveSessionContext)
@@ -154,7 +154,7 @@
 - Add "Exercises | Circuit" toggle/tab at top of page
 - "Circuit" tab renders `CircuitBuilder` inline
 - On "Start": persist to CircuitSessionContext, navigate to `/circuit/active`
-- Existing free session queue (`calistenia_free_session_queue`) preserved independently
+- Existing free session queue (`sturdy_free_session_queue`) preserved independently
 
 ### Step 5.4: Analytics events
 **Files:** `src/components/circuit/CircuitView.tsx`, `src/pages/CircuitPage.tsx`

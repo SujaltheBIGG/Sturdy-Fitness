@@ -20,7 +20,7 @@
  */
 import * as WebBrowser from 'expo-web-browser'
 import * as Linking from 'expo-linking'
-import { loginWithOAuth2Code } from '@calistenia/core/lib/pocketbase'
+import { loginWithOAuth2Code } from '@sturdy/core/lib/pocketbase'
 
 WebBrowser.maybeCompleteAuthSession()
 
@@ -28,13 +28,13 @@ WebBrowser.maybeCompleteAuthSession()
 // "Authorized redirect URIs" del cliente OAuth de Google y servirse en pb_public.
 // El bridge reenvía el code+state a APP_RETURN_URL.
 const OAUTH_BRIDGE_URL =
-  process.env.EXPO_PUBLIC_OAUTH_BRIDGE_URL || 'https://gym.guille.tech/oauth-bridge.html'
+  process.env.EXPO_PUBLIC_OAUTH_BRIDGE_URL || 'https://sturdy.app/oauth-bridge.html'
 
 // Esquema propio de la app al que vuelve el deep-link. Literal (no Linking.createURL)
 // para que coincida EXACTO con el redirect hardcodeado del bridge estático.
 // expo-web-browser cierra el navegador al detectar esta URL. Requiere build
 // standalone / dev-client (Expo Go usa otro esquema y no sirve para OAuth).
-const APP_RETURN_URL = 'calistenia://oauthredirect'
+const APP_RETURN_URL = 'sturdy://oauthredirect'
 
 /** El usuario cerró el navegador sin completar el login (no es un error a reportar). */
 export class OAuthCancelledError extends Error {

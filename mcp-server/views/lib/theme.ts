@@ -1,5 +1,5 @@
 /**
- * Shared widget palette — mirrors the Calistenia app design system so MCP
+ * Shared widget palette — mirrors the Sturdy app design system so MCP
  * widgets match the web/mobile look & feel.
  *
  * Source of truth: apps/web/src/index.css (CSS custom properties) and

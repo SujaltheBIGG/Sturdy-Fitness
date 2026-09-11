@@ -104,7 +104,7 @@ Popular gym tracking apps that some calisthenics people use.
   ──────────────────────┼──────────────────────
   LESS FEATURES         │         MORE FEATURES
                         │
-          Madbarz       │    ★ Calistenia App
+          Madbarz       │    ★ Sturdy
           (dated,       │    (complete ecosystem,
            basic)       │     bilingual, AI+GPS+sleep+social)
                         │
@@ -151,14 +151,14 @@ Popular gym tracking apps that some calisthenics people use.
 
 ## Positioning Statement
 
-**For calisthenics athletes who want a complete training system (not just a workout timer), Calistenia App is the only app that combines structured programs, AI nutrition, GPS cardio, sleep tracking, and social challenges — in Spanish and English, at a price that makes sense, and that works without internet.**
+**For calisthenics athletes who want a complete training system (not just a workout timer), Sturdy is the only app that combines structured programs, AI nutrition, GPS cardio, sleep tracking, and social challenges — in Spanish and English, at a price that makes sense, and that works without internet.**
 
 ### One-liner versions (for different contexts):
 
 - **For social media bio (ES)**: "La app completa de calistenia en espanol"
 - **For social media bio (EN)**: "The complete calisthenics app — bilingual, free to start"
 - **For ad headline**: "Tu entrenador de calistenia con IA"
-- **For app store**: "Calistenia: entrenos, nutricion, progreso y comunidad"
+- **For app store**: "Sturdy: entrenos, nutricion, progreso y comunidad"
 - **For pitch**: "Freeletics for calisthenics, but bilingual, cheaper, and with nutrition + sleep + social built in"
 
 ---

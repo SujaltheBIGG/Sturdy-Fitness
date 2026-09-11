@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { cn } from '../../lib/utils'
-import { describeFeedItem } from '@calistenia/core/lib/feed-item'
-import type { FeedItem } from '@calistenia/core/types'
-import { timeAgoShort } from '@calistenia/core/lib/dateUtils'
+import { describeFeedItem } from '@sturdy/core/lib/feed-item'
+import type { FeedItem } from '@sturdy/core/types'
+import { timeAgoShort } from '@sturdy/core/lib/dateUtils'
 
 interface ActivityFeedWidgetProps {
   items: FeedItem[]

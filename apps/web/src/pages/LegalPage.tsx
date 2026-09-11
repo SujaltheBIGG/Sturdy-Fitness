@@ -1,67 +1,62 @@
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 
-const UPDATED = '12 de agosto de 2026'
+const UPDATED = 'August 12, 2026'
 
 /**
- * Política de privacidad y condiciones (issue #295).
+ * Privacy policy and terms of service (issue #295).
  *
- * El fichero venía sin una sola tilde desde su primera versión. Como esta
- * revisión reescribe la mayor parte del texto, se acentúa entero: dejar a
- * medias un documento legal en castellano desluce más que el ruido que añade
- * al diff.
+ * Every claim in the privacy section is anchored to the code that backs it, so
+ * the next review can verify it instead of taking it on faith:
  *
- * Cada afirmación de la sección de privacidad está anclada al código que la
- * sostiene, para que la próxima revisión pueda comprobarla en vez de creérsela:
- *
- * - Colecciones de salud, todas owner-only: `body_photos` (1774000008:101,106),
+ * - Health collections, all owner-only: `body_photos` (1774000008:101,106),
  *   `body_measurements` (1774000022:88,93), `weight_entries` (1774000007:81,86),
  *   `sleep_entries` (1774000042:28,29), `user_health` (1781700000:35,36),
  *   `user_insights` (1780000000:87,92), `sleep_insights` (1781400000:87,92),
  *   `nutrition_entries` (1774000004:160,165), `daily_health_cache` (1777000001:36,37).
- * - Legibles por cualquier cuenta autenticada: `sessions`, `user_stats` y
- *   `cardio_sessions` con filtro de bloqueo (1778000002:11-22,27-31), y
- *   `sets_log` (1777000005:12,13), `settings` (1775100007:14,15) y
- *   `race_participants` (1775200002:27,28) SIN filtro de bloqueo.
- * - Rutas GPS de cardio: RESUELTO en #299. `gps_points` salió de
- *   `cardio_sessions` a la colección owner-only `cardio_routes` (1782500000),
- *   con las cinco reglas atadas al dueño. El muro sigue abierto pero ya no
- *   arrastra la ruta.
- * - Rutas GPS de carreras: RESUELTO en #316. `gps_track` salió de
- *   `race_participants` a la colección owner-only `race_routes` (1783600000),
- *   con las cinco reglas atadas al dueño. La participación sigue abierta —la
- *   carrera en vivo la necesita— pero ya no arrastra el recorrido, ni siquiera
- *   por el payload de realtime, que difundía la fila entera al terminar.
- * - Ficheros con `protected: false`: fotos de progreso (1774000008:50) y de
- *   comida (1774000064:18) -> URL larga sin comprobación de sesión.
- * - Desde #300 todas las relaciones a `users` cascadean: las 7 que faltaban
+ * - Readable by any authenticated account: `sessions`, `user_stats` and
+ *   `cardio_sessions` with a block filter (1778000002:11-22,27-31), and
+ *   `sets_log` (1777000005:12,13), `settings` (1775100007:14,15) and
+ *   `race_participants` (1775200002:27,28) WITHOUT a block filter.
+ * - Cardio GPS routes: RESOLVED in #299. `gps_points` moved out of
+ *   `cardio_sessions` into the owner-only `cardio_routes` collection (1782500000),
+ *   with all five rules bound to the owner. The feed is still open but no longer
+ *   carries the route.
+ * - Race GPS routes: RESOLVED in #316. `gps_track` moved out of
+ *   `race_participants` into the owner-only `race_routes` collection (1783600000),
+ *   with all five rules bound to the owner. Participation stays open — the live
+ *   race needs it — but no longer carries the track, not even via the realtime
+ *   payload, which used to broadcast the whole row on finish.
+ * - Files with `protected: false`: progress photos (1774000008:50) and meal
+ *   photos (1774000064:18) -> long URL with no session check.
+ * - Since #300 every relation to `users` cascades: the 7 that were missing
  *   (`cardio_sessions`, `circuit_sessions`, `race_participants`, `races`,
- *   `referrals` x2, `content_reports.target_user`) se arreglaron en
- *   `1782600000_cascade_delete_user_relations.js`. Sin ellas PocketBase ni
- *   siquiera dejaba borrar la cuenta (400 por relación requerida).
- * - Terceros: proveedores de IA en `mcp-server/src/api/model-resolver.ts:22-32`,
- *   fotos de comida enviadas en `meal-analyzer.ts:204-213`, contexto de los
- *   resúmenes en `insight-context-server.ts:468-679`, Langfuse sin enmascarado
- *   en `mcp-server/src/instrumentation.ts:22-24`, Sentry web con PII en
- *   `apps/web/src/instrument.ts:12`, móvil sin ella en
- *   `apps/mobile/src/lib/instrument.ts:15`, OpenPanel autoalojado en
- *   `apps/web/src/lib/init-core.ts:12` con session replay enmascarado salvo en
- *   los subárboles `data-op-unmask` (`components/MarketingUnmask.tsx`)
- *   e identify con email en
- *   `packages/core/hooks/useAuth.ts:70,119`, push en `push-sender.ts:100-174`,
- *   mapas CARTO en `apps/web/src/components/cardio/RouteMap.tsx:21-22`.
- * - Cron semanal de resúmenes: `pb_hooks/weekly_insights.pb.js:13,22-35`
- *   (enumera usuarios con token push, no todos).
- * - Exportación: `apps/web/src/components/progress/ExportData.tsx:55-65`.
- * - Condiciones médicas y lesiones NO salen a la IA: solo se usan en cliente
- *   (`packages/core/lib/matchPrograms.ts:78-79`, `lib/injuryMatch.ts`).
- * - Borrado autoservicio (#300): `users.deleteRule` es `id = @request.auth.id`;
- *   la UI está en `components/profile/DeleteAccountDialog.tsx` (web) y
- *   `apps/mobile/src/components/profile/DeleteAccountModal.tsx` (Android), y la
- *   operación compartida en `packages/core/hooks/useDeleteAccount.ts`.
+ *   `referrals` x2, `content_reports.target_user`) were fixed in
+ *   `1782600000_cascade_delete_user_relations.js`. Without them PocketBase would
+ *   not even allow deleting the account (400 on a required relation).
+ * - Third parties: AI providers in `mcp-server/src/api/model-resolver.ts:22-32`,
+ *   meal photos sent in `meal-analyzer.ts:204-213`, summary context in
+ *   `insight-context-server.ts:468-679`, Langfuse without masking in
+ *   `mcp-server/src/instrumentation.ts:22-24`, Sentry web with PII in
+ *   `apps/web/src/instrument.ts:12`, mobile without it in
+ *   `apps/mobile/src/lib/instrument.ts:15`, self-hosted OpenPanel in
+ *   `apps/web/src/lib/init-core.ts:12` with session replay masked except in the
+ *   `data-op-unmask` subtrees (`components/MarketingUnmask.tsx`) and identify
+ *   with email in `packages/core/hooks/useAuth.ts:70,119`, push in
+ *   `push-sender.ts:100-174`, CARTO maps in
+ *   `apps/web/src/components/cardio/RouteMap.tsx:21-22`.
+ * - Weekly summary cron: `pb_hooks/weekly_insights.pb.js:13,22-35`
+ *   (enumerates users with a push token, not everyone).
+ * - Export: `apps/web/src/components/progress/ExportData.tsx:55-65`.
+ * - Medical conditions and injuries do NOT go to the AI: they are used only on
+ *   the client (`packages/core/lib/matchPrograms.ts:78-79`, `lib/injuryMatch.ts`).
+ * - Self-service deletion (#300): `users.deleteRule` is `id = @request.auth.id`;
+ *   the UI lives in `components/profile/DeleteAccountDialog.tsx` (web) and
+ *   `apps/mobile/src/components/profile/DeleteAccountModal.tsx` (Android), with
+ *   the shared operation in `packages/core/hooks/useDeleteAccount.ts`.
  */
 
-/** Fila de la tabla de visibilidad: `who` admite varias frases. */
+/** Visibility table row: `who` accepts several sentences. */
 function VisibilityRow({ what, who }: { what: string; who: string }) {
   return (
     <tr className="border-b border-border last:border-b-0 align-top">
@@ -90,313 +85,314 @@ export default function LegalPage() {
           onClick={() => navigate(-1)}
           className="mb-6 text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
-          &larr; Volver
+          &larr; Back
         </button>
 
         {/* Privacy Policy */}
         <section id="privacy" className="mb-16">
-          <h1 className="text-3xl font-bold mb-2">Política de Privacidad</h1>
-          <p className="text-sm text-muted-foreground mb-6">Última actualización: {UPDATED}</p>
+          <h1 className="text-3xl font-bold mb-2">Privacy Policy</h1>
+          <p className="text-sm text-muted-foreground mb-6">Last updated: {UPDATED}</p>
 
           <p className="mb-4">
-            Calistenia App ("nosotros", "nuestro" o "la aplicación") se compromete a proteger tu privacidad.
-            Esta política describe cómo recopilamos, usamos y protegemos tu información personal cuando
-            utilizas nuestra aplicación.
+            Sturdy ("we", "us" or "the app") is committed to protecting your privacy.
+            This policy describes how we collect, use and protect your personal information when
+            you use our application.
           </p>
 
           <p className="mb-4">
-            La aplicación guarda datos sobre tu cuerpo y tu salud, así que esta política describe lo que
-            ocurre hoy con detalle, incluidas las partes incómodas. Cuando algo no funciona como te
-            gustaría, lo decimos en vez de omitirlo.
+            The app stores data about your body and your health, so this policy describes what
+            happens today in detail, including the uncomfortable parts. Where something does not
+            work the way you would like, we say so instead of leaving it out.
           </p>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">1. Información que recopilamos</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">1. Information we collect</h2>
           <p className="mb-2">
-            Casi todo lo que sigue lo introduces tú. Si no rellenas una sección, esos datos no existen.
-            Marcamos como <strong>datos de salud</strong> las categorías que merecen ese trato.
+            Almost everything below is entered by you. If you do not fill in a section, that data
+            does not exist. We mark as <strong>health data</strong> the categories that warrant
+            that treatment.
           </p>
           <ul className="list-disc pl-6 mb-4 space-y-1">
-            <li><strong>Datos de cuenta:</strong> nombre, dirección de correo electrónico y foto de perfil cuando te registras o inicias sesión con Google, además de tu idioma y tu zona horaria.</li>
-            <li><strong>Datos de entrenamiento:</strong> ejercicios, series, repeticiones, pesos, notas, sesiones completadas, circuitos, programas y tus marcas personales de dominadas, flexiones, L-sit, pistol y parada de manos.</li>
-            <li><strong>Datos de cardio y ubicación:</strong> distancia, ritmo, desnivel y la ruta GPS completa de la sesión. La ubicación se registra únicamente mientras una sesión de cardio está activa.</li>
-            <li><strong>Datos de nutrición:</strong> comidas, cantidades, objetivos, agua, despensa, recetas guardadas y las fotos de comida que subas.</li>
-            <li><strong>Datos sobre tu cuerpo (datos de salud):</strong> peso, hasta ocho circunferencias corporales (pecho, cintura, cuello, cadera, ambos brazos y ambos muslos), el porcentaje de grasa que se estima a partir de ellas, y las fotos de progreso de frente, de lado y de espalda.</li>
-            <li><strong>Datos de descanso (datos de salud):</strong> hora de acostarte y de levantarte, duración, despertares, calidad percibida, cafeína, pantallas antes de dormir y nivel de estrés.</li>
-            <li><strong>Condiciones médicas y lesiones (datos de salud):</strong> las que declares en el registro o en tu perfil. Se usan para adaptar las recomendaciones de programas y no salen de tu dispositivo hacia ningún servicio de terceros.</li>
-            <li><strong>Datos de dispositivos de salud (datos de salud):</strong> si conectas Health Connect en Android, la aplicación guarda un resumen diario con pasos, calorías, pulsaciones en reposo, variabilidad, VO2max, minutos y calidad de sueño, peso y porcentaje de grasa.</li>
-            <li><strong>Resúmenes generados por inteligencia artificial (datos de salud):</strong> los textos semanales que la aplicación genera sobre tus propios registros y guarda en tu cuenta.</li>
-            <li><strong>Datos del dispositivo y de uso:</strong> tipo de navegador, sistema operativo, idioma, versión de la aplicación y eventos de uso, utilizados para mejorar la experiencia y diagnosticar fallos.</li>
+            <li><strong>Account data:</strong> name, email address and profile photo when you register or sign in with Google, plus your language and time zone.</li>
+            <li><strong>Training data:</strong> exercises, sets, reps, weights, notes, completed sessions, circuits, programs and your personal records for pull-ups, push-ups, L-sit, pistol squat and handstand.</li>
+            <li><strong>Cardio and location data:</strong> distance, pace, elevation and the full GPS route of the session. Location is recorded only while a cardio session is active.</li>
+            <li><strong>Nutrition data:</strong> meals, quantities, targets, water, pantry, saved recipes and any meal photos you upload.</li>
+            <li><strong>Body data (health data):</strong> weight, up to eight body circumferences (chest, waist, neck, hips, both arms and both thighs), the body-fat percentage estimated from them, and front, side and back progress photos.</li>
+            <li><strong>Rest data (health data):</strong> bedtime and wake time, duration, awakenings, perceived quality, caffeine, screen use before bed and stress level.</li>
+            <li><strong>Medical conditions and injuries (health data):</strong> those you declare at registration or in your profile. They are used to adapt program recommendations and do not leave your device for any third-party service.</li>
+            <li><strong>Health device data (health data):</strong> if you connect Health Connect on Android, the app stores a daily summary with steps, calories, resting heart rate, variability, VO2max, sleep minutes and quality, weight and body-fat percentage.</li>
+            <li><strong>AI-generated summaries (health data):</strong> the weekly texts the app generates about your own records and stores in your account.</li>
+            <li><strong>Device and usage data:</strong> browser type, operating system, language, app version and usage events, used to improve the experience and diagnose faults.</li>
           </ul>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">2. Cómo usamos tu información</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">2. How we use your information</h2>
           <ul className="list-disc pl-6 mb-4 space-y-1">
-            <li>Proporcionar, mantener y mejorar los servicios de la aplicación.</li>
-            <li>Personalizar tu experiencia de entrenamiento y nutrición.</li>
-            <li>Permitir funciones sociales como amigos, ranking y desafíos.</li>
-            <li>Estimar los valores nutricionales de las fotos de comida que envíes a analizar.</li>
-            <li>Generar resúmenes semanales sobre tus registros. Esto ocurre de forma automática los lunes por la mañana, sin que lo pidas, si tienes las notificaciones activadas en algún dispositivo.</li>
-            <li>Enviar recordatorios y notificaciones que hayas configurado.</li>
-            <li>Detectar y diagnosticar errores de la aplicación.</li>
-            <li>Analizar el uso para mejorar la aplicación.</li>
+            <li>Provide, maintain and improve the app's services.</li>
+            <li>Personalize your training and nutrition experience.</li>
+            <li>Enable social features such as friends, leaderboards and challenges.</li>
+            <li>Estimate nutritional values from the meal photos you send for analysis.</li>
+            <li>Generate weekly summaries of your records. This happens automatically on Monday mornings, without you asking, if you have notifications enabled on any device.</li>
+            <li>Send reminders and notifications you have configured.</li>
+            <li>Detect and diagnose application errors.</li>
+            <li>Analyze usage to improve the app.</li>
           </ul>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">3. Quién ve tus datos dentro de la aplicación</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">3. Who sees your data inside the app</h2>
           <p className="mb-4">
-            No hay perfiles públicos: sin una cuenta con la sesión iniciada no se ve absolutamente nada.
-            Con una cuenta, esto es lo que se ve.
+            There are no public profiles: without a signed-in account nothing at all is visible.
+            With an account, this is what is visible.
           </p>
           <div className="overflow-x-auto mb-4">
             <table className="w-full text-sm border-collapse">
-              <caption className="sr-only">Qué ve cada persona de tus datos</caption>
+              <caption className="sr-only">What each person sees of your data</caption>
               <thead>
                 <tr className="border-b border-border">
-                  <th scope="col" className="py-2 pr-4 text-left font-semibold">Dato</th>
-                  <th scope="col" className="py-2 text-left font-semibold">Quién puede verlo</th>
+                  <th scope="col" className="py-2 pr-4 text-left font-semibold">Data</th>
+                  <th scope="col" className="py-2 text-left font-semibold">Who can see it</th>
                 </tr>
               </thead>
               <tbody>
                 <VisibilityRow
-                  what="Fotos de progreso, medidas y peso"
-                  who="Solo tú."
+                  what="Progress photos, measurements and weight"
+                  who="Only you."
                 />
                 <VisibilityRow
-                  what="Comidas, fotos de comida, agua y sueño"
-                  who="Solo tú."
+                  what="Meals, meal photos, water and sleep"
+                  who="Only you."
                 />
                 <VisibilityRow
-                  what="Condiciones médicas y lesiones"
-                  who="Solo tú."
+                  what="Medical conditions and injuries"
+                  who="Only you."
                 />
                 <VisibilityRow
-                  what="Datos de Health Connect y resúmenes generados por IA"
-                  who="Solo tú."
+                  what="Health Connect data and AI-generated summaries"
+                  who="Only you."
                 />
                 <VisibilityRow
-                  what="Entrenos completados y estadísticas generales"
-                  who="Cualquier persona con una cuenta, no solo quienes te siguen. Se ocultan a quien hayas bloqueado y a quien te haya bloqueado."
+                  what="Completed workouts and general statistics"
+                  who="Anyone with an account, not just people who follow you. Hidden from anyone you have blocked and anyone who has blocked you."
                 />
                 <VisibilityRow
-                  what="Series, repeticiones y marcas personales"
-                  who="Cualquier persona con una cuenta: son los datos que hacen funcionar la clasificación y los retos. Se ocultan a quien hayas bloqueado y a quien te haya bloqueado."
+                  what="Sets, reps and personal records"
+                  who="Anyone with an account: this is the data that makes the leaderboard and challenges work. Hidden from anyone you have blocked and anyone who has blocked you."
                 />
                 <VisibilityRow
-                  what="Sesiones de cardio: distancia, ritmo y duración"
-                  who="Cualquier persona con una cuenta, no solo quienes te siguen. Se ocultan a quien hayas bloqueado y a quien te haya bloqueado."
+                  what="Cardio sessions: distance, pace and duration"
+                  who="Anyone with an account, not just people who follow you. Hidden from anyone you have blocked and anyone who has blocked you."
                 />
                 <VisibilityRow
-                  what="La ruta GPS de tus sesiones de cardio"
-                  who="Solo tú. Se guarda aparte del resto de la sesión, precisamente para que el muro pueda mostrar la actividad sin exponer por dónde pasaste."
+                  what="The GPS route of your cardio sessions"
+                  who="Only you. It is stored separately from the rest of the session, precisely so the feed can show the activity without exposing where you went."
                 />
                 <VisibilityRow
-                  what="Participaciones en carreras: posición en vivo, distancia y ritmo"
-                  who="Cualquier persona con una cuenta. Mientras la carrera está en marcha, tu posición es lo que permite al resto de participantes verte avanzar. Se ocultan a quien hayas bloqueado y a quien te haya bloqueado."
+                  what="Race participation: live position, distance and pace"
+                  who="Anyone with an account. While the race is running, your position is what lets other participants watch you progress. Hidden from anyone you have blocked and anyone who has blocked you."
                 />
                 <VisibilityRow
-                  what="El recorrido GPS de tus carreras"
-                  who="Solo tú. Se guarda aparte de la participación, igual que la ruta de cardio, para que la carrera pueda mostrar tu posición sin exponer por dónde pasaste."
+                  what="The GPS track of your races"
+                  who="Only you. It is stored separately from the participation record, just like the cardio route, so the race can show your position without exposing where you went."
                 />
                 <VisibilityRow
-                  what="Tu nombre, tu foto y tus estadísticas"
-                  who="Cualquier persona con una cuenta que abra tu perfil."
+                  what="Your name, your photo and your statistics"
+                  who="Anyone with an account who opens your profile."
                 />
               </tbody>
             </table>
           </div>
 
-          <h3 className="text-lg font-semibold mt-6 mb-2">Cómo se sirven tus fotos</h3>
+          <h3 className="text-lg font-semibold mt-6 mb-2">How your photos are served</h3>
           <p className="mb-4">
-            Las fotos que subes, tanto las de progreso como las de comida, se guardan como archivos con un
-            nombre largo y difícil de adivinar, y se sirven por esa dirección sin comprobar quién la abre.
-            La aplicación solo las lista para tu cuenta y nadie puede llegar a ellas navegando, pero si esa
-            dirección exacta se filtrara, quien la tuviera podría abrirla. No subas nada que no publicarías
-            si esa dirección se filtrara.
+            The photos you upload, both progress and meal photos, are stored as files with a long,
+            hard-to-guess name, and served from that address without checking who opens it. The app
+            only lists them for your account and nobody can reach them by browsing, but if that exact
+            address were leaked, whoever had it could open it. Do not upload anything you would not
+            publish if that address were leaked.
           </p>
 
-          <h3 className="text-lg font-semibold mt-6 mb-2">Dónde se guardan tus recorridos GPS</h3>
+          <h3 className="text-lg font-semibold mt-6 mb-2">Where your GPS tracks are stored</h3>
           <p className="mb-4">
-            Ni el recorrido de tus sesiones de cardio ni el de tus carreras se guardan junto al resto de la
-            actividad: viven en un sitio aparte al que solo llega tu cuenta. Es lo que permite que el muro
-            muestre que has salido a correr, y que una carrera muestre tu posición al resto de
-            participantes, sin que nadie pueda reconstruir por dónde pasaste. Como un recorrido suele
-            empezar y terminar en tu casa, nos parece la diferencia importante.
+            Neither your cardio session tracks nor your race tracks are stored alongside the rest of
+            the activity: they live somewhere separate that only your account can reach. That is what
+            lets the feed show that you went for a run, and a race show your position to other
+            participants, without anyone being able to reconstruct where you went. Since a route
+            usually starts and ends at your home, we think that is an important distinction.
           </p>
           <p className="mb-4">
-            Antes no era así, y preferimos decírtelo: hasta el 3 de agosto de 2026 en el caso del cardio, y
-            hasta el 12 de agosto de 2026 en el de las carreras, el recorrido se guardaba dentro del propio
-            registro de la actividad, y ese registro es legible por cualquier cuenta con la sesión iniciada.
-            Ninguna pantalla de la aplicación dibujaba el recorrido de otra persona, pero el servidor
-            tampoco lo impedía. Los recorridos que grabaste antes de esas fechas se movieron al sitio nuevo,
-            así que hoy ya no están al alcance de nadie más.
+            It was not always this way, and we would rather tell you: until August 3, 2026 for cardio,
+            and until August 12, 2026 for races, the track was stored inside the activity record
+            itself, and that record is readable by any signed-in account. No screen in the app drew
+            another person's track, but the server did not prevent it either. Tracks you recorded
+            before those dates were moved to the new location, so today they are no longer within
+            anyone else's reach.
           </p>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">4. Proveedores con los que compartimos datos</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">4. Providers we share data with</h2>
           <p className="mb-4">
-            No vendemos tu información personal ni la cedemos con fines publicitarios. Para funcionar, la
-            aplicación se apoya en estos servicios:
+            We do not sell your personal information or share it for advertising purposes. To
+            function, the app relies on these services:
           </p>
           <ul className="list-disc pl-6 mb-4 space-y-1">
-            <li><strong>Google (inicio de sesión):</strong> utilizamos Google OAuth. Google puede recopilar datos según su propia política de privacidad.</li>
-            <li><strong>Proveedores de inteligencia artificial (Anthropic, OpenAI y Google):</strong> reciben las fotos de comida que envías a analizar y, para los resúmenes semanales, un resumen en texto de tus entrenos, cardio, comidas, agua, sueño, peso y datos de Health Connect. <strong>No</strong> reciben tus fotos de progreso, tus medidas corporales ni tus condiciones médicas y lesiones. El proveedor concreto depende de la disponibilidad del servicio en cada momento.</li>
-            <li><strong>Langfuse (observabilidad de IA):</strong> cuando está activado, conserva una copia de las peticiones enviadas a los proveedores anteriores y de sus respuestas.</li>
-            <li><strong>Sentry (diagnóstico de errores):</strong> en la web se envían tu nombre y tu correo junto al error, y se graba una repetición de la sesión con todo el texto enmascarado y las imágenes bloqueadas. En la aplicación de Android no se envían datos personales.</li>
-            <li><strong>OpenPanel (analítica de uso):</strong> está alojado en nuestra propia infraestructura y no en un servicio de terceros. Registra tu identificador, tu nombre, tu correo y los eventos de uso de la aplicación. En la web también graba una repetición de la sesión (clics, desplazamiento y navegación) con todo el texto y los campos de formulario enmascarados; solo se guarda el texto legible en las páginas públicas de presentación, blog y descarga, donde no aparecen datos personales.</li>
-            <li><strong>Servicios de notificaciones (Expo, Firebase Cloud Messaging y el servicio push de tu navegador):</strong> reciben el identificador de notificaciones de tu dispositivo y el texto de cada aviso.</li>
-            <li><strong>CARTO (mapas):</strong> sirve las imágenes del mapa sobre el que se dibuja tu ruta de cardio, por lo que conoce la zona que se está mostrando.</li>
-            <li><strong>Requerimientos legales:</strong> si la ley lo exige.</li>
+            <li><strong>Google (sign-in):</strong> we use Google OAuth. Google may collect data according to its own privacy policy.</li>
+            <li><strong>AI providers (Anthropic, OpenAI and Google):</strong> they receive the meal photos you send for analysis and, for the weekly summaries, a text summary of your workouts, cardio, meals, water, sleep, weight and Health Connect data. They do <strong>not</strong> receive your progress photos, your body measurements or your medical conditions and injuries. The specific provider depends on service availability at the time.</li>
+            <li><strong>Langfuse (AI observability):</strong> when enabled, it retains a copy of the requests sent to the providers above and of their responses.</li>
+            <li><strong>Sentry (error diagnostics):</strong> on the web, your name and email are sent along with the error, and a session replay is recorded with all text masked and images blocked. In the Android app no personal data is sent.</li>
+            <li><strong>OpenPanel (usage analytics):</strong> hosted on our own infrastructure rather than a third-party service. It records your identifier, your name, your email and app usage events. On the web it also records a session replay (clicks, scrolling and navigation) with all text and form fields masked; readable text is only stored on the public landing, blog and download pages, where no personal data appears.</li>
+            <li><strong>Notification services (Expo, Firebase Cloud Messaging and your browser's push service):</strong> they receive your device's notification identifier and the text of each alert.</li>
+            <li><strong>CARTO (maps):</strong> serves the map tiles your cardio route is drawn on, so it knows the area being displayed.</li>
+            <li><strong>Legal requirements:</strong> if the law requires it.</li>
           </ul>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">5. Almacenamiento y seguridad</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">5. Storage and security</h2>
           <p className="mb-4">
-            Tus datos se almacenan en nuestros propios servidores. Implementamos medidas de seguridad
-            razonables para proteger tu información, incluyendo cifrado en tránsito (HTTPS) y control de
-            acceso por cuenta. Las limitaciones concretas que conocemos están descritas en la sección 3 en
-            lugar de resumidas en una promesa genérica.
+            Your data is stored on our own servers. We implement reasonable security measures to
+            protect your information, including encryption in transit (HTTPS) and per-account access
+            control. The specific limitations we are aware of are described in section 3 rather than
+            summarized into a generic promise.
           </p>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">6. Conservación y borrado</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">6. Retention and deletion</h2>
           <ul className="list-disc pl-6 mb-4 space-y-1">
-            <li>No borramos nada automáticamente. Mientras tu cuenta exista, se conserva todo lo que registres.</li>
-            <li>Puedes eliminar tu cuenta tú mismo desde tu perfil, tanto en la web como en la aplicación de Android, sin pedírnoslo. Te pedimos escribir tu correo para confirmar y el borrado es inmediato. Si prefieres que lo hagamos nosotros, escríbenos a la dirección de la sección 12.</li>
-            <li>Al eliminar la cuenta se borran con ella tus fotos de progreso, medidas, peso, sueño, comidas y sus fotos, condiciones médicas y lesiones, datos de Health Connect, resúmenes generados por IA, entrenos, series, sesiones de cardio con su ruta GPS, circuitos, participaciones en carreras con su recorrido y las carreras que hayas creado, tus comentarios y reacciones, retos, ajustes, marcas personales y estadísticas.</li>
-            <li>No guardamos ninguna copia tras el borrado, así que una cuenta eliminada no se puede recuperar.</li>
+            <li>We do not delete anything automatically. For as long as your account exists, everything you record is kept.</li>
+            <li>You can delete your account yourself from your profile, on both the web and the Android app, without asking us. We ask you to type your email to confirm and the deletion is immediate. If you would prefer we do it, write to the address in section 12.</li>
+            <li>Deleting the account also deletes your progress photos, measurements, weight, sleep, meals and their photos, medical conditions and injuries, Health Connect data, AI-generated summaries, workouts, sets, cardio sessions with their GPS route, circuits, race participations with their track and any races you created, your comments and reactions, challenges, settings, personal records and statistics.</li>
+            <li>We keep no copy after deletion, so a deleted account cannot be recovered.</li>
           </ul>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">7. Exportar tus datos</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">7. Exporting your data</h2>
           <p className="mb-4">
-            Desde la web puedes descargar dos ficheros CSV: uno con tus entrenos y series, y otro con tu
-            historial de peso. Hoy no hay exportación desde la aplicación de Android, ni de nutrición,
-            sueño, medidas o fotos. Si quieres una copia completa de tus datos, pídenosla y te la
-            enviamos.
+            From the web you can download two CSV files: one with your workouts and sets, and another
+            with your weight history. There is currently no export from the Android app, nor for
+            nutrition, sleep, measurements or photos. If you want a complete copy of your data, ask us
+            and we will send it.
           </p>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">8. Tus derechos</h2>
-          <p className="mb-2">Tienes derecho a:</p>
+          <h2 className="text-xl font-semibold mt-8 mb-3">8. Your rights</h2>
+          <p className="mb-2">You have the right to:</p>
           <ul className="list-disc pl-6 mb-4 space-y-1">
-            <li>Acceder a tus datos personales desde tu perfil y descargarlos como se explica en la sección 7.</li>
-            <li>Modificar o corregir tu información.</li>
-            <li>Solicitar la eliminación de tu cuenta y de todos tus datos como se explica en la sección 6.</li>
-            <li>Revocar el acceso de Google OAuth en cualquier momento desde la configuración de tu cuenta de Google.</li>
+            <li>Access your personal data from your profile and download it as explained in section 7.</li>
+            <li>Modify or correct your information.</li>
+            <li>Request deletion of your account and all your data as explained in section 6.</li>
+            <li>Revoke Google OAuth access at any time from your Google account settings.</li>
           </ul>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">9. Cookies y almacenamiento local</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">9. Cookies and local storage</h2>
           <p className="mb-4">
-            Utilizamos almacenamiento local del navegador (localStorage) para mantener tu sesión iniciada
-            y guardar preferencias. No utilizamos cookies de seguimiento de terceros: la analítica de uso
-            corre en nuestra propia infraestructura.
+            We use browser local storage (localStorage) to keep you signed in and save preferences.
+            We do not use third-party tracking cookies: usage analytics runs on our own
+            infrastructure.
           </p>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">10. Menores de edad</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">10. Minors</h2>
           <p className="mb-4">
-            Esta aplicación no está dirigida a menores de 13 años. No recopilamos intencionalmente
-            información de menores de 13 años.
+            This app is not directed at children under 13. We do not knowingly collect information
+            from children under 13.
           </p>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">11. Cambios a esta política</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">11. Changes to this policy</h2>
           <p className="mb-4">
-            Podemos actualizar esta política periódicamente. Te notificaremos de cambios significativos
-            a través de la aplicación.
+            We may update this policy from time to time. We will notify you of significant changes
+            through the app.
           </p>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">12. Contacto</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">12. Contact</h2>
           <p className="mb-4">
-            Si tienes preguntas sobre esta política, o quieres pedir la baja o una copia de tus datos,
-            escríbenos a:{' '}
-            <a href="mailto:contacto@calisteniaapp.com" className="text-primary hover:underline">
-              contacto@calisteniaapp.com
+            If you have questions about this policy, or want to request deletion or a copy of your
+            data, write to us at:{' '}
+            <a href="mailto:contacto@sturdy.app" className="text-primary hover:underline">
+              contacto@sturdy.app
             </a>
           </p>
         </section>
 
         {/* Terms of Service */}
         <section id="terms">
-          <h1 className="text-3xl font-bold mb-2">Condiciones de Servicio</h1>
-          <p className="text-sm text-muted-foreground mb-6">Última actualización: {UPDATED}</p>
+          <h1 className="text-3xl font-bold mb-2">Terms of Service</h1>
+          <p className="text-sm text-muted-foreground mb-6">Last updated: {UPDATED}</p>
 
           <p className="mb-4">
-            Al usar Calistenia App, aceptas estas condiciones de servicio. Si no estás de acuerdo,
-            por favor no utilices la aplicación.
+            By using Sturdy, you accept these terms of service. If you do not agree,
+            please do not use the app.
           </p>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">1. Descripción del servicio</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">1. Service description</h2>
           <p className="mb-4">
-            Calistenia App es una aplicación de seguimiento de entrenamiento y nutrición que permite
-            a los usuarios registrar ejercicios, crear programas de entrenamiento, hacer seguimiento
-            de su progreso y participar en funciones sociales como desafíos y rankings.
+            Sturdy is a training and nutrition tracking application that lets users
+            log exercises, create training programs, track their progress and take part in
+            social features such as challenges and leaderboards.
           </p>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">2. Cuentas de usuario</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">2. User accounts</h2>
           <ul className="list-disc pl-6 mb-4 space-y-1">
-            <li>Puedes registrarte con email/contraseña o mediante Google OAuth.</li>
-            <li>Eres responsable de mantener la seguridad de tu cuenta.</li>
-            <li>Debes proporcionar información veraz al registrarte.</li>
-            <li>Una cuenta por persona.</li>
+            <li>You can register with email/password or through Google OAuth.</li>
+            <li>You are responsible for maintaining the security of your account.</li>
+            <li>You must provide accurate information when registering.</li>
+            <li>One account per person.</li>
           </ul>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">3. Uso aceptable</h2>
-          <p className="mb-2">Al usar la aplicación, te comprometes a:</p>
+          <h2 className="text-xl font-semibold mt-8 mb-3">3. Acceptable use</h2>
+          <p className="mb-2">By using the app, you agree to:</p>
           <ul className="list-disc pl-6 mb-4 space-y-1">
-            <li>No usar la aplicación para actividades ilegales.</li>
-            <li>No intentar acceder a cuentas de otros usuarios.</li>
-            <li>No interferir con el funcionamiento de la aplicación.</li>
-            <li>No enviar contenido ofensivo, abusivo o inapropiado.</li>
-            <li>No usar bots o scripts automatizados.</li>
+            <li>Not use the app for illegal activities.</li>
+            <li>Not attempt to access other users' accounts.</li>
+            <li>Not interfere with the operation of the app.</li>
+            <li>Not submit offensive, abusive or inappropriate content.</li>
+            <li>Not use bots or automated scripts.</li>
           </ul>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">4. Contenido del usuario</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">4. User content</h2>
           <p className="mb-4">
-            Conservas la propiedad de los datos que registras (entrenamientos, comidas, etc.).
-            Nos otorgas una licencia limitada para almacenar y mostrar este contenido dentro
-            de la aplicación.
+            You retain ownership of the data you record (workouts, meals, etc.).
+            You grant us a limited license to store and display this content within
+            the app.
           </p>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">5. Disclaimer médico</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">5. Medical disclaimer</h2>
           <p className="mb-4">
-            Calistenia App no es un servicio médico ni un sustituto del consejo médico profesional.
-            Las condiciones médicas y lesiones que declares se usan únicamente para ajustar qué
-            programas se te recomiendan; no son una valoración clínica y no las revisa ningún
-            profesional sanitario. Los resúmenes generados por inteligencia artificial son
-            orientativos y pueden equivocarse. Consulta con un profesional de salud antes de comenzar
-            cualquier programa de ejercicios. No nos hacemos responsables de lesiones derivadas del uso
-            de la aplicación.
+            Sturdy is not a medical service nor a substitute for professional medical advice.
+            The medical conditions and injuries you declare are used solely to adjust which
+            programs are recommended to you; they are not a clinical assessment and are not
+            reviewed by any healthcare professional. AI-generated summaries are
+            indicative and can be wrong. Consult a health professional before starting
+            any exercise program. We are not responsible for injuries arising from use
+            of the app.
           </p>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">6. Disponibilidad del servicio</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">6. Service availability</h2>
           <p className="mb-4">
-            Nos esforzamos por mantener la aplicación disponible, pero no garantizamos un servicio
-            ininterrumpido. Podemos modificar, suspender o discontinuar el servicio en cualquier momento.
+            We strive to keep the app available, but we do not guarantee uninterrupted
+            service. We may modify, suspend or discontinue the service at any time.
           </p>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">7. Limitación de responsabilidad</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">7. Limitation of liability</h2>
           <p className="mb-4">
-            La aplicación se proporciona "tal cual" sin garantías de ningún tipo. No somos responsables
-            de daños indirectos, incidentales o consecuentes derivados del uso de la aplicación.
+            The app is provided "as is" without warranties of any kind. We are not responsible
+            for indirect, incidental or consequential damages arising from use of the app.
           </p>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">8. Terminación</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">8. Termination</h2>
           <p className="mb-4">
-            Podemos suspender o cancelar tu cuenta si violas estas condiciones. Puedes darte de baja
-            cuando quieras desde tu perfil, tanto en la web como en la aplicación de Android: tu
-            cuenta y tus datos se eliminan en ese momento, como se describe en la sección 6 de la
-            política de privacidad. También puedes escribirnos y lo hacemos nosotros.
+            We may suspend or cancel your account if you violate these terms. You can delete your
+            account whenever you like from your profile, on both the web and the Android app: your
+            account and your data are removed at that moment, as described in section 6 of the
+            privacy policy. You can also write to us and we will do it.
           </p>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">9. Modificaciones</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">9. Modifications</h2>
           <p className="mb-4">
-            Podemos modificar estas condiciones en cualquier momento. El uso continuado de la
-            aplicación tras los cambios constituye tu aceptación de las nuevas condiciones.
+            We may modify these terms at any time. Continued use of the
+            app after changes constitutes your acceptance of the new terms.
           </p>
 
-          <h2 className="text-xl font-semibold mt-8 mb-3">10. Contacto</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-3">10. Contact</h2>
           <p className="mb-4">
-            Para consultas sobre estas condiciones:{' '}
-            <a href="mailto:contacto@calisteniaapp.com" className="text-primary hover:underline">
-              contacto@calisteniaapp.com
+            For questions about these terms:{' '}
+            <a href="mailto:contacto@sturdy.app" className="text-primary hover:underline">
+              contacto@sturdy.app
             </a>
           </p>
         </section>
 
         <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Calistenia App. Todos los derechos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} Sturdy. All rights reserved.</p>
         </div>
       </div>
     </div>

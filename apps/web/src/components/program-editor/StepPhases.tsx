@@ -4,7 +4,7 @@
  */
 import { useTranslation } from 'react-i18next'
 import { cn } from '../../lib/utils'
-import type { EditorPhase } from '@calistenia/core/hooks/useProgramEditor'
+import type { EditorPhase } from '@sturdy/core/hooks/useProgramEditor'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Card, CardContent } from '../ui/card'
@@ -23,7 +23,7 @@ export function StepPhases({ phases, addPhase, removePhase, updatePhase }: StepP
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between mb-2">
-        <div className="font-bebas text-2xl tracking-wide">FASES DEL PROGRAMA</div>
+        <div className="font-bebas text-2xl tracking-wide">PROGRAM PHASES</div>
         {phases.length < 8 && (
           <Button
             variant="limeSolid"

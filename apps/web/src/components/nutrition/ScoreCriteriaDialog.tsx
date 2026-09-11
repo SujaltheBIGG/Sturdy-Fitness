@@ -3,7 +3,7 @@ import { Info } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../ui/dialog'
 import { QualityScoreBadge } from './QualityScoreBadge'
 import { useTranslation } from 'react-i18next'
-import type { QualityScore } from '@calistenia/core/types'
+import type { QualityScore } from '@sturdy/core/types'
 
 const CRITERIA: { score: QualityScore; labelKey: string; exampleKey: string }[] = [
   { score: 'A', labelKey: 'nutrition.criteriaA.label', exampleKey: 'nutrition.criteriaA.example' },
@@ -43,7 +43,7 @@ export function ScoreCriteriaDialog({ open: controlledOpen, onOpenChange }: Scor
       <Dialog open={isOpen} onOpenChange={setOpen}>
         <DialogContent className="max-w-sm">
           <DialogHeader>
-            <DialogTitle>{t('nutrition.scoreCriteriaTitle', 'Cómo se calcula el score')}</DialogTitle>
+            <DialogTitle>{t('nutrition.scoreCriteriaTitle', 'How the score is calculated')}</DialogTitle>
           </DialogHeader>
 
           <div className="flex flex-col gap-3">
@@ -77,10 +77,10 @@ function getFallbackLabel(score: QualityScore): string {
 function getFallbackExample(score: QualityScore): string {
   const examples: Record<QualityScore, string> = {
     A: 'Nutritivo y equilibrado. Ej: pechuga + arroz integral + verduras',
-    B: 'Sólido con áreas menores a mejorar. Ej: avena con fruta, falta proteína',
-    C: 'Neutral, ni bueno ni malo. Ej: sandwich de jamón, funcional pero procesado',
+    B: 'Solid with minor room to improve. E.g. oatmeal with fruit, low on protein',
+    C: 'Neutral, neither good nor bad. E.g. ham sandwich, functional but processed',
     D: 'Baja calidad nutricional o mal horario. Ej: pizza congelada a las 11pm',
-    E: 'Comida chatarra, ultraprocesada. Ej: Doritos con refresco de cena',
+    E: 'Junk food, ultra-processed. E.g. Doritos and soda for dinner',
   }
   return examples[score]
 }

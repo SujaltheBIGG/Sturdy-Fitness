@@ -47,12 +47,12 @@ call drawImage(<image>, 30, 900, 16, 16)
 set fillStyle = #f5f5f4
 set font = 700 13px "DM Sans", system-ui, sans-serif
 set letterSpacing = 1px
-call fillText(CALISTENIA, 52, 913)
+call fillText(STURDY, 52, 913)
 set letterSpacing = 0px
 set fillStyle = rgba(245,245,244,0.40)
 set font = 400 12px "DM Sans", system-ui, sans-serif
 set textAlign = right
-call fillText(calistenia-app.com, 510, 913)
+call fillText(sturdy-app.com, 510, 913)
 set textAlign = left
 set fillStyle = #f5f5f4
 set font = 800 34px "DM Sans", system-ui, sans-serif

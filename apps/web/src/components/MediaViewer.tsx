@@ -7,9 +7,9 @@ import {
   DialogTitle,
 } from './ui/dialog'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from './ui/tabs'
-import type { Exercise } from '@calistenia/core/types'
-import type { CatalogMediaRecord } from '@calistenia/core/lib/exerciseMedia'
-import { useExerciseMedia } from '@calistenia/core/hooks/useExerciseMedia'
+import type { Exercise } from '@sturdy/core/types'
+import type { CatalogMediaRecord } from '@sturdy/core/lib/exerciseMedia'
+import { useExerciseMedia } from '@sturdy/core/hooks/useExerciseMedia'
 
 interface MediaViewerProps {
   exercise: Exercise

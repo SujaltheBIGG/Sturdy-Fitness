@@ -72,13 +72,13 @@ credentials.json
 service-account*.json
 # Clave de publicación de Google Play: quien la tenga puede subir releases a
 # la ficha. El patrón de arriba no casa con nombres como
-# `calistenia-play-service-account.json`, así que se amplía.
+# `sturdy-play-service-account.json`, así que se amplía.
 *service-account*.json
 *play-publisher*.json
 # Sentry Config File
 .env.sentry-build-plugin
 *firebase-adminsdk*.json
-apps/mobile/calistenia-*-firebase-adminsdk-*.json
+apps/mobile/sturdy-*-firebase-adminsdk-*.json
 
 # Android signing keystores — NUNCA commitear (llave de firma privada)
 *.jks

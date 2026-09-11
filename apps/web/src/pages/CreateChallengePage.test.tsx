@@ -17,11 +17,11 @@ const h = vi.hoisted(() => ({
   createChallenge: vi.fn(async () => 'new-challenge-id'),
 }))
 
-vi.mock('@calistenia/core/hooks/useChallenges', () => ({
+vi.mock('@sturdy/core/hooks/useChallenges', () => ({
   useChallenges: () => ({ createChallenge: h.createChallenge }),
 }))
 
-vi.mock('@calistenia/core/hooks/useFollows', () => ({
+vi.mock('@sturdy/core/hooks/useFollows', () => ({
   useFollows: () => ({ following: [] }),
 }))
 

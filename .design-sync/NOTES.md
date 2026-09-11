@@ -1,13 +1,13 @@
 # design-sync — notas del repo
 
-Proyecto: **Calistenia Design System** — https://claude.ai/design/p/c84e2378-9de4-4569-85ba-1efc907b6e97
+Proyecto: **Sturdy Design System** — https://claude.ai/design/p/c84e2378-9de4-4569-85ba-1efc907b6e97
 Primera sincronización: 2026-07-30. Shape `package` (no hay Storybook).
 
 ## Cómo re-sincronizar
 
 ```sh
 # 1. Recrear el symlink si es un clon nuevo (ver más abajo por qué)
-mkdir -p apps/web/node_modules/@calistenia && ln -sfn ../.. apps/web/node_modules/@calistenia/web
+mkdir -p apps/web/node_modules/@calistenia && ln -sfn ../.. apps/web/node_modules/@sturdy/web
 
 # 2. Re-copiar los scripts del skill e instalar sus deps si .ds-sync/ no existe
 #    (typescript DEBE ser la 5.x — ver abajo)
@@ -29,11 +29,11 @@ de `.ds-sync/`, y luego `npx playwright install chromium`.
 
 ## Trampas del repo
 
-- **`@calistenia/web` es una app Vite privada, no una librería.** No tiene
+- **`@sturdy/web` es una app Vite privada, no una librería.** No tiene
   `dist` de componentes ni campo `types`, así que el conversor sintetiza la
   entrada desde `src/`. Y como pnpm no auto-enlaza una app privada, hace falta
-  el symlink `apps/web/node_modules/@calistenia/web → ../..`; sin él el
-  conversor muere con `ENOENT … @calistenia/web/package.json`. El enlace vive en
+  el symlink `apps/web/node_modules/@sturdy/web → ../..`; sin él el
+  conversor muere con `ENOENT … @sturdy/web/package.json`. El enlace vive en
   `node_modules`, así que **hay que recrearlo en cada clon**.
 - **`srcDir` tiene que ser `src/components/ui`, no `src`.** Con `src` el
   synth-entry barre los 31 primitivos *y* `main.tsx`, que importa

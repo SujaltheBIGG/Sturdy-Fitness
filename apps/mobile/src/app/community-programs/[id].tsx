@@ -21,15 +21,15 @@ import {
   useCommunityProgramDetail,
   useCommunityPrograms,
   type MilestoneChallengeLink,
-} from '@calistenia/core/hooks/useCommunityPrograms'
-import { useChallenges } from '@calistenia/core/hooks/useChallenges'
+} from '@sturdy/core/hooks/useCommunityPrograms'
+import { useChallenges } from '@sturdy/core/hooks/useChallenges'
 import {
   getMilestoneState,
   type CommunityProgramProgress,
   type MilestoneProgress,
   type MilestoneState,
-} from '@calistenia/core/lib/community-programs'
-import { formatDateRange, todayStr } from '@calistenia/core/lib/dateUtils'
+} from '@sturdy/core/lib/community-programs'
+import { formatDateRange, todayStr } from '@sturdy/core/lib/dateUtils'
 
 /** Un color por estado; se decide una vez y lo comparten fila y etiqueta. */
 const STATE_STYLES: Record<MilestoneState, { border: string; label: string; bar: string }> = {

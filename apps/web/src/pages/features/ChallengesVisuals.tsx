@@ -17,7 +17,7 @@
  * (`apps/web/src/pages/LandingPage.tsx:204`) y el registro lo conserva.
  */
 import { useTranslation } from 'react-i18next'
-import { RANK_MEDALS } from '@calistenia/core/lib/challenges'
+import { RANK_MEDALS } from '@sturdy/core/lib/challenges'
 
 /**
  * Participantes de ejemplo. Nombres propios cortos, iguales en los dos idiomas

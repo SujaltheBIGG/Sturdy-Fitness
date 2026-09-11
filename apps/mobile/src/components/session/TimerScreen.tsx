@@ -10,7 +10,7 @@ import { AppState } from 'react-native'
 
 import { TimerPanel } from '@/components/training/TimerPanel'
 import { timerCues } from '@/lib/training-cues'
-import { useExerciseTimer } from '@calistenia/core/hooks/useExerciseTimer'
+import { useExerciseTimer } from '@sturdy/core/hooks/useExerciseTimer'
 
 export function ExerciseTimer({ initialSeconds = 30 }: { initialSeconds?: number }) {
   const timer = useExerciseTimer({ initialSeconds, onCue: timerCues })

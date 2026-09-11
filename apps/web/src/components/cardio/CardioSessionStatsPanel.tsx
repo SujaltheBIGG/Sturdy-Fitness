@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
-import { formatDuration, formatPace, formatSpeed } from '@calistenia/core/lib/geo'
-import type { TrackQuality } from '@calistenia/core/lib/geo'
+import { formatDuration, formatPace, formatSpeed } from '@sturdy/core/lib/geo'
+import type { TrackQuality } from '@sturdy/core/lib/geo'
 import SplitsTable from './SplitsTable'
 import { cn } from '../../lib/utils'
-import type { CardioActivityType, KmSplit } from '@calistenia/core/types'
+import type { CardioActivityType, KmSplit } from '@sturdy/core/types'
 
 interface CardioSessionStatsPanelProps {
   activityType: CardioActivityType

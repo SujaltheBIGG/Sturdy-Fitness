@@ -41,7 +41,7 @@ function useMdxContent(post: BlogPost | null) {
         if (!cancelled) setContent(() => component)
       })
       .catch((err) => {
-        if (!cancelled) console.error('[blog] No se pudo cargar el artículo', err)
+        if (!cancelled) console.error('[blog] Could not load the article', err)
       })
 
     return () => {

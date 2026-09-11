@@ -1,7 +1,7 @@
 /**
  * Aterrizaje web de una invitación a batalla (#356).
  *
- * El enlace que se comparte es `https://gym.guille.tech/battle-invite/<token>`, así que
+ * El enlace que se comparte es `https://sturdy.app/battle-invite/<token>`, así que
  * puede abrirse en cualquier sitio: en Android/iOS con la app instalada lo captura el
  * app link y esta página no llega a verse. Existe para el resto de los casos —
  * escritorio, o el móvil de alguien que aún no tiene la app — donde sin ella el enlace
@@ -16,10 +16,10 @@ import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Swords } from 'lucide-react'
 
-import { previewBattleInvite } from '@calistenia/core/lib/battleApi'
-import type { BattleInvitePreview } from '@calistenia/core/types/battle'
+import { previewBattleInvite } from '@sturdy/core/lib/battleApi'
+import type { BattleInvitePreview } from '@sturdy/core/types/battle'
 
-const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=tech.guille.calistenia'
+const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=app.sturdy.mobile'
 
 export default function BattleInviteLandingPage() {
   const { token } = useParams<{ token: string }>()

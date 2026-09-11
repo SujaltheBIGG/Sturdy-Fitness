@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { useDiscoverRaces } from '@calistenia/core/hooks/useDiscoverRaces'
-import { CARDIO_ACTIVITY } from '@calistenia/core/lib/style-tokens'
+import { useDiscoverRaces } from '@sturdy/core/hooks/useDiscoverRaces'
+import { CARDIO_ACTIVITY } from '@sturdy/core/lib/style-tokens'
 import { Input } from '../ui/input'
 import { cn } from '../../lib/utils'
 

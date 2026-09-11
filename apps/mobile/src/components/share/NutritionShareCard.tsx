@@ -8,7 +8,7 @@
  *     Quality badge — letter A–E with semantic colour
  *     Macro rows  — PROTEÍNA / CARBOS / GRASA, value + thin progress bar
  *     Water row   — AGUA  X.X / Y.Y L  (if provided)
- *     Brand footer hairline — "CALISTENIA" / "calistenia-app.com"
+ *     Brand footer hairline — "STURDY" / "sturdy-app.com"
  *
  *   variant="rich" — compact hero/macros + COMIDAS section with meal thumbnails.
  *
@@ -22,7 +22,7 @@ import React, { memo } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { Image } from 'expo-image'
 
-import type { ShareMeal } from '@calistenia/core/lib/share-meals'
+import type { ShareMeal } from '@sturdy/core/lib/share-meals'
 
 const BASE_W = 360
 const BASE_H = 640
@@ -466,8 +466,8 @@ const NutritionShareCard = memo(function NutritionShareCard({
 
         {/* ── Divider + Brand footer ── */}
         <View style={s.brandRow}>
-          <Text style={s.brand}>CALISTENIA</Text>
-          <Text style={s.brandUrl}>calistenia-app.com</Text>
+          <Text style={s.brand}>STURDY</Text>
+          <Text style={s.brandUrl}>sturdy-app.com</Text>
         </View>
       </View>
     )
@@ -565,8 +565,8 @@ const NutritionShareCard = memo(function NutritionShareCard({
 
       {/* ── Brand footer ── */}
       <View style={s.brandRow}>
-        <Text style={s.brand}>CALISTENIA</Text>
-        <Text style={s.brandUrl}>calistenia-app.com</Text>
+        <Text style={s.brand}>STURDY</Text>
+        <Text style={s.brandUrl}>sturdy-app.com</Text>
       </View>
     </View>
   )

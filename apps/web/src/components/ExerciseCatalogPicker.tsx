@@ -11,7 +11,7 @@
  */
 import { useState, useMemo } from 'react'
 import { cn } from '../lib/utils'
-import { pb } from '@calistenia/core/lib/pocketbase'
+import { pb } from '@sturdy/core/lib/pocketbase'
 import { Button } from './ui/button'
 import { Loader } from './ui/loader'
 import { Input } from './ui/input'
@@ -24,17 +24,17 @@ import {
   DialogDescription,
 } from './ui/dialog'
 import { useTranslation } from 'react-i18next'
-import { useWgerSearch } from '@calistenia/core/hooks/useWgerSearch'
+import { useWgerSearch } from '@sturdy/core/hooks/useWgerSearch'
 import WgerResultCard from './WgerResultCard'
-import type { EditorExercise } from '@calistenia/core/hooks/useProgramEditor'
-import { useLocalize } from '@calistenia/core/hooks/useLocalize'
-import { useCatalogExerciseList } from '@calistenia/core/hooks/useExerciseCatalog'
+import type { EditorExercise } from '@sturdy/core/hooks/useProgramEditor'
+import { useLocalize } from '@sturdy/core/hooks/useLocalize'
+import { useCatalogExerciseList } from '@sturdy/core/hooks/useExerciseCatalog'
 import {
   CATALOG_CATEGORIES,
   mapCatalogRecord,
   type CatalogExercise,
-} from '@calistenia/core/lib/exerciseCatalog'
-import { qk } from '@calistenia/core/lib/query-keys'
+} from '@sturdy/core/lib/exerciseCatalog'
+import { qk } from '@sturdy/core/lib/query-keys'
 import { useQueryClient } from '@tanstack/react-query'
 
 interface ExerciseCatalogPickerProps {

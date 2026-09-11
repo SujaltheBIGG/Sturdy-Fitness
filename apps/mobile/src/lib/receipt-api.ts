@@ -1,7 +1,7 @@
 // F5 (#174): cliente mobile del parser de recibos — multipart URI→Blob
-import { AI_API_URL } from '@calistenia/core/lib/ai-api'
-import { pb } from '@calistenia/core/lib/pocketbase'
-import type { ReceiptParseResult } from '@calistenia/core/types'
+import { AI_API_URL } from '@sturdy/core/lib/ai-api'
+import { pb } from '@sturdy/core/lib/pocketbase'
+import type { ReceiptParseResult } from '@sturdy/core/types'
 import { uriToBlob, type ImageAsset } from '@/lib/image-upload'
 
 export async function parseReceiptMobile(images: ImageAsset[]): Promise<ReceiptParseResult> {

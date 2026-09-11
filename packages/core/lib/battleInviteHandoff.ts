@@ -12,7 +12,7 @@
  */
 import { storage } from '../platform'
 
-const BATTLE_INVITE_KEY = 'calistenia_battle_invite_token'
+const BATTLE_INVITE_KEY = 'sturdy_battle_invite_token'
 
 /** Stash a token from a deep link so it survives the signup flow. */
 export function captureBattleInviteToken(token: string): void {

@@ -10,4 +10,4 @@ import server from "./server.js";
 import { PORT, PB_URL, SERVER_URL } from "./config.js";
 
 await server.listen(PORT);
-console.error(`[Calistenia] mcp-use server on ${SERVER_URL} (PB: ${PB_URL})`);
+console.error(`[Sturdy] mcp-use server on ${SERVER_URL} (PB: ${PB_URL})`);

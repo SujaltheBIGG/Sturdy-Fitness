@@ -9,7 +9,7 @@
  */
 
 import { describe, it, expect, vi } from "vitest";
-import { buildCatalogIndex } from "@calistenia/core/lib/catalogIndex";
+import { buildCatalogIndex } from "@sturdy/core/lib/catalogIndex";
 import type { PB, RecordModel } from "./repos/pb.js";
 import { buildServerExerciseResolver } from "./exercise-identity-server.js";
 import { resolvePersonalRecords, topRepRecords } from "./prs-server.js";

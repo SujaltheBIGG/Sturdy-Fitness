@@ -1,6 +1,6 @@
-import { haversineDistance } from '@calistenia/core/lib/geo'
+import { haversineDistance } from '@sturdy/core/lib/geo'
 import { serverNow } from './raceClock'
-import type { RaceGpsPoint } from '@calistenia/core/types/race'
+import type { RaceGpsPoint } from '@sturdy/core/types/race'
 
 export interface RaceTrackerStats {
   distance_km: number

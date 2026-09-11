@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import type { BalanceFamily } from '@calistenia/core/lib/training-stats'
+import type { BalanceFamily } from '@sturdy/core/lib/training-stats'
 import { cn } from '../../../lib/utils'
 
 interface BalanceBarProps {

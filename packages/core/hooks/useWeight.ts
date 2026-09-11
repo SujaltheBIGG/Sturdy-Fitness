@@ -6,7 +6,7 @@ import { qk } from '../lib/query-keys'
 import { todayStr } from '../lib/dateUtils'
 import { makeOptimisticListHandlers, type OptimisticContext } from '../lib/optimistic'
 
-const LS_KEY = 'calistenia_weight_entries'
+const LS_KEY = 'sturdy_weight_entries'
 
 export interface WeightEntry {
   id: string
@@ -47,7 +47,7 @@ export function useWeight(userId: string | null = null): UseWeightReturn {
 
   const { data: weights = [], isSuccess } = useQuery<WeightEntry[]>({
     queryKey: key,
-    // initialData = local → disponible aun offline / sin sesión.
+    // initialData = local → disponible aun offline / no session.
     initialData: lsGet,
     initialDataUpdatedAt: 0, // fuerza refetch al montar para fusionar con PB
     enabled: !!userId,
@@ -90,7 +90,7 @@ export function useWeight(userId: string | null = null): UseWeightReturn {
   >({
     mutationFn: async ({ weightKg, date, note }) => {
       // Optimismo ya aplicado; intentamos persistir en PB.
-      if (!userId) throw new Error('sin sesión')
+      if (!userId) throw new Error('no session')
       const rec = await pb.collection('weight_entries').create({
         user: userId,
         weight_kg: weightKg,

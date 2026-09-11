@@ -24,7 +24,7 @@ struct WidgetSnapshot: Codable {
 }
 
 enum SnapshotStore {
-  static let appGroup = "group.tech.guille.calistenia"
+  static let appGroup = "group.app.sturdy.mobile"
 
   static func load() -> WidgetSnapshot? {
     guard let json = UserDefaults(suiteName: appGroup)?.string(forKey: "widget_snapshot"),

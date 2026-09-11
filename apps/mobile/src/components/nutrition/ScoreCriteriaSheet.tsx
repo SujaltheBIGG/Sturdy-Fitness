@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next'
 import { Text } from '@/components/ui/text'
 import { Kicker } from '@/components/ui/kicker'
 import { QualityScoreBadge } from './QualityBreakdownPanel'
-import type { QualityScore } from '@calistenia/core/types'
+import type { QualityScore } from '@sturdy/core/types'
 
 const SCORES: QualityScore[] = ['A', 'B', 'C', 'D', 'E']
 

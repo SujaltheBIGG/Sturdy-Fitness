@@ -8,7 +8,7 @@
 #
 # El agujero era del disparador, no de la cobertura: los pasos de `ci.yml` ya
 # cubren el móvil de sobra (`pnpm -r typecheck` lo incluye, el lint es
-# literalmente `--filter @calistenia/mobile`, y `pnpm -r test` corre core +
+# literalmente `--filter @sturdy/mobile`, y `pnpm -r test` corre core +
 # mobile). Por eso este workflow no repite ni un comando: solo invoca el que ya
 # existe. Duplicarlos habría creado dos sitios que mantener en paralelo.
 #

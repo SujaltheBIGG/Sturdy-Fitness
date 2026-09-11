@@ -12,7 +12,7 @@ import { AppState } from 'react-native'
 import { activateKeepAwakeAsync, deactivateKeepAwake } from 'expo-keep-awake'
 import { useQueryClient } from '@tanstack/react-query'
 
-import { useBattle, type UseBattleResult } from '@calistenia/core/hooks/useBattle'
+import { useBattle, type UseBattleResult } from '@sturdy/core/hooks/useBattle'
 import { useAuthUser } from '@/lib/use-auth-user'
 
 const BattleContext = createContext<UseBattleResult | null>(null)

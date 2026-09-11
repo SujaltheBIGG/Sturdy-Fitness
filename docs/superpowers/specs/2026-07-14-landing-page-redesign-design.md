@@ -7,7 +7,7 @@
 
 Turn the public landing page into a beginner-focused acquisition page that makes Android download the primary conversion and web sign-up an equally clear no-install path.
 
-The page must present Calistenia as a connected training companion—not a collection of unrelated fitness features. A visitor should understand, within the first viewport, that they can start from their current level, receive a guided next step, and keep making progress across training, nutrition, and recovery.
+The page must present Sturdy as a connected training companion—not a collection of unrelated fitness features. A visitor should understand, within the first viewport, that they can start from their current level, receive a guided next step, and keep making progress across training, nutrition, and recovery.
 
 ## Research context
 
@@ -33,7 +33,7 @@ The hero is edge-to-edge. Its inner text column is constrained for readability; 
 
 ### 1. Hero — give beginners permission to start
 
-- Brand: `CALISTENIA`
+- Brand: `STURDY`
 - Headline: `Empieza desde cero. Sigue avanzando.`
 - Supporting copy: `Entrenamientos guiados, comida que acompaña tu objetivo y un plan claro para volver mañana.`
 - Primary CTA: `Descargar para Android` linking to `/download`.
@@ -134,7 +134,7 @@ No backend or authentication behavior changes are required.
 
 Update the static document metadata:
 
-- Title: `Calistenia — Empieza desde cero. Sigue avanzando.`
+- Title: `Sturdy — Empieza desde cero. Sigue avanzando.`
 - Description: `Entrenamientos guiados, nutrición con IA, despensa inteligente y progreso real. Disponible para Android y en la web.`
 - Replace logo-only social preview metadata with the new dedicated share image.
 

@@ -14,7 +14,7 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-import type { BattleResultRow } from '@calistenia/core/lib/battle'
+import type { BattleResultRow } from '@sturdy/core/lib/battle'
 
 /** Mismos valores que el resto de tarjetas compartibles. */
 const C = {
@@ -97,7 +97,7 @@ function BattleResultShareCard({
       </View>
 
       <View style={styles.footer}>
-        <Text style={styles.footerText}>gym.guille.tech</Text>
+        <Text style={styles.footerText}>sturdy.app</Text>
       </View>
     </View>
   )

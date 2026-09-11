@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { usePrivateAccount } from '@calistenia/core/hooks/usePrivateAccount'
+import { usePrivateAccount } from '@sturdy/core/hooks/usePrivateAccount'
 import { Card, CardContent } from '../ui/card'
 import { cn } from '../../lib/utils'
 

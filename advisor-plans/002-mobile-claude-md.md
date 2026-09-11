@@ -16,7 +16,7 @@
 
 ## Why this matters
 
-The native app (`apps/mobile`) is largely driven by AI agents, and every session currently re-discovers the architecture from scratch: which package holds shared logic, how `@calistenia/core` is wired in, which contexts are state hubs, that there is no React-Native render-test infrastructure, and the env/build gotchas that have already burned past sessions (LAN `.env.local` leaking into release builds, stale Android `versionCode`). The only file an agent would naturally open first — `apps/mobile/README.md` — is the stock `create-expo-app` template (verified: it begins "# Welcome to your Expo app", 56 lines of boilerplate) and tells it nothing real. This plan adds a concise, fact-checked `CLAUDE.md` so any agent gets the map and the landmines up front. It is doc-only (no source changes), so risk is LOW; the win is fewer wrong turns and repeated rediscovery per session.
+The native app (`apps/mobile`) is largely driven by AI agents, and every session currently re-discovers the architecture from scratch: which package holds shared logic, how `@sturdy/core` is wired in, which contexts are state hubs, that there is no React-Native render-test infrastructure, and the env/build gotchas that have already burned past sessions (LAN `.env.local` leaking into release builds, stale Android `versionCode`). The only file an agent would naturally open first — `apps/mobile/README.md` — is the stock `create-expo-app` template (verified: it begins "# Welcome to your Expo app", 56 lines of boilerplate) and tells it nothing real. This plan adds a concise, fact-checked `CLAUDE.md` so any agent gets the map and the landmines up front. It is doc-only (no source changes), so risk is LOW; the win is fewer wrong turns and repeated rediscovery per session.
 
 ## Current state
 
@@ -37,13 +37,13 @@ The facts below were read directly from the repo at commit `943f558`. They are t
   12	    "test": "vitest run"
   13	  },
   ```
-  Key deps (from the same file): `expo ~56.0.9`, `react-native 0.85.3`, `react 19.2.3`, `expo-router ~56.2.9`, `nativewind ^4.2.5`, `@tanstack/react-query ^5.66.0`, `pocketbase ^0.26.9`, `@calistenia/core workspace:*`, `react-native-reanimated 4.3.1`, `@gorhom/bottom-sheet ^5.2.14`, `@notifee/react-native ^9.1.8`, `expo-location ~56.0.16`, `expo-task-manager ~56.0.17`, `vitest ^4.1.8` (devDep). `"version": "1.0.0"`.
+  Key deps (from the same file): `expo ~56.0.9`, `react-native 0.85.3`, `react 19.2.3`, `expo-router ~56.2.9`, `nativewind ^4.2.5`, `@tanstack/react-query ^5.66.0`, `pocketbase ^0.26.9`, `@sturdy/core workspace:*`, `react-native-reanimated 4.3.1`, `@gorhom/bottom-sheet ^5.2.14`, `@notifee/react-native ^9.1.8`, `expo-location ~56.0.16`, `expo-task-manager ~56.0.17`, `vitest ^4.1.8` (devDep). `"version": "1.0.0"`.
 - `packages/core/package.json` describes core's contract verbatim (line 6): *"Código compartido entre web y mobile: types, hooks, lib, data, locales. Sin dependencias de DOM ni React Native — lo específico de cada plataforma se inyecta vía initCore() (ver platform.ts)."* Core's `package.json` has **no `scripts` block at all** (verified — there is no `scripts` key).
-- `apps/mobile/src/lib/init-core.ts` — initializes `@calistenia/core` for RN; **must be the first import of `app/_layout.tsx`** (stated in its header comment, lines 1–6). Env vars it reads (verified by grep): `EXPO_PUBLIC_PB_URL` (init-core.ts:75), `EXPO_PUBLIC_AI_API_URL` (init-core.ts:79), `EXPO_PUBLIC_OPENPANEL_CLIENT_ID` (init-core.ts:102). The PB URL resolution, verbatim:
+- `apps/mobile/src/lib/init-core.ts` — initializes `@sturdy/core` for RN; **must be the first import of `app/_layout.tsx`** (stated in its header comment, lines 1–6). Env vars it reads (verified by grep): `EXPO_PUBLIC_PB_URL` (init-core.ts:75), `EXPO_PUBLIC_AI_API_URL` (init-core.ts:79), `EXPO_PUBLIC_OPENPANEL_CLIENT_ID` (init-core.ts:102). The PB URL resolution, verbatim:
   ```
   74	const pbUrl =
   75	  process.env.EXPO_PUBLIC_PB_URL ||
-  76	  (__DEV__ && devHost ? `http://${devHost}:8090` : 'https://gym.guille.tech')
+  76	  (__DEV__ && devHost ? `http://${devHost}:8090` : 'https://sturdy.app')
   ```
   Note: init-core.ts:102 has a hard-coded fallback OpenPanel `clientId` (a **public** analytics ingest id, not a secret). Do NOT copy that value into the doc — reference the env var by name only.
 - `apps/mobile/tailwind.config.js:58-70` — the font-family rule the design system depends on, verbatim:
@@ -69,7 +69,7 @@ The facts below were read directly from the repo at commit `943f558`. They are t
   - `contexts/CardioSessionContext.tsx` (712 lines, 26 KB) — background GPS (expo-location + Android FGS) + live notification; ~1s tick.
   - `contexts/RaceContext.tsx` (16.8 KB) — realtime multiplayer races (PB realtime, countdown, push); ~500ms tick class.
   - `components/SessionView.tsx` — **1362 lines** (verified by `wc -l`), god component (timer + session state machine + UI + audio/haptics + share).
-- Test infra (verified): `cd apps/mobile && npm run test` runs `vitest run` and passes **3 files / 13 tests**; all are pure-logic (`src/lib/__tests__/{live-activity-state,widget-snapshot,nutrition-widget-snapshot}.test.ts`). There is **no vitest config file, no `@testing-library/react-native`, no jest-expo** (grep for those names returns nothing) — tests run in the default node env. Exemplar pattern: `src/lib/__tests__/live-activity-state.test.ts` opens with `import { describe, it, expect } from 'vitest'` then `import { mapPhaseToActivity } from '../live-activity-state'` and asserts on its return. Core's tests (`packages/core/lib/*.test.ts`, **5 files / 57 tests**) are run via the **mobile workspace's hoisted vitest binary** — there is no `pnpm --filter @calistenia/core test` script (core has no `scripts` block). Verified failure mode: from `packages/core`, `pnpm --filter @calistenia/core exec vitest run` errors with `ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command "vitest" not found`. Verified working invocation: from `packages/core`, `../../apps/mobile/node_modules/.bin/vitest run` → `Test Files 5 passed (5) / Tests 57 passed (57)`.
+- Test infra (verified): `cd apps/mobile && npm run test` runs `vitest run` and passes **3 files / 13 tests**; all are pure-logic (`src/lib/__tests__/{live-activity-state,widget-snapshot,nutrition-widget-snapshot}.test.ts`). There is **no vitest config file, no `@testing-library/react-native`, no jest-expo** (grep for those names returns nothing) — tests run in the default node env. Exemplar pattern: `src/lib/__tests__/live-activity-state.test.ts` opens with `import { describe, it, expect } from 'vitest'` then `import { mapPhaseToActivity } from '../live-activity-state'` and asserts on its return. Core's tests (`packages/core/lib/*.test.ts`, **5 files / 57 tests**) are run via the **mobile workspace's hoisted vitest binary** — there is no `pnpm --filter @sturdy/core test` script (core has no `scripts` block). Verified failure mode: from `packages/core`, `pnpm --filter @sturdy/core exec vitest run` errors with `ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command "vitest" not found`. Verified working invocation: from `packages/core`, `../../apps/mobile/node_modules/.bin/vitest run` → `Test Files 5 passed (5) / Tests 57 passed (57)`.
 - Version/build gotcha (verified): `apps/mobile/app.json` has `"version": "1.0.3"` (line 6) and `"versionCode": 5` (line 30), while `apps/mobile/package.json` has `"version": "1.0.0"`. The Android install gotcha (from project memory): a `versionCode` not bumped above the already-installed build silently installs the old code.
 
 ## Commands you will need
@@ -145,7 +145,7 @@ App Expo del monorepo (pnpm workspaces). Stack:
   salvo en archivos que ya lo usen.
 - **TanStack Query v5** — caché/estado de servidor.
 - **PocketBase** — backend (SDK `pb`, singleton en core).
-- **`@calistenia/core`** (`workspace:*`) — lógica de negocio compartida entre
+- **`@sturdy/core`** (`workspace:*`) — lógica de negocio compartida entre
   web y mobile: types, hooks, lib, data, locales. **Sin dependencias de DOM ni
   React Native**; lo específico de plataforma se inyecta vía `initCore()`.
   **Regla**: si añades lógica reutilizable (cálculos, hooks de datos, helpers),
@@ -255,7 +255,7 @@ Instalar deps: `pnpm install` desde la raíz del repo.
 ## Backlog de mejoras
 
 Planes de mejora dirigidos por agente viven en
-`/Users/guillermomarin/Documents/ejercicios/calistenia-app/advisor-plans/`
+`/Users/guillermomarin/Documents/ejercicios/sturdy-app/advisor-plans/`
 (ver su `README.md` para el orden y estado).
 ````
 
@@ -357,4 +357,4 @@ Stop and report back (do not improvise) if:
 
 ---
 
-Plan file to create: `/Users/guillermomarin/Documents/ejercicios/calistenia-app/advisor-plans/002-mobile-claude-md.md`
+Plan file to create: `/Users/guillermomarin/Documents/ejercicios/sturdy-app/advisor-plans/002-mobile-claude-md.md`

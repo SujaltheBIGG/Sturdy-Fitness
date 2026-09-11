@@ -473,7 +473,7 @@ git commit -m "feat(despensa) F4: endpoint match-consumption + confianza en plan
 
 ```bash
 # PocketBase (si no corre)
-cd /Users/guillermomarin/Documents/ejercicios/calistenia-app && ./pocketbase serve --http=127.0.0.1:8090 &
+cd /Users/guillermomarin/Documents/ejercicios/sturdy-app && ./pocketbase serve --http=127.0.0.1:8090 &
 # AI API
 cd mcp-server && npm run dev:simple &
 ```
@@ -566,7 +566,7 @@ import { KeyboardAvoidingView, KeyboardProvider } from 'react-native-keyboard-co
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Check, X } from 'lucide-react-native'
 import { useTranslation } from 'react-i18next'
-import type { PantryItem } from '@calistenia/core/types'
+import type { PantryItem } from '@sturdy/core/types'
 import type { DepleteRow } from './use-pantry-depletion'
 
 function parseNum(v: string): number | null {
@@ -705,10 +705,10 @@ import { useQueryClient } from '@tanstack/react-query'
 
 import { Sentry } from '@/lib/instrument'
 import { haptics } from '@/lib/haptics'
-import { qk } from '@calistenia/core/lib/query-keys'
-import { matchConsumption } from '@calistenia/core/lib/pantry-api'
-import { fetchActivePantryItems, useConsumePantryMatches } from '@calistenia/core/hooks/usePantry'
-import type { FoodItem, PantryConfidence, PantryItem } from '@calistenia/core/types'
+import { qk } from '@sturdy/core/lib/query-keys'
+import { matchConsumption } from '@sturdy/core/lib/pantry-api'
+import { fetchActivePantryItems, useConsumePantryMatches } from '@sturdy/core/hooks/usePantry'
+import type { FoodItem, PantryConfidence, PantryItem } from '@sturdy/core/types'
 
 export interface DepleteRow {
   item: PantryItem

@@ -6,8 +6,8 @@
  * contexto de IA y puntuación de calidad vive en core.
  */
 import { useCallback } from 'react'
-import { useMealLoggerActions } from '@calistenia/core/hooks/useMealLoggerActions'
-import type { NutritionEntry } from '@calistenia/core/types'
+import { useMealLoggerActions } from '@sturdy/core/hooks/useMealLoggerActions'
+import type { NutritionEntry } from '@sturdy/core/types'
 import { uriToBlob, urisToBlobs } from '@/lib/image-upload'
 import { Sentry } from '@/lib/instrument'
 import type { ImageAsset } from '@/components/nutrition/meal-logger-shared'

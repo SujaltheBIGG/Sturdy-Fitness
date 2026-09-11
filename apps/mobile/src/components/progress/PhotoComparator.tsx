@@ -18,7 +18,7 @@ import { Kicker } from '@/components/ui/kicker'
 import { Chip } from '@/components/ui/chip'
 import { haptics } from '@/lib/haptics'
 import ProgressShareButton from '@/components/progress/ProgressShareButton'
-import type { BodyPhoto } from '@calistenia/core/hooks/useBodyPhotos'
+import type { BodyPhoto } from '@sturdy/core/hooks/useBodyPhotos'
 
 const CATEGORY_KEY: Record<string, string> = {
   all: 'progress.bodyPhotos.all',

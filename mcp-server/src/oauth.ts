@@ -1,5 +1,5 @@
 /**
- * OAuth 2.1 Authorization Server Provider for Calistenia MCP
+ * OAuth 2.1 Authorization Server Provider for Sturdy MCP
  *
  * Implements the MCP SDK's OAuthServerProvider interface using PocketBase
  * as the identity provider. Supports Google OAuth (via PocketBase) and
@@ -269,7 +269,7 @@ export async function buildAuthorizePage(
   return `<!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="utf-8">
-  <title>Calistenia - Sign In</title>
+  <title>Sturdy - Sign In</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
@@ -294,7 +294,7 @@ export async function buildAuthorizePage(
   </style>
 </head><body>
   <div class="card">
-    <h1>Calistenia</h1>
+    <h1>Sturdy</h1>
     <p class="sub">Sign in to authorize access to your account.</p>
     <div class="err" id="err"></div>
     ${providerButtons || "<p style='color:#737373;font-size:.875rem'>No login methods available</p>"}

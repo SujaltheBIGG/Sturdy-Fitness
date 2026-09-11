@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAuthState } from '../contexts/AuthContext'
-import { useBlocks } from '@calistenia/core/hooks/useBlocks'
+import { useBlocks } from '@sturdy/core/hooks/useBlocks'
 import { Loader } from '../components/ui/loader'
 import { Button } from '../components/ui/button'
 

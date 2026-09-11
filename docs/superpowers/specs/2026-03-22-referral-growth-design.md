@@ -17,7 +17,7 @@ Ambos flujos pasan por una landing personalizada con preview (stats, rutina o ch
 - Display name se sanitiza: uppercase, ASCII-only, max 10 chars, espacios → guiones
 - Se genera al crear la cuenta y se guarda en `users.referral_code`
 - En caso de colisión, se regenera el hash hasta encontrar uno único
-- Link de referido: `https://gym.guille.tech/invite/{código}`
+- Link de referido: `https://sturdy.app/invite/{código}`
 
 ### Tracking de referidos
 - Colección `referrals`: `referrer`, `referred`, `source` (quick_invite | challenge), `challenge_id` (opcional)

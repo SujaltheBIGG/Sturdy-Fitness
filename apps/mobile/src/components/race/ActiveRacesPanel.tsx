@@ -9,8 +9,8 @@ import { useRouter } from 'expo-router'
 import { useTranslation } from 'react-i18next'
 import { Text } from '@/components/ui/text'
 import { Kicker } from '@/components/ui/kicker'
-import { useDiscoverRaces } from '@calistenia/core/hooks/useDiscoverRaces'
-import { CARDIO_ACTIVITY } from '@calistenia/core/lib/style-tokens'
+import { useDiscoverRaces } from '@sturdy/core/hooks/useDiscoverRaces'
+import { CARDIO_ACTIVITY } from '@sturdy/core/lib/style-tokens'
 
 /** Cuántas carreras se listan en línea antes de mandar a /races-discover. */
 const MAX_INLINE = 5

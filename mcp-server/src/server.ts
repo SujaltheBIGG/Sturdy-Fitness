@@ -1,5 +1,5 @@
 /**
- * Calistenia MCP Server — mcp-use v2 entry.
+ * Sturdy MCP Server — mcp-use v2 entry.
  *
  * Single long-lived MCPServer:
  *   - /mcp        MCP endpoint, dual-auth via pocketbaseOAuthBridge → ctx.auth
@@ -47,8 +47,8 @@ import type { BridgeUser } from "./mcpuse/auth-bridge.js";
 process.env.MCP_URL ??= SERVER_URL;
 
 const server = new MCPServer<BridgeUser>({
-  name: "calistenia-mcp-server",
-  title: "Calistenia",
+  name: "sturdy-mcp-server",
+  title: "Sturdy",
   version: "1.0.0",
   description: "Calisthenics training, nutrition, and progress tracking",
   instructions:
@@ -57,7 +57,7 @@ const server = new MCPServer<BridgeUser>({
   port: PORT,
   oauth: pocketbaseOAuthBridge(PB_URL, SERVER_URL),
   // Override mcp-use's global CORS (app.use("*", cors(...))). The web app runs on
-  // a different origin than this API in prod (gym.guille.tech → gym-server.guille.tech),
+  // a different origin than this API in prod (sturdy.app → api.sturdy.app),
   // so every /api/* call triggers a CORS preflight. The Sentry browser SDK injects
   // `baggage`/`sentry-trace` distributed-tracing headers on outgoing fetches; if the
   // preflight's Access-Control-Allow-Headers doesn't list them the browser blocks the
@@ -137,7 +137,7 @@ registerPrompts(server);
 server.app.get("/health", (c) =>
   c.json({
     status: "ok",
-    server: "calistenia-server",
+    server: "sturdy-server",
     version: "1.0.0",
     pocketbase: PB_URL,
     services: ["api", "mcp"],

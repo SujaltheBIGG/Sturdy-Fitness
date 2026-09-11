@@ -2,7 +2,7 @@
 import { useCallback } from 'react'
 import { useRouter } from 'expo-router'
 import { useActiveSession } from '@/contexts/ActiveSessionContext'
-import type { Exercise, Workout } from '@calistenia/core/types'
+import type { Exercise, Workout } from '@sturdy/core/types'
 
 /**
  * Devuelve un `start(exercises, title)` que crea el workout libre, lo arranca en

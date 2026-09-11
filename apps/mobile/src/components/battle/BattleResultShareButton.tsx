@@ -16,7 +16,7 @@ import { Button } from '@/components/ui/button'
 import { shareBattleResult, shareBattleResultCard } from '@/lib/share'
 import ShareCardCapture from '@/components/share/ShareCardCapture'
 import BattleResultShareCard from '@/components/battle/BattleResultShareCard'
-import type { BattleResultRow } from '@calistenia/core/lib/battle'
+import type { BattleResultRow } from '@sturdy/core/lib/battle'
 import { useShareCardCapture } from '@/hooks/useShareCardCapture'
 
 export interface BattleResultShareButtonProps {

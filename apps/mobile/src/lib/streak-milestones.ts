@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { STREAK_MILESTONES, pickActiveMilestone } from '@calistenia/core/lib/streak-milestones'
+import { STREAK_MILESTONES, pickActiveMilestone } from '@sturdy/core/lib/streak-milestones'
 
 export const MILESTONES = STREAK_MILESTONES
 

@@ -8,8 +8,8 @@ import { X, ChevronLeft, Search } from 'lucide-react-native'
 
 import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
-import type { FoodItem, NutritionEntry, DailyTotals, NutritionGoal, MealType, PortionUnit } from '@calistenia/core/types'
-import { parsePortionAmountInput, resolveUnitWeight } from '@calistenia/core/lib/macro-calc'
+import type { FoodItem, NutritionEntry, DailyTotals, NutritionGoal, MealType, PortionUnit } from '@sturdy/core/types'
+import { parsePortionAmountInput, resolveUnitWeight } from '@sturdy/core/lib/macro-calc'
 
 import { type EditingMacro, type MacroField, type MealTotals, MEAL_OPTIONS } from './meal-logger-shared'
 

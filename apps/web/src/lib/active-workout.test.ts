@@ -4,7 +4,7 @@ import {
   CARDIO_ACTIVE_KEY,
   CIRCUIT_ACTIVE_KEY,
   STRENGTH_ACTIVE_KEY,
-} from '@calistenia/core/lib/storage-keys'
+} from '@sturdy/core/lib/storage-keys'
 
 import { hasActiveWorkout } from './active-workout'
 
@@ -97,8 +97,8 @@ describe('hasActiveWorkout', () => {
   })
 
   it('no confunde otras claves de calistenia con un entreno', () => {
-    localStorage.setItem('calistenia_cardio_unsaved', JSON.stringify([{ startTime: Date.now() }]))
-    localStorage.setItem('calistenia_free_session_queue', JSON.stringify([{ startedAt: Date.now() }]))
+    localStorage.setItem('sturdy_cardio_unsaved', JSON.stringify([{ startTime: Date.now() }]))
+    localStorage.setItem('sturdy_free_session_queue', JSON.stringify([{ startedAt: Date.now() }]))
     expect(hasActiveWorkout()).toBe(false)
   })
 })

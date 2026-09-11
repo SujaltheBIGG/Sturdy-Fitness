@@ -8,9 +8,9 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { cn } from '../../lib/utils'
-import { useBattleHistory, type BattleHistoryEntry } from '@calistenia/core/hooks/useBattleHistory'
-import { relativeDate } from '@calistenia/core/lib/dateUtils'
-import type { BattleOutcome } from '@calistenia/core/lib/battle'
+import { useBattleHistory, type BattleHistoryEntry } from '@sturdy/core/hooks/useBattleHistory'
+import { relativeDate } from '@sturdy/core/lib/dateUtils'
+import type { BattleOutcome } from '@sturdy/core/lib/battle'
 
 const OUTCOME_KEY: Record<BattleOutcome, string> = {
   won: 'battle.outcomeWon',

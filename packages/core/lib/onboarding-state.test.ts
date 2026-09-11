@@ -20,7 +20,7 @@ describe('onboarding-state', () => {
   it('isOnboardingDone consulta la key namespaced por usuario', () => {
     vi.mocked(storage.getItem).mockReturnValue('true')
     expect(isOnboardingDone('u1')).toBe(true)
-    expect(storage.getItem).toHaveBeenCalledWith('calistenia_onboarding_done_u1')
+    expect(storage.getItem).toHaveBeenCalledWith('sturdy_onboarding_done_u1')
   })
 
   it('isOnboardingDone es false si no hay valor guardado o no es literalmente "true"', () => {
@@ -34,18 +34,18 @@ describe('onboarding-state', () => {
 
   it('markOnboardingDone escribe "true" en la key del usuario', () => {
     markOnboardingDone('u2')
-    expect(storage.setItem).toHaveBeenCalledWith('calistenia_onboarding_done_u2', 'true')
+    expect(storage.setItem).toHaveBeenCalledWith('sturdy_onboarding_done_u2', 'true')
   })
 
   it('resetOnboarding borra la key del usuario', () => {
     resetOnboarding('u3')
-    expect(storage.removeItem).toHaveBeenCalledWith('calistenia_onboarding_done_u3')
+    expect(storage.removeItem).toHaveBeenCalledWith('sturdy_onboarding_done_u3')
   })
 
   it('usuarios distintos usan keys distintas (sin fuga de estado entre cuentas)', () => {
     markOnboardingDone('a')
     markOnboardingDone('b')
-    expect(storage.setItem).toHaveBeenNthCalledWith(1, 'calistenia_onboarding_done_a', 'true')
-    expect(storage.setItem).toHaveBeenNthCalledWith(2, 'calistenia_onboarding_done_b', 'true')
+    expect(storage.setItem).toHaveBeenNthCalledWith(1, 'sturdy_onboarding_done_a', 'true')
+    expect(storage.setItem).toHaveBeenNthCalledWith(2, 'sturdy_onboarding_done_b', 'true')
   })
 })

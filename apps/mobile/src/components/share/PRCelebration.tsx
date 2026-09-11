@@ -16,7 +16,7 @@ import PRShareCard from '@/components/share/PRShareCard'
 import ShareCardCapture, {
   type ShareCardCaptureHandle,
 } from '@/components/share/ShareCardCapture'
-import type { PREvent } from '@calistenia/core/hooks/useProgress'
+import type { PREvent } from '@sturdy/core/hooks/useProgress'
 
 export interface PRCelebrationProps {
   prEvent: PREvent

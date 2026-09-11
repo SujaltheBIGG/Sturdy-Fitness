@@ -2,11 +2,11 @@ import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from './ui/button'
 import { shareImage, canvasToBlob, loadLogo } from '../lib/share'
-import { trackShareCardShared } from '@calistenia/core/lib/analytics'
-import { todayStr } from '@calistenia/core/lib/dateUtils'
+import { trackShareCardShared } from '@sturdy/core/lib/analytics'
+import { todayStr } from '@sturdy/core/lib/dateUtils'
 import { fillRRect, strokeRRect, drawCircleImage, drawInitialAvatar, loadImage, CARD_COLORS } from '../lib/canvas-helpers'
 import i18n from '../lib/i18n'
-import type { PREvent } from '@calistenia/core/hooks/useProgress'
+import type { PREvent } from '@sturdy/core/hooks/useProgress'
 
 interface PRShareCardProps {
   prEvent: PREvent
@@ -185,18 +185,18 @@ export default function PRShareCard({ prEvent, exerciseName, userName, avatarUrl
       }
       ctx.fillStyle = fgDim
       ctx.font = '500 12px "DM Sans", system-ui, sans-serif'
-      ctx.fillText('CALISTENIA', pad + (logo ? footerLogoSize + 8 : 0), footerY + 18)
+      ctx.fillText('STURDY', pad + (logo ? footerLogoSize + 8 : 0), footerY + 18)
 
       ctx.fillStyle = fgMuted
       ctx.font = '400 10px "DM Sans", system-ui, sans-serif'
       ctx.textAlign = 'right'
-      ctx.fillText('calistenia-app.com', w - pad, footerY + 18)
+      ctx.fillText('sturdy-app.com', w - pad, footerY + 18)
       ctx.textAlign = 'left'
 
       const blob = await canvasToBlob(canvas)
       if (!blob) return
       const shareText = referralCode
-        ? `${exerciseName}: ${prEvent.oldValue || 0} → ${prEvent.newValue} reps 🏆\ngym.guille.tech/invite/${referralCode}`
+        ? `${exerciseName}: ${prEvent.oldValue || 0} → ${prEvent.newValue} reps 🏆\nsturdy.app/invite/${referralCode}`
         : `${exerciseName}: ${prEvent.oldValue || 0} → ${prEvent.newValue} reps 🏆`
       const outcome = await shareImage(
         blob,

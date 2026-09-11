@@ -1,4 +1,4 @@
-# Calistenia App Evolution — Design Spec
+# Sturdy Evolution — Design Spec
 
 **Date:** 2026-03-15
 **Scope:** TypeScript migration + 3 major feature areas (Program Customization, AI Nutrition, Exercise Media) + complementary improvements

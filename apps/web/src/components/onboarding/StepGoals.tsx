@@ -5,9 +5,9 @@ import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Label } from '../ui/label'
 import { cn } from '../../lib/utils'
-import { calculateBmi, bmiCategoryKey, bmiColorClass, parseDecimal, calculateWhtr, whtrCategoryKey, whtrColorClass } from '@calistenia/core/lib/bmi'
-import { primaryGoalImpliesWeightChange } from '@calistenia/core/lib/primaryGoal'
-import type { ActivityLevel, GoalsValues, Pace, PrimaryGoal } from '@calistenia/core/types/onboarding'
+import { calculateBmi, bmiCategoryKey, bmiColorClass, parseDecimal, calculateWhtr, whtrCategoryKey, whtrColorClass } from '@sturdy/core/lib/bmi'
+import { primaryGoalImpliesWeightChange } from '@sturdy/core/lib/primaryGoal'
+import type { ActivityLevel, GoalsValues, Pace, PrimaryGoal } from '@sturdy/core/types/onboarding'
 
 export type { ActivityLevel, GoalsValues, Pace }
 

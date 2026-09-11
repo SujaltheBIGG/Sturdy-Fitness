@@ -18,15 +18,15 @@ import { Text } from '@/components/ui/text'
 import { Kicker } from '@/components/ui/kicker'
 import { cn } from '@/lib/utils'
 import BattleScoreCell from '@/components/battle/BattleScoreCell'
-import { battleExerciseName } from '@calistenia/core/data/battle-presets'
+import { battleExerciseName } from '@sturdy/core/data/battle-presets'
 import {
   battleDisplayRanks,
   battleParticipantActivity,
   battleRestSecondsLeft,
   battleWorkColumns,
-} from '@calistenia/core/lib/battle'
-import { serverNow } from '@calistenia/core/lib/serverClock'
-import type { BattleConfiguration, BattleStanding } from '@calistenia/core/types/battle'
+} from '@sturdy/core/lib/battle'
+import { serverNow } from '@sturdy/core/lib/serverClock'
+import type { BattleConfiguration, BattleStanding } from '@sturdy/core/types/battle'
 
 /** Con alguien descansando hay que ir al segundo; si no, basta con vigilar el "inactivo". */
 const TICK_RESTING_MS = 1000

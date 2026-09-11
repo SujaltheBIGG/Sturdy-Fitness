@@ -5,7 +5,7 @@ import Svg, { Circle } from 'react-native-svg'
 import { Info } from 'lucide-react-native'
 import { Text } from '@/components/ui/text'
 import { useCountUp } from '@/lib/use-count-up'
-import type { QualityScore } from '@calistenia/core/types'
+import type { QualityScore } from '@sturdy/core/types'
 
 const RADIUS = 52
 const STROKE_WIDTH = 10

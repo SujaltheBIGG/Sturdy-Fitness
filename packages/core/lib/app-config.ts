@@ -49,7 +49,7 @@ interface CachedAppConfig {
 }
 
 /** No va en USER_SCOPED_STORAGE_KEYS: es estado del dispositivo, no del usuario. */
-export const APP_CONFIG_STORAGE_KEY = 'calistenia_app_config'
+export const APP_CONFIG_STORAGE_KEY = 'sturdy_app_config'
 
 const CACHE_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000 // 30 días
 const FETCH_TIMEOUT_MS = 8_000

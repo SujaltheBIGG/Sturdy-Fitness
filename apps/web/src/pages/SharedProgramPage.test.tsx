@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { localize } from '@calistenia/core/lib/i18n-db'
+import { localize } from '@sturdy/core/lib/i18n-db'
 
 /**
  * La landing pública de un programa compartido (rama SIN login).
@@ -39,11 +39,11 @@ vi.mock('./ProgramDetailPage', () => ({
 
 // El hook real depende de i18next inicializado; se delega en el `localize` real
 // para que lo que se comprueba sea que la página PASA los campos por él.
-vi.mock('@calistenia/core/hooks/useLocalize', () => ({
+vi.mock('@sturdy/core/hooks/useLocalize', () => ({
   useLocalize: () => (field: unknown) => localize(field as never, 'es'),
 }))
 
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: { baseUrl: 'http://pb.test' },
   isPocketBaseAvailable: () => Promise.resolve(true),
 }))
@@ -54,7 +54,7 @@ const h = vi.hoisted(() => ({
   captured: [] as string[],
 }))
 
-vi.mock('@calistenia/core/lib/sharedProgramHandoff', () => ({
+vi.mock('@sturdy/core/lib/sharedProgramHandoff', () => ({
   capturePendingSharedProgram: (id: string) => { h.captured.push(id) },
   consumePendingSharedProgram: () => null,
   clearPendingSharedProgram: () => {},

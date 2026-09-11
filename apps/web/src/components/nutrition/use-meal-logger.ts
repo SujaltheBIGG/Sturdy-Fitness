@@ -8,13 +8,13 @@
  */
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { localHour, nowLocalForPB } from '@calistenia/core/lib/dateUtils'
-import { useFoodCatalog } from '@calistenia/core/hooks/useFoodCatalog'
-import { useBarcodeScanner } from '@calistenia/core/hooks/useBarcodeScanner'
-import { useFoodHistory } from '@calistenia/core/hooks/useFoodHistory'
-import { useMealTemplates } from '@calistenia/core/hooks/useMealTemplates'
-import { calcMacros, normalizeToBase100, migrateLegacyFood, createEmptyFood } from '@calistenia/core/lib/macro-calc'
-import type { FoodItem, NutritionEntry, MealTemplate, MealType } from '@calistenia/core/types'
+import { localHour, nowLocalForPB } from '@sturdy/core/lib/dateUtils'
+import { useFoodCatalog } from '@sturdy/core/hooks/useFoodCatalog'
+import { useBarcodeScanner } from '@sturdy/core/hooks/useBarcodeScanner'
+import { useFoodHistory } from '@sturdy/core/hooks/useFoodHistory'
+import { useMealTemplates } from '@sturdy/core/hooks/useMealTemplates'
+import { calcMacros, normalizeToBase100, migrateLegacyFood, createEmptyFood } from '@sturdy/core/lib/macro-calc'
+import type { FoodItem, NutritionEntry, MealTemplate, MealType } from '@sturdy/core/types'
 import {
   MEAL_OPTIONS, getSeedMealType, normalizeFoods, sumFoodTotals,
   type AnalysisQuality, type CaptureSubView, type EditingMacro, type MealLoggerContentProps, type Step,

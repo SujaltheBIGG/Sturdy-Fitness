@@ -5,7 +5,7 @@
  * (picker inline), con un comentario admitiéndolo. Fuente única: el wizard usa
  * la lista entera y el picker se queda con lo que necesita.
  */
-import type { NutritionGoalType } from '@calistenia/core/types'
+import type { NutritionGoalType } from '@sturdy/core/types'
 
 export const NUTRITION_GOALS: { id: NutritionGoalType; labelKey: string; icon: string; descKey: string }[] = [
   { id: 'muscle_gain', labelKey: 'nutrition.goal.muscleGain', icon: '💪', descKey: 'nutrition.goal.muscleGainDesc' },

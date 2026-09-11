@@ -13,7 +13,7 @@ import { render, screen } from '@testing-library/react'
 // el idioma a `es`. Mockearlo devolvería la clave y el test pasaría con el
 // locale roto — que es exactamente el fallo que se quiere cazar.
 
-vi.mock('@calistenia/core/hooks/useRacePRs', () => ({
+vi.mock('@sturdy/core/hooks/useRacePRs', () => ({
   useRacePRs: () => ({
     loading: false,
     prs: {

@@ -8,7 +8,7 @@
  * inyecta siempre.
  *
  * Las credenciales NO viven en el repo: se leen de las propiedades gradle
- * `CALISTENIA_UPLOAD_STORE_FILE / _STORE_PASSWORD / _KEY_ALIAS / _KEY_PASSWORD`
+ * `STURDY_UPLOAD_STORE_FILE / _STORE_PASSWORD / _KEY_ALIAS / _KEY_PASSWORD`
  * (en `~/.gradle/gradle.properties` del PC de Guillermo; el keystore está en
  * `~/keystores/calistenia-upload.jks`). Si no están definidas (CI, otro PC,
  * builds de desarrollo) se cae a la debug keystore, igual que hacía la
@@ -17,16 +17,16 @@
 const { withAppBuildGradle } = require('expo/config-plugins')
 
 const MARKER = '// calistenia upload signing (plugins/with-upload-signing.js)'
-const PROP = 'CALISTENIA_UPLOAD_STORE_FILE'
+const PROP = 'STURDY_UPLOAD_STORE_FILE'
 
 const RELEASE_SIGNING_CONFIG = `
         ${MARKER}
         release {
             if (project.hasProperty('${PROP}')) {
                 storeFile file(project.property('${PROP}'))
-                storePassword project.property('CALISTENIA_UPLOAD_STORE_PASSWORD')
-                keyAlias project.property('CALISTENIA_UPLOAD_KEY_ALIAS')
-                keyPassword project.property('CALISTENIA_UPLOAD_KEY_PASSWORD')
+                storePassword project.property('STURDY_UPLOAD_STORE_PASSWORD')
+                keyAlias project.property('STURDY_UPLOAD_KEY_ALIAS')
+                keyPassword project.property('STURDY_UPLOAD_KEY_PASSWORD')
             }
         }`
 

@@ -56,9 +56,9 @@ import {
 
 import { Text } from '@/components/ui/text'
 import { COLORS } from '@/lib/theme'
-import { op } from '@calistenia/core/lib/analytics'
-import { groupFeatures, pickLang, type FeatureEntry } from '@calistenia/core/lib/discover'
-import featuresJson from '@calistenia/core/data/features.json'
+import { op } from '@sturdy/core/lib/analytics'
+import { groupFeatures, pickLang, type FeatureEntry } from '@sturdy/core/lib/discover'
+import featuresJson from '@sturdy/core/data/features.json'
 
 // Mapa nombre→icono: resolución estática de los nombres del JSON.
 const ICONS: Record<string, LucideIcon> = {

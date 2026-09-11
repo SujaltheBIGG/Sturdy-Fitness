@@ -1,12 +1,12 @@
 import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { formatDuration, formatPace, formatSpeed } from '@calistenia/core/lib/geo'
+import { formatDuration, formatPace, formatSpeed } from '@sturdy/core/lib/geo'
 import { useTranslation } from 'react-i18next'
 import i18n from '../../lib/i18n'
-import { CARDIO_ACTIVITY } from '@calistenia/core/lib/style-tokens'
+import { CARDIO_ACTIVITY } from '@sturdy/core/lib/style-tokens'
 import { ConfirmDialog } from '../ui/confirm-dialog'
 import { cn } from '../../lib/utils'
-import type { CardioActivityType, CardioSession } from '@calistenia/core/types'
+import type { CardioActivityType, CardioSession } from '@sturdy/core/types'
 
 /** Pestañas del historial: «todas» + un filtro por cada tipo de actividad. */
 type HistoryFilter = 'all' | CardioActivityType
@@ -17,7 +17,7 @@ interface CardioHistoryProps {
   loading?: boolean
   onDelete?: (id: string) => Promise<void>
   /** La carga falló. Manda sobre la lista vacía: sin esto un 504 se pintaba
-      como «no tienes sesiones», que es mentira (#559, CALISTENIA-APP-S). */
+      como «no tienes sesiones», que es mentira (#559, STURDY-APP-S). */
   error?: boolean
   onRetry?: () => void
 }

@@ -5,7 +5,7 @@ import {
 } from 'recharts'
 import { useTranslation } from 'react-i18next'
 import { Card, CardContent } from '../ui/card'
-import { todayStr } from '@calistenia/core/lib/dateUtils'
+import { todayStr } from '@sturdy/core/lib/dateUtils'
 
 interface DayData {
   date: string
@@ -145,7 +145,7 @@ export default function WeeklyNutritionChart({ history, calorieGoal }: WeeklyNut
         <caption>{t('nutrition.weeklyChart.caption')}</caption>
         <thead>
           <tr>
-            <th>Día</th><th>{t('nutrition.calories')}</th><th>{t('nutrition.protein')}</th><th>{t('nutrition.carbs')}</th><th>{t('nutrition.fat')}</th>
+            <th>Day</th><th>{t('nutrition.calories')}</th><th>{t('nutrition.protein')}</th><th>{t('nutrition.carbs')}</th><th>{t('nutrition.fat')}</th>
           </tr>
         </thead>
         <tbody>

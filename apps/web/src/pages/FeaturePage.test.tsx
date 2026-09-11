@@ -10,7 +10,7 @@ vi.mock('react-i18next', () => ({
   }),
 }))
 
-vi.mock('@calistenia/core/lib/analytics', () => ({ op: { track: vi.fn() } }))
+vi.mock('@sturdy/core/lib/analytics', () => ({ op: { track: vi.fn() } }))
 
 import FeaturePage from './FeaturePage'
 import FeaturesPage from './FeaturesPage'

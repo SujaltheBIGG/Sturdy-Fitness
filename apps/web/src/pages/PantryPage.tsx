@@ -6,12 +6,12 @@ import { toast } from 'sonner'
 import {
   useAddPantryItems, useAdjustPantryItem, useDeletePantryItem, useDeletePantryItems,
   usePantryHistory, usePantryItems,
-} from '@calistenia/core/hooks/usePantry'
-import { useUserCurrency } from '@calistenia/core/hooks/useUserCurrency'
-import { canonCurrency } from '@calistenia/core/lib/money'
-import { parsePantry } from '@calistenia/core/lib/pantry-api'
-import { daysUntil } from '@calistenia/core/lib/pantry'
-import type { PantryItem, PantryParsedItem, PantryParseResult, ReceiptParseResult } from '@calistenia/core/types'
+} from '@sturdy/core/hooks/usePantry'
+import { useUserCurrency } from '@sturdy/core/hooks/useUserCurrency'
+import { canonCurrency } from '@sturdy/core/lib/money'
+import { parsePantry } from '@sturdy/core/lib/pantry-api'
+import { daysUntil } from '@sturdy/core/lib/pantry'
+import type { PantryItem, PantryParsedItem, PantryParseResult, ReceiptParseResult } from '@sturdy/core/types'
 import { PantryTable } from '../components/pantry/PantryTable'
 import { PantryChatInput } from '../components/pantry/PantryChatInput'
 import { PantryConfirmDialog, type ConsumeMatch } from '../components/pantry/PantryConfirmDialog'

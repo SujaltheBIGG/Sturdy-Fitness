@@ -12,10 +12,10 @@ import { useCallback, useMemo, useRef, useState } from 'react'
 import { fetch as expoFetch } from 'expo/fetch'
 import { useChat } from '@ai-sdk/react'
 import { DefaultChatTransport } from 'ai'
-import { AI_API_URL } from '@calistenia/core/lib/ai-api'
-import { pb } from '@calistenia/core/lib/pocketbase'
+import { AI_API_URL } from '@sturdy/core/lib/ai-api'
+import { pb } from '@sturdy/core/lib/pocketbase'
 import type { UserContext } from '@/components/free-session/AISessionForm'
-import { moveItem, removeAt } from '@calistenia/core/lib/reorder'
+import { moveItem, removeAt } from '@sturdy/core/lib/reorder'
 import {
   getSessionFromParts,
   type AIExercise,

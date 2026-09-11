@@ -12,7 +12,7 @@ import { render, waitFor } from '@testing-library/react'
 
 const getOne = vi.fn()
 
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: {
     baseUrl: 'http://pb.test',
     filter: (expr: string) => expr,
@@ -21,7 +21,7 @@ vi.mock('@calistenia/core/lib/pocketbase', () => ({
   isPocketBaseAvailable: () => Promise.resolve(true),
 }))
 
-import { useNutritionProfilePrefill } from '@calistenia/core/hooks/useNutritionProfilePrefill'
+import { useNutritionProfilePrefill } from '@sturdy/core/hooks/useNutritionProfilePrefill'
 
 type State = ReturnType<typeof useNutritionProfilePrefill>
 let state: State

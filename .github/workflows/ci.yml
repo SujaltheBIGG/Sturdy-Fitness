@@ -155,15 +155,15 @@ jobs:
       # minificado que se despliega, con el PB efímero baked como backend.
       # Detecta bugs que solo existen en build (p.ej. purge de Tailwind).
       - name: Build production bundle (apuntando al PB efímero)
-        run: pnpm --filter @calistenia/web exec vite build
+        run: pnpm --filter @sturdy/web exec vite build
         env:
           VITE_POCKETBASE_URL: http://127.0.0.1:8090
 
       - name: Install Playwright Chromium
-        run: pnpm --filter @calistenia/web exec playwright install --with-deps chromium
+        run: pnpm --filter @sturdy/web exec playwright install --with-deps chromium
 
       - name: Run smoke test (contra vite preview del build)
-        run: pnpm --filter @calistenia/web run test:e2e:smoke
+        run: pnpm --filter @sturdy/web run test:e2e:smoke
 
       - name: Upload failure artifacts (screenshots + PB log)
         if: failure()

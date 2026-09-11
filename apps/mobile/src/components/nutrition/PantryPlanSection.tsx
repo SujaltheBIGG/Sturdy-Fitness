@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next'
 import { useRouter } from 'expo-router'
 import { Text } from '@/components/ui/text'
 import { Chip } from '@/components/ui/chip'
-import { usePantryPlan } from '@calistenia/core/hooks/usePantryPlan'
-import { todayStr, addDays } from '@calistenia/core/lib/dateUtils'
-import type { PantryPlanGoals } from '@calistenia/core/lib/pantry-api'
-import type { HowManyMealsResult, PantryDayPlanResult } from '@calistenia/core/types'
+import { usePantryPlan } from '@sturdy/core/hooks/usePantryPlan'
+import { todayStr, addDays } from '@sturdy/core/lib/dateUtils'
+import type { PantryPlanGoals } from '@sturdy/core/lib/pantry-api'
+import type { HowManyMealsResult, PantryDayPlanResult } from '@sturdy/core/types'
 
 const MEAL_TYPE_COLORS: Record<string, string> = {
   desayuno: 'bg-amber-400',

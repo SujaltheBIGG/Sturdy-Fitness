@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { buildFirstWorkout, firstWorkoutKey, takeFirstWorkoutPending, trackFirstWorkoutStarted } from '@calistenia/core/lib/first-workout'
-import { loadCatalogIndex } from '@calistenia/core/lib/catalogIndex'
+import { buildFirstWorkout, firstWorkoutKey, takeFirstWorkoutPending, trackFirstWorkoutStarted } from '@sturdy/core/lib/first-workout'
+import { loadCatalogIndex } from '@sturdy/core/lib/catalogIndex'
 import { useActiveSession } from '../contexts/ActiveSessionContext'
 import { useWorkoutActions } from '../contexts/WorkoutContext'
 import { useSessionIdentity } from '../hooks/useSessionIdentity'
@@ -74,7 +74,7 @@ export default function ActiveSessionPage() {
     setRepeatEpoch(n => n + 1)
   }, [workout, workoutKey, source, startSession])
 
-  const handleMarkDone = useCallback((key: string, note: string, timing?: { durationSeconds?: number; exerciseTimings?: import('@calistenia/core/types').ExerciseTiming[] }) => {
+  const handleMarkDone = useCallback((key: string, note: string, timing?: { durationSeconds?: number; exerciseTimings?: import('@sturdy/core/types').ExerciseTiming[] }) => {
     const wcData = getWarmupCooldownData()
     onMarkDone(key, note, {
       warmupSkipped: wcData.warmupSkipped,

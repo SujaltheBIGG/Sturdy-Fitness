@@ -14,8 +14,8 @@ import { useRaceContext } from '@/contexts/RaceContext'
 import { msUntil } from '@/lib/race/raceClock'
 import { haptics } from '@/lib/haptics'
 import * as sounds from '@/lib/sounds'
-import { formatPace, formatDuration } from '@calistenia/core/lib/geo'
-import { sortRaceParticipants } from '@calistenia/core/lib/race-sort'
+import { formatPace, formatDuration } from '@sturdy/core/lib/geo'
+import { sortRaceParticipants } from '@sturdy/core/lib/race-sort'
 
 function cartoStyle(dark: boolean) {
   const variant = dark ? 'dark_all' : 'rastertiles/voyager'

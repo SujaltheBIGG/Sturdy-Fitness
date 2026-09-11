@@ -5,7 +5,7 @@ const baseArgs = {
   today: '2026-06-10',
   tz: 'America/New_York',
   lang: 'es' as const,
-  programName: 'Calistenia 26 semanas',
+  programName: 'Sturdy 26 semanas',
   programPhase: 2,
   todayId: 'mie',
   weekDays: [

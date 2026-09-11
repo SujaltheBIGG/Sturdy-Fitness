@@ -1,9 +1,9 @@
 import { createContext, use, useCallback, useMemo, type ReactNode } from 'react'
-import { useProgress, type PREvent } from '@calistenia/core/hooks/useProgress'
-import { usePrograms, type ActiveEnrollment } from '@calistenia/core/hooks/usePrograms'
-import { useProgramProgress } from '@calistenia/core/hooks/useProgramProgress'
-import type { ProgramProgress } from '@calistenia/core/lib/programProgress'
-import type { Settings, ProgressMap, SetData, ExerciseLog, Phase, WeekDay, Workout, ProgramMeta, CardioDayConfig, CircuitDefinition, ExerciseTiming } from '@calistenia/core/types'
+import { useProgress, type PREvent } from '@sturdy/core/hooks/useProgress'
+import { usePrograms, type ActiveEnrollment } from '@sturdy/core/hooks/usePrograms'
+import { useProgramProgress } from '@sturdy/core/hooks/useProgramProgress'
+import type { ProgramProgress } from '@sturdy/core/lib/programProgress'
+import type { Settings, ProgressMap, SetData, ExerciseLog, Phase, WeekDay, Workout, ProgramMeta, CardioDayConfig, CircuitDefinition, ExerciseTiming } from '@sturdy/core/types'
 
 // ── Context interface (state + actions + meta) ──────────────────────────────
 

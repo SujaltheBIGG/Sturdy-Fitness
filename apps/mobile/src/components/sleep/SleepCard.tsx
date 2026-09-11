@@ -14,8 +14,8 @@ import { Text } from '@/components/ui/text'
 import { Kicker } from '@/components/ui/kicker'
 import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
-import { useSleep } from '@calistenia/core/hooks/useSleep'
-import { daysAgoStr } from '@calistenia/core/lib/dateUtils'
+import { useSleep } from '@sturdy/core/hooks/useSleep'
+import { daysAgoStr } from '@sturdy/core/lib/dateUtils'
 
 const QUALITY_LABEL_KEYS = ['', 'sleep.quality.1', 'sleep.quality.2', 'sleep.quality.3', 'sleep.quality.4', 'sleep.quality.5']
 

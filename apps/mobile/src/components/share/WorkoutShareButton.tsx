@@ -22,7 +22,7 @@ import { useWindowDimensions } from 'react-native'
 import { Text } from '@/components/ui/text'
 import { Button } from '@/components/ui/button'
 import { MOBILE_SHARE_CARD_CONTEXTS, shareCardImage, shareWorkoutSession } from '@/lib/share'
-import type { Exercise, ExerciseTiming } from '@calistenia/core/types'
+import type { Exercise, ExerciseTiming } from '@sturdy/core/types'
 import { useShareCardCapture } from '@/hooks/useShareCardCapture'
 
 import ShareCardCapture from '@/components/share/ShareCardCapture'

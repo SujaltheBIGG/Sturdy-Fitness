@@ -21,7 +21,7 @@
 ## Orquestación (para el agente principal)
 
 ```bash
-cd /Users/guillermomarin/Documents/ejercicios/calistenia-app
+cd /Users/guillermomarin/Documents/ejercicios/sturdy-app
 git checkout -b feat/pantry-receipts main
 git add docs/superpowers/plans/2026-07-07-pantry-receipts-f5.md
 git commit -m "docs: plan F5 scan de recibos (#174)"
@@ -302,7 +302,7 @@ TOKEN=$(curl -s http://127.0.0.1:8090/api/collections/users/auth-with-password \
   -d '{"identity":"test-b@local.test","password":"TestUser123!"}' | python3 -c 'import json,sys;print(json.load(sys.stdin)["token"])')
 curl -s -X POST http://localhost:3001/api/pantry/parse-receipt \
   -H "Authorization: Bearer $TOKEN" \
-  -F "images=@/Users/guillermomarin/Documents/ejercicios/calistenia-app/apps/mobile/assets/icon.png"
+  -F "images=@/Users/guillermomarin/Documents/ejercicios/sturdy-app/apps/mobile/assets/icon.png"
 ```
 
 Expected: **HTTP 200 con JSON válido** (`items` probablemente `[]` — la imagen no es un recibo; eso está bien). Lo que se verifica es que OpenAI strict mode ACEPTA el schema. Un 502/400 con mensaje de "required"/"schema" = el gotcha `.optional()` — revisar el schema.
@@ -775,9 +775,9 @@ git -C /tmp/wt-f5-mobile commit -m "feat(despensa): useAddPantryItems acepta sou
 
 ```ts
 // F5 (#174): cliente mobile del parser de recibos — multipart URI→Blob
-import { AI_API_URL } from '@calistenia/core/lib/ai-api'
-import { pb } from '@calistenia/core/lib/pocketbase'
-import type { ReceiptParseResult } from '@calistenia/core/types'
+import { AI_API_URL } from '@sturdy/core/lib/ai-api'
+import { pb } from '@sturdy/core/lib/pocketbase'
+import type { ReceiptParseResult } from '@sturdy/core/types'
 import { uriToBlob } from '@/lib/image-upload'
 import type { ImageAsset } from '@/lib/nutrition-api'
 
@@ -819,7 +819,7 @@ git -C /tmp/wt-f5-mobile commit -m "feat(despensa): parseReceiptMobile (#174)"
 import * as ImagePicker from 'expo-image-picker'
 import { ReceiptText } from 'lucide-react-native'   // añadir al import de lucide existente
 import { parseReceiptMobile } from '@/lib/receipt-api'
-import type { ReceiptParseResult } from '@calistenia/core/types'
+import type { ReceiptParseResult } from '@sturdy/core/types'
 ```
 
 - [ ] **Step 2: Estado + handlers** (junto a los otros handlers):
@@ -1080,8 +1080,8 @@ git -C /tmp/wt-f5-mobile commit -m "feat(despensa): i18n scan de recibos es/en (
 - [ ] **Step 1: Hook + props.** Imports:
 
 ```ts
-import { useSpendSummary } from '@calistenia/core/hooks/useSpend'
-import { startOfWeekStr } from '@calistenia/core/lib/dateUtils'
+import { useSpendSummary } from '@sturdy/core/hooks/useSpend'
+import { startOfWeekStr } from '@sturdy/core/lib/dateUtils'
 ```
 
 En el cuerpo del componente (donde ya hay `userId`):
@@ -1108,8 +1108,8 @@ Verificar cómo se llama la variable de user id en ese archivo (puede ser `user?
 - [ ] **Step 1: Props e imports.** Imports nuevos:
 
 ```ts
-import { formatMoney } from '@calistenia/core/lib/shopping'
-import type { EntryCost, SpendSummary } from '@calistenia/core/lib/spend'
+import { formatMoney } from '@sturdy/core/lib/shopping'
+import type { EntryCost, SpendSummary } from '@sturdy/core/lib/spend'
 ```
 
 En `NutritionDashboardProps` (línea 24):
@@ -1177,7 +1177,7 @@ y en el render de la lista (línea ~529) pasar `cost={entry.id ? entryCosts?.[en
       )}
 ```
 
-(`todayStr` ya está importado en este archivo — verificar; si no, importarlo de `@calistenia/core/lib/dateUtils`.)
+(`todayStr` ya está importado en este archivo — verificar; si no, importarlo de `@sturdy/core/lib/dateUtils`.)
 
 - [ ] **Step 4: i18n** — keys FLAT en ambos locales:
 

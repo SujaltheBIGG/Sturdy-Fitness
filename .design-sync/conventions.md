@@ -1,7 +1,7 @@
 # Cómo construir con este design system
 
-Los componentes son los primitivos reales de la app web de Calistenia (shadcn/ui
-sobre Radix, Tailwind v4, React 19). Están en `window.Calistenia`.
+Los componentes son los primitivos reales de la app web de Sturdy (shadcn/ui
+sobre Radix, Tailwind v4, React 19). Están en `window.Sturdy`.
 
 ## Envoltorios y contexto
 
@@ -98,7 +98,7 @@ existen porque la app los usa para los kickers en mono.
 ## Activos de marca
 
 El logotipo es la **marca gráfica** (atleta en front lever, lima) más
-**«CALISTENIA» en Bebas mayúsculas**. La marca gráfica está incrustada en CSS:
+**«STURDY» en Bebas mayúsculas**. La marca gráfica está incrustada en CSS:
 
 - `--brand-mark` — la imagen. Proporción obligatoria `--brand-mark-aspect`
   (`428 / 512`). No la recolorees.
@@ -124,7 +124,7 @@ la marca. En marketing sigue prohibido el *texto* con degradado. Ver
 ## Ejemplo idiomático
 
 ```jsx
-const { Card, CardContent, CardHeader, CardTitle, CardDescription, Badge, Button, Progress } = window.Calistenia
+const { Card, CardContent, CardHeader, CardTitle, CardDescription, Badge, Button, Progress } = window.Sturdy
 
 function ResumenDeHoy() {
   return (

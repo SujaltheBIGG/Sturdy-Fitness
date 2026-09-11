@@ -5,7 +5,7 @@
  * `uri` local, `uriToBlob` lo lee a un Blob de verdad con XMLHttpRequest (el
  * `fetch` de Expo SDK 56 no acepta la forma `{ uri, name, type }` de React
  * Native en un FormData) y las reglas compartidas de
- * `@calistenia/core/lib/programMedia` deciden si vale.
+ * `@sturdy/core/lib/programMedia` deciden si vale.
  *
  * El nombre del fichero se construye aquí y viaja aparte del blob porque **un
  * Blob nativo no tiene `.name`** y PocketBase valida la subida por la extensión
@@ -24,7 +24,7 @@ import {
   mediaFileName,
   resolveMime,
   type EditorMediaFile,
-} from '@calistenia/core/lib/programMedia'
+} from '@sturdy/core/lib/programMedia'
 
 export type MediaSource = 'camera' | 'gallery'
 

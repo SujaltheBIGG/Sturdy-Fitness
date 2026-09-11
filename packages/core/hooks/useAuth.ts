@@ -11,8 +11,8 @@ import { qk } from '../lib/query-keys'
 import i18n from 'i18next'
 import type { AuthUser, UserRole, UserTier } from '../types'
 
-const REFERRAL_CODE_KEY = 'calistenia_referral_code'
-const EXPRESS_CHALLENGE_KEY = 'calistenia_express_challenge'
+const REFERRAL_CODE_KEY = 'sturdy_referral_code'
+const EXPRESS_CHALLENGE_KEY = 'sturdy_express_challenge'
 
 /** Save referral code from URL to localStorage so it survives the registration flow. */
 export function captureReferralCode(code: string) {

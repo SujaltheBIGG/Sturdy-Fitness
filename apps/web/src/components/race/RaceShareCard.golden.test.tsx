@@ -5,9 +5,9 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { render, fireEvent, waitFor } from '@testing-library/react'
 import RaceShareCard from './RaceShareCard'
 import { shareImage, canvasToBlob, loadLogo } from '../../lib/share'
-import { sortRaceParticipants } from '@calistenia/core/lib/race-sort'
+import { sortRaceParticipants } from '@sturdy/core/lib/race-sort'
 import { createCanvasRecorder, type CanvasRecorder } from '../../test/canvas-recorder'
-import type { Race, RaceParticipant, RaceGpsPoint } from '@calistenia/core/types/race'
+import type { Race, RaceParticipant, RaceGpsPoint } from '@sturdy/core/types/race'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -37,7 +37,7 @@ vi.mock('../../lib/share', () => ({
   loadLogo: vi.fn(async () => ({ __fake: 'logo' })),
 }))
 
-vi.mock('@calistenia/core/lib/analytics', () => ({
+vi.mock('@sturdy/core/lib/analytics', () => ({
   trackShareCardShared: vi.fn(),
   trackCanonicalEvent: vi.fn(),
   CANONICAL_ANALYTICS_EVENTS: { raceShared: 'race_shared' },

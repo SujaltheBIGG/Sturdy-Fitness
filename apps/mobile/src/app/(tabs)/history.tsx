@@ -15,12 +15,12 @@ import { MenuButton } from '@/components/QuickMenu'
 import { cn } from '@/lib/utils'
 import { useAuthUser } from '@/lib/use-auth-user'
 import { useWorkoutState, useWorkoutActions } from '@/contexts/WorkoutContext'
-import { useCardioSessions } from '@calistenia/core/hooks/useCardioStats'
-import { useBattleHistory } from '@calistenia/core/hooks/useBattleHistory'
-import { relativeDate, todayStr } from '@calistenia/core/lib/dateUtils'
-import { formatDuration } from '@calistenia/core/lib/geo'
-import type { SessionDone, CardioSession } from '@calistenia/core/types'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+import { useCardioSessions } from '@sturdy/core/hooks/useCardioStats'
+import { useBattleHistory } from '@sturdy/core/hooks/useBattleHistory'
+import { relativeDate, todayStr } from '@sturdy/core/lib/dateUtils'
+import { formatDuration } from '@sturdy/core/lib/geo'
+import type { SessionDone, CardioSession } from '@sturdy/core/types'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 
 // Fila unificada del historial: entreno (fuerza/yoga) o sesión de cardio GPS.
 // `title` se resuelve al construir la fila (una sola vez), no al pintarla: antes

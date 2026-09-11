@@ -1074,7 +1074,7 @@ Expected: PASS.
 
 - [ ] **Step 6: Manual smoke**
 
-Run: `npm run dev`. Log in as a user with existing onboarding data. Restart the onboarding flow (e.g. clear `localStorage.calistenia_onboarding_done_<userId>` in DevTools) and go to the program step. Expected:
+Run: `npm run dev`. Log in as a user with existing onboarding data. Restart the onboarding flow (e.g. clear `localStorage.sturdy_onboarding_done_<userId>` in DevTools) and go to the program step. Expected:
 - FOR YOU card at top (lime border) matching your level+goal
 - If you have a skill focus area, ALSO FOR YOU card below (sky-blue border)
 - Other programs sorted beneath
@@ -1395,12 +1395,12 @@ Then restart prod PB — e.g. `ssh <prod-host> 'systemctl restart pocketbase'` o
 
 Run:
 ```bash
-TOKEN=$(curl -s -X POST "https://gym.guille.tech/api/collections/_superusers/auth-with-password" \
+TOKEN=$(curl -s -X POST "https://sturdy.app/api/collections/_superusers/auth-with-password" \
   -H "Content-Type: application/json" \
   -d '{"identity":"arepayquezo@gmail.com","password":"<PROD_PB_SUPERUSER_PASSWORD>"}' \
   | python3 -c "import sys, json; print(json.load(sys.stdin)['token'])")
 
-curl -s "https://gym.guille.tech/api/collections/programs" -H "Authorization: Bearer $TOKEN" \
+curl -s "https://sturdy.app/api/collections/programs" -H "Authorization: Bearer $TOKEN" \
   | python3 -c "import sys, json; fields=[f['name'] for f in json.load(sys.stdin)['fields']]; print('goal_type:', 'goal_type' in fields); print('days_per_week:', 'days_per_week' in fields)"
 ```
 Expected: both `True`.
@@ -1409,17 +1409,17 @@ Expected: both `True`.
 
 Run:
 ```bash
-node scripts/seed-program-catalog.mjs "https://gym.guille.tech" "arepayquezo@gmail.com" "<PROD_PB_SUPERUSER_PASSWORD>"
+node scripts/seed-program-catalog.mjs "https://sturdy.app" "arepayquezo@gmail.com" "<PROD_PB_SUPERUSER_PASSWORD>"
 ```
 Expected: Balance Total retagged + 12 new programs created.
 
 - [ ] **Step 5: Verify in prod app**
 
-Open `https://gym.guille.tech/auth`. Log in with a test account. Check the onboarding flow or `/programs` page renders all 13 programs correctly. Expect FOR YOU badge on the persona-matching program.
+Open `https://sturdy.app/auth`. Log in with a test account. Check the onboarding flow or `/programs` page renders all 13 programs correctly. Expect FOR YOU badge on the persona-matching program.
 
 - [ ] **Step 6: Merge + deploy frontend**
 
-The frontend commits from tasks 2–7 are on `main`. The deploy pipeline (Vercel/Cloudflare/whatever you use) should pick up automatically. Verify by hard-refreshing `gym.guille.tech` and running the onboarding flow — expect the ALSO FOR YOU card to render when applicable.
+The frontend commits from tasks 2–7 are on `main`. The deploy pipeline (Vercel/Cloudflare/whatever you use) should pick up automatically. Verify by hard-refreshing `sturdy.app` and running the onboarding flow — expect the ALSO FOR YOU card to render when applicable.
 
 No commit here — this task is operational.
 
@@ -1432,7 +1432,7 @@ No commit here — this task is operational.
 - [ ] **Step 1: Persona 1 — beginner + fat_loss**
 
 Use Playwright MCP against prod:
-- Navigate to `https://gym.guille.tech/auth`, clear storage, sign up fresh account
+- Navigate to `https://sturdy.app/auth`, clear storage, sign up fresh account
 - Complete onboarding: weight 90, goal 75, age 30, sex = whatever, level = principiante, no skills selected, 4 training days, intensity = light
 - At program step, expect the top card: "**Principiante · Quema Grasa**" with the lime FOR YOU badge
 - Expect no ALSO FOR YOU card (no skill focus)
@@ -1447,7 +1447,7 @@ Use Playwright MCP against prod:
 - [ ] **Step 3: Persona 3 — existing user**
 
 - Log in as Guillermo (intermedio, maintain)
-- Reset onboarding done flag (DevTools: `localStorage.removeItem('calistenia_onboarding_done_<your-user-id>')`) and reload
+- Reset onboarding done flag (DevTools: `localStorage.removeItem('sturdy_onboarding_done_<your-user-id>')`) and reload
 - Expect primary: "**Intermedio · Balance Total**" FOR YOU
 
 - [ ] **Step 4: Persona 4 — penalty flag**

@@ -22,20 +22,20 @@ const { mockCanonical, authWithPassword, create, loginWithOAuth2 } = vi.hoisted(
   loginWithOAuth2: vi.fn(),
 }))
 
-vi.mock('@calistenia/core/lib/analytics', async (importOriginal) => ({
-  ...(await importOriginal<typeof import('@calistenia/core/lib/analytics')>()),
+vi.mock('@sturdy/core/lib/analytics', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@sturdy/core/lib/analytics')>()),
   op: { track: vi.fn(), identify: vi.fn(), clear: vi.fn() },
   trackCanonicalEvent: mockCanonical,
 }))
 
-vi.mock('@calistenia/core/platform', () => ({
+vi.mock('@sturdy/core/platform', () => ({
   storage: { getItem: () => null, setItem: vi.fn(), removeItem: vi.fn() },
   lifecycle: { onForeground: vi.fn(() => vi.fn()), onBackground: vi.fn(() => vi.fn()) },
   getPlatform: () => ({ reportError: vi.fn(), analytics: { track: vi.fn(), identify: vi.fn(), clear: vi.fn() } }),
   getClientInfo: () => ({ version: '1.0.0', build: 0, platform: 'web' as const }),
 }))
 
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: {
     collection: () => ({ authWithPassword, create }),
     authStore: { isValid: false, record: null, model: null, onChange: vi.fn(() => vi.fn()) },
@@ -47,9 +47,9 @@ vi.mock('@calistenia/core/lib/pocketbase', () => ({
   verifyAuth: vi.fn(async () => null),
 }))
 
-vi.mock('@calistenia/core/lib/timezone-sync', () => ({ syncUserTimezone: vi.fn() }))
+vi.mock('@sturdy/core/lib/timezone-sync', () => ({ syncUserTimezone: vi.fn() }))
 
-import { useAuth } from '@calistenia/core/hooks/useAuth'
+import { useAuth } from '@sturdy/core/hooks/useAuth'
 
 function wrapper({ children }: { children: ReactNode }) {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } })

@@ -6,9 +6,9 @@
  * react-router.
  */
 import i18n from './i18n'
-import { describeFeedItem, feedItemTarget, type FeedItemTarget } from '@calistenia/core/lib/feed-item'
-import type { FeedItem } from '@calistenia/core/types'
-import { WEB_BASE_URL } from '@calistenia/core/lib/app-urls'
+import { describeFeedItem, feedItemTarget, type FeedItemTarget } from '@sturdy/core/lib/feed-item'
+import type { FeedItem } from '@sturdy/core/types'
+import { WEB_BASE_URL } from '@sturdy/core/lib/app-urls'
 import { shareContent } from './share'
 
 /** Ruta interna de un destino del muro. */

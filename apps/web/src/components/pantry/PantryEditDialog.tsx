@@ -4,8 +4,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../ui/dialog'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { ConfirmDialog } from '../ui/confirm-dialog'
-import { currencySymbol, parseLocaleNumber } from '@calistenia/core/lib/money'
-import type { PantryItem } from '@calistenia/core/types'
+import { currencySymbol, parseLocaleNumber } from '@sturdy/core/lib/money'
+import type { PantryItem } from '@sturdy/core/types'
 
 export function PantryEditDialog({ item, onSave, onDelete, onClose, onVerify, onGone }: {
   item: PantryItem | null

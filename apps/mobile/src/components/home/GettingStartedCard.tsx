@@ -46,17 +46,17 @@ import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
 import { syncStorage } from '@/lib/storage'
 import { COLORS } from '@/lib/theme'
-import { op } from '@calistenia/core/lib/analytics'
+import { op } from '@sturdy/core/lib/analytics'
 import {
   deriveChecklist,
   checklistDismissedKey,
   checklistCompletedKey,
   type ChecklistItemId,
-} from '@calistenia/core/lib/getting-started'
-import { useNutrition } from '@calistenia/core/hooks/useNutrition'
-import { useCardioSessions } from '@calistenia/core/hooks/useCardioStats'
-import { useBodyPhotos } from '@calistenia/core/hooks/useBodyPhotos'
-import { useFollows } from '@calistenia/core/hooks/useFollows'
+} from '@sturdy/core/lib/getting-started'
+import { useNutrition } from '@sturdy/core/hooks/useNutrition'
+import { useCardioSessions } from '@sturdy/core/hooks/useCardioStats'
+import { useBodyPhotos } from '@sturdy/core/hooks/useBodyPhotos'
+import { useFollows } from '@sturdy/core/hooks/useFollows'
 import FirstWorkoutCard from './FirstWorkoutCard'
 
 const ITEM_META: Record<ChecklistItemId, { icon: LucideIcon; route: Href }> = {

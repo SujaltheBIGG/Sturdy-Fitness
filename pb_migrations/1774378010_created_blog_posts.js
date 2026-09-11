@@ -103,7 +103,7 @@ migrate((app) => {
         "system": false,
         "type": "select",
         "values": [
-          "calistenia",
+          "sturdy",
           "tutoriales",
           "nutricion",
           "consejos",

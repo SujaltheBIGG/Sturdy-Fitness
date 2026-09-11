@@ -1,10 +1,10 @@
 import { useState, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { cn } from '../../lib/utils'
-import { PHASE_COLORS } from '@calistenia/core/lib/style-tokens'
+import { PHASE_COLORS } from '@sturdy/core/lib/style-tokens'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '../ui/dialog'
 import { Button } from '../ui/button'
-import type { BodyPhoto } from '@calistenia/core/hooks/useBodyPhotos'
+import type { BodyPhoto } from '@sturdy/core/hooks/useBodyPhotos'
 
 const CATEGORIES = ['front', 'side', 'back'] as const
 const MAX_FILE_SIZE = 10 * 1024 * 1024

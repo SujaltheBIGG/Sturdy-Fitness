@@ -123,7 +123,7 @@ Es gratis. Link en bio.
 - [ ] Fix any caption errors manually
 - [ ] Export at highest quality
 - [ ] Post to Instagram Reels AND TikTok (same file)
-- [ ] Add "gym.guille.tech" to your bio with a short description
+- [ ] Add "sturdy.app" to your bio with a short description
 
 ---
 
@@ -322,10 +322,10 @@ Video 1 grabs attention. Video 2 makes them follow. Video 3 gives them a reason 
 
 ## Before You Post: Account Setup
 
-- [ ] Instagram bio: "App gratuita de calistenia | Nutricion con IA | Hecha por un developer que entrena" + link to gym.guille.tech
+- [ ] Instagram bio: "App gratuita de calistenia | Nutricion con IA | Hecha por un developer que entrena" + link to sturdy.app
 - [ ] TikTok bio: Same concept, shorter: "Dev + calistenia | App gratis | Link abajo"
 - [ ] Profile photo: You (face visible, not a logo)
-- [ ] Link in bio: gym.guille.tech (use linktr.ee or similar if you want to add multiple links later)
+- [ ] Link in bio: sturdy.app (use linktr.ee or similar if you want to add multiple links later)
 
 ---
 

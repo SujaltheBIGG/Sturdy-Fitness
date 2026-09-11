@@ -19,9 +19,9 @@ import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
 import { pickDemoImages, pickDemoVideo, type MediaSource } from '@/lib/program-media'
-import { getProgramFileUrl } from '@calistenia/core/lib/pocketbase'
-import { remainingImageSlots } from '@calistenia/core/lib/programMedia'
-import { exerciseMediaOf, type EditorExercise } from '@calistenia/core/hooks/useProgramEditor'
+import { getProgramFileUrl } from '@sturdy/core/lib/pocketbase'
+import { remainingImageSlots } from '@sturdy/core/lib/programMedia'
+import { exerciseMediaOf, type EditorExercise } from '@sturdy/core/hooks/useProgramEditor'
 
 interface ExerciseMediaEditorProps {
   exercise: EditorExercise

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
-import { STATS_PERIODS, type StatsPeriod } from '@calistenia/core/lib/training-stats'
+import { STATS_PERIODS, type StatsPeriod } from '@sturdy/core/lib/training-stats'
 
 interface Props {
   period: StatsPeriod

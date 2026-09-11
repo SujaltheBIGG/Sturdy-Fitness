@@ -5,8 +5,8 @@
  * que a los 20 s ofrece mandar el análisis a segundo plano, y la cancelación.
  */
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { createEmptyFood } from '@calistenia/core/lib/macro-calc'
-import type { FoodItem, MealType } from '@calistenia/core/types'
+import { createEmptyFood } from '@sturdy/core/lib/macro-calc'
+import type { FoodItem, MealType } from '@sturdy/core/types'
 import { normalizeFoods, type AnalysisQuality, type Step } from './meal-logger-shared'
 
 /** El aviso de "no esperar" aparece cuando el análisis se hace largo. */

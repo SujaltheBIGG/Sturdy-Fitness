@@ -3,9 +3,9 @@
 // hooks a core es el #482, y este issue sólo parte los contextos. Mantener las
 // dos copias idénticas es lo que hará mecánico ese movimiento.
 import { useCallback, useRef, useState, type MutableRefObject } from 'react'
-import { processCardioFix, type CardioFixInput, type CardioFixState } from '@calistenia/core/lib/cardio-fix'
-import type { KalmanState } from '@calistenia/core/lib/geo'
-import type { CardioActivityType, GpsPoint } from '@calistenia/core/types'
+import { processCardioFix, type CardioFixInput, type CardioFixState } from '@sturdy/core/lib/cardio-fix'
+import type { KalmanState } from '@sturdy/core/lib/geo'
+import type { CardioActivityType, GpsPoint } from '@sturdy/core/types'
 
 /** Parte del pipeline que viaja en el snapshot persistido. */
 export interface CardioMetricsSnapshot {

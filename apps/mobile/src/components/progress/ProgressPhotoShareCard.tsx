@@ -21,7 +21,7 @@ import { Image } from 'expo-image'
 import Svg, { Rect, Line } from 'react-native-svg'
 
 import { Text } from '@/components/ui/text'
-import type { BodyPhoto } from '@calistenia/core/hooks/useBodyPhotos'
+import type { BodyPhoto } from '@sturdy/core/hooks/useBodyPhotos'
 
 const BASE_W = 360
 const BASE_H = 640
@@ -137,8 +137,8 @@ const ProgressPhotoShareCard = memo(function ProgressPhotoShareCard({
           )}
         </View>
         <View style={s.footerRight}>
-          <Text style={s.brand}>CALISTENIA</Text>
-          <Text style={s.brandUrl}>calistenia-app.com</Text>
+          <Text style={s.brand}>STURDY</Text>
+          <Text style={s.brandUrl}>sturdy-app.com</Text>
         </View>
       </View>
     </View>

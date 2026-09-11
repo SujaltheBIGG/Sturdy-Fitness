@@ -115,7 +115,7 @@ describe('seedAutoNutritionGoal', () => {
     await seedAutoNutritionGoal('u1', INPUT)
 
     expect(storageSet).toHaveBeenCalledWith(
-      'calistenia_nutrition_goals',
+      'sturdy_nutrition_goals',
       expect.stringContaining('"source":"auto"'),
     )
   })

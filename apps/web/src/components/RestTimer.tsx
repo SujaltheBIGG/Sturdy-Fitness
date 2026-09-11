@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from './ui/button'
-import { usePausableCountdown } from '@calistenia/core/hooks/usePausableCountdown'
-import { formatCountdown } from '@calistenia/core/lib/countdown'
+import { usePausableCountdown } from '@sturdy/core/hooks/usePausableCountdown'
+import { formatCountdown } from '@sturdy/core/lib/countdown'
 import { restCues } from '../lib/training-cues'
 import { useResyncOnVisible } from '../hooks/useResyncOnVisible'
 

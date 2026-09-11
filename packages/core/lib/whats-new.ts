@@ -99,11 +99,11 @@ export function getUnseenVersions(
   return released.slice(0, idx)
 }
 
-/** Texto en el idioma activo con fallback es → en. */
+/** Text in the active language, falling back to English before any other locale. */
 export function pickLang(text: LocalizedText | undefined, lang: string): string {
   if (!text) return ''
   const key = lang.startsWith('en') ? 'en' : 'es'
-  return text[key] || text.es || text.en || ''
+  return text[key] || text.en || text.es || ''
 }
 
 /** Color del punto por tipo. Mayormente lima (un solo acento, sin arcoíris). */

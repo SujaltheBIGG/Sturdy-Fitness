@@ -8,11 +8,11 @@ import { Button } from '../components/ui/button'
 import { Badge } from '../components/ui/badge'
 import { useWorkoutState } from '../contexts/WorkoutContext'
 import { useAuthState } from '../contexts/AuthContext'
-import { utcToLocalDateStr } from '@calistenia/core/lib/dateUtils'
-import { fetchMonthActivity, emptyMonthActivity } from '@calistenia/core/lib/monthActivity'
-import type { MonthActivity } from '@calistenia/core/lib/monthActivity'
-import type { SessionDone, WeekDay } from '@calistenia/core/types'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+import { utcToLocalDateStr } from '@sturdy/core/lib/dateUtils'
+import { fetchMonthActivity, emptyMonthActivity } from '@sturdy/core/lib/monthActivity'
+import type { MonthActivity } from '@sturdy/core/lib/monthActivity'
+import type { SessionDone, WeekDay } from '@sturdy/core/types'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 
 function getMonthDays(year: number, month: number) {
   const first = new Date(year, month, 1)

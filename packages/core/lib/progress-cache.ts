@@ -12,8 +12,8 @@ import type { ProgressMap, Settings } from '../types'
  * caché, sin depender unos de otros.
  */
 
-export const PROGRESS_LS_KEY = 'calistenia_progress'
-export const SETTINGS_LS_KEY = 'calistenia_settings'
+export const PROGRESS_LS_KEY = 'sturdy_progress'
+export const SETTINGS_LS_KEY = 'sturdy_settings'
 
 export const DEFAULT_SETTINGS: Settings = { phase: 1, startDate: null, weeklyGoal: 5 }
 

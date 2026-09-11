@@ -108,10 +108,10 @@ function StreakShareCard({ streak, userName, avatarUrl, date, width = BASE_W, he
           <View style={s.footerDivider} />
           <View style={s.footerRow}>
             <Text className="font-mono-semibold" style={s.footerBrand}>
-              CALISTENIA
+              STURDY
             </Text>
             <Text className="font-mono" style={s.footerUrl}>
-              gym.guille.tech
+              sturdy.app
             </Text>
           </View>
         </View>

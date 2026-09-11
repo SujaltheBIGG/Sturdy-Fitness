@@ -9,7 +9,7 @@ import { Chip } from '@/components/ui/chip'
 import { COLORS } from '@/lib/theme'
 import { useAuthUser } from '@/lib/use-auth-user'
 import { Sentry } from '@/lib/instrument'
-import { pb } from '@calistenia/core/lib/pocketbase'
+import { pb } from '@sturdy/core/lib/pocketbase'
 
 type Goal = 'fuerza' | 'resistencia' | 'movilidad' | 'mixto' | 'yoga' | 'circuito'
 type Location = 'casa' | 'parque' | 'gimnasio'

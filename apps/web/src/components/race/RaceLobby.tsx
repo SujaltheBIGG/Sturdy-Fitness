@@ -5,7 +5,7 @@ import { useRaceContext } from '../../contexts/RaceContext'
 import { Button } from '../ui/button'
 import { cn } from '../../lib/utils'
 import RaceMap from './RaceMap'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 
 export default function RaceLobby() {
   const { t } = useTranslation()

@@ -252,7 +252,7 @@ const FAMILIES = [
     blurb: 'Navegación lateral de la app en escritorio, colapsable. **Requiere `SidebarProvider` envolviendo la página** y `SidebarInset` para el contenido principal. El indicador lima de 2px en el elemento activo lo pinta el CSS del sistema vía `data-active="true"` — no lo replique a mano.',
     example: `<SidebarProvider>
   <Sidebar>
-    <SidebarHeader>Calistenia</SidebarHeader>
+    <SidebarHeader>Sturdy</SidebarHeader>
     <SidebarContent>
       <SidebarGroup>
         <SidebarGroupLabel>Entrenar</SidebarGroupLabel>

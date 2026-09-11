@@ -4,8 +4,8 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'rec
 import type { TooltipValueType } from 'recharts'
 import { Card, CardContent } from '../ui/card'
 import { cn } from '../../lib/utils'
-import { isFreeSession } from '@calistenia/core/lib/progressUtils'
-import type { ExerciseLog, SetData } from '@calistenia/core/types'
+import { isFreeSession } from '@sturdy/core/lib/progressUtils'
+import type { ExerciseLog, SetData } from '@sturdy/core/types'
 
 interface ExerciseChartProps {
   exerciseName: string

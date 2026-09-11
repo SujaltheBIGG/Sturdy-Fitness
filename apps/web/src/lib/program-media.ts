@@ -3,7 +3,7 @@
  *
  * Traduce el `File` de un `<input type=file>` a la forma `EditorMediaFile` que
  * consume `useProgramEditor`, aplicando antes las reglas de
- * `@calistenia/core/lib/programMedia` — que son puras y compartidas con móvil,
+ * `@sturdy/core/lib/programMedia` — que son puras y compartidas con móvil,
  * donde el fichero llega como un Blob de `expo-image-picker`.
  *
  * La validación se hace aquí y no en el servidor porque PocketBase rechaza un
@@ -21,7 +21,7 @@ import {
   mediaFileName,
   normalizeMime,
   type EditorMediaFile,
-} from '@calistenia/core/lib/programMedia'
+} from '@sturdy/core/lib/programMedia'
 
 /** Por qué se ha rechazado el fichero, para que la UI elija el mensaje. */
 export type MediaRejection = 'type' | 'size'

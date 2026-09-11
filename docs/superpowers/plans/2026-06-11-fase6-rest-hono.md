@@ -671,7 +671,7 @@ cd mcp-server && npx tsc --noEmit 2>&1 | head -30
 - [ ] **Step 1: Levantar PocketBase en background**
 
 ```bash
-cd /Users/guillermomarin/Documents/ejercicios/calistenia-app
+cd /Users/guillermomarin/Documents/ejercicios/sturdy-app
 ./pocketbase serve --http 127.0.0.1:8090 --dir pb_data &
 sleep 2
 ```
@@ -681,7 +681,7 @@ sleep 2
 ```bash
 cd mcp-server && PORT=3210 npx tsx src/server.ts &
 sleep 3
-# verificar: debe aparecer "[Calistenia] mcp-use server on http://localhost:3210"
+# verificar: debe aparecer "[Sturdy] mcp-use server on http://localhost:3210"
 # y: "[API] Hono routes mounted: /api/health + 13 /api/* endpoints"
 # y: "[OAuth] Hono routes mounted: /authorize /token ..."
 ```
@@ -755,7 +755,7 @@ pkill -f "pocketbase serve" 2>/dev/null || true
 - [ ] **Step 1: Verificar archivos modificados**
 
 ```bash
-cd /Users/guillermomarin/Documents/ejercicios/calistenia-app
+cd /Users/guillermomarin/Documents/ejercicios/sturdy-app
 git status
 # esperado: modified: mcp-server/src/api/free-session-generator.ts
 #           modified: mcp-server/src/server.ts

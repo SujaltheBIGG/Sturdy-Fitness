@@ -14,8 +14,8 @@ import { Play, Pause, RotateCcw } from 'lucide-react-native'
 import { Text } from '@/components/ui/text'
 import { CountdownRing } from '@/components/training/CountdownRing'
 import { AMBER, LIME, MUTED, SKY, TEAL, URGENT } from '@/components/training/constants'
-import { formatCountdown } from '@calistenia/core/lib/countdown'
-import type { TimerPhase } from '@calistenia/core/lib/exercise-timer'
+import { formatCountdown } from '@sturdy/core/lib/countdown'
+import type { TimerPhase } from '@sturdy/core/lib/exercise-timer'
 
 const RING_SIZE = 184
 const RING_STROKE = 8

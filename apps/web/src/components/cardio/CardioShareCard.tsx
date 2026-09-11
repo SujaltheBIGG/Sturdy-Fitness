@@ -3,18 +3,18 @@ import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/button'
 import { loadLogo } from '../../lib/share'
 import { createShareCardCanvas, drawRoutePolyline, exportShareCard } from '../../lib/share-card'
-import { trackShareCardShared } from '@calistenia/core/lib/analytics'
-import { formatPace, formatDuration, formatSpeed } from '@calistenia/core/lib/geo'
+import { trackShareCardShared } from '@sturdy/core/lib/analytics'
+import { formatPace, formatDuration, formatSpeed } from '@sturdy/core/lib/geo'
 import { fillRRect, drawInitialAvatar } from '../../lib/canvas-helpers'
 import i18n from '../../lib/i18n'
-import type { CardioSession } from '@calistenia/core/types'
+import type { CardioSession } from '@sturdy/core/types'
 import {
   fitViewport,
   pointToPixel,
   tilesForViewport,
   cartoTileUrl,
   ROUTE_COLOR,
-} from '@calistenia/core/lib/static-map'
+} from '@sturdy/core/lib/static-map'
 
 // Spanish activity labels — matches mobile parity
 const ACTIVITY_LABEL: Record<string, string> = {
@@ -187,7 +187,7 @@ export default function CardioShareCard({ session, referralCode, raceName, userN
       const brandH = 44
       const footBottom = h - pad
 
-      // Brand row — hairline top border + CALISTENIA left / URL right
+      // Brand row — hairline top border + STURDY left / URL right
       const brandY = footBottom - brandH
       ctx.fillStyle = 'rgba(245,245,244,0.18)'
       ctx.fillRect(pad, brandY, contentW, 1)
@@ -196,13 +196,13 @@ export default function CardioShareCard({ session, referralCode, raceName, userN
       ctx.fillStyle = INK
       ctx.font = '700 13px "DM Sans", system-ui, sans-serif'
       ctx.letterSpacing = '1px'
-      ctx.fillText('CALISTENIA', pad + (logo ? 22 : 0), brandY + 27)
+      ctx.fillText('STURDY', pad + (logo ? 22 : 0), brandY + 27)
       ctx.letterSpacing = '0px'
 
       ctx.fillStyle = INK_FAINT
       ctx.font = '400 12px "DM Sans", system-ui, sans-serif'
       ctx.textAlign = 'right'
-      ctx.fillText('calistenia-app.com', w - pad, brandY + 27)
+      ctx.fillText('sturdy-app.com', w - pad, brandY + 27)
       ctx.textAlign = 'left'
 
       // Splits micro bar-chart (only if ≥2 valid splits)
@@ -301,7 +301,7 @@ export default function CardioShareCard({ session, referralCode, raceName, userN
       // ── Export ──
       const dateStr = session.started_at.split('T')[0]
       const shareText = referralCode
-        ? `${session.distance_km.toFixed(2)} km en ${formatDuration(session.duration_seconds)}\ngym.guille.tech/invite/${referralCode}`
+        ? `${session.distance_km.toFixed(2)} km en ${formatDuration(session.duration_seconds)}\nsturdy.app/invite/${referralCode}`
         : `${session.distance_km.toFixed(2)} km en ${formatDuration(session.duration_seconds)}`
       const outcome = await exportShareCard(canvas, {
         fileName: `cardio_${dateStr}.png`,

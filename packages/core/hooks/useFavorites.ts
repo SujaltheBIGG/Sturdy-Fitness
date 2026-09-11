@@ -4,7 +4,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { pb, getCurrentUser } from '../lib/pocketbase'
 import { qk } from '../lib/query-keys'
 
-const STORAGE_KEY = 'calistenia_exercise_favorites'
+const STORAGE_KEY = 'sturdy_exercise_favorites'
 
 function loadLocal(): string[] {
   try {
@@ -33,11 +33,11 @@ export function useFavorites() {
   const key = qk.favorites(uid)
 
   // La query guarda un ARRAY, no un Set: el resultado va a la caché persistida
-  // (calistenia_rq_cache) como JSON y un Set serializado vuelve como `{}` —
+  // (sturdy_rq_cache) como JSON y un Set serializado vuelve como `{}` —
   // mismo crash que arreglamos en useChallengeDetail (#352).
   const { data: rawFavorites } = useQuery({
     queryKey: key,
-    // initialData = local → disponible aun offline / sin sesión.
+    // initialData = local → disponible aun offline / no session.
     initialData: loadLocal,
     initialDataUpdatedAt: 0, // fuerza refetch al montar para fusionar con PB
     enabled: !!uid,
@@ -56,7 +56,7 @@ export function useFavorites() {
 
   // El guard Array.isArray sanea entradas viejas de la caché donde el dato era
   // un Set restaurado como `{}`; en ese caso caemos a la copia local
-  // (calistenia_exercise_favorites), que siempre fue un array JSON válido.
+  // (sturdy_exercise_favorites), que siempre fue un array JSON válido.
   const favoriteIds = useMemo(
     () => new Set<string>(Array.isArray(rawFavorites) ? rawFavorites : loadLocal()),
     [rawFavorites],

@@ -4,9 +4,9 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'rec
 import type { TooltipValueType } from 'recharts'
 import { Card, CardContent } from '../ui/card'
 import { cn } from '../../lib/utils'
-import { useBodyMeasurements } from '@calistenia/core/hooks/useBodyMeasurements'
-import { useBodyProfile } from '@calistenia/core/hooks/useBodyProfile'
-import { bodyFatSeries, bodyFatCategoryKey, bodyFatColorClass, leanMassKg } from '@calistenia/core/lib/body-composition'
+import { useBodyMeasurements } from '@sturdy/core/hooks/useBodyMeasurements'
+import { useBodyProfile } from '@sturdy/core/hooks/useBodyProfile'
+import { bodyFatSeries, bodyFatCategoryKey, bodyFatColorClass, leanMassKg } from '@sturdy/core/lib/body-composition'
 
 interface BodyFatPanelProps {
   userId: string | null

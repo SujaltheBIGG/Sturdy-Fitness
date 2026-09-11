@@ -14,8 +14,8 @@ import { Text } from '@/components/ui/text'
 import { Kicker } from '@/components/ui/kicker'
 import { Button } from '@/components/ui/button'
 import { haptics } from '@/lib/haptics'
-import { BADGE_DEFINITIONS } from '@calistenia/core/lib/badge-definitions'
-import type { BadgeType } from '@calistenia/core/types'
+import { BADGE_DEFINITIONS } from '@sturdy/core/lib/badge-definitions'
+import type { BadgeType } from '@sturdy/core/types'
 
 interface BadgeCelebrationDialogProps {
   /** Cola de badges a celebrar; vacía = oculto. */

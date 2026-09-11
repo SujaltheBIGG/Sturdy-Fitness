@@ -12,7 +12,7 @@ vi.mock('react-i18next', () => ({
 }))
 
 const track = vi.fn()
-vi.mock('@calistenia/core/lib/analytics', () => ({ op: { track: (...args: unknown[]) => track(...args) } }))
+vi.mock('@sturdy/core/lib/analytics', () => ({ op: { track: (...args: unknown[]) => track(...args) } }))
 
 import RacesPage from './RacesPage'
 import FeaturesPage from '../FeaturesPage'

@@ -9,8 +9,8 @@
  * Phase 4 (12 wks): Full primary series, 5 days/week (L-V)
  */
 migrate((app) => {
-  const PROGRAM_NAME = { es: "Ashtanga Yoga — Principiante" }
-  const PROGRAM_DESC = { es: "Programa progresivo de Ashtanga Yoga. Desde los Saludos al Sol hasta la Serie Primaria completa en 24 semanas." }
+  const PROGRAM_NAME = { es: "Ashtanga Yoga — Principiante", en: "Ashtanga Yoga — Beginner" }
+  const PROGRAM_DESC = { es: "Programa progresivo de Ashtanga Yoga. Desde los Saludos al Sol hasta la Serie Primaria completa en 24 semanas.", en: "A progressive Ashtanga Yoga program. From Sun Salutations to the complete Primary Series in 24 weeks." }
 
   // Idempotency: check if program already exists
   try {
@@ -121,18 +121,18 @@ migrate((app) => {
         program: progId,
         phase_number: phaseNum,
         day_id: dayId,
-        day_name: { es: DAY_NAMES[dayId] },
+        day_name: { es: DAY_NAMES[dayId], en: DAY_NAMES_EN[dayId] },
         day_type: "yoga",
-        day_focus: { es: "Ashtanga Yoga" },
+        day_focus: { es: "Ashtanga Yoga", en: "Ashtanga Yoga" },
         day_color: "#7C3AED",
-        workout_title: { es: "Ashtanga Yoga" },
+        workout_title: { es: "Ashtanga Yoga", en: "Ashtanga Yoga" },
         exercise_id: `${dayId}_${phaseNum}_${sortOrder}`,
-        exercise_name: { es: pose.get("name") },
+        exercise_name: { es: pose.get("name"), en: pose.get("name_en") || pose.get("name") },
         sets: pose.get("default_sets") || 1,
         reps: pose.get("default_reps") || "1",
         rest_seconds: pose.get("default_rest_seconds") || 0,
-        muscles: { es: pose.get("muscles") || "" },
-        note: { es: pose.get("note") || "" },
+        muscles: { es: pose.get("muscles") || "", en: pose.get("muscles_en") || pose.get("muscles") || "" },
+        note: { es: pose.get("note") || "", en: pose.get("note_en") || pose.get("note") || "" },
         priority: "primary",
         is_timer: pose.get("is_timer") || false,
         timer_seconds: pose.get("default_timer_seconds") || 0,
@@ -149,12 +149,16 @@ migrate((app) => {
     lun: "Lunes", mar: "Martes", mie: "Miércoles",
     jue: "Jueves", vie: "Viernes", sab: "Sábado", dom: "Domingo",
   }
+  const DAY_NAMES_EN = {
+    lun: "Monday", mar: "Tuesday", mie: "Wednesday",
+    jue: "Thursday", vie: "Friday", sab: "Saturday", dom: "Sunday",
+  }
 
   // ── Phase definitions ──
   const phases = [
     {
       phase_number: 1,
-      name: { es: "Fundamentos" },
+      name: { es: "Fundamentos", en: "Foundations" },
       weeks: "1-4",
       color: "#7C3AED",
       bg_color: "rgba(124,58,237,0.08)",
@@ -164,7 +168,7 @@ migrate((app) => {
     },
     {
       phase_number: 2,
-      name: { es: "Construcción" },
+      name: { es: "Construcción", en: "Building" },
       weeks: "5-8",
       color: "#8B5CF6",
       bg_color: "rgba(139,92,246,0.08)",
@@ -174,7 +178,7 @@ migrate((app) => {
     },
     {
       phase_number: 3,
-      name: { es: "Media Serie Primaria" },
+      name: { es: "Media Serie Primaria", en: "Half Primary Series" },
       weeks: "9-12",
       color: "#A78BFA",
       bg_color: "rgba(167,139,250,0.08)",
@@ -184,7 +188,7 @@ migrate((app) => {
     },
     {
       phase_number: 4,
-      name: { es: "Serie Primaria Completa" },
+      name: { es: "Serie Primaria Completa", en: "Full Primary Series" },
       weeks: "13-24",
       color: "#C4B5FD",
       bg_color: "rgba(196,181,253,0.08)",
@@ -219,9 +223,9 @@ migrate((app) => {
         program: progId,
         phase_number: phase.phase_number,
         day_id: dayId,
-        day_name: { es: DAY_NAMES[dayId] },
+        day_name: { es: DAY_NAMES[dayId], en: DAY_NAMES_EN[dayId] },
         day_type: dayType,
-        day_focus: { es: isActive ? "Ashtanga Yoga" : "Descanso" },
+        day_focus: { es: isActive ? "Ashtanga Yoga" : "Descanso", en: isActive ? "Ashtanga Yoga" : "Rest" },
         day_color: isActive ? "#7C3AED" : "#6B7280",
         sort_order: daySortOrder,
       })

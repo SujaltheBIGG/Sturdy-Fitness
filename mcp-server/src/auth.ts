@@ -50,7 +50,7 @@ export async function validateBearerToken(
   if (!authHeader?.startsWith("Bearer ")) {
     throw new Error(
       "Authentication required. Provide your PocketBase token as 'Authorization: Bearer <token>'. " +
-        "Get your token from the Calistenia app: open DevTools > Application > Local Storage > look for 'pb_auth' key."
+        "Get your token from the Sturdy app: open DevTools > Application > Local Storage > look for 'pb_auth' key."
     );
   }
 
@@ -68,7 +68,7 @@ export async function validateBearerToken(
     };
   } catch {
     throw new Error(
-      "Invalid or expired token. Please log in to the Calistenia app and copy a fresh token from " +
+      "Invalid or expired token. Please log in to the Sturdy app and copy a fresh token from " +
         "DevTools > Application > Local Storage > 'pb_auth' > token field."
     );
   }
@@ -82,7 +82,7 @@ export async function validateEnvToken(pbUrl: string): Promise<UserContext> {
   if (!token) {
     throw new Error(
       "PB_TOKEN environment variable is required for stdio mode. " +
-        "Get it from the Calistenia app: DevTools > Application > Local Storage > 'pb_auth' > token."
+        "Get it from the Sturdy app: DevTools > Application > Local Storage > 'pb_auth' > token."
     );
   }
   return validateBearerToken(pbUrl, `Bearer ${token}`);

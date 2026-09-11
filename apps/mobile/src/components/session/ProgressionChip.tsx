@@ -8,11 +8,11 @@ import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
 import { useAuthUser } from '@/lib/use-auth-user'
 import { useWorkoutState } from '@/contexts/WorkoutContext'
-import type { Exercise, ExerciseLog } from '@calistenia/core/types'
+import type { Exercise, ExerciseLog } from '@sturdy/core/types'
 import {
   useProgressionSuggestion,
   useAcceptProgression,
-} from '@calistenia/core/hooks/useAutoProgression'
+} from '@sturdy/core/hooks/useAutoProgression'
 
 interface ProgressionChipProps {
   exercise: Exercise

@@ -9,7 +9,7 @@ import { trendsChartPropsSchema } from "../views/trends-chart.schema.js";
 import { todayDashboardPropsSchema } from "../views/today-dashboard.schema.js";
 import { localize } from "../lib/i18n.js";
 import { pickLocale, readiness as readinessMsg } from "../lib/tool-i18n.js";
-import { calculateMacroDetails, calculateMacros } from "@calistenia/core/lib/nutritionGoal";
+import { calculateMacroDetails, calculateMacros } from "@sturdy/core/lib/nutritionGoal";
 import {
   getSettings,
   getNutritionGoals,

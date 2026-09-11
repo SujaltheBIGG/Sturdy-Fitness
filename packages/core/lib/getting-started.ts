@@ -55,8 +55,8 @@ export function deriveChecklist(i: ChecklistInputs): ChecklistState {
 
 /** Clave de storage del descarte manual («Ocultar») por usuario y dispositivo. */
 export const checklistDismissedKey = (userId: string): string =>
-  `calistenia_mobile_checklist_dismissed_${userId}`
+  `sturdy_mobile_checklist_dismissed_${userId}`
 
 /** Clave de storage del auto-completado (los 6 hechos) por usuario y dispositivo. */
 export const checklistCompletedKey = (userId: string): string =>
-  `calistenia_mobile_checklist_completed_${userId}`
+  `sturdy_mobile_checklist_completed_${userId}`

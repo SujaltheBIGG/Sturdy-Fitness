@@ -7,7 +7,7 @@ import { qk } from '../lib/query-keys'
 import { makeOptimisticListHandlers } from '../lib/optimistic'
 import type { SleepEntry } from '../types'
 
-const LS_KEY = 'calistenia_sleep_entries'
+const LS_KEY = 'sturdy_sleep_entries'
 
 // — Helpers de localStorage —
 const lsGet = (): SleepEntry[] => {
@@ -113,7 +113,7 @@ export function useSleep(userId: string | null = null): UseSleepReturn {
   // — Query principal: initialData desde localStorage, refetch desde PB —
   const { data: entries = [], isFetched } = useQuery<SleepEntry[]>({
     queryKey: key,
-    // initialData desde localStorage → disponible aun offline / sin sesión
+    // initialData desde localStorage → disponible aun offline / no session
     initialData: lsGet,
     initialDataUpdatedAt: 0, // fuerza refetch al montar para fusionar con PB
     enabled: !!userId,

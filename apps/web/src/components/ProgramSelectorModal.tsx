@@ -11,7 +11,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from './ui/dialog'
-import type { ProgramMeta } from '@calistenia/core/types'
+import type { ProgramMeta } from '@sturdy/core/types'
 
 interface ProgramSelectorModalProps {
   programs: ProgramMeta[]
@@ -112,7 +112,7 @@ export default function ProgramSelectorModal({ programs, activeProgram, onSelect
                             : 'text-[hsl(var(--lime))] border-[hsl(var(--lime))]/30',
                         )}
                       >
-                        {prog.discipline === 'yoga' ? 'YOGA' : 'CALISTENIA'}
+                        {prog.discipline === 'yoga' ? 'YOGA' : 'STURDY'}
                       </Badge>
                       {prog.duration_weeks && (
                         <span className="font-mono text-[10px] text-muted-foreground">{prog.duration_weeks}W</span>

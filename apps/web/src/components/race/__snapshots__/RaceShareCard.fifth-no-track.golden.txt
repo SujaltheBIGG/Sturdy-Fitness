@@ -657,9 +657,9 @@ call fillRect(36, 910, 468, 1)
 call drawImage(<image>, 36, 922, 16, 16)
 set fillStyle = #a1a1aa
 set font = 600 10px "DM Sans", system-ui, sans-serif
-call fillText(CALISTENIA, 60, 934)
+call fillText(STURDY, 60, 934)
 set fillStyle = #52525b
 set font = 400 9px "DM Sans", system-ui, sans-serif
 set textAlign = right
-call fillText(calistenia-app.com, 504, 934)
+call fillText(sturdy-app.com, 504, 934)
 set textAlign = left

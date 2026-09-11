@@ -1,5 +1,5 @@
 /**
- * Inicialización de @calistenia/core para React Native.
+ * Inicialización de @sturdy/core para React Native.
  *
  * DEBE ser el PRIMER import de app/_layout.tsx: los módulos de core
  * (pocketbase.ts, ai-api.ts) leen el platform adapter al evaluarse.
@@ -12,15 +12,15 @@ import Constants from 'expo-constants'
 import * as Application from 'expo-application'
 import EventSource from 'react-native-sse'
 import { OpenPanel } from '@openpanel/react-native'
-import { initCore } from '@calistenia/core/platform'
-import { primeCatalogIndex, type RawCatalog } from '@calistenia/core/lib/catalogIndex'
-import exerciseCatalog from '@calistenia/core/data/exercise-catalog.json'
+import { initCore } from '@sturdy/core/platform'
+import { primeCatalogIndex, type RawCatalog } from '@sturdy/core/lib/catalogIndex'
+import exerciseCatalog from '@sturdy/core/data/exercise-catalog.json'
 import { Sentry } from './instrument'
 import { syncStorage } from './storage'
 import { isOnline, onOnline, onConnectivityChange } from './connectivity'
 import { isForeground, onForeground, onBackground } from './lifecycle'
 import { registerPushTokenAsync } from './push-registration'
-import { CANONICAL_ANALYTICS_EVENTS, setActiveAnalyticsProfileId, shouldSendAnalytics, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+import { CANONICAL_ANALYTICS_EVENTS, setActiveAnalyticsProfileId, shouldSendAnalytics, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 
 // El catálogo de ejercicios va en el bundle de RN de todas formas, así que se
 // indexa aquí, en el arranque (#486). Las APIs síncronas de core que dependen de
@@ -86,11 +86,11 @@ const devHost =
 
 const pbUrl =
   process.env.EXPO_PUBLIC_PB_URL ||
-  (__DEV__ && devHost ? `http://${devHost}:8090` : 'https://gym.guille.tech')
+  (__DEV__ && devHost ? `http://${devHost}:8090` : 'https://sturdy.app')
 
 const aiApiUrl =
   process.env.EXPO_PUBLIC_AI_API_URL ||
-  (__DEV__ && devHost ? `http://${devHost}:3001` : 'https://gym-server.guille.tech')
+  (__DEV__ && devHost ? `http://${devHost}:3001` : 'https://api.sturdy.app')
 
 // ─── Identidad del cliente (version gate + telemetría de versiones) ──────────
 // `nativeBuildVersion` es el entero que de verdad identifica el build instalado
@@ -130,7 +130,7 @@ const pbAuthStore = new AsyncAuthStore({
 // storage + networkInfo = buffering offline: los eventos se persisten en disco y
 // se reenvían al recuperar conexión (clave para un gym sin señal).
 const op = new OpenPanel({
-  apiUrl: 'https://openpanel.guille.tech/api',
+  apiUrl: 'https://analytics.sturdy.app/api',
   clientId: process.env.EXPO_PUBLIC_OPENPANEL_CLIENT_ID || '896084a4-5808-472e-a329-cc2863d3a0ed',
   // El secret NO va hardcodeado: lo inyecta CI (secret EXPO_PUBLIC_OPENPANEL_CLIENT_SECRET).
   // En dev queda undefined → no pasa nada, los eventos solo se loguean (ver gating __DEV__).
@@ -211,7 +211,7 @@ initCore({
 // Fire-and-forget: no bloquea el init. Se lanza también en cada cambio de
 // authStore (login con OAuth2, refresh) para cubrir la primera sesión y
 // reinstalaciones.
-import('@calistenia/core/lib/pocketbase').then(({ pb }) => {
+import('@sturdy/core/lib/pocketbase').then(({ pb }) => {
   // ── Identidad de analytics ──────────────────────────────────────────────
   // `op.identify()` solo se llamaba desde useAuth, que en móvil se monta
   // únicamente en la pantalla de login. Con sesión restaurada al arrancar no
@@ -263,7 +263,7 @@ import('@calistenia/core/lib/pocketbase').then(({ pb }) => {
         // useAuth solo se monta en la pantalla de login (mismo motivo que la
         // identidad de analytics de más arriba): con sesión ya iniciada nunca
         // llegaría a ejecutarse y `users.timezone` se quedaría vacío.
-        import('@calistenia/core/lib/timezone-sync').then(({ syncUserTimezone }) =>
+        import('@sturdy/core/lib/timezone-sync').then(({ syncUserTimezone }) =>
           syncUserTimezone(user.id, user.timezone),
         ).catch((e) => { Sentry.captureException(e, { tags: { feature: 'reminders', op: 'sync_timezone' } }) /* silenciar */ })
       }

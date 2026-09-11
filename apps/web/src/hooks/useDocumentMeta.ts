@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const DEFAULT_TITLE = 'Calistenia App'
+const DEFAULT_TITLE = 'Sturdy'
 
 /**
  * Ajusta <title> y la meta description mientras la página esté montada.

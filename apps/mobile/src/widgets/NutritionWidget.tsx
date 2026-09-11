@@ -104,7 +104,7 @@ export function NutritionWidget({ snapshot, today }: { snapshot: NutritionWidget
     return (
       <FlexWidget
         clickAction="OPEN_URI"
-        clickActionData={{ uri: 'calistenia://nutrition' }}
+        clickActionData={{ uri: 'sturdy://nutrition' }}
         style={{
           height: 'match_parent', width: 'match_parent', flexDirection: 'column',
           justifyContent: 'center', alignItems: 'center', backgroundColor: BG,
@@ -122,7 +122,7 @@ export function NutritionWidget({ snapshot, today }: { snapshot: NutritionWidget
   return (
     <FlexWidget
       clickAction="OPEN_URI"
-      clickActionData={{ uri: 'calistenia://nutrition' }}
+      clickActionData={{ uri: 'sturdy://nutrition' }}
       style={{
         height: 'match_parent', width: 'match_parent', flexDirection: 'column',
         justifyContent: 'space-between', backgroundColor: BG, borderRadius: 16,
@@ -173,7 +173,7 @@ export function NutritionWidget({ snapshot, today }: { snapshot: NutritionWidget
       <FlexWidget style={{ flexDirection: 'row', width: 'match_parent' }}>
         <FlexWidget
           clickAction="OPEN_URI"
-          clickActionData={{ uri: 'calistenia://nutrition?action=camera' }}
+          clickActionData={{ uri: 'sturdy://nutrition?action=camera' }}
           style={{
             flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
             backgroundColor: BORDER, borderRadius: 10, padding: 8, marginRight: 3,
@@ -186,7 +186,7 @@ export function NutritionWidget({ snapshot, today }: { snapshot: NutritionWidget
         </FlexWidget>
         <FlexWidget
           clickAction="OPEN_URI"
-          clickActionData={{ uri: 'calistenia://nutrition?action=text' }}
+          clickActionData={{ uri: 'sturdy://nutrition?action=text' }}
           style={{
             flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
             backgroundColor: BORDER, borderRadius: 10, padding: 8, marginLeft: 3,

@@ -33,7 +33,7 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { op } from '@calistenia/core/lib/analytics'
+import { op } from '@sturdy/core/lib/analytics'
 import { AndroidButton, Eyebrow, Reveal, WebButton } from '../../components/landing/shared'
 import { FeatureShell } from '../../components/landing/featureShell'
 import {

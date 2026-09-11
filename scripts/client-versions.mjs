@@ -13,7 +13,7 @@
  *   node scripts/client-versions.mjs <PB_URL> <SUPERUSER_EMAIL> <SUPERUSER_PASSWORD> [--dias 30] [--min 31]
  *
  * Ejemplo:
- *   node scripts/client-versions.mjs https://gym.guille.tech admin@... '...' --min 31
+ *   node scripts/client-versions.mjs https://sturdy.app admin@... '...' --min 31
  *
  * `--dias`  ventana de actividad (default 30). Un usuario que no abre la app
  *           desde hace meses no debería bloquear una limpieza de esquema.

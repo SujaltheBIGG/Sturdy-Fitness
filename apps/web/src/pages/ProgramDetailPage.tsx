@@ -1,19 +1,19 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { cn } from '../lib/utils'
-import { localDay } from '@calistenia/core/lib/dateUtils'
-import { pb, isPocketBaseAvailable, getCurrentUser } from '@calistenia/core/lib/pocketbase'
-import { fetchProgramDetailRows } from '@calistenia/core/lib/programDetailQuery'
+import { localDay } from '@sturdy/core/lib/dateUtils'
+import { pb, isPocketBaseAvailable, getCurrentUser } from '@sturdy/core/lib/pocketbase'
+import { fetchProgramDetailRows } from '@sturdy/core/lib/programDetailQuery'
 import { pbExerciseEditUrl } from '../lib/pocketbase-admin'
-import { calculateWorkoutDuration, formatDuration } from '@calistenia/core/lib/duration'
-import { inferDifficulty, DIFFICULTY_COLORS } from '@calistenia/core/lib/difficulty'
+import { calculateWorkoutDuration, formatDuration } from '@sturdy/core/lib/duration'
+import { inferDifficulty, DIFFICULTY_COLORS } from '@sturdy/core/lib/difficulty'
 import { Button } from '../components/ui/button'
 import { Badge } from '../components/ui/badge'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '../components/ui/tabs'
 import { ConfirmDialog } from '../components/ui/confirm-dialog'
-import { PRIORITY_COLORS, CARDIO_ACTIVITY } from '@calistenia/core/lib/style-tokens'
-import type { ProgramMeta, Priority, CardioDayConfig, CardioActivityType } from '@calistenia/core/types'
-import type { ProgramProgress } from '@calistenia/core/lib/programProgress'
+import { PRIORITY_COLORS, CARDIO_ACTIVITY } from '@sturdy/core/lib/style-tokens'
+import type { ProgramMeta, Priority, CardioDayConfig, CardioActivityType } from '@sturdy/core/types'
+import type { ProgramProgress } from '@sturdy/core/lib/programProgress'
 import type { RecordModel } from 'pocketbase'
 import { ShareButton } from '../components/ShareButton'
 import ExerciseThumbnail from '../components/ExerciseThumbnail'
@@ -22,15 +22,15 @@ import AutoProgressToggle from '../components/programs/AutoProgressToggle'
 import { shareProgram } from '../lib/share'
 import { ArrowLeftIcon, CopyIcon, CheckIcon, EditIcon } from '../components/icons/nav-icons'
 import { useTranslation } from 'react-i18next'
-import { localize } from '@calistenia/core/lib/i18n-db'
-import { resolveExerciseDisplayName } from '@calistenia/core/lib/exercise-resolver'
-import { loadCatalogIndex, getCatalogIndexSync } from '@calistenia/core/lib/catalogIndex'
-import { resolveExerciseId } from '@calistenia/core/lib/resolveExerciseId'
-import { inferTimerFromReps } from '@calistenia/core/lib/exercise-timer-inference'
-import { authorDisplayName } from '@calistenia/core/lib/author-name'
-import { useProgramStats } from '@calistenia/core/hooks/useProgramStats'
+import { localize } from '@sturdy/core/lib/i18n-db'
+import { resolveExerciseDisplayName } from '@sturdy/core/lib/exercise-resolver'
+import { loadCatalogIndex, getCatalogIndexSync } from '@sturdy/core/lib/catalogIndex'
+import { resolveExerciseId } from '@sturdy/core/lib/resolveExerciseId'
+import { inferTimerFromReps } from '@sturdy/core/lib/exercise-timer-inference'
+import { authorDisplayName } from '@sturdy/core/lib/author-name'
+import { useProgramStats } from '@sturdy/core/hooks/useProgramStats'
 import { ProgramRemixCredit, ProgramFollowers } from '../components/programs/ProgramRemixCredit'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -100,11 +100,11 @@ const DAY_ORDER = ['lun', 'mar', 'mie', 'jue', 'vie', 'sab', 'dom']
 function formatRelativeDate(isoDate: string): { text: string; fresh: boolean } {
   const days = Math.floor((Date.now() - new Date(isoDate).getTime()) / 86400000)
   const fresh = days < 7
-  if (days === 0) return { text: 'hoy', fresh }
-  if (days === 1) return { text: 'ayer', fresh }
-  if (days < 7) return { text: `hace ${days} días`, fresh }
-  if (days < 30) return { text: `hace ${Math.floor(days / 7)} sem`, fresh }
-  return { text: `hace ${Math.floor(days / 30)} mes${Math.floor(days / 30) > 1 ? 'es' : ''}`, fresh }
+  if (days === 0) return { text: 'today', fresh }
+  if (days === 1) return { text: 'yesterday', fresh }
+  if (days < 7) return { text: `${days} days ago`, fresh }
+  if (days < 30) return { text: `${Math.floor(days / 7)}w ago`, fresh }
+  return { text: `${Math.floor(days / 30)}mo ago`, fresh }
 }
 
 // Map JS getDay() (0=Sun) to our day IDs
@@ -129,7 +129,7 @@ function ChevronIcon({ className, expanded }: { className?: string; expanded: bo
 interface ProgramDetailPageProps {
   programId: string
   userId?: string
-  userRole?: import('@calistenia/core/types').UserRole
+  userRole?: import('@sturdy/core/types').UserRole
   activeProgram?: ProgramMeta | null
   /**
    * Progreso dentro del programa ACTIVO (#616). Llega por prop y no por

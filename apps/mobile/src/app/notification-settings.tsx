@@ -3,7 +3,7 @@
  * Controls per-category push notification preferences stored in
  * PocketBase `notification_prefs` (opt-out model; missing row/field = enabled).
  *
- * Uses useNotificationPrefs from @calistenia/core.
+ * Uses useNotificationPrefs from @sturdy/core.
  */
 import { useCallback } from 'react'
 import {
@@ -24,8 +24,8 @@ import { useAuthUser } from '@/lib/use-auth-user'
 import {
   useNotificationPrefs,
   NOTIFICATION_PREF_KEYS,
-} from '@calistenia/core/hooks/useNotificationPrefs'
-import type { NotificationPrefs } from '@calistenia/core/hooks/useNotificationPrefs'
+} from '@sturdy/core/hooks/useNotificationPrefs'
+import type { NotificationPrefs } from '@sturdy/core/hooks/useNotificationPrefs'
 
 // ── Group definitions ──────────────────────────────────────────────────────────
 

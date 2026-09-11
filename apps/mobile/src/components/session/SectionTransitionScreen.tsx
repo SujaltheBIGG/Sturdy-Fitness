@@ -1,6 +1,6 @@
 import { View } from 'react-native'
 import { useTranslation } from 'react-i18next'
-import type { SectionTransitionType } from '@calistenia/core/lib/session-machine'
+import type { SectionTransitionType } from '@sturdy/core/lib/session-machine'
 
 import { Text } from '@/components/ui/text'
 import { Button } from '@/components/ui/button'

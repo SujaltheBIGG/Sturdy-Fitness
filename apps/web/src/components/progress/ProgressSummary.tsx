@@ -1,9 +1,9 @@
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { cn } from '../../lib/utils'
-import { todayStr as todayStrFn, toLocalDateStr } from '@calistenia/core/lib/dateUtils'
-import { isFreeSession } from '@calistenia/core/lib/progressUtils'
-import type { ProgressMap, Settings, ExerciseLog } from '@calistenia/core/types'
+import { todayStr as todayStrFn, toLocalDateStr } from '@sturdy/core/lib/dateUtils'
+import { isFreeSession } from '@sturdy/core/lib/progressUtils'
+import type { ProgressMap, Settings, ExerciseLog } from '@sturdy/core/types'
 
 interface ProgressSummaryProps {
   progress: ProgressMap

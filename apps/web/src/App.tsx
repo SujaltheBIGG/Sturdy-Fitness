@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next'
 import { Loader } from './components/ui/loader'
 import { Routes, Route, Navigate, useNavigate, useLocation, useParams, Link } from 'react-router-dom'
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client'
-import { createQueryClient, createCorePersister, setupOnlineManager, PERSIST_MAX_AGE, PERSIST_BUSTER } from '@calistenia/core/lib/query-client'
-import { useNutrition } from '@calistenia/core/hooks/useNutrition'
-import { useCardioStats } from '@calistenia/core/hooks/useCardioStats'
+import { createQueryClient, createCorePersister, setupOnlineManager, PERSIST_MAX_AGE, PERSIST_BUSTER } from '@sturdy/core/lib/query-client'
+import { useNutrition } from '@sturdy/core/hooks/useNutrition'
+import { useCardioStats } from '@sturdy/core/hooks/useCardioStats'
 import { WorkoutProvider, useWorkoutState, useWorkoutActions } from './contexts/WorkoutContext'
 import { AuthProvider, useAuthState, useAuthActions } from './contexts/AuthContext'
 // Eagerly loaded: core pages the user sees first
@@ -78,14 +78,14 @@ import ActiveSessionBubble from './components/ActiveFreeSessionBubble'
 import { CardioSessionProvider } from './contexts/CardioSessionContext'
 import { CircuitSessionProvider, useCircuitSession } from './contexts/CircuitSessionContext'
 import { ActiveSessionProvider, useActiveSession } from './contexts/ActiveSessionContext'
-import { useRestPreferences } from '@calistenia/core/hooks/useRestPreferences'
+import { useRestPreferences } from '@sturdy/core/hooks/useRestPreferences'
 import InstallPrompt from './components/InstallPrompt'
 import { WhatsNewButton } from './components/WhatsNew'
 import OnboardingFlow, { isOnboardingDone, markOnboardingDone } from './components/OnboardingFlow'
 import AppTour, { replayTourForPage } from './components/AppTour'
-import { setupAutoSync } from '@calistenia/core/lib/offlineQueue'
-import { pb } from '@calistenia/core/lib/pocketbase'
-import { consumePendingSharedProgram } from '@calistenia/core/lib/sharedProgramHandoff'
+import { setupAutoSync } from '@sturdy/core/lib/offlineQueue'
+import { pb } from '@sturdy/core/lib/pocketbase'
+import { consumePendingSharedProgram } from '@sturdy/core/lib/sharedProgramHandoff'
 import { cn } from './lib/utils'
 import { Toaster, toast } from 'sonner'
 import { BackgroundJobsProvider } from './contexts/BackgroundJobsContext'
@@ -231,13 +231,13 @@ interface AppShellProps {
   signOut: () => void
   dark: boolean
   toggleDark: () => void
-  userRole: import('@calistenia/core/types').UserRole
+  userRole: import('@sturdy/core/types').UserRole
   children: ReactNode
 }
 
 
 function AppShell({ phase, displayName, userId, signOut, dark, toggleDark, userRole, children }: AppShellProps) {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const { open, isMobile, setOpenMobile } = useSidebar()
   const navigate = useNavigate()
   const location = useLocation()
@@ -286,7 +286,7 @@ function AppShell({ phase, displayName, userId, signOut, dark, toggleDark, userR
       <Sidebar variant="sidebar" collapsible="icon">
         <SidebarHeader className="px-3 py-4">
           <div className="flex items-baseline gap-2 px-1">
-            <span className="text-base font-bold tracking-tight text-foreground">Calistenia</span>
+            <span className="text-base font-bold tracking-tight text-foreground">Sturdy</span>
             <span className="text-xs text-muted-foreground">6M</span>
           </div>
         </SidebarHeader>
@@ -391,16 +391,6 @@ function AppShell({ phase, displayName, userId, signOut, dark, toggleDark, userR
             <span className="text-sm font-medium text-foreground truncate block">{t(getBreadcrumbKey(location.pathname))}</span>
           </nav>
           <div className="flex items-center gap-1 sm:gap-2.5">
-            {/* Language toggle — min 44px touch target on mobile */}
-            <button
-              onClick={() => i18n.changeLanguage(i18n.language.startsWith('en') ? 'es' : 'en')}
-              className="inline-flex items-center h-8 sm:h-7 rounded-lg sm:rounded-md border border-border bg-muted/50 text-xs sm:text-[11px] font-semibold text-muted-foreground hover:text-foreground hover:border-border/70 active:scale-95 transition-all overflow-hidden"
-              aria-label={t('profile.language')}
-              title={t('profile.language')}
-            >
-              <span className={cn('px-2 sm:px-1.5 py-1 sm:py-0.5 transition-colors', i18n.language.startsWith('es') ? 'bg-lime-500/15 text-lime-500' : '')}>ES</span>
-              <span className={cn('px-2 sm:px-1.5 py-1 sm:py-0.5 transition-colors', i18n.language.startsWith('en') ? 'bg-lime-500/15 text-lime-500' : '')}>EN</span>
-            </button>
             {/* Notification bell */}
             <button
               onClick={() => handleNav('/notifications')}
@@ -438,7 +428,7 @@ function AppShell({ phase, displayName, userId, signOut, dark, toggleDark, userR
 
 // ── Route wrappers ──────────────────────────────────────────────────────────
 
-function ProgramDetailPageRoute({ userId, userRole }: { userId: string; userRole: import('@calistenia/core/types').UserRole }) {
+function ProgramDetailPageRoute({ userId, userRole }: { userId: string; userRole: import('@sturdy/core/types').UserRole }) {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const { t } = useTranslation()
@@ -516,8 +506,8 @@ interface AuthenticatedAppProps {
   onboardingDone: boolean
   setOnboardingDone: (v: boolean) => void
   nutritionGoals: { dailyCalories: number; weight?: number } | null
-  cardioWeeklyStats: import('@calistenia/core/hooks/useCardioStats').CardioAggregateStats
-  cardioLastSession: import('@calistenia/core/types').CardioSession | null
+  cardioWeeklyStats: import('@sturdy/core/hooks/useCardioStats').CardioAggregateStats
+  cardioLastSession: import('@sturdy/core/types').CardioSession | null
   nutritionTotals: { calories: number; protein: number; carbs: number; fat: number }
 }
 
@@ -675,7 +665,7 @@ function AuthenticatedApp({
 
 function AppInner() {
   const [dark, setDark] = useState(() => {
-    const saved = localStorage.getItem('calistenia_dark_mode')
+    const saved = localStorage.getItem('sturdy_dark_mode')
     const isDark = saved !== null ? saved === 'true' : true
     document.documentElement.classList.toggle('dark', isDark)
     return isDark
@@ -719,7 +709,7 @@ function AppInner() {
   }, [navigate])
 
   const toggleDark = useCallback(() => {
-    setDark(d => { const next = !d; document.documentElement.classList.toggle('dark', next); localStorage.setItem('calistenia_dark_mode', String(next)); return next })
+    setDark(d => { const next = !d; document.documentElement.classList.toggle('dark', next); localStorage.setItem('sturdy_dark_mode', String(next)); return next })
   }, [])
 
   const { goals: nutritionGoals, getDailyTotals: getNutritionDailyTotals } = useNutrition(userId)

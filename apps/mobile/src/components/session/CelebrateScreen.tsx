@@ -15,12 +15,12 @@ import ShareCardCapture, { type ShareCardCaptureHandle } from '@/components/shar
 import { PostWorkoutActions } from '@/components/session/PostWorkoutActions'
 import PushPermissionCard from '@/components/session/PushPermissionCard'
 import TimingBar from '@/components/session/TimingBar'
-import { getUserAvatarUrl } from '@calistenia/core/lib/pocketbase'
-import { getCelebrationTagline } from '@calistenia/core/lib/celebration'
-import { getLocalQuote, type Quote } from '@calistenia/core/lib/quotes'
-import { prepareTimingBreakdown } from '@calistenia/core/lib/exerciseTiming'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import type { Exercise, ExerciseTiming } from '@calistenia/core/types'
+import { getUserAvatarUrl } from '@sturdy/core/lib/pocketbase'
+import { getCelebrationTagline } from '@sturdy/core/lib/celebration'
+import { getLocalQuote, type Quote } from '@sturdy/core/lib/quotes'
+import { prepareTimingBreakdown } from '@sturdy/core/lib/exerciseTiming'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import type { Exercise, ExerciseTiming } from '@sturdy/core/types'
 
 interface CelebrateScreenProps {
   workoutTitle: string

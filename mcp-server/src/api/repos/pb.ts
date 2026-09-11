@@ -14,7 +14,7 @@
  *  - Filters use `{:userId}` and are always built with `pb.filter()` (no
  *    string interpolation of user input).
  *  - Repos return records or `null`; they never format text. Domain math
- *    stays in the tool (or in @calistenia/core), not here.
+ *    stays in the tool (or in @sturdy/core), not here.
  */
 
 import type PocketBase from "pocketbase";

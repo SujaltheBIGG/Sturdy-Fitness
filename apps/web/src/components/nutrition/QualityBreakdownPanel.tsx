@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import type { NutritionEntry } from '@calistenia/core/types'
+import type { NutritionEntry } from '@sturdy/core/types'
 import { QualityScoreBadge } from './QualityScoreBadge'
-import { BADGE_COLORS } from '@calistenia/core/lib/style-tokens'
+import { BADGE_COLORS } from '@sturdy/core/lib/style-tokens'
 import { cn } from '@/lib/utils'
 
 interface QualityBreakdownPanelProps {

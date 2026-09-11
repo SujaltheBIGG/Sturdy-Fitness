@@ -1,23 +1,23 @@
 import { useState, useEffect, useRef } from 'react'
-import type { AuthUser } from '@calistenia/core/types'
+import type { AuthUser } from '@sturdy/core/types'
 import { useTranslation } from 'react-i18next'
 import * as Sentry from '@sentry/react'
-import { useUserHealth } from '@calistenia/core/hooks/useUserHealth'
-import { useOnboardingSubmit } from '@calistenia/core/hooks/useOnboardingSubmit'
-import { useWorkoutReminders } from '@calistenia/core/hooks/useWorkoutReminders'
-import { CANONICAL_ANALYTICS_EVENTS, op, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import { parseDecimal } from '@calistenia/core/lib/bmi'
-import { getOrLoadCatalogIndex } from '@calistenia/core/lib/catalogIndex'
-import { estimateFirstWorkoutMinutes, markFirstWorkoutPending, normalizeFirstWorkoutLevel } from '@calistenia/core/lib/first-workout'
-import { markOnboardingDone } from '@calistenia/core/lib/onboarding-state'
+import { useUserHealth } from '@sturdy/core/hooks/useUserHealth'
+import { useOnboardingSubmit } from '@sturdy/core/hooks/useOnboardingSubmit'
+import { useWorkoutReminders } from '@sturdy/core/hooks/useWorkoutReminders'
+import { CANONICAL_ANALYTICS_EVENTS, op, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import { parseDecimal } from '@sturdy/core/lib/bmi'
+import { getOrLoadCatalogIndex } from '@sturdy/core/lib/catalogIndex'
+import { estimateFirstWorkoutMinutes, markFirstWorkoutPending, normalizeFirstWorkoutLevel } from '@sturdy/core/lib/first-workout'
+import { markOnboardingDone } from '@sturdy/core/lib/onboarding-state'
 import {
   DEFAULT_TRAINING_TIME_PRESET,
   findTrainingTimePreset,
   formatReminderTime,
   reminderDaysFromTraining,
   type TrainingTimePresetId,
-} from '@calistenia/core/lib/onboarding-reminder'
-import type { ProgramMeta } from '@calistenia/core/types'
+} from '@sturdy/core/lib/onboarding-reminder'
+import type { ProgramMeta } from '@sturdy/core/types'
 import { requestNotificationPermission, subscribeToPush, getNotificationSupport } from '../../lib/push-subscription'
 import { OnboardingProgress } from './OnboardingProgress'
 import { StepWelcome } from './StepWelcome'
@@ -25,7 +25,7 @@ import {
   DISCOVERY_SOURCE_NOT_ANSWERED,
   trackDiscoverySourceAnswered,
   type DiscoverySourceId,
-} from '@calistenia/core/lib/discovery-source'
+} from '@sturdy/core/lib/discovery-source'
 import { StepBasics, type BasicsValues } from './StepBasics'
 import { StepGoals, type GoalsValues } from './StepGoals'
 import { StepHealth, type HealthValues } from './StepHealth'
@@ -270,8 +270,7 @@ export default function OnboardingFlow({
     }
   }
 
-  const { t, i18n } = useTranslation()
-  const currentLang = i18n.language.startsWith('en') ? 'en' : 'es'
+  const { t } = useTranslation()
 
   const firstName = displayName?.split(/[\s@]/)[0] || ''
   const currentWeightNum = parseDecimal(basics.weight)
@@ -281,24 +280,6 @@ export default function OnboardingFlow({
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <style>{`@keyframes fadeUp { from { opacity: 0; transform: translateY(12px) } to { opacity: 1; transform: translateY(0) } }`}</style>
       <div className="w-full max-w-lg">
-        {/* Selector de idioma: visible durante todo el onboarding */}
-        <div className="flex justify-end gap-1 mb-3">
-          {([['es', 'ES'], ['en', 'EN']] as const).map(([code, label]) => (
-            <button
-              key={code}
-              type="button"
-              onClick={() => i18n.changeLanguage(code)}
-              aria-pressed={currentLang === code}
-              className={`h-8 px-3 rounded-md border font-mono text-xs tracking-wide transition-colors ${
-                currentLang === code
-                  ? 'border-lime/40 bg-lime/10 text-lime'
-                  : 'border-border text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
         <OnboardingProgress step={step} totalSteps={totalSteps} />
 
         {saveError && (

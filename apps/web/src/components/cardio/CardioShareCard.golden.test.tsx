@@ -6,7 +6,7 @@ import { render, fireEvent, waitFor } from '@testing-library/react'
 import CardioShareCard from './CardioShareCard'
 import { shareImage, canvasToBlob, loadLogo } from '../../lib/share'
 import { createCanvasRecorder, type CanvasRecorder } from '../../test/canvas-recorder'
-import type { CardioSession, GpsPoint } from '@calistenia/core/types'
+import type { CardioSession, GpsPoint } from '@sturdy/core/types'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -45,7 +45,7 @@ vi.mock('../../lib/share', () => ({
   loadLogo: vi.fn(async () => ({ __fake: 'logo' })),
 }))
 
-vi.mock('@calistenia/core/lib/analytics', () => ({
+vi.mock('@sturdy/core/lib/analytics', () => ({
   trackShareCardShared: vi.fn(),
   trackCanonicalEvent: vi.fn(),
   CANONICAL_ANALYTICS_EVENTS: {},

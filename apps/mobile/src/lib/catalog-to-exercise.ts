@@ -1,5 +1,5 @@
-import type { Exercise } from '@calistenia/core/types'
-import { localize } from '@calistenia/core/lib/i18n-db'
+import type { Exercise } from '@sturdy/core/types'
+import { localize } from '@sturdy/core/lib/i18n-db'
 import type { CatalogExercise } from '@/lib/catalog'
 
 export function catalogToExercise(c: CatalogExercise, locale: string): Exercise {

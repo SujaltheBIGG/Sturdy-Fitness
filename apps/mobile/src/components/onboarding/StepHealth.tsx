@@ -8,7 +8,7 @@ import { Text } from '@/components/ui/text'
 import {
   CONDITION_IDS, INJURY_IDS,
   type ConditionId, type InjuryId, type HealthValues,
-} from '@calistenia/core/types/onboarding'
+} from '@sturdy/core/types/onboarding'
 
 export { CONDITION_IDS, INJURY_IDS }
 export type { ConditionId, InjuryId, HealthValues }

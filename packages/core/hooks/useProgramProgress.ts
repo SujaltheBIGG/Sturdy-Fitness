@@ -128,7 +128,7 @@ export function useProgramProgress({
         )
       })
       .catch((e) => {
-        console.error('useProgramProgress: no se pudo cerrar el programa', e)
+        console.error('useProgramProgress: could not close the program', e)
       })
   }, [userId, enrollmentId, shouldClose, qc])
 

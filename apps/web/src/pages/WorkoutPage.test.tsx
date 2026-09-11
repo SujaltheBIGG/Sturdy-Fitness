@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
-import type { WeekDay, Workout } from '@calistenia/core/types'
+import type { WeekDay, Workout } from '@sturdy/core/types'
 
 // Sin backend de i18next las claves salen tal cual; se interpolan los params
 // para poder leer "workout.trainAnyway:Miércoles".
@@ -18,8 +18,8 @@ vi.mock('react-i18next', () => ({
 // La página emite `workout_day_viewed` (#636 §3). Solo se sustituye el emisor:
 // `plannedSetCount` sigue siendo el real, que es lo que la página le pasa.
 const mockDayViewed = vi.hoisted(() => vi.fn())
-vi.mock('@calistenia/core/lib/session-funnel', async (importOriginal) => ({
-  ...(await importOriginal<typeof import('@calistenia/core/lib/session-funnel')>()),
+vi.mock('@sturdy/core/lib/session-funnel', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@sturdy/core/lib/session-funnel')>()),
   trackWorkoutDayViewed: mockDayViewed,
 }))
 
@@ -32,7 +32,7 @@ const h = vi.hoisted(() => ({
   startCircuit: vi.fn(),
 }))
 
-vi.mock('@calistenia/core/lib/dateUtils', () => ({
+vi.mock('@sturdy/core/lib/dateUtils', () => ({
   localDay: () => h.todayIndex,
   localDate: () => '2026-08-24',
 }))
@@ -60,10 +60,10 @@ vi.mock('../contexts/WorkoutContext', () => ({
 vi.mock('../contexts/CircuitSessionContext', () => ({ useCircuitSession: () => ({ startCircuit: h.startCircuit }) }))
 vi.mock('../contexts/ActiveSessionContext', () => ({ useActiveSession: () => ({ startSession: vi.fn() }) }))
 vi.mock('../contexts/AuthContext', () => ({ useAuthState: () => ({ userId: 'u1', userRole: 'user' }) }))
-vi.mock('@calistenia/core/hooks/useRestPreferences', () => ({
+vi.mock('@sturdy/core/hooks/useRestPreferences', () => ({
   useRestPreferences: () => ({ getRestForExercise: () => 60, setRestForExercise: vi.fn() }),
 }))
-vi.mock('@calistenia/core/hooks/useUserHealth', () => ({
+vi.mock('@sturdy/core/hooks/useUserHealth', () => ({
   useUserHealth: () => ({ health: { injuries: [], medical_conditions: [] } }),
 }))
 vi.mock('../components/AppTour', () => ({ triggerWorkoutDetailTour: vi.fn() }))

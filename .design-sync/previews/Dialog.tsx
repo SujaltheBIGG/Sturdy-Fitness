@@ -1,6 +1,6 @@
 import {
   Button, Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, Input, Label,
-} from '@calistenia/web'
+} from '@sturdy/web'
 
 // Se renderiza abierto a propósito: el estado cerrado no muestra nada.
 // `cardMode: single` en la config mantiene el overlay dentro de la tarjeta.

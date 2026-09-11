@@ -6,7 +6,7 @@ import { submitWeeklyMealPlanJob, regeneratePlanDay } from '../lib/ai-jobs-api'
 import { qk } from '../lib/query-keys'
 import type { WeeklyMealPlan, WeeklyPlanDay, NutritionGoal, FoodItem } from '../types'
 
-const LS_KEY = 'calistenia_weekly_plan'
+const LS_KEY = 'sturdy_weekly_plan'
 
 interface CachedPlan {
   plan: WeeklyMealPlan | null

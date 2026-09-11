@@ -17,17 +17,17 @@ import {
   useCompletePurchase,
   useLastPurchaseDate,
   useShoppingCadence,
-} from '@calistenia/core/hooks/useShoppingList'
-import { useWeeklyMealPlan } from '@calistenia/core/hooks/useWeeklyMealPlan'
+} from '@sturdy/core/hooks/useShoppingList'
+import { useWeeklyMealPlan } from '@sturdy/core/hooks/useWeeklyMealPlan'
 import {
   formatMoney,
   formatQty,
   nextPurchaseInfo,
   shoppingTotals,
-} from '@calistenia/core/lib/shopping'
-import { todayStr } from '@calistenia/core/lib/dateUtils'
-import type { ShoppingListItem, ShoppingReason } from '@calistenia/core/types'
-import { parseLocaleNumber } from '@calistenia/core/lib/money'
+} from '@sturdy/core/lib/shopping'
+import { todayStr } from '@sturdy/core/lib/dateUtils'
+import type { ShoppingListItem, ShoppingReason } from '@sturdy/core/types'
+import { parseLocaleNumber } from '@sturdy/core/lib/money'
 
 const REASON_CLS: Record<ShoppingReason, string> = {
   plan: 'border-border text-muted-foreground',

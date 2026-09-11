@@ -19,7 +19,7 @@ const h = vi.hoisted(() => ({
   trackAnswered: vi.fn(),
 }))
 
-vi.mock('@calistenia/core/lib/push-prompt', () => ({
+vi.mock('@sturdy/core/lib/push-prompt', () => ({
   shouldShowPushPrompt: () => h.shouldShow,
   markPushPromptSeen: h.markSeen,
   trackPushPromptViewed: h.trackViewed,

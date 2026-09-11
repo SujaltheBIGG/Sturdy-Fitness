@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import type { SectionTransitionType, SessionPhase } from '@calistenia/core/lib/session-machine'
+import type { SectionTransitionType, SessionPhase } from '@sturdy/core/lib/session-machine'
 
 interface SessionTopBarProps {
   phase: SessionPhase

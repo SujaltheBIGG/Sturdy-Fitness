@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next'
 import { Text } from '@/components/ui/text'
 import { Kicker } from '@/components/ui/kicker'
 import { cn } from '@/lib/utils'
-import { useRacePRs } from '@calistenia/core/hooks/useRacePRs'
-import { formatDuration, formatPace } from '@calistenia/core/lib/geo'
+import { useRacePRs } from '@sturdy/core/hooks/useRacePRs'
+import { formatDuration, formatPace } from '@sturdy/core/lib/geo'
 
 export default function RacePRsPanel({ userId }: { userId: string | null }) {
   const { t } = useTranslation()

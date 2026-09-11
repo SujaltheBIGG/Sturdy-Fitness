@@ -4,10 +4,10 @@ import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Label } from '../ui/label'
 import { cn } from '../../lib/utils'
-import { pb } from '@calistenia/core/lib/pocketbase'
+import { pb } from '@sturdy/core/lib/pocketbase'
 import { shareContent } from '../../lib/share'
-import { localize } from '@calistenia/core/lib/i18n-db'
-import { WEB_BASE_URL } from '@calistenia/core/lib/app-urls'
+import { localize } from '@sturdy/core/lib/i18n-db'
+import { WEB_BASE_URL } from '@sturdy/core/lib/app-urls'
 
 
 interface ChallengeExpressFormProps {

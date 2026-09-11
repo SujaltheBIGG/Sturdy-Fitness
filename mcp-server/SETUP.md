@@ -1,7 +1,7 @@
-# Calistenia MCP Server — Setup Guide
+# Sturdy MCP Server — Setup Guide
 
 ## What it does
-Gives Claude (or any MCP client) direct access to your Calistenia app data:
+Gives Claude (or any MCP client) direct access to your Sturdy app data:
 - Log and query workout sessions and exercise sets
 - View your current training program and exercise progressions
 - Track body weight, lumbar health checks, and personal records
@@ -9,10 +9,10 @@ Gives Claude (or any MCP client) direct access to your Calistenia app data:
 - Smart prompts to plan your week, analyze progress, and get nutrition advice
 
 ## Auth: how it works
-The server validates your **PocketBase JWT token** on every request. The token is the same one the Calistenia web app uses — no separate login needed.
+The server validates your **PocketBase JWT token** on every request. The token is the same one the Sturdy web app uses — no separate login needed.
 
 **Get your token:**
-1. Open the Calistenia app in your browser
+1. Open the Sturdy app in your browser
 2. Open DevTools (F12) → Application → Local Storage
 3. Find the `pb_auth` key → expand → copy the `token` value
 
@@ -20,7 +20,7 @@ The server validates your **PocketBase JWT token** on every request. The token i
 
 ## Option A: Connector (recommended — deployed server, OAuth login)
 
-The deployed server (`https://gym-server.guille.tech`) supports OAuth 2.1 with
+The deployed server (`https://api.sturdy.app`) supports OAuth 2.1 with
 dynamic client registration, so Claude Desktop can connect as a native
 **Connector** — no token pasting, no JSON editing.
 
@@ -28,7 +28,7 @@ dynamic client registration, so Claude Desktop can connect as a native
 Claude Desktop → **Settings → Connectors → Add custom connector** → paste:
 
 ```
-https://gym-server.guille.tech/mcp
+https://api.sturdy.app/mcp
 ```
 
 Claude reads the discovery docs, opens a browser to log in via PocketBase, and
@@ -39,7 +39,7 @@ stores the token automatically.
 > `localhost` and the flow fails. It is read at runtime — no rebuild needed,
 > just set it and restart. Verify after deploy with:
 > ```bash
-> curl -s https://gym-server.guille.tech/.well-known/oauth-authorization-server
+> curl -s https://api.sturdy.app/.well-known/oauth-authorization-server
 > # issuer / authorization_endpoint / token_endpoint must show the public domain
 > ```
 
@@ -61,11 +61,11 @@ File (macOS): `~/Library/Application Support/Claude/claude_desktop_config.json`
 ```json
 {
   "mcpServers": {
-    "calistenia": {
+    "sturdy": {
       "command": "node",
-      "args": ["/Users/YOUR_NAME/Documents/ejercicios/calistenia-app/mcp-server/build/server.js"],
+      "args": ["/Users/YOUR_NAME/Documents/ejercicios/sturdy-app/mcp-server/build/server.js"],
       "env": {
-        "POCKETBASE_URL": "https://gym.guille.tech",
+        "POCKETBASE_URL": "https://sturdy.app",
         "PB_TOKEN": "YOUR_POCKETBASE_JWT_TOKEN_HERE"
       }
     }
@@ -84,11 +84,11 @@ Useful if you want to hit the deployed server but skip the OAuth flow.
 ```json
 {
   "mcpServers": {
-    "calistenia": {
+    "sturdy": {
       "command": "npx",
       "args": [
         "-y", "mcp-remote",
-        "https://gym-server.guille.tech/mcp",
+        "https://api.sturdy.app/mcp",
         "--header", "Authorization: Bearer YOUR_POCKETBASE_JWT_TOKEN"
       ]
     }

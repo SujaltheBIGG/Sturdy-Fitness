@@ -8,7 +8,7 @@
  * Hay dos mapas y no uno porque el descanso y el ejercicio por tiempo suenan distinto:
  * el descanso termina con un "vamos" y el ejercicio con la campana de completado.
  */
-import type { TrainingCue } from '@calistenia/core/lib/countdown'
+import type { TrainingCue } from '@sturdy/core/lib/countdown'
 
 import { haptics } from '@/lib/haptics'
 import * as sounds from '@/lib/sounds'

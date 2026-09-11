@@ -1,11 +1,11 @@
 import { memo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TrendingUp } from 'lucide-react'
-import type { Exercise, ExerciseLog } from '@calistenia/core/types'
+import type { Exercise, ExerciseLog } from '@sturdy/core/types'
 import {
   useProgressionSuggestion,
   useAcceptProgression,
-} from '@calistenia/core/hooks/useAutoProgression'
+} from '@sturdy/core/hooks/useAutoProgression'
 import { useWorkoutState } from '../../contexts/WorkoutContext'
 import { useAuthState } from '../../contexts/AuthContext'
 import { cn } from '../../lib/utils'

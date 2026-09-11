@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { renderHook, act } from '@testing-library/react'
 import { createRef, type MutableRefObject } from 'react'
-import type { Race, RaceParticipant } from '@calistenia/core/types/race'
+import type { Race, RaceParticipant } from '@sturdy/core/types/race'
 
 // La capa de API se mockea entera: aquí sólo se prueba QUIÉN llama a qué y
 // cuántas veces, que es justo lo que el #479 arregla.

@@ -34,16 +34,16 @@ import {
   primeCatalogIndex,
   type CatalogIndex,
   type RawCatalog,
-} from "@calistenia/core/lib/catalogIndex";
+} from "@sturdy/core/lib/catalogIndex";
 import {
   buildExerciseResolver,
   resolveExerciseDisplayName,
   type ExerciseResolver,
   type ResolvedExercise,
-} from "@calistenia/core/lib/exercise-resolver";
-import { localize, type TranslatableField } from "@calistenia/core/lib/i18n-db";
-import { LEGACY_EXERCISE_IDS } from "@calistenia/core/lib/resolveExerciseId";
-import type { Exercise, Workout } from "@calistenia/core/types";
+} from "@sturdy/core/lib/exercise-resolver";
+import { localize, type TranslatableField } from "@sturdy/core/lib/i18n-db";
+import { LEGACY_EXERCISE_IDS } from "@sturdy/core/lib/resolveExerciseId";
+import type { Exercise, Workout } from "@sturdy/core/types";
 import { readCatalogFile } from "../lib/catalog-file.js";
 import { getCurrentProgram, listProgramExercises, type CurrentProgram, type PB, type RecordModel } from "./repos/index.js";
 

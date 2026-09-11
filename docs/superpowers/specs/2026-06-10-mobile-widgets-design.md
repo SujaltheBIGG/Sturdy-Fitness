@@ -54,7 +54,7 @@ Módulo Expo local con API mínima:
 setSnapshot(json: string): void   // escribe + dispara refresh de widgets
 ```
 
-- iOS: `UserDefaults(suiteName: "group.tech.guille.calistenia")` + `WidgetCenter.shared.reloadAllTimelines()`.
+- iOS: `UserDefaults(suiteName: "group.app.sturdy.mobile")` + `WidgetCenter.shared.reloadAllTimelines()`.
   Requiere capability App Groups en app y target del widget (entitlements vía config plugin).
 - Android: `SharedPreferences` + `requestWidgetUpdate` de react-native-android-widget.
 
@@ -94,7 +94,7 @@ a medianoche para forzar esa transición sin abrir la app.
   (tracking 3px), título Bebas en lime, WeekStrip de 7 días con checks, racha.
 - **Estados** (mismos que la Home): pendiente (lime), completado (emerald + check),
   descanso (luna), sin programa ("ELIGE UN PROGRAMA"), snapshot viejo (neutro).
-- **Tap**: deep link `calistenia://` → Home. En v1 no arranca sesión directamente.
+- **Tap**: deep link `sturdy://` → Home. En v1 no arranca sesión directamente.
 - **Fuentes**: Bebas Neue / DM Sans / JetBrains Mono embebidas también en el target
   del widget iOS (los targets no heredan los assets de la app). Fallback a sistema si fallan.
 - Fondo dark consistente con el tema; textos i18n según `snapshot.lang`

@@ -1,4 +1,4 @@
-import { Alert, AlertDescription, AlertTitle } from '@calistenia/web'
+import { Alert, AlertDescription, AlertTitle } from '@sturdy/web'
 
 export const Aviso = () => (
   <Alert className="w-96">

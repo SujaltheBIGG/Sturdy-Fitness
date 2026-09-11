@@ -4,11 +4,11 @@ import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { cn } from '../../lib/utils'
 import { useTranslation } from 'react-i18next'
-import { MEAL_TYPE_COLORS } from '@calistenia/core/lib/style-tokens'
-import { isMidnightEatenAt } from '@calistenia/core/lib/meal-time'
-import { todayStr, utcToLocalDateStr, localHMFromPB } from '@calistenia/core/lib/dateUtils'
+import { MEAL_TYPE_COLORS } from '@sturdy/core/lib/style-tokens'
+import { isMidnightEatenAt } from '@sturdy/core/lib/meal-time'
+import { todayStr, utcToLocalDateStr, localHMFromPB } from '@sturdy/core/lib/dateUtils'
 import { toast } from 'sonner'
-import type { NutritionEntry, FoodItem, MealType } from '@calistenia/core/types'
+import type { NutritionEntry, FoodItem, MealType } from '@sturdy/core/types'
 
 interface EditMealSheetProps {
   entry: NutritionEntry | null

@@ -4,7 +4,7 @@ import { createRaceTracker, type RaceTracker, type RaceTrackerStats } from '../.
 import { loadRaceSnapshot, saveRaceSnapshot } from '../../lib/race/raceSnapshot'
 import { RaceAuthError } from '../../lib/race/errors'
 import * as Sentry from '@sentry/react'
-import type { Race } from '@calistenia/core/types/race'
+import type { Race } from '@sturdy/core/types/race'
 import type { RaceErrorKind } from './useRaceErrors'
 
 const PUSH_INTERVAL_MS = 3000

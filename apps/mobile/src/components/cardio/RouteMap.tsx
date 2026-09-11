@@ -7,7 +7,7 @@ import { useMemo } from 'react'
 import { View } from 'react-native'
 import { Map as MapLibreMap, Camera, GeoJSONSource, Layer } from '@maplibre/maplibre-react-native'
 import { useColorScheme } from 'nativewind'
-import type { GpsPoint, CardioActivityType } from '@calistenia/core/types'
+import type { GpsPoint, CardioActivityType } from '@sturdy/core/types'
 
 const ROUTE_COLOR: Record<CardioActivityType, string> = {
   running: '#84cc16',

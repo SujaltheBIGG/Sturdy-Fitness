@@ -25,10 +25,10 @@ import { ArrowUpCircle, X } from 'lucide-react-native'
 import { Text } from '@/components/ui/text'
 import { Button } from '@/components/ui/button'
 import { syncStorage } from '@/lib/storage'
-import { useAppConfig } from '@calistenia/core/hooks/useAppConfig'
+import { useAppConfig } from '@sturdy/core/hooks/useAppConfig'
 
 /** Build cuyo aviso suave ya descartó el usuario. */
-const DISMISSED_KEY = 'calistenia_update_notice_dismissed_build'
+const DISMISSED_KEY = 'sturdy_update_notice_dismissed_build'
 
 export default function UpdateGate() {
   const { t } = useTranslation()

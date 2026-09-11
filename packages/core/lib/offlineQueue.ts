@@ -1,7 +1,7 @@
 import { storage, getPlatform } from '../platform'
 import type PocketBase from 'pocketbase'
 
-const LS_KEY = 'calistenia_offline_queue'
+const LS_KEY = 'sturdy_offline_queue'
 
 export interface QueuedAction {
   id: string
@@ -204,7 +204,7 @@ export async function persistOrQueue(pb: PocketBase, spec: WriteSpec): Promise<a
  */
 function runExclusive<T>(fn: () => Promise<T>): Promise<T> {
   const locks = (globalThis as any).navigator?.locks
-  if (locks?.request) return locks.request('calistenia_offline_queue', fn)
+  if (locks?.request) return locks.request('sturdy_offline_queue', fn)
   return fn()
 }
 

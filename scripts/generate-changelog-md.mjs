@@ -22,7 +22,7 @@ import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, '..')
 const SOURCE = resolve(ROOT, 'packages/core/data/changelog.mobile.json')
-const REPO = 'https://github.com/guillermoscript/calistenia-app'
+const REPO = 'https://github.com/CLIENT-ORG/sturdy-app'
 const TAG = (v) => `mobile-v${v}` // mobile release tag convention
 
 // Conventional-commit type → Keep a Changelog section (per skill mapping).
@@ -37,9 +37,9 @@ const SECTIONS = {
 
 const I18N = {
   en: {
-    title: 'Changelog — Calistenia (mobile)',
+    title: 'Changelog — Sturdy (mobile)',
     intro:
-      'All notable changes to the Calistenia mobile app are documented here.\n' +
+      'All notable changes to the Sturdy mobile app are documented here.\n' +
       'The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), ' +
       'and the project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).\n\n' +
       '> Generated from curated, AI-assisted release notes — do not edit by hand. ' +
@@ -49,9 +49,9 @@ const I18N = {
     nothing: '_Nothing yet._',
   },
   es: {
-    title: 'Registro de cambios — Calistenia (móvil)',
+    title: 'Registro de cambios — Sturdy (móvil)',
     intro:
-      'Aquí se documentan todos los cambios relevantes de la app móvil de Calistenia.\n' +
+      'Aquí se documentan todos los cambios relevantes de la app móvil de Sturdy.\n' +
       'El formato se basa en [Keep a Changelog](https://keepachangelog.com/es/1.1.0/) ' +
       'y el proyecto sigue el [Versionado Semántico](https://semver.org/lang/es/).\n\n' +
       '> Generado a partir de notas de versión curadas con ayuda de IA — no editar a mano. ' +

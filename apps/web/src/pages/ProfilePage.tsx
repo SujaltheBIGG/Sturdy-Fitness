@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import type { AuthUser } from '@calistenia/core/types'
+import type { AuthUser } from '@sturdy/core/types'
 import { useTranslation } from 'react-i18next'
 import { useQueryClient } from '@tanstack/react-query'
 import { Badge } from '../components/ui/badge'
@@ -8,26 +8,26 @@ import { Button } from '../components/ui/button'
 import { Kicker } from '../components/ui/kicker'
 import { cn } from '../lib/utils'
 import { useWorkoutState, useWorkoutActions } from '../contexts/WorkoutContext'
-import { pb, isPocketBaseAvailable, getUserAvatarUrl } from '@calistenia/core/lib/pocketbase'
+import { pb, isPocketBaseAvailable, getUserAvatarUrl } from '@sturdy/core/lib/pocketbase'
 import { WhatsAppIcon } from '../components/icons/WhatsAppIcon'
-import { setTimezone as setGlobalTimezone, getTimezone, utcToLocalDateStr, todayStr } from '@calistenia/core/lib/dateUtils'
-import { buildSkills, programWeek } from '@calistenia/core/lib/athlete-card'
+import { setTimezone as setGlobalTimezone, getTimezone, utcToLocalDateStr, todayStr } from '@sturdy/core/lib/dateUtils'
+import { buildSkills, programWeek } from '@sturdy/core/lib/athlete-card'
 import { CONDITION_IDS, INJURY_IDS, type ConditionId, type InjuryId } from '../components/onboarding/StepHealth'
-import { useUserCurrency } from '@calistenia/core/hooks/useUserCurrency'
-import { SUPPORTED_CURRENCIES, currencySymbol } from '@calistenia/core/lib/money'
+import { useUserCurrency } from '@sturdy/core/hooks/useUserCurrency'
+import { SUPPORTED_CURRENCIES, currencySymbol } from '@sturdy/core/lib/money'
 import { FOCUS_AREA_IDS, DAY_IDS, type FocusAreaId, type DayId, type Intensity } from '../components/onboarding/StepTraining'
 import type { ActivityLevel, Pace } from '../components/onboarding/StepGoals'
-import { calculateBmi, bmiCategoryKey, bmiColorClass, parseDecimal } from '@calistenia/core/lib/bmi'
-import { fetchUserHealth, upsertUserHealth } from '@calistenia/core/hooks/useUserHealth'
+import { calculateBmi, bmiCategoryKey, bmiColorClass, parseDecimal } from '@sturdy/core/lib/bmi'
+import { fetchUserHealth, upsertUserHealth } from '@sturdy/core/hooks/useUserHealth'
 import {
   useProfileForm, fetchProfileBody, saveBodyDemographics, bodyUserPatch, bodyFromUserRecord,
-} from '@calistenia/core/hooks/useProfileForm'
+} from '@sturdy/core/hooks/useProfileForm'
 import { DeleteAccountDialog } from '../components/profile/DeleteAccountDialog'
 import { PrivateAccountCard } from '../components/profile/PrivateAccountCard'
 import {
   SettingsRow, Field, UnitInput, Segmented, ChipToggle, DayToggle,
 } from '../components/profile/SettingsPanel'
-import { recomputeAutoNutritionGoal } from '@calistenia/core/hooks/useNutrition'
+import { recomputeAutoNutritionGoal } from '@sturdy/core/hooks/useNutrition'
 
 interface ProfilePageProps {
   user: AuthUser

@@ -52,13 +52,13 @@ vi.mock('../components/SessionView', () => ({
   default: () => <div data-testid="session-view-stub" />,
 }))
 
-vi.mock('@calistenia/core/lib/catalogIndex', async (importOriginal) => ({
-  ...(await importOriginal<typeof import('@calistenia/core/lib/catalogIndex')>()),
+vi.mock('@sturdy/core/lib/catalogIndex', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@sturdy/core/lib/catalogIndex')>()),
   loadCatalogIndex: vi.fn(async () => null),
 }))
 
-vi.mock('@calistenia/core/lib/first-workout', async (importOriginal) => ({
-  ...(await importOriginal<typeof import('@calistenia/core/lib/first-workout')>()),
+vi.mock('@sturdy/core/lib/first-workout', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@sturdy/core/lib/first-workout')>()),
   takeFirstWorkoutPending: h.takePending,
   trackFirstWorkoutStarted: h.trackStarted,
 }))

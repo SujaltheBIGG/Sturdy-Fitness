@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TrendingUp } from 'lucide-react'
-import { useSetAutoProgress } from '@calistenia/core/hooks/useAutoProgression'
+import { useSetAutoProgress } from '@sturdy/core/hooks/useAutoProgression'
 import { useWorkoutState } from '../../contexts/WorkoutContext'
 import { useAuthState } from '../../contexts/AuthContext'
 import { cn } from '../../lib/utils'

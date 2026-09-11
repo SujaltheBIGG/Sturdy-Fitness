@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type MutableRefObject } from 'react'
 import { loadRace } from '../../lib/race/raceApi'
 import { subscribeRace } from '../../lib/race/raceRealtime'
 import { RaceNotFoundError } from '../../lib/race/errors'
-import type { Race, RaceParticipant } from '@calistenia/core/types/race'
+import type { Race, RaceParticipant } from '@sturdy/core/types/race'
 import type { RaceErrorKind } from './useRaceErrors'
 
 export type RacePhase =

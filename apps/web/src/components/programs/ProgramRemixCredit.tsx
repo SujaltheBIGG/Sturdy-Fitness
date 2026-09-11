@@ -15,7 +15,7 @@
 
 import { useTranslation } from 'react-i18next'
 import { GitForkIcon, UsersIcon } from 'lucide-react'
-import type { ProgramMeta } from '@calistenia/core/types'
+import type { ProgramMeta } from '@sturdy/core/types'
 import { cn } from '@/lib/utils'
 
 interface ProgramRemixCreditProps {

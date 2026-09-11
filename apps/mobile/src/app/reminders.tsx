@@ -48,7 +48,7 @@ import {
   useReminderTimeline,
   type ReminderDayLabel,
   type ReminderTimelineItem,
-} from '@calistenia/core/hooks/useReminderTimeline'
+} from '@sturdy/core/hooks/useReminderTimeline'
 import {
   MEAL_QUICK_TIMES,
   WORKOUT_QUICK_TIMES,
@@ -58,9 +58,9 @@ import {
   parseHour,
   parseMinute,
   clampPauseInterval,
-} from '@calistenia/core/lib/reminders'
-import { pb } from '@calistenia/core/lib/pocketbase'
-import type { MealType } from '@calistenia/core/types'
+} from '@sturdy/core/lib/reminders'
+import { pb } from '@sturdy/core/lib/pocketbase'
+import type { MealType } from '@sturdy/core/types'
 
 import { registerPushTokenAsync } from '@/lib/push-registration'
 

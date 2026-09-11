@@ -33,7 +33,7 @@ const pbStub = await vi.hoisted(async () => {
   return createPbAutoCancelStub()
 })
 
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: {
     baseUrl: 'http://pb.test',
     filter: (expr: string) => expr,
@@ -45,12 +45,12 @@ vi.mock('@calistenia/core/lib/pocketbase', () => ({
 
 // `saveProgram` reporta a monitoreo en el catch, y sin `initCore()` getPlatform()
 // lanza — lo que taparía el fallo real con una excepción distinta.
-vi.mock('@calistenia/core/platform', () => ({
+vi.mock('@sturdy/core/platform', () => ({
   getPlatform: () => ({ reportError: vi.fn() }),
 }))
 
-import { useProgramEditor, type EditorExercise } from '@calistenia/core/hooks/useProgramEditor'
-import type { EditorMediaFile } from '@calistenia/core/lib/programMedia'
+import { useProgramEditor, type EditorExercise } from '@sturdy/core/hooks/useProgramEditor'
+import type { EditorMediaFile } from '@sturdy/core/lib/programMedia'
 
 type Editor = ReturnType<typeof useProgramEditor>
 

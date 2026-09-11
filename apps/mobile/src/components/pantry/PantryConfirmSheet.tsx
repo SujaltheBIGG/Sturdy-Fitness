@@ -4,11 +4,11 @@ import { KeyboardAvoidingView, KeyboardProvider } from 'react-native-keyboard-co
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { X } from 'lucide-react-native'
 import { useTranslation } from 'react-i18next'
-import { PANTRY_CATEGORY_ORDER, normalizePantryName } from '@calistenia/core/lib/pantry'
-import { currencySymbol, parseLocaleNumber } from '@calistenia/core/lib/money'
-import { formatMoney } from '@calistenia/core/lib/shopping'
+import { PANTRY_CATEGORY_ORDER, normalizePantryName } from '@sturdy/core/lib/pantry'
+import { currencySymbol, parseLocaleNumber } from '@sturdy/core/lib/money'
+import { formatMoney } from '@sturdy/core/lib/shopping'
 import { Chip } from '@/components/ui/chip'
-import type { PantryItem, PantryParsedItem, PantryParseResult, PantryUnit } from '@calistenia/core/types'
+import type { PantryItem, PantryParsedItem, PantryParseResult, PantryUnit } from '@sturdy/core/types'
 
 const UNITS: (PantryUnit | null)[] = [null, 'g', 'kg', 'ml', 'l', 'unidad', 'paquete']
 

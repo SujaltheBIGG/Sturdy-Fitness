@@ -124,7 +124,7 @@ field ids preserved per the migration-safety rule).
 copies `seeds/exercises/media/<slug>/*` → `apps/web/public/exercise-media/<slug>/`;
 `build-exercise-catalog.mjs` carries each `media` value into the bundled catalog as
 an **origin-relative** path (`/exercise-media/<slug>/<file>`). Web resolves these
-same-origin; mobile prefixes `EXPO_PUBLIC_PB_URL` (or `gym.guille.tech`).
+same-origin; mobile prefixes `EXPO_PUBLIC_PB_URL` (or `sturdy.app`).
 
 **Resolution.** The pure resolver `packages/core/lib/exerciseMedia.ts` returns
 `{ sequence, muscles, thumbnail, video, images, … }`. A bundled-catalog helper

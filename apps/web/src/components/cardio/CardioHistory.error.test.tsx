@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeAll } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-// Guardarraíl de CALISTENIA-APP-S.
+// Guardarraíl de STURDY-APP-S.
 //
 // El bug: `getHistory` fallaba con un 504 del gateway, la página lo reportaba a
 // Sentry y dejaba `history` en `[]` — así que el usuario veía «No hay sesiones

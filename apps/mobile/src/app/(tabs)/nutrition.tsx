@@ -28,28 +28,28 @@ import { haptics } from '@/lib/haptics'
 import { useAuthUser } from '@/lib/use-auth-user'
 
 import { useQueryClient } from '@tanstack/react-query'
-import { todayStr, addDays, nowLocalForPB, startOfWeekStr } from '@calistenia/core/lib/dateUtils'
-import { useSpendSummary } from '@calistenia/core/hooks/useSpend'
-import { useNutrition } from '@calistenia/core/hooks/useNutrition'
-import { usePantryItems } from '@calistenia/core/hooks/usePantry'
-import { usePantryPlan } from '@calistenia/core/hooks/usePantryPlan'
-import { useNutritionCoach } from '@calistenia/core/hooks/useNutritionCoach'
-import { useWeeklyMealPlan } from '@calistenia/core/hooks/useWeeklyMealPlan'
-import { useWater } from '@calistenia/core/hooks/useWater'
-import { useFrequentMeals } from '@calistenia/core/hooks/useFrequentMeals'
-import { useNutritionProfilePrefill } from '@calistenia/core/hooks/useNutritionProfilePrefill'
-import { syncUserPrimaryGoal, isNutritionPace } from '@calistenia/core/lib/nutrition-profile'
-import { computeDailyQualityScore } from '@calistenia/core/lib/nutrition-quality'
-import { op } from '@calistenia/core/lib/analytics'
-import { qk } from '@calistenia/core/lib/query-keys'
+import { todayStr, addDays, nowLocalForPB, startOfWeekStr } from '@sturdy/core/lib/dateUtils'
+import { useSpendSummary } from '@sturdy/core/hooks/useSpend'
+import { useNutrition } from '@sturdy/core/hooks/useNutrition'
+import { usePantryItems } from '@sturdy/core/hooks/usePantry'
+import { usePantryPlan } from '@sturdy/core/hooks/usePantryPlan'
+import { useNutritionCoach } from '@sturdy/core/hooks/useNutritionCoach'
+import { useWeeklyMealPlan } from '@sturdy/core/hooks/useWeeklyMealPlan'
+import { useWater } from '@sturdy/core/hooks/useWater'
+import { useFrequentMeals } from '@sturdy/core/hooks/useFrequentMeals'
+import { useNutritionProfilePrefill } from '@sturdy/core/hooks/useNutritionProfilePrefill'
+import { syncUserPrimaryGoal, isNutritionPace } from '@sturdy/core/lib/nutrition-profile'
+import { computeDailyQualityScore } from '@sturdy/core/lib/nutrition-quality'
+import { op } from '@sturdy/core/lib/analytics'
+import { qk } from '@sturdy/core/lib/query-keys'
 import { useDayRollover } from '@/lib/use-day-rollover'
-import { getUserAvatarUrl } from '@calistenia/core/lib/pocketbase'
-import { BADGE_DEFINITIONS } from '@calistenia/core/lib/badge-definitions'
+import { getUserAvatarUrl } from '@sturdy/core/lib/pocketbase'
+import { BADGE_DEFINITIONS } from '@sturdy/core/lib/badge-definitions'
 import { BadgeCelebrationDialog } from '@/components/nutrition/BadgeCelebrationDialog'
-import { SCORE_COLORS } from '@calistenia/core/lib/style-tokens'
+import { SCORE_COLORS } from '@sturdy/core/lib/style-tokens'
 import type {
   BadgeType, NutritionGoal, NutritionGoalType, NutritionEntry, FoodItem, QualityScore, Sex, ActivityLevel,
-} from '@calistenia/core/types'
+} from '@sturdy/core/types'
 
 import { useLocalSearchParams, useRouter } from 'expo-router'
 import { useMobileMealLoggerActions } from '@/lib/use-mobile-meal-logger-actions'
@@ -65,7 +65,7 @@ import ChangeGoalCard from '@/components/nutrition/ChangeGoalCard'
 import FrequentMealsRow from '@/components/nutrition/FrequentMealsRow'
 import WeeklyMealPlan from '@/components/nutrition/WeeklyMealPlan'
 import { PantryPlanSection } from '@/components/nutrition/PantryPlanSection'
-import { usePantryDepletion } from '@calistenia/core/hooks/usePantryDepletion'
+import { usePantryDepletion } from '@sturdy/core/hooks/usePantryDepletion'
 import { PantryDepleteSheet } from '@/components/pantry/PantryDepleteSheet'
 import CoachInsights from '@/components/nutrition/CoachInsights'
 import NutritionShareButton from '@/components/share/NutritionShareButton'
@@ -177,7 +177,7 @@ export default function NutritionTab() {
   // ─── Load badges on mount ────────────────────────────────────────────────────
   useEffect(() => { loadBadges() }, [loadBadges])
 
-  // ─── Deep-link quick-add (calistenia://nutrition?action=camera|text) ─────────
+  // ─── Deep-link quick-add (sturdy://nutrition?action=camera|text) ─────────
   useEffect(() => {
     if (action === 'camera' || action === 'text') {
       setLoggerVisible(true)

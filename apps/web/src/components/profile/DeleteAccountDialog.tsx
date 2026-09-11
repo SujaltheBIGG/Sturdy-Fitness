@@ -11,8 +11,8 @@ import {
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Label } from '../ui/label'
-import { matchesAccountEmail } from '@calistenia/core/lib/account'
-import { useDeleteAccount } from '@calistenia/core/hooks/useDeleteAccount'
+import { matchesAccountEmail } from '@sturdy/core/lib/account'
+import { useDeleteAccount } from '@sturdy/core/hooks/useDeleteAccount'
 
 interface DeleteAccountDialogProps {
   open: boolean

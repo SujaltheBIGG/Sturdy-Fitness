@@ -12,7 +12,7 @@
  */
 import { useEffect, useRef } from 'react'
 import { AppState } from 'react-native'
-import { todayStr } from '@calistenia/core/lib/dateUtils'
+import { todayStr } from '@sturdy/core/lib/dateUtils'
 
 const TICK_MS = 60_000
 

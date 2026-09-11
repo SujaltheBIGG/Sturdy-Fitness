@@ -16,7 +16,7 @@ services:
       args:
         VITE_AI_API_URL: http://localhost:3001
         VITE_VAPID_PUBLIC_KEY: ${VITE_VAPID_PUBLIC_KEY:-}
-    container_name: calistenia-app
+    container_name: sturdy-app
     restart: unless-stopped
     ports:
       - "8090:8090"
@@ -31,7 +31,7 @@ services:
     build:
       context: .
       dockerfile: mcp-server/Dockerfile
-    container_name: calistenia-ai-api
+    container_name: sturdy-ai-api
     restart: unless-stopped
     ports:
       - "3001:3001"

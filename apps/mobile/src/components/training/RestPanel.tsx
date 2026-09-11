@@ -13,7 +13,7 @@ import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
 import { CountdownRing } from '@/components/training/CountdownRing'
 import { LIME, URGENT, URGENT_BELOW_SECONDS } from '@/components/training/constants'
-import { formatCountdown } from '@calistenia/core/lib/countdown'
+import { formatCountdown } from '@sturdy/core/lib/countdown'
 
 export interface RestPanelProps {
   secondsLeft: number

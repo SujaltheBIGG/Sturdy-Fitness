@@ -82,7 +82,7 @@ Patrón: componente RN estilado fuera de pantalla → `captureRef()` → PNG →
 - **Race results:** ya hay `Share.share` básico en `RaceLobby`; subir a share card.
 
 ### A4. Deep links (multiplicador de engagement — hoy AUSENTE)
-- `apps/mobile/app.json`: el `scheme: "calistenia"` ya existe. Añadir:
+- `apps/mobile/app.json`: el `scheme: "sturdy"` ya existe. Añadir:
   - iOS: `ios.associatedDomains` = `["applinks:<DOMINIO_WEB>"]`.
   - Android: `android.intentFilters` para el host web (autoVerify).
 - Publicar en el dominio web:

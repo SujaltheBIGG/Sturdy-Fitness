@@ -8,9 +8,9 @@
  * decide CÓMO se ve.
  */
 import { useTranslation } from 'react-i18next'
-import { timeAgo } from '@calistenia/core/lib/dateUtils'
-import { capitalizeFirst, describeFeedItem } from '@calistenia/core/lib/feed-item'
-import type { FeedItem } from '@calistenia/core/types'
+import { timeAgo } from '@sturdy/core/lib/dateUtils'
+import { capitalizeFirst, describeFeedItem } from '@sturdy/core/lib/feed-item'
+import type { FeedItem } from '@sturdy/core/types'
 import { cn } from '../../lib/utils'
 import { EmojiPicker } from './EmojiPicker'
 

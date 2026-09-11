@@ -44,7 +44,7 @@ import {
   listRaceParticipants,
   type RecordModel,
 } from "../api/repos/index.js";
-import { sortRaceParticipants } from "@calistenia/core/lib/race-sort";
+import { sortRaceParticipants } from "@sturdy/core/lib/race-sort";
 
 /**
  * Cuántos retos de la lista se clasifican de verdad.

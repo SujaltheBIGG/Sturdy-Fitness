@@ -25,10 +25,10 @@ import {
   CARDIO_HISTORY_PAGE_SIZE,
   mergeCardioPages,
   hasMoreCardioPages,
-} from '@calistenia/core/lib/cardio-history'
-import { CARDIO_ACTIVITY } from '@calistenia/core/lib/style-tokens'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import type { CardioActivityType, CardioSession } from '@calistenia/core/types'
+} from '@sturdy/core/lib/cardio-history'
+import { CARDIO_ACTIVITY } from '@sturdy/core/lib/style-tokens'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import type { CardioActivityType, CardioSession } from '@sturdy/core/types'
 
 /** Pestañas: «todas» + un filtro por cada tipo de actividad. */
 type HistoryFilter = 'all' | CardioActivityType
@@ -66,7 +66,7 @@ export default function CardioHistoryScreen() {
       setHasMore(hasMoreCardioPages(CARDIO_HISTORY_PAGE_SIZE, page.length))
     } catch (e) {
       // Marcar el error, no sólo reportarlo: si no, la lista vacía mentiría
-      // diciendo que no hay sesiones (#559, CALISTENIA-APP-S).
+      // diciendo que no hay sesiones (#559, STURDY-APP-S).
       setError(true)
       Sentry.captureException(e, { tags: { feature: 'cardio', op: 'load_history_full' } })
     }

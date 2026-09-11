@@ -16,10 +16,10 @@ import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
 import { useAuthUser } from '@/lib/use-auth-user'
 import { useWorkoutState, useWorkoutActions } from '@/contexts/WorkoutContext'
-import { useProgramDetail } from '@calistenia/core/hooks/useProgramDetail'
-import { useProgramStats } from '@calistenia/core/hooks/useProgramStats'
+import { useProgramDetail } from '@sturdy/core/hooks/useProgramDetail'
+import { useProgramStats } from '@sturdy/core/hooks/useProgramStats'
 import ProgramProgressBar from '@/components/programs/ProgramProgressBar'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 
 export default function ProgramDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>()

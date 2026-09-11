@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react'
 import { AppState } from 'react-native'
-import { CARDIO_ACTIVE_KEY as STORAGE_KEY } from '@calistenia/core/lib/storage-keys'
-import type { CardioActivityType, GpsPoint } from '@calistenia/core/types'
+import { CARDIO_ACTIVE_KEY as STORAGE_KEY } from '@sturdy/core/lib/storage-keys'
+import type { CardioActivityType, GpsPoint } from '@sturdy/core/types'
 
 import { syncStorage } from '@/lib/storage'
 

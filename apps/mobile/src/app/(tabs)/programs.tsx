@@ -12,7 +12,7 @@ import { InputGroup, InputGroupAddon, InputGroupInput } from '@/components/ui/in
 import { cn } from '@/lib/utils'
 import { useWorkoutState, useWorkoutActions } from '@/contexts/WorkoutContext'
 import { useAuthUser } from '@/lib/use-auth-user'
-import type { ProgramMeta, ProgramDifficulty } from '@calistenia/core/types'
+import type { ProgramMeta, ProgramDifficulty } from '@sturdy/core/types'
 
 const LIME = 'hsl(74 90% 45%)'
 const DIFFICULTY_ORDER: ProgramDifficulty[] = ['beginner', 'intermediate', 'advanced']

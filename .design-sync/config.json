@@ -1,8 +1,8 @@
 {
   "projectId": "c84e2378-9de4-4569-85ba-1efc907b6e97",
   "shape": "package",
-  "pkg": "@calistenia/web",
-  "globalName": "Calistenia",
+  "pkg": "@sturdy/web",
+  "globalName": "Sturdy",
   "srcDir": "src/components/ui",
   "tsconfig": "tsconfig.json",
   "buildCmd": "node .design-sync/build-types.mjs && node .design-sync/build-css.mjs && node .design-sync/gen-docs.mjs",

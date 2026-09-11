@@ -148,7 +148,7 @@ export async function pollJob(jobId: string, opts: PollJobOptions): Promise<AIJo
     maxMs,
     isAlive = () => true,
     timeoutMessage = 'Tiempo de espera agotado',
-    failedMessage = 'El trabajo falló',
+    failedMessage = 'The job failed',
   } = opts
   const started = Date.now()
   while (Date.now() - started < maxMs) {

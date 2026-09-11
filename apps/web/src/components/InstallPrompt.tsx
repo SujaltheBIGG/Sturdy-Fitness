@@ -1,13 +1,24 @@
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { op } from '@calistenia/core/lib/analytics'
+import { op } from '@sturdy/core/lib/analytics'
 
-const DISMISS_KEY = 'calistenia_install_dismiss'
+const DISMISS_KEY = 'sturdy_install_dismiss'
 const DISMISS_DAYS = 14
 
 interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>
   userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>
+}
+
+let deferredInstallPrompt: BeforeInstallPromptEvent | null = null
+
+export async function promptInstall(): Promise<boolean> {
+  if (!deferredInstallPrompt) return false
+
+  await deferredInstallPrompt.prompt()
+  const { outcome } = await deferredInstallPrompt.userChoice
+  deferredInstallPrompt = null
+  return outcome === 'accepted'
 }
 
 function isStandalone(): boolean {
@@ -64,6 +75,7 @@ export default function InstallPrompt() {
     const handler = (e: Event) => {
       e.preventDefault()
       deferredPrompt.current = e as BeforeInstallPromptEvent
+      deferredInstallPrompt = deferredPrompt.current
       setShowPrompt(true)
     }
     window.addEventListener('beforeinstallprompt', handler)
@@ -84,9 +96,8 @@ export default function InstallPrompt() {
 
   const handleInstall = async () => {
     if (deferredPrompt.current) {
-      await deferredPrompt.current.prompt()
-      const { outcome } = await deferredPrompt.current.userChoice
-      if (outcome === 'accepted') {
+      const installed = await promptInstall()
+      if (installed) {
         op.track('app_installed', { method: 'native_prompt' })
         setShowPrompt(false)
       }

@@ -24,7 +24,7 @@ export type PushPromptResult = 'granted' | 'denied' | 'dismissed'
 
 /** Por usuario y dispositivo: la decisión del SO también lo es. */
 export const pushPromptSeenKey = (userId: string): string =>
-  `calistenia_push_prompt_seen_${userId}`
+  `sturdy_push_prompt_seen_${userId}`
 
 export function isPushPromptSeen(userId: string | null | undefined): boolean {
   if (!userId) return true

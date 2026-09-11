@@ -41,10 +41,10 @@ export default defineConfig({
     // detecta regresiones, no sabe qué deploy metió un bug, y
     // «resolver en la próxima versión» no se dispara nunca.
     //
-    // En CI vale `calistenia-app@<version>+<sha corto>` (mismo formato que
+    // En CI vale `sturdy-app@<version>+<sha corto>` (mismo formato que
     // móvil). En local, sin la env, cae al semver a secas.
     __SENTRY_RELEASE__: JSON.stringify(
-      process.env.SENTRY_RELEASE || `calistenia-app@${pkg.version}`
+      process.env.SENTRY_RELEASE || `sturdy-app@${pkg.version}`
     ),
   },
   plugins: [pocketbaseAliasPlugin(), tailwindcss(),
@@ -58,9 +58,11 @@ export default defineConfig({
     registerType: 'prompt',
     injectRegister: false,
     manifest: {
-      name: 'Calistenia App',
-      short_name: 'Calistenia',
-      description: 'Tu programa de calistenia personalizado',
+      lang: 'en',
+      dir: 'ltr',
+      name: 'Sturdy',
+      short_name: 'Sturdy',
+      description: 'Your personalized calisthenics program',
       theme_color: '#0a0a0a',
       background_color: '#0a0a0a',
       display: 'standalone',
@@ -78,8 +80,8 @@ export default defineConfig({
       maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
     },
   }), sentryVitePlugin({
-    org: "guillermoscript",
-    project: "gym-guille",
+    org: process.env.SENTRY_ORG || "",
+    project: process.env.SENTRY_PROJECT || "",
     // Sin token no hay nada que subir: en un build local el plugin se apaga
     // entero en vez de escupir un aviso en cada `pnpm build`.
     disable: !process.env.SENTRY_AUTH_TOKEN,
@@ -87,7 +89,7 @@ export default defineConfig({
     // Los source maps deben colgar de la MISMA release que reporta el SDK
     // (`instrument.ts`), o Sentry no los encuentra al desminificar.
     release: {
-      name: process.env.SENTRY_RELEASE || `calistenia-app@${pkg.version}`,
+      name: process.env.SENTRY_RELEASE || `sturdy-app@${pkg.version}`,
       // Los commits NO se asocian aquí: este build corre dentro de Docker y el
       // contexto no incluye `.git`. Lo hace el runner en build-app.yml, que sí
       // tiene el checkout completo.

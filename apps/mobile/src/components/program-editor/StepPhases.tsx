@@ -11,7 +11,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
-import type { EditorPhase } from '@calistenia/core/hooks/useProgramEditor'
+import type { EditorPhase } from '@sturdy/core/hooks/useProgramEditor'
 import { COLOR_SWATCHES } from './constants'
 
 const MAX_PHASES = 8

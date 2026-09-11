@@ -17,7 +17,7 @@
  */
 import { storage } from '../platform'
 
-const PENDING_SHARED_PROGRAM_KEY = 'calistenia_pending_shared_program'
+const PENDING_SHARED_PROGRAM_KEY = 'sturdy_pending_shared_program'
 
 /** Guarda el programa que se estaba viendo antes de mandar a registrarse. */
 export function capturePendingSharedProgram(programId: string): void {

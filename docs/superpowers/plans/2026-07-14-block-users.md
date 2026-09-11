@@ -584,7 +584,7 @@ describe('excludeBlocked', () => {
 
 - [ ] **Step 3: Verificar que falla**
 
-Run: `pnpm --filter @calistenia/core test -- blocks.test`
+Run: `pnpm --filter @sturdy/core test -- blocks.test`
 Expected: FAIL — `Cannot find module './blocks'` (o equivalente).
 
 - [ ] **Step 4: Implementar**
@@ -610,8 +610,8 @@ export function excludeBlocked<T extends { id: string }>(
 
 - [ ] **Step 5: Verificar que pasa**
 
-Run: `pnpm --filter @calistenia/core test -- blocks.test`
-Expected: PASS (3 tests). Correr también `pnpm --filter @calistenia/core test` completo — sin regresiones (el suite existente de query-keys no valida keys nuevas, pero comprobar).
+Run: `pnpm --filter @sturdy/core test -- blocks.test`
+Expected: PASS (3 tests). Correr también `pnpm --filter @sturdy/core test` completo — sin regresiones (el suite existente de query-keys no valida keys nuevas, pero comprobar).
 
 - [ ] **Step 6: Commit**
 
@@ -792,7 +792,7 @@ export function useBlocks(userId: string | null): UseBlocksReturn {
 
 - [ ] **Step 2: Typecheck**
 
-Run: `pnpm --filter @calistenia/core exec tsc --noEmit 2>/dev/null || pnpm -r typecheck`
+Run: `pnpm --filter @sturdy/core exec tsc --noEmit 2>/dev/null || pnpm -r typecheck`
 Expected: sin errores nuevos (usar el comando de typecheck que exista en el repo; `pnpm -r typecheck` es el estándar del proyecto).
 
 - [ ] **Step 3: Commit**
@@ -866,7 +866,7 @@ git commit -m "feat(core): cadenas i18n ES/EN para bloqueo de usuarios"
 Junto al import de `useFollows` (línea 16):
 
 ```tsx
-import { useBlocks } from '@calistenia/core/hooks/useBlocks'
+import { useBlocks } from '@sturdy/core/hooks/useBlocks'
 ```
 
 Junto al `useFollows(currentUserId || null)` (línea 69):
@@ -934,8 +934,8 @@ git commit -m "feat(web): bloquear/desbloquear usuario desde su perfil"
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
-import { useAuth } from '@calistenia/core/hooks/useAuth'
-import { useBlocks } from '@calistenia/core/hooks/useBlocks'
+import { useAuth } from '@sturdy/core/hooks/useAuth'
+import { useBlocks } from '@sturdy/core/hooks/useBlocks'
 
 export default function BlockedUsersPage() {
   const { t } = useTranslation()
@@ -1009,8 +1009,8 @@ Duplicar la fila de navegación existente de `navigate('/reminders')` (~línea 7
 La búsqueda carga TODOS los users con `getFullList` y filtra en cliente (líneas 105–144). Añadir:
 
 ```tsx
-import { useBlocks } from '@calistenia/core/hooks/useBlocks'
-import { excludeBlocked } from '@calistenia/core/lib/blocks'
+import { useBlocks } from '@sturdy/core/hooks/useBlocks'
+import { excludeBlocked } from '@sturdy/core/lib/blocks'
 ```
 
 Montar `const { blockedIds } = useBlocks(currentUserId || null)` junto al `useFollows` existente, y envolver el resultado del filtro de búsqueda:
@@ -1044,7 +1044,7 @@ git commit -m "feat(web): página usuarios bloqueados + filtro de búsqueda"
 
 ```tsx
 import { Alert } from 'react-native'
-import { useBlocks } from '@calistenia/core/hooks/useBlocks'
+import { useBlocks } from '@sturdy/core/hooks/useBlocks'
 ```
 
 Junto al `useFollows(currentUserId)` (línea 73):
@@ -1121,7 +1121,7 @@ import { useTranslation } from 'react-i18next'
 
 import { Text } from '@/components/ui/text'
 import { useAuthUser } from '@/lib/use-auth-user'
-import { useBlocks } from '@calistenia/core/hooks/useBlocks'
+import { useBlocks } from '@sturdy/core/hooks/useBlocks'
 
 export default function BlockedUsersScreen() {
   const { t } = useTranslation()
@@ -1203,7 +1203,7 @@ git commit -m "feat(mobile): pantalla usuarios bloqueados + filtro de búsqueda"
 
 - [ ] **Step 1: Suites completas**
 
-Run: `pnpm --filter @calistenia/core test && pnpm -r typecheck`
+Run: `pnpm --filter @sturdy/core test && pnpm -r typecheck`
 Expected: todo verde.
 
 - [ ] **Step 2: Build web**

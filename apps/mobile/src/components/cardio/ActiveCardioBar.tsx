@@ -8,8 +8,8 @@ import { useTranslation } from 'react-i18next'
 import { Text } from '@/components/ui/text'
 import { Kicker } from '@/components/ui/kicker'
 import { useCardioSessionContext } from '@/contexts/CardioSessionContext'
-import { formatDuration } from '@calistenia/core/lib/geo'
-import { CARDIO_ACTIVITY } from '@calistenia/core/lib/style-tokens'
+import { formatDuration } from '@sturdy/core/lib/geo'
+import { CARDIO_ACTIVITY } from '@sturdy/core/lib/style-tokens'
 
 export default function ActiveCardioBar() {
   const { t } = useTranslation()

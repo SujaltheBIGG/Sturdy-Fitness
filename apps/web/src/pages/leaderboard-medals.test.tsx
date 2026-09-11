@@ -49,7 +49,7 @@ describe('medallas del ranking (#455)', () => {
 
       expect(
         LOCAL_COPY.test(source),
-        `${file} vuelve a declarar sus medallas en local; usa RANK_MEDALS de @calistenia/core/lib/challenges`,
+        `${file} vuelve a declarar sus medallas en local; usa RANK_MEDALS de @sturdy/core/lib/challenges`,
       ).toBe(false)
       expect(source, `${file} no importa RANK_MEDALS de core`).toContain('RANK_MEDALS')
     })

@@ -14,9 +14,9 @@ import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
 import { useAuthUser } from '@/lib/use-auth-user'
 import { useWorkoutState, useWorkoutActions } from '@/contexts/WorkoutContext'
-import { utcToLocalDateStr, todayStr } from '@calistenia/core/lib/dateUtils'
-import { fetchMonthActivity, emptyMonthActivity, type MonthActivity, type DayPhotoEntry } from '@calistenia/core/lib/monthActivity'
-import type { SessionDone, WeekDay } from '@calistenia/core/types'
+import { utcToLocalDateStr, todayStr } from '@sturdy/core/lib/dateUtils'
+import { fetchMonthActivity, emptyMonthActivity, type MonthActivity, type DayPhotoEntry } from '@sturdy/core/lib/monthActivity'
+import type { SessionDone, WeekDay } from '@sturdy/core/types'
 
 // Acentos por tipo de actividad (paridad con el calendario web).
 const ACCENT = {

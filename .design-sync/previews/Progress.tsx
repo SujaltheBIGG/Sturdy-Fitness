@@ -1,4 +1,4 @@
-import { Progress } from '@calistenia/web'
+import { Progress } from '@sturdy/web'
 
 export const ConCifra = () => (
   <div className="grid w-80 gap-2">

@@ -1,4 +1,4 @@
-import { Button } from '@calistenia/web'
+import { Button } from '@sturdy/web'
 import { Plus, Play, Share2, Trash2 } from 'lucide-react'
 
 export const Variantes = () => (

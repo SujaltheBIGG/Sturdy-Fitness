@@ -2,8 +2,8 @@ import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Card, CardContent } from '../ui/card'
 import { cn } from '../../lib/utils'
-import { toLocalDateStr } from '@calistenia/core/lib/dateUtils'
-import type { ProgressMap, ExerciseLog } from '@calistenia/core/types'
+import { toLocalDateStr } from '@sturdy/core/lib/dateUtils'
+import type { ProgressMap, ExerciseLog } from '@sturdy/core/types'
 
 interface VolumeLoadChartProps {
   progress: ProgressMap

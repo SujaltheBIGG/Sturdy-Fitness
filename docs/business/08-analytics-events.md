@@ -118,7 +118,7 @@ Destinations: OpenPanel web project and OpenPanel mobile project
 The shared event facade lives in `packages/core/lib/analytics.ts`. Web and
 mobile adapters are initialized in `apps/web/src/lib/init-core.ts` and
 `apps/mobile/src/lib/init-core.ts`. Both adapters send to the self-hosted
-OpenPanel API at `https://openpanel.guille.tech/api`; mobile buffers while
+OpenPanel API at `https://analytics.sturdy.app/api`; mobile buffers while
 offline and only sends events outside development builds.
 
 ## Contract

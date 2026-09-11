@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useId } from 'react'
 import { cn } from '../../lib/utils'
-import type { FoodCategory, PortionUnit } from '@calistenia/core/types'
-import { UNIT_WEIGHT_GRAMS } from '@calistenia/core/types'
+import type { FoodCategory, PortionUnit } from '@sturdy/core/types'
+import { UNIT_WEIGHT_GRAMS } from '@sturdy/core/types'
 
 const UNITS: { value: PortionUnit; label: string }[] = [
   { value: 'g', label: 'g' },
@@ -118,7 +118,7 @@ export default function PortionInput({ amount, unit, unitWeight, onChange, porti
 
         {unit === 'unidad' && (
           <div className="flex items-center gap-1">
-            <label htmlFor={`${id}-weight`} className="sr-only">Peso por unidad (g)</label>
+            <label htmlFor={`${id}-weight`} className="sr-only">Weight per unit (g)</label>
             <input
               id={`${id}-weight`}
               type="number"

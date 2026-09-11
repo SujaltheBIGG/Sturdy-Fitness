@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import type { PlanBase, PlanBudget as Budget, PlanHorizon } from '@calistenia/core/lib/meal-plan-spec'
+import type { PlanBase, PlanBudget as Budget, PlanHorizon } from '@sturdy/core/lib/meal-plan-spec'
 import { cn } from '../../../lib/utils'
 
 const LABEL_KEYS: Record<PlanHorizon, string> = {

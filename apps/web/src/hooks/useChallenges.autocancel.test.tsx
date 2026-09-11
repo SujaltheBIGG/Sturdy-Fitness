@@ -19,7 +19,7 @@ const pbStub = await vi.hoisted(async () => {
   return createPbAutoCancelStub()
 })
 
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: {
     baseUrl: 'http://pb.test',
     filter: (expr: string) => expr,
@@ -28,13 +28,13 @@ vi.mock('@calistenia/core/lib/pocketbase', () => ({
   isPocketBaseAvailable: () => Promise.resolve(true),
 }))
 
-vi.mock('@calistenia/core/lib/analytics', () => ({
+vi.mock('@sturdy/core/lib/analytics', () => ({
   op: { track: vi.fn() },
   trackCanonicalEvent: vi.fn(),
   CANONICAL_ANALYTICS_EVENTS: { challengeJoined: 'challenge_joined' },
 }))
 
-import { useChallenges } from '@calistenia/core/hooks/useChallenges'
+import { useChallenges } from '@sturdy/core/hooks/useChallenges'
 
 type Challenges = ReturnType<typeof useChallenges>
 

@@ -26,7 +26,7 @@ test.describe('Auth', () => {
 
   test('muestra pantalla de login al entrar sin sesión', async ({ page }) => {
     await page.goto('/auth')
-    await expect(page.getByText('CALISTENIA').first()).toBeVisible()
+    await expect(page.getByText('STURDY').first()).toBeVisible()
     await expect(page.getByPlaceholder(/^email$/i)).toBeVisible()
     await expect(page.getByRole('button', { name: /sign in|iniciar sesión/i })).toBeVisible()
   })

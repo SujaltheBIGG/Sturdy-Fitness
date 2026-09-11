@@ -5,14 +5,14 @@ import { MemoryRouter } from 'react-router-dom'
 import LegalPage from './LegalPage'
 
 /**
- * La política de privacidad es el único sitio donde se publica quién ve qué
- * (issue #295). Estos casos no comprueban maquetación: comprueban que las
- * afirmaciones verificadas contra las reglas de PocketBase siguen ahí y que las
- * frases falsas que se borraron no vuelven. Si una regla del backend cambia,
- * el fallo tiene que aparecer aquí y no en un correo de un usuario.
+ * The privacy policy is the only place that publishes who sees what
+ * (issue #295). These cases do not check layout: they check that the claims
+ * verified against the PocketBase rules are still there, and that the false
+ * sentences that were removed do not come back. If a backend rule changes, the
+ * failure has to show up here and not in an email from a user.
  *
- * La página no pasa por i18n: el castellano va incrustado en el componente, así
- * que los asserts comparan contra el texto real, tildes incluidas.
+ * The page does not go through i18n: the English copy is embedded in the
+ * component, so the asserts compare against the real text.
  */
 function renderPage() {
   render(
@@ -22,140 +22,139 @@ function renderPage() {
   )
 }
 
-/** La tabla de visibilidad, localizada por su caption accesible. */
+/** The visibility table, located by its accessible caption. */
 function visibilityTable() {
-  return screen.getByRole('table', { name: /Qué ve cada persona de tus datos/i })
+  return screen.getByRole('table', { name: /What each person sees of your data/i })
 }
 
-describe('LegalPage · privacidad', () => {
-  it('enumera las categorias de datos de salud que la app guarda', () => {
+describe('LegalPage - privacy', () => {
+  it('lists the health data categories the app stores', () => {
     renderPage()
-    // Etiqueta exacta del <strong>: «Resúmenes generados por IA» también
-    // aparece en el disclaimer médico de las condiciones, y un regex suelto
-    // encontraría dos nodos.
-    for (const categoria of [
-      'Datos sobre tu cuerpo (datos de salud):',
-      'Datos de descanso (datos de salud):',
-      'Condiciones médicas y lesiones (datos de salud):',
-      'Datos de dispositivos de salud (datos de salud):',
-      'Resúmenes generados por inteligencia artificial (datos de salud):',
+    // Exact <strong> label: "AI-generated summaries" also appears in the
+    // medical disclaimer, and a loose regex would find two nodes.
+    for (const category of [
+      'Body data (health data):',
+      'Rest data (health data):',
+      'Medical conditions and injuries (health data):',
+      'Health device data (health data):',
+      'AI-generated summaries (health data):',
     ]) {
-      expect(screen.getByText(categoria)).toBeInTheDocument()
+      expect(screen.getByText(category)).toBeInTheDocument()
     }
   })
 
-  it('marca como owner-only exactamente lo que las reglas dejan owner-only', () => {
+  it('marks as owner-only exactly what the rules leave owner-only', () => {
     renderPage()
-    const soloTu = within(visibilityTable()).getAllByText('Solo tú.')
-    // fotos+medidas+peso, comida+agua+sueno, condiciones medicas, health+IA
-    expect(soloTu).toHaveLength(4)
+    const onlyYou = within(visibilityTable()).getAllByText('Only you.')
+    // photos+measurements+weight, meals+water+sleep, medical conditions, health+AI
+    expect(onlyYou).toHaveLength(4)
   })
 
-  it('dice que los entrenos los ve cualquier cuenta, no solo quien te sigue', () => {
+  it('says workouts are visible to any account, not just followers', () => {
     renderPage()
-    const fila = within(visibilityTable()).getByRole('row', { name: /Entrenos completados/ })
-    expect(fila).toHaveTextContent(/Cualquier persona con una cuenta, no solo quienes te siguen/)
+    const row = within(visibilityTable()).getByRole('row', { name: /Completed workouts/ })
+    expect(row).toHaveTextContent(/Anyone with an account, not just people who follow you/)
   })
 
-  // Desde la pila de #386 (1783400000/1783400001) el bloqueo SÍ oculta series,
-  // marcas y participaciones en carreras. La tabla decía lo contrario.
-  it('dice que el bloqueo oculta series, marcas y carreras', () => {
+  // Since the #386 stack (1783400000/1783400001) blocking DOES hide sets,
+  // records and race participation. The table used to say the opposite.
+  it('says blocking hides sets, records and races', () => {
     renderPage()
-    const tabla = visibilityTable()
-    expect(within(tabla).getByRole('row', { name: /Series, repeticiones y marcas/ }))
-      .toHaveTextContent(/Se ocultan a quien hayas bloqueado/)
-    expect(within(tabla).getByRole('row', { name: /Participaciones en carreras/ }))
-      .toHaveTextContent(/Se ocultan a quien hayas bloqueado/)
+    const table = visibilityTable()
+    expect(within(table).getByRole('row', { name: /Sets, reps and personal records/ }))
+      .toHaveTextContent(/Hidden from anyone you have blocked/)
+    expect(within(table).getByRole('row', { name: /Race participation/ }))
+      .toHaveTextContent(/Hidden from anyone you have blocked/)
   })
 
-  // #316 cerró el último agujero de rutas GPS: `gps_track` salió de
-  // `race_participants` a `race_routes`, owner-only. La página ya no anuncia
-  // una limitación vigente, pero SÍ tiene que seguir contando que existió.
-  it('ya no anuncia la limitacion de las rutas GPS de carreras como vigente', () => {
+  // #316 closed the last GPS route hole: `gps_track` moved out of
+  // `race_participants` into `race_routes`, owner-only. The page no longer
+  // announces a current limitation, but it MUST still say one existed.
+  it('no longer announces the race GPS route limitation as current', () => {
     renderPage()
-    expect(screen.queryByRole('heading', { name: /limitación conocida/ })).not.toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: /Dónde se guardan tus recorridos GPS/ })).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: /known limitation/i })).not.toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Where your GPS tracks are stored/ })).toBeInTheDocument()
   })
 
-  it('cuenta que el recorrido de carreras estuvo expuesto hasta el 12 de agosto de 2026', () => {
+  it('says the race track was exposed until August 12, 2026', () => {
     renderPage()
-    expect(screen.getByText(/hasta el 12 de agosto de 2026 en el de las carreras/)).toBeInTheDocument()
-    expect(screen.getByText(/el servidor tampoco lo impedía/)).toBeInTheDocument()
+    expect(screen.getByText(/until August 12, 2026 for races/)).toBeInTheDocument()
+    expect(screen.getByText(/the server did not prevent it either/)).toBeInTheDocument()
   })
 
-  it('deja claro que las rutas de cardio y de carreras ya solo las ve su dueño', () => {
+  it('makes clear cardio and race routes are now owner-only', () => {
     renderPage()
-    const tabla = visibilityTable()
-    expect(within(tabla).getByRole('row', { name: /La ruta GPS de tus sesiones de cardio/ }))
-      .toHaveTextContent(/Solo tú/)
-    expect(within(tabla).getByRole('row', { name: /El recorrido GPS de tus carreras/ }))
-      .toHaveTextContent(/Solo tú/)
+    const table = visibilityTable()
+    expect(within(table).getByRole('row', { name: /The GPS route of your cardio sessions/ }))
+      .toHaveTextContent(/Only you/)
+    expect(within(table).getByRole('row', { name: /The GPS track of your races/ }))
+      .toHaveTextContent(/Only you/)
   })
 
-  it('explica que las fotos se sirven por una direccion no adivinable', () => {
+  it('explains that photos are served from an unguessable address', () => {
     renderPage()
-    expect(screen.getByText(/sin comprobar quién la abre/)).toBeInTheDocument()
+    expect(screen.getByText(/without checking who opens it/)).toBeInTheDocument()
   })
 
-  it('nombra a los proveedores que reciben datos', () => {
+  it('names the providers that receive data', () => {
     renderPage()
-    for (const proveedor of [
-      /Proveedores de inteligencia artificial \(Anthropic, OpenAI y Google\)/,
+    for (const provider of [
+      /AI providers \(Anthropic, OpenAI and Google\)/,
       /Langfuse/,
       /Sentry/,
       /OpenPanel/,
       /Expo, Firebase Cloud Messaging/,
       /CARTO/,
     ]) {
-      expect(screen.getByText(proveedor)).toBeInTheDocument()
+      expect(screen.getByText(provider)).toBeInTheDocument()
     }
   })
 
-  it('aclara que fotos de progreso, medidas y condiciones médicas no salen a la IA', () => {
+  it('clarifies that progress photos, measurements and medical conditions do not go to the AI', () => {
     renderPage()
-    expect(screen.getByText(/reciben tus fotos de progreso, tus medidas corporales ni tus condiciones médicas/))
+    expect(screen.getByText(/receive your progress photos, your body measurements or your medical conditions/))
       .toBeInTheDocument()
   })
 
-  it('describe la baja autoservicio que existe desde #300, en web y en Android', () => {
+  it('describes the self-service deletion that exists since #300, on web and Android', () => {
     renderPage()
-    expect(screen.getByText(/Puedes eliminar tu cuenta tú mismo desde tu perfil/)).toBeInTheDocument()
-    expect(screen.getByText(/Te pedimos escribir tu correo para confirmar/)).toBeInTheDocument()
-    expect(screen.getByText(/una cuenta eliminada no se puede recuperar/)).toBeInTheDocument()
+    expect(screen.getByText(/You can delete your account yourself from your profile/)).toBeInTheDocument()
+    expect(screen.getByText(/We ask you to type your email to confirm/)).toBeInTheDocument()
+    expect(screen.getByText(/a deleted account cannot be recovered/)).toBeInTheDocument()
   })
 
-  it('incluye cardio y carreras entre lo que se borra con la cuenta', () => {
+  it('includes cardio and races in what is deleted with the account', () => {
     renderPage()
-    // Antes de #300 estas dos categorías se borraban a mano porque su relación
-    // con `users` no cascadeaba; ahora caen con el resto.
-    expect(screen.getByText(/sesiones de cardio con su ruta GPS, circuitos, participaciones en carreras/))
+    // Before #300 these two categories were deleted by hand because their
+    // relation to `users` did not cascade; now they go with the rest.
+    expect(screen.getByText(/cardio sessions with their GPS route, circuits, race participations/))
       .toBeInTheDocument()
   })
 
-  it('describe la exportacion real: dos CSV y solo en web', () => {
+  it('describes the real export: two CSVs and web only', () => {
     renderPage()
-    expect(screen.getByText(/Hoy no hay exportación desde la aplicación de Android/)).toBeInTheDocument()
+    expect(screen.getByText(/There is currently no export from the Android app/)).toBeInTheDocument()
   })
 })
 
-describe('LegalPage · frases retiradas', () => {
-  it('ya no dice que el borrado de cuenta no exista ni que haya que pedirlo por correo', () => {
+describe('LegalPage - withdrawn sentences', () => {
+  it('no longer says account deletion does not exist or must be requested by email', () => {
     renderPage()
-    expect(screen.queryByText(/Todavía no existe un botón para borrar tu cuenta/)).not.toBeInTheDocument()
-    expect(screen.queryByText(/todavía no hay un botón para hacerlo dentro de la aplicación/))
+    expect(screen.queryByText(/There is still no button to delete your account/)).not.toBeInTheDocument()
+    expect(screen.queryByText(/there is still no button to do it inside the app/))
       .not.toBeInTheDocument()
-    // Y tampoco vuelve la excepción de cardio/carreras, ya cascadeadas.
-    expect(screen.queryByText(/Las eliminamos a mano/)).not.toBeInTheDocument()
+    // And the cardio/race exception does not come back either, now cascaded.
+    expect(screen.queryByText(/We delete them by hand/)).not.toBeInTheDocument()
   })
 
-  it('ya no dice que Google OAuth sea el unico tercero', () => {
+  it('no longer says Google OAuth is the only third party', () => {
     renderPage()
-    expect(screen.queryByText(/No vendemos ni compartimos tu información personal con terceros, excepto/))
+    expect(screen.queryByText(/We do not sell or share your personal information with third parties, except/))
       .not.toBeInTheDocument()
   })
 
-  it('ambas secciones llevan la misma fecha de actualizacion', () => {
+  it('both sections carry the same updated date', () => {
     renderPage()
-    expect(screen.getAllByText(/Última actualización: 12 de agosto de 2026/)).toHaveLength(2)
+    expect(screen.getAllByText(/Last updated: August 12, 2026/)).toHaveLength(2)
   })
 })

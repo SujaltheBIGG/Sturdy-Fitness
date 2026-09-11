@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom'
 import { useActiveSession } from '../../contexts/ActiveSessionContext'
 import { Button } from '../ui/button'
 import { cn } from '../../lib/utils'
-import type { Exercise, Workout } from '@calistenia/core/types'
-import { useCatalogIndex } from '@calistenia/core/hooks/useCatalogIndex'
-import type { RawCatalog } from '@calistenia/core/lib/catalogIndex'
-import { WORKOUTS } from '@calistenia/core/data/workouts'
-import { SUPPLEMENTARY_EXERCISES } from '@calistenia/core/data/supplementary-exercises'
-import { catalogExerciseIdentity } from '@calistenia/core/lib/exerciseCatalog'
+import type { Exercise, Workout } from '@sturdy/core/types'
+import { useCatalogIndex } from '@sturdy/core/hooks/useCatalogIndex'
+import type { RawCatalog } from '@sturdy/core/lib/catalogIndex'
+import { WORKOUTS } from '@sturdy/core/data/workouts'
+import { SUPPLEMENTARY_EXERCISES } from '@sturdy/core/data/supplementary-exercises'
+import { catalogExerciseIdentity } from '@sturdy/core/lib/exerciseCatalog'
 
 interface AIExercise {
   id: string
@@ -52,12 +52,12 @@ function buildCatalogMap(catalogData: RawCatalog | null): Map<string, Exercise> 
       if (!map.has(ex.id)) {
         map.set(ex.id, {
           id: ex.id,
-          name: typeof ex.name === 'object' ? (ex.name.es || ex.name.en || ex.id) : (ex.name || ex.id),
-          muscles: typeof ex.muscles === 'object' ? (ex.muscles.es || ex.muscles.en || '') : (ex.muscles || ''),
+          name: typeof ex.name === 'object' ? (ex.name.en || ex.name.es || ex.id) : (ex.name || ex.id),
+          muscles: typeof ex.muscles === 'object' ? (ex.muscles.en || ex.muscles.es || '') : (ex.muscles || ''),
           sets: ex.sets ?? 3,
           reps: ex.reps || '8-12',
           rest: ex.rest ?? 60,
-          note: typeof ex.note === 'object' ? (ex.note.es || ex.note.en || '') : (ex.note || ''),
+          note: typeof ex.note === 'object' ? (ex.note.en || ex.note.es || '') : (ex.note || ''),
           youtube: ex.youtube_query || '',
           // El catálogo JSON no está validado: `priority` llega como `string`.
           priority: (ex.priority || 'med') as Exercise['priority'],
@@ -142,7 +142,7 @@ export default function SessionPreview({ exercises, onRemove, onReorder, onAdd }
     <div className="rounded-xl border border-border/80 bg-card overflow-hidden shadow-sm ring-1 ring-lime/10">
       <div className="px-4 py-2.5 border-b border-border bg-lime/[0.03]">
         <div className="flex items-center justify-between">
-          <div className="text-[10px] text-lime/80 tracking-[2px] uppercase font-medium">Tu sesión</div>
+          <div className="text-[10px] text-lime/80 tracking-[2px] uppercase font-medium">Your session</div>
           <span className="text-[10px] text-muted-foreground tabular-nums">
             {resolvedExercises.length} ejercicios
             {resolvedExercises.length < exercises.length && (
@@ -239,7 +239,7 @@ export default function SessionPreview({ exercises, onRemove, onReorder, onAdd }
                   type="text"
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
-                  placeholder="Buscar ejercicio..."
+                  placeholder="Search exercise..."
                   autoFocus
                   className="flex-1 rounded-lg border border-border bg-background px-3 py-1.5 text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:border-[hsl(var(--lime))]/50"
                 />
@@ -305,7 +305,7 @@ export default function SessionPreview({ exercises, onRemove, onReorder, onAdd }
             disabled={starting}
             className="w-full font-bebas text-lg tracking-wide"
           >
-            Empezar sesión
+            Start session
           </Button>
         </div>
       )}

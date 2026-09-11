@@ -3,7 +3,7 @@ import { z } from "zod";
 import { getAuthManager } from "../mcpuse/auth-bridge.js";
 import { errorResult, viewResult, PaginationSchema, ResponseFormat, daysAgo, today, toDateStr } from "../utils.js";
 import { circuitResultPropsSchema } from "../views/circuit-result.schema.js";
-import { toIsoTextDatetime } from "@calistenia/core/lib/pbTextDatetime";
+import { toIsoTextDatetime } from "@sturdy/core/lib/pbTextDatetime";
 
 export function registerCircuitTools(server: AppServer, pbUrl: string) {
   // ──────────────────────────────────────────────────────────────

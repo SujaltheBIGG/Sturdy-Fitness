@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import type { PushPermissionState } from '@calistenia/core/lib/push-prompt'
-import { markPushPromptSeen, shouldShowPushPrompt, trackPushPromptAnswered, trackPushPromptViewed } from '@calistenia/core/lib/push-prompt'
+import type { PushPermissionState } from '@sturdy/core/lib/push-prompt'
+import { markPushPromptSeen, shouldShowPushPrompt, trackPushPromptAnswered, trackPushPromptViewed } from '@sturdy/core/lib/push-prompt'
 import { Button } from '../ui/button'
 import { getNotificationSupport, requestNotificationPermission, subscribeToPush } from '../../lib/push-subscription'
 

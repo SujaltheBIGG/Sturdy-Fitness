@@ -1,11 +1,11 @@
 /**
  * Traducción de las señales del entreno a sonido y vibración, en web.
  *
- * Gemelo de `apps/mobile/src/lib/training-cues.ts`: los hooks de `@calistenia/core`
+ * Gemelo de `apps/mobile/src/lib/training-cues.ts`: los hooks de `@sturdy/core`
  * solo emiten `TrainingCue` y cada plataforma decide cómo suena. Aquí la háptica es
  * `navigator.vibrate` en vez de expo-haptics.
  */
-import type { TrainingCue } from '@calistenia/core/lib/countdown'
+import type { TrainingCue } from '@sturdy/core/lib/countdown'
 
 import * as sounds from './sounds'
 

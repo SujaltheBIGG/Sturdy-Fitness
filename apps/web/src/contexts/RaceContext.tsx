@@ -14,7 +14,7 @@ import {
   type RaceErrorKind,
   type RaceErrorState,
   type RaceHooks,
-} from '@calistenia/core/hooks/session-contexts/useRaceState'
+} from '@sturdy/core/hooks/session-contexts/useRaceState'
 
 import { useAuthState } from './AuthContext'
 import { clearRaceSnapshot } from '../lib/race/raceSnapshot'

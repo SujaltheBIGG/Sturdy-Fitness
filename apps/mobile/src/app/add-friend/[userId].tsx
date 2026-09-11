@@ -13,7 +13,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router'
 import { Text } from '@/components/ui/text'
 import { Loader } from '@/components/ui/loader'
 import { useAuthUser } from '@/lib/use-auth-user'
-import { useFollows } from '@calistenia/core/hooks/useFollows'
+import { useFollows } from '@sturdy/core/hooks/useFollows'
 
 export default function AddFriendScreen() {
   const { userId: targetUserId } = useLocalSearchParams<{ userId: string }>()

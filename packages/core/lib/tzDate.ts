@@ -36,7 +36,7 @@ export function todayStrIn(tz: string): string {
   const s = dayjs().tz(tz).format('YYYY-MM-DD')
   if (YMD.test(s)) return s
   const local = dayjs().format('YYYY-MM-DD')
-  console.warn(`[tzDate] todayStrIn(${tz}) devolvió «${s}»; usando hora local ${local}`)
+  console.warn(`[tzDate] todayStrIn(${tz}) returned «${s}»; falling back to local time ${local}`)
   return local
 }
 
@@ -54,7 +54,7 @@ function parseIn(dateStr: string, tz: string): dayjs.Dayjs | null {
 }
 
 function warnInvalid(fn: string, value: unknown): void {
-  console.warn(`[tzDate] ${fn}: fecha inválida «${String(value)}»`)
+  console.warn(`[tzDate] ${fn}: invalid date «${String(value)}»`)
 }
 
 /**

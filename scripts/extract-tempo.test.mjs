@@ -2,7 +2,7 @@
  * extract-tempo.test.mjs — Unit tests for the parseTempo() pure function.
  *
  * Run with: node --experimental-vm-modules apps/mobile/node_modules/.bin/vitest run scripts/extract-tempo.test.mjs
- * Or: cd <root> && pnpm --filter @calistenia/mobile test -- scripts/extract-tempo.test.mjs
+ * Or: cd <root> && pnpm --filter @sturdy/mobile test -- scripts/extract-tempo.test.mjs
  */
 
 import { describe, it, expect } from 'vitest'

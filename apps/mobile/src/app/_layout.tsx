@@ -1,4 +1,4 @@
-// init-core DEBE evaluarse antes que cualquier módulo de @calistenia/core.
+// init-core DEBE evaluarse antes que cualquier módulo de @sturdy/core.
 import '@/lib/init-core'
 import '../global.css'
 // Registra setNotificationHandler app-wide (rest timer + recordatorios) al boot.
@@ -17,13 +17,13 @@ import { SafeAreaProvider, initialWindowMetrics } from 'react-native-safe-area-c
 import { KeyboardProvider } from 'react-native-keyboard-controller'
 import { PortalHost } from '@rn-primitives/portal'
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client'
-import { createQueryClient, createCorePersister, setupOnlineManager, PERSIST_MAX_AGE, PERSIST_BUSTER } from '@calistenia/core/lib/query-client'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import { useRestPreferences } from '@calistenia/core/hooks/useRestPreferences'
-import { useWeight } from '@calistenia/core/hooks/useWeight'
-import { pb, tryRefreshAuth, verifyAuth } from '@calistenia/core/lib/pocketbase'
-import { setupAutoSync } from '@calistenia/core/lib/offlineQueue'
-import { consumeBattleInviteToken } from '@calistenia/core/lib/battleInviteHandoff'
+import { createQueryClient, createCorePersister, setupOnlineManager, PERSIST_MAX_AGE, PERSIST_BUSTER } from '@sturdy/core/lib/query-client'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import { useRestPreferences } from '@sturdy/core/hooks/useRestPreferences'
+import { useWeight } from '@sturdy/core/hooks/useWeight'
+import { pb, tryRefreshAuth, verifyAuth } from '@sturdy/core/lib/pocketbase'
+import { setupAutoSync } from '@sturdy/core/lib/offlineQueue'
+import { consumeBattleInviteToken } from '@sturdy/core/lib/battleInviteHandoff'
 
 import { Sentry } from '@/lib/instrument'
 import { FONTS } from '@/lib/fonts'

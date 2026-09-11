@@ -33,10 +33,10 @@ async function freshStorage() {
 
 /** Disco con una clave gorda que revienta el CursorWindow, como en producción. */
 function mockDiscoConUnaClaveGorda() {
-  asyncStorage.getAllKeys.mockResolvedValue(['pb_auth', 'calistenia_rq_cache'])
+  asyncStorage.getAllKeys.mockResolvedValue(['pb_auth', 'sturdy_rq_cache'])
   asyncStorage.getMany.mockRejectedValue(CURSOR_ERROR)
   asyncStorage.getItem.mockImplementation(async (key: string) =>
-    key === 'calistenia_rq_cache' ? Promise.reject(CURSOR_ERROR) : 'token'
+    key === 'sturdy_rq_cache' ? Promise.reject(CURSOR_ERROR) : 'token'
   )
 }
 
@@ -74,7 +74,7 @@ describe('hydrateStorage', () => {
 
     // La sesión persistida sobrevive: el usuario no acaba en la pantalla de login.
     expect(syncStorage.getItem('pb_auth')).toBe('token')
-    expect(syncStorage.getItem('calistenia_rq_cache')).toBeNull()
+    expect(syncStorage.getItem('sturdy_rq_cache')).toBeNull()
   })
 
   it('borra de disco la clave ilegible para no repetir el fallo en cada arranque', async () => {
@@ -83,7 +83,7 @@ describe('hydrateStorage', () => {
     const { hydrateStorage } = await freshStorage()
     await hydrateStorage()
 
-    expect(asyncStorage.removeItem).toHaveBeenCalledWith('calistenia_rq_cache')
+    expect(asyncStorage.removeItem).toHaveBeenCalledWith('sturdy_rq_cache')
     expect(asyncStorage.removeItem).not.toHaveBeenCalledWith('pb_auth')
   })
 

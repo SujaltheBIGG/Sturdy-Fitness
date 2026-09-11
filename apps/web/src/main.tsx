@@ -1,5 +1,5 @@
 import "./instrument";              // Sentry — MUST be first import
-import "./lib/init-core";           // Platform adapter de @calistenia/core — MUST be second
+import "./lib/init-core";           // Platform adapter de @sturdy/core — MUST be second
 
 import React, { type ErrorInfo } from 'react'
 import ReactDOM from 'react-dom/client'
@@ -10,7 +10,7 @@ import { registerSW } from 'virtual:pwa-register'
 import { toast } from 'sonner'
 import i18n from './lib/i18n'
 import { hasActiveWorkout } from './lib/active-workout'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 import App from './App'
 import './index.css'
 

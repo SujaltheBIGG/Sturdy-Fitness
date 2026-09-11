@@ -10,8 +10,8 @@ import { Text } from '@/components/ui/text'
 import { EmptyState } from '@/components/ui/empty-state'
 import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
-import { useDiscoverRaces } from '@calistenia/core/hooks/useDiscoverRaces'
-import { CARDIO_ACTIVITY } from '@calistenia/core/lib/style-tokens'
+import { useDiscoverRaces } from '@sturdy/core/hooks/useDiscoverRaces'
+import { CARDIO_ACTIVITY } from '@sturdy/core/lib/style-tokens'
 
 const RADII = [5, 10, 25, 50, 100]
 

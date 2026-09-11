@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAuthState } from '../contexts/AuthContext'
-import { useNotificationPrefs, NOTIFICATION_PREF_KEYS, type NotificationPrefs } from '@calistenia/core/hooks/useNotificationPrefs'
+import { useNotificationPrefs, NOTIFICATION_PREF_KEYS, type NotificationPrefs } from '@sturdy/core/hooks/useNotificationPrefs'
 import { cn } from '../lib/utils'
 import { Loader } from '../components/ui/loader'
 

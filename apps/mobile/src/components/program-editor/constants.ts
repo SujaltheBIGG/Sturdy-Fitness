@@ -2,7 +2,7 @@
  * Constantes compartidas del editor de programas nativo (#223) —
  * espejo de apps/web/src/pages/ProgramEditorPage.tsx:21-57.
  */
-import type { CardioActivityType } from '@calistenia/core/types'
+import type { CardioActivityType } from '@sturdy/core/types'
 
 export const STEP_LABEL_KEYS = [
   'programEditor.stepInfo',

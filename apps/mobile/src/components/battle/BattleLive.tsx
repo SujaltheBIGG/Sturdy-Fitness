@@ -25,11 +25,11 @@ import BattleStandingsList from '@/components/battle/BattleStandingsList'
 import BattleFinishedWaiting from '@/components/battle/BattleFinishedWaiting'
 import BattleExerciseEntry from '@/components/battle/BattleExerciseEntry'
 import { RestPanel } from '@/components/training/RestPanel'
-import { battleElapsedMs } from '@calistenia/core/hooks/useBattle'
-import { useCountdown } from '@calistenia/core/hooks/useCountdown'
-import { battleExerciseName } from '@calistenia/core/data/battle-presets'
-import { formatBattleElapsed } from '@calistenia/core/lib/battle'
-import { serverNow } from '@calistenia/core/lib/serverClock'
+import { battleElapsedMs } from '@sturdy/core/hooks/useBattle'
+import { useCountdown } from '@sturdy/core/hooks/useCountdown'
+import { battleExerciseName } from '@sturdy/core/data/battle-presets'
+import { formatBattleElapsed } from '@sturdy/core/lib/battle'
+import { serverNow } from '@sturdy/core/lib/serverClock'
 
 export default function BattleLive() {
   const { t, i18n } = useTranslation()

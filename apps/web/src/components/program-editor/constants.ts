@@ -4,8 +4,8 @@
  * apps/mobile/src/components/program-editor/constants.ts: CARDIO_TYPE_OPTIONS
  * aquí lleva `icon` y PRIORITY_OPTIONS usa `color` en vez de `className`.
  */
-import { CARDIO_ACTIVITY } from '@calistenia/core/lib/style-tokens'
-import type { CardioActivityType } from '@calistenia/core/types'
+import { CARDIO_ACTIVITY } from '@sturdy/core/lib/style-tokens'
+import type { CardioActivityType } from '@sturdy/core/types'
 
 export const STEP_LABEL_KEYS = ['programEditor.stepInfo', 'programEditor.stepPhases', 'programEditor.stepDays', 'programEditor.stepExercises']
 

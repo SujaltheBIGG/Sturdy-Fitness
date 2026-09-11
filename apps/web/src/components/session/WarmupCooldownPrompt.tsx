@@ -8,9 +8,9 @@ import {
   DialogHeader,
   DialogTitle,
 } from '../ui/dialog'
-import { detectDayType } from '@calistenia/core/lib/detect-day-type'
-import { stretchTemplates } from '@calistenia/core/data/stretch-templates'
-import type { Exercise } from '@calistenia/core/types'
+import { detectDayType } from '@sturdy/core/lib/detect-day-type'
+import { stretchTemplates } from '@sturdy/core/data/stretch-templates'
+import type { Exercise } from '@sturdy/core/types'
 
 // ── Local sub-components ────────────────────────────────────────────────────
 

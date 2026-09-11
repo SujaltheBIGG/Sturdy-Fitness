@@ -8,8 +8,8 @@
  * acceso mínimo a datos): las columnas steps y hr_avg/hr_max ya no se escriben;
  * los valores históricos se conservan.
  */
-import { pb } from '@calistenia/core/lib/pocketbase'
-import type { DailyHealthSummary, HealthDataType, HealthSyncResult } from '@calistenia/core/types'
+import { pb } from '@sturdy/core/lib/pocketbase'
+import type { DailyHealthSummary, HealthDataType, HealthSyncResult } from '@sturdy/core/types'
 import * as hc from './bridge'
 import { Sentry } from '@/lib/instrument'
 

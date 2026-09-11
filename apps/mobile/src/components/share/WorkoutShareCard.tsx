@@ -11,8 +11,8 @@
  */
 import React from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
-import type { Exercise, ExerciseTiming } from '@calistenia/core/types'
-import { formatTimingClock } from '@calistenia/core/lib/exerciseTiming'
+import type { Exercise, ExerciseTiming } from '@sturdy/core/types'
+import { formatTimingClock } from '@sturdy/core/lib/exerciseTiming'
 
 const C = {
   bg: '#09090b',
@@ -224,10 +224,10 @@ function WorkoutShareCard({
             <View style={s.footerDivider} />
             <View style={s.footerRow}>
               <Text className="font-mono-semibold" style={s.footerBrand}>
-                CALISTENIA
+                STURDY
               </Text>
               <Text className="font-mono" style={s.footerUrl}>
-                gym.guille.tech
+                sturdy.app
               </Text>
             </View>
           </View>

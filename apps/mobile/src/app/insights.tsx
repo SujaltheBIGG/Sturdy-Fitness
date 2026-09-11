@@ -30,7 +30,7 @@ import {
   useInsightHistory,
   type CrossInsight,
   type InsightPeriodType,
-} from '@calistenia/core/hooks/useCrossInsights'
+} from '@sturdy/core/hooks/useCrossInsights'
 import { sortByStrength, CorrelationRow, Disclaimer, relativeTime } from '@/components/insights/InsightsCard'
 import { EmptyState } from '@/components/ui/empty-state'
 

@@ -1,4 +1,4 @@
-# Implementation Plan — Calistenia App Evolution
+# Implementation Plan — Sturdy Evolution
 
 **Date:** 2026-03-15
 **Based on:** [Design Spec](./2026-03-15-app-evolution-design.md)

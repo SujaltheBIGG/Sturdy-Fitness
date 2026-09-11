@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { useCommunityPrograms } from '@calistenia/core/hooks/useCommunityPrograms'
+import { useCommunityPrograms } from '@sturdy/core/hooks/useCommunityPrograms'
 
 interface CommunityProgramHomeCardProps {
   userId: string | null

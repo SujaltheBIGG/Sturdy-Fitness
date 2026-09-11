@@ -4,15 +4,15 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { toast } from 'sonner'
 import * as Sentry from '@sentry/react'
 import MealLoggerContent from '../components/nutrition/MealLoggerContent'
-import { usePantryDepletion } from '@calistenia/core/hooks/usePantryDepletion'
+import { usePantryDepletion } from '@sturdy/core/hooks/usePantryDepletion'
 import { PantryDepleteDialog } from '../components/pantry/PantryDepleteDialog'
-import { useNutrition } from '@calistenia/core/hooks/useNutrition'
-import type { FoodItem } from '@calistenia/core/types'
-import { useMealLoggerActions } from '@calistenia/core/hooks/useMealLoggerActions'
+import { useNutrition } from '@sturdy/core/hooks/useNutrition'
+import type { FoodItem } from '@sturdy/core/types'
+import { useMealLoggerActions } from '@sturdy/core/hooks/useMealLoggerActions'
 import { useBackgroundJobs } from '../hooks/useBackgroundJobs'
-import { submitAnalyzeMealJob, fetchJobStatus } from '@calistenia/core/lib/ai-jobs-api'
-import { migrateLegacyFood } from '@calistenia/core/lib/macro-calc'
-import type { AnalyzeResult } from '@calistenia/core/hooks/useMealLoggerActions'
+import { submitAnalyzeMealJob, fetchJobStatus } from '@sturdy/core/lib/ai-jobs-api'
+import { migrateLegacyFood } from '@sturdy/core/lib/macro-calc'
+import type { AnalyzeResult } from '@sturdy/core/hooks/useMealLoggerActions'
 
 interface MealLoggerPageProps {
   userId: string | null
@@ -165,7 +165,7 @@ export default function MealLoggerPage({ userId }: MealLoggerPageProps) {
       <div className="flex items-center justify-between mb-6">
         <div>
           <div className="text-[10px] text-muted-foreground tracking-[0.3em] mb-1 uppercase">Nutricion</div>
-          <div className="font-bebas text-3xl md:text-4xl">REGISTRAR COMIDA</div>
+          <div className="font-bebas text-3xl md:text-4xl">LOG MEAL</div>
         </div>
         <button
           onClick={() => navigate('/nutrition')}
@@ -189,7 +189,7 @@ export default function MealLoggerPage({ userId }: MealLoggerPageProps) {
             onClick={() => { setJobLoading(false); setSearchParams({}, { replace: true }) }}
             className="w-full text-center text-xs text-muted-foreground hover:text-foreground transition-colors py-2"
           >
-            Registrar otra comida
+            Log another meal
           </button>
         </div>
       ) : (

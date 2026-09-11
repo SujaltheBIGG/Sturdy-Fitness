@@ -36,9 +36,6 @@ importers:
       '@bacons/apple-targets':
         specifier: ^4.0.7
         version: 4.0.7(expo@57.0.17)
-      '@calistenia/core':
-        specifier: workspace:*
-        version: link:../../packages/core
       '@expo-google-fonts/bebas-neue':
         specifier: ^0.4.1
         version: 0.4.1
@@ -81,6 +78,9 @@ importers:
       '@sentry/react-native':
         specifier: ~7.13.0
         version: 7.13.0(expo@57.0.17)(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+      '@sturdy/core':
+        specifier: workspace:*
+        version: link:../../packages/core
       '@tanstack/query-sync-storage-persister':
         specifier: ^5.102.6
         version: 5.102.6
@@ -271,9 +271,6 @@ importers:
       '@ai-sdk/react':
         specifier: ^4.0.86
         version: 4.0.86(react@19.2.8)(zod@4.4.3)
-      '@calistenia/core':
-        specifier: workspace:*
-        version: link:../../packages/core
       '@mdx-js/mdx':
         specifier: ^3.1.1
         version: 3.1.1
@@ -352,6 +349,9 @@ importers:
       '@streamdown/mermaid':
         specifier: ^1.0.2
         version: 1.0.2(react@19.2.8)
+      '@sturdy/core':
+        specifier: workspace:*
+        version: link:../../packages/core
       '@tailwindcss/typography':
         specifier: ^0.5.20
         version: 0.5.20(tailwindcss@4.3.3)
@@ -11301,9 +11301,7 @@ snapshots:
       metro-runtime: 0.84.5
     transitivePeerDependencies:
       - '@babel/core'
-      - bufferutil
       - supports-color
-      - utf-8-validate
 
   '@react-native/normalize-colors@0.74.89': {}
 

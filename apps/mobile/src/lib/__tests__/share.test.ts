@@ -34,7 +34,7 @@ vi.mock('expo-clipboard', () => ({
   setStringAsync: vi.fn(),
 }))
 
-vi.mock('@calistenia/core/lib/analytics', () => ({
+vi.mock('@sturdy/core/lib/analytics', () => ({
   trackShareCardShared: mocks.trackShareCardShared,
   trackCanonicalEvent: mocks.trackCanonicalEvent,
   CANONICAL_ANALYTICS_EVENTS: { battleShared: 'battle_shared' },
@@ -223,12 +223,12 @@ describe('battle result share', () => {
     const conReferido = shareBattleResult({
       circuitName: 'Circuito básico', rank: 1, contenders: 3, tied: false, referralCode: 'abc123',
     })
-    expect(conReferido.url).toBe('https://gym.guille.tech/invite/abc123')
+    expect(conReferido.url).toBe('https://sturdy.app/invite/abc123')
 
     const sinReferido = shareBattleResult({
       circuitName: 'Circuito básico', rank: 1, contenders: 3, tied: false, referralCode: null,
     })
-    expect(sinReferido.url).toBe('https://gym.guille.tech')
+    expect(sinReferido.url).toBe('https://sturdy.app')
     expect(sinReferido.url).not.toMatch(/battle/)
   })
 

@@ -4,7 +4,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { pb } from '../lib/pocketbase'
 import { qk } from '../lib/query-keys'
 
-const LS_KEY = 'calistenia_workout_reminders'
+const LS_KEY = 'sturdy_workout_reminders'
 
 function parseDaysOfWeek(raw: unknown): number[] {
   if (Array.isArray(raw)) return raw
@@ -54,7 +54,7 @@ export function useWorkoutReminders(userId: string | null = null) {
 
   const { data: reminders = [] } = useQuery<WorkoutReminder[]>({
     queryKey: key,
-    // initialData = local → disponible aun offline / sin sesión.
+    // initialData = local → disponible aun offline / no session.
     initialData: lsGet,
     initialDataUpdatedAt: 0, // fuerza refetch al montar para fusionar con PB
     enabled: !!userId,
@@ -85,7 +85,7 @@ export function useWorkoutReminders(userId: string | null = null) {
     { hour: number; minute: number; daysOfWeek: number[]; reminderType: ReminderSubtype }
   >({
     mutationFn: async ({ hour, minute, daysOfWeek, reminderType }) => {
-      if (!userId) throw new Error('sin sesión')
+      if (!userId) throw new Error('no session')
       const rec = await pb.collection('workout_reminders').create({
         user: userId,
         hour,

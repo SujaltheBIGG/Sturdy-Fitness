@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription,
 } from './ui/dialog'
-import changelogJson from '@calistenia/core/data/changelog.mobile.json'
+import changelogJson from '@sturdy/core/data/changelog.mobile.json'
 import {
   compareVersions,
   dotColorForType,
@@ -11,7 +11,7 @@ import {
   pickLang,
   type ChangelogData,
   type ChangelogVersion,
-} from '@calistenia/core/lib/whats-new'
+} from '@sturdy/core/lib/whats-new'
 import i18n from '../lib/i18n'
 import { cn } from '../lib/utils'
 
@@ -20,7 +20,7 @@ const CHANGELOG = changelogJson as ChangelogData
 // entry in the changelog is always considered current, so nothing is ever
 // filtered out as "not released yet" the way mobile's app.json version gates it.
 const CURRENT_VERSION = CHANGELOG.versions[0]?.version ?? '0.0.0'
-const LS_KEY = 'calistenia_last_seen_version'
+const LS_KEY = 'sturdy_last_seen_version'
 
 function formatDate(iso: string): string {
   try {

@@ -28,7 +28,7 @@ Values are **filenames** inside the per-exercise folder `seeds/exercises/media/<
   `apps/web/public/exercise-media/**`. Served by the web origin at `/exercise-media/<slug>/<file>`.
 - **Bundled catalog:** the generator writes a resolved `media` object on each entry with
   **origin-relative paths** (`/exercise-media/<slug>/sequence.webp`). Works offline in library/free-session.
-- **Mobile:** fetches the same files from the configured origin (`https://gym.guille.tech/exercise-media/...`)
+- **Mobile:** fetches the same files from the configured origin (`https://sturdy.app/exercise-media/...`)
   via the resolver's baseURL — no per-platform asset duplication.
 - **PB (optional override):** migration adds `media_sequence`/`media_muscles`/`media_thumbnail` file fields
   (image mimes) to `exercises_catalog` (additive — preserve all existing field ids, `feedback_migration_safety`);

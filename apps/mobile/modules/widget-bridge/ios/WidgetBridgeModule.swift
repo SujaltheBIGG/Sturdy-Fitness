@@ -1,7 +1,7 @@
 import ExpoModulesCore
 import WidgetKit
 
-let APP_GROUP = "group.tech.guille.calistenia"
+let APP_GROUP = "group.app.sturdy.mobile"
 
 public class WidgetBridgeModule: Module {
   public func definition() -> ModuleDefinition {

@@ -3,7 +3,7 @@ import Foundation
 import ActivityKit
 
 @available(iOS 16.2, *)
-struct CalisteniaActivityAttributes: ActivityAttributes {
+struct SturdyActivityAttributes: ActivityAttributes {
   struct ContentState: Codable, Hashable {
     var exerciseName: String
     var setIndex: Int

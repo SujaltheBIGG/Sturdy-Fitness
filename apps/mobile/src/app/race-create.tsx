@@ -10,9 +10,9 @@ import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
 import { createRace } from '@/lib/race/raceApi'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import { CARDIO_ACTIVITY } from '@calistenia/core/lib/style-tokens'
-import type { RaceActivityType, RaceMode } from '@calistenia/core/types/race'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import { CARDIO_ACTIVITY } from '@sturdy/core/lib/style-tokens'
+import type { RaceActivityType, RaceMode } from '@sturdy/core/types/race'
 
 const ACTIVITIES: RaceActivityType[] = ['running', 'walking', 'cycling']
 

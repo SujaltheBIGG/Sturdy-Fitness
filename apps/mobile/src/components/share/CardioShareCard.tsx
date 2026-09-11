@@ -25,9 +25,9 @@ import {
   cartoTileUrl,
   pointToPixel,
   ROUTE_COLOR,
-} from '@calistenia/core/lib/static-map'
-import { formatPace, formatDuration, formatSpeed } from '@calistenia/core/lib/geo'
-import type { CardioSession, GpsPoint } from '@calistenia/core/types'
+} from '@sturdy/core/lib/static-map'
+import { formatPace, formatDuration, formatSpeed } from '@sturdy/core/lib/geo'
+import type { CardioSession, GpsPoint } from '@sturdy/core/types'
 
 const BASE_W = 360
 const BASE_H = 640
@@ -287,8 +287,8 @@ const CardioShareCard = memo(function CardioShareCard({
         )}
 
         <View style={s.brandRow}>
-          <Text style={s.brand}>CALISTENIA</Text>
-          <Text style={s.brandUrl}>calistenia-app.com</Text>
+          <Text style={s.brand}>STURDY</Text>
+          <Text style={s.brandUrl}>sturdy-app.com</Text>
         </View>
       </View>
     </View>

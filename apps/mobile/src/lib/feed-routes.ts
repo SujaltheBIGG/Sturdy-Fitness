@@ -6,9 +6,9 @@
  * expo-router, más lo que esta app todavía no tiene pantalla para enseñar.
  */
 import type { useRouter } from 'expo-router'
-import { describeFeedItem, feedItemTarget } from '@calistenia/core/lib/feed-item'
-import { WEB_BASE_URL } from '@calistenia/core/lib/app-urls'
-import type { FeedItem } from '@calistenia/core/types'
+import { describeFeedItem, feedItemTarget } from '@sturdy/core/lib/feed-item'
+import { WEB_BASE_URL } from '@sturdy/core/lib/app-urls'
+import type { FeedItem } from '@sturdy/core/types'
 import { shareText } from './share'
 
 // `expo-router` no exporta un tipo `Router` público; se deriva del hook para

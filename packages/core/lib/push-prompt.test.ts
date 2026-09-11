@@ -54,7 +54,7 @@ describe('shouldShowPushPrompt', () => {
 describe('markPushPromptSeen', () => {
   it('escribe la clave por usuario', () => {
     markPushPromptSeen('u9')
-    expect(storage.setItem).toHaveBeenCalledWith('calistenia_push_prompt_seen_u9', 'true')
+    expect(storage.setItem).toHaveBeenCalledWith('sturdy_push_prompt_seen_u9', 'true')
   })
 })
 

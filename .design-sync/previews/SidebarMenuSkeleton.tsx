@@ -1,4 +1,4 @@
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarMenuItem, SidebarMenuSkeleton, SidebarProvider } from '@calistenia/web'
+import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarMenuItem, SidebarMenuSkeleton, SidebarProvider } from '@sturdy/web'
 
 // Las piezas de la barra necesitan SidebarProvider; sueltas renderizan vacías.
 export const Cargando = () => (

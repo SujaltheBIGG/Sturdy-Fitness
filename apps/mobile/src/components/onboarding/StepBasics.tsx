@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label'
 import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
-import type { BasicsValues } from '@calistenia/core/types/onboarding'
+import type { BasicsValues } from '@sturdy/core/types/onboarding'
 
 export type { BasicsValues }
 

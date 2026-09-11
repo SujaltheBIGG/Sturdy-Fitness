@@ -1,6 +1,6 @@
-# Changelog — Calistenia (mobile)
+# Changelog — Sturdy (mobile)
 
-All notable changes to the Calistenia mobile app are documented here.
+All notable changes to the Sturdy mobile app are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 > Generated from curated, AI-assisted release notes — do not edit by hand. Source: `packages/core/data/changelog.mobile.json` · regenerate with `pnpm changelog:md`. A Spanish version lives in [`CHANGELOG.es.md`](./CHANGELOG.es.md).
@@ -399,40 +399,40 @@ _The first mobile release: onboarding, programs, AI nutrition and guided session
 
 ### Added
 
-- **First mobile release** — The Calistenia app arrives on Android with your program, sessions and progress.
+- **First mobile release** — The Sturdy app arrives on Android with your program, sessions and progress.
 - **Smart onboarding** — We match you with the right programs based on your level and goals.
 - **AI meal logging** — Log meals by describing them in text and let AI estimate the macros.
 - **Guided sessions** — Train with step-by-step sessions that respect your injured joints.
 
-[unreleased]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.13.0...HEAD
-[1.13.0]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.12.3...mobile-v1.13.0
-[1.12.3]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.12.2...mobile-v1.12.3
-[1.12.2]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.12.1...mobile-v1.12.2
-[1.12.1]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.12.0...mobile-v1.12.1
-[1.12.0]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.11.1...mobile-v1.12.0
-[1.11.1]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.11.0...mobile-v1.11.1
-[1.11.0]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.10.2...mobile-v1.11.0
-[1.10.2]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.10.1...mobile-v1.10.2
-[1.10.1]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.9.0...mobile-v1.10.1
-[1.9.0]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.8.0...mobile-v1.9.0
-[1.8.0]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.7.1...mobile-v1.8.0
-[1.7.1]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.7.0...mobile-v1.7.1
-[1.7.0]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.6.0...mobile-v1.7.0
-[1.6.0]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.5.0...mobile-v1.6.0
-[1.5.0]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.4.0...mobile-v1.5.0
-[1.4.0]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.3.2...mobile-v1.4.0
-[1.3.2]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.3.1...mobile-v1.3.2
-[1.3.1]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.3.0...mobile-v1.3.1
-[1.3.0]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.2.1...mobile-v1.3.0
-[1.2.1]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.2.0...mobile-v1.2.1
-[1.2.0]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.1.0...mobile-v1.2.0
-[1.1.0]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.0.9...mobile-v1.1.0
-[1.0.9]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.0.7...mobile-v1.0.9
-[1.0.7]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.0.6...mobile-v1.0.7
-[1.0.6]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.0.5...mobile-v1.0.6
-[1.0.5]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.0.4...mobile-v1.0.5
-[1.0.4]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.0.3...mobile-v1.0.4
-[1.0.3]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.0.2...mobile-v1.0.3
-[1.0.2]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.0.1...mobile-v1.0.2
-[1.0.1]: https://github.com/guillermoscript/calistenia-app/compare/mobile-v1.0.0...mobile-v1.0.1
-[1.0.0]: https://github.com/guillermoscript/calistenia-app/releases/tag/mobile-v1.0.0
+[unreleased]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.13.0...HEAD
+[1.13.0]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.12.3...mobile-v1.13.0
+[1.12.3]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.12.2...mobile-v1.12.3
+[1.12.2]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.12.1...mobile-v1.12.2
+[1.12.1]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.12.0...mobile-v1.12.1
+[1.12.0]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.11.1...mobile-v1.12.0
+[1.11.1]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.11.0...mobile-v1.11.1
+[1.11.0]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.10.2...mobile-v1.11.0
+[1.10.2]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.10.1...mobile-v1.10.2
+[1.10.1]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.9.0...mobile-v1.10.1
+[1.9.0]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.8.0...mobile-v1.9.0
+[1.8.0]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.7.1...mobile-v1.8.0
+[1.7.1]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.7.0...mobile-v1.7.1
+[1.7.0]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.6.0...mobile-v1.7.0
+[1.6.0]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.5.0...mobile-v1.6.0
+[1.5.0]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.4.0...mobile-v1.5.0
+[1.4.0]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.3.2...mobile-v1.4.0
+[1.3.2]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.3.1...mobile-v1.3.2
+[1.3.1]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.3.0...mobile-v1.3.1
+[1.3.0]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.2.1...mobile-v1.3.0
+[1.2.1]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.2.0...mobile-v1.2.1
+[1.2.0]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.1.0...mobile-v1.2.0
+[1.1.0]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.0.9...mobile-v1.1.0
+[1.0.9]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.0.7...mobile-v1.0.9
+[1.0.7]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.0.6...mobile-v1.0.7
+[1.0.6]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.0.5...mobile-v1.0.6
+[1.0.5]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.0.4...mobile-v1.0.5
+[1.0.4]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.0.3...mobile-v1.0.4
+[1.0.3]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.0.2...mobile-v1.0.3
+[1.0.2]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.0.1...mobile-v1.0.2
+[1.0.1]: https://github.com/CLIENT-ORG/sturdy-app/compare/mobile-v1.0.0...mobile-v1.0.1
+[1.0.0]: https://github.com/CLIENT-ORG/sturdy-app/releases/tag/mobile-v1.0.0

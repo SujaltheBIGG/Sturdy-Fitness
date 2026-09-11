@@ -166,7 +166,7 @@ export function getTranslation(post: BlogPost): BlogPost | null {
 /** Carga en diferido el componente React con el cuerpo del artículo */
 export async function loadPostContent(post: BlogPost): Promise<ComponentType<MDXContentProps>> {
   const loader = CONTENT_LOADERS.get(`${post.key}:${post.lang}`)
-  if (!loader) throw new Error(`[blog] Sin contenido MDX para ${post.key}:${post.lang}`)
+  if (!loader) throw new Error(`[blog] No MDX content for ${post.key}:${post.lang}`)
   const mod = await loader()
   return mod.default
 }

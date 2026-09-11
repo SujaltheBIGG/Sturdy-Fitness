@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next'
 import { Trophy } from 'lucide-react'
 import { Button } from './ui/button'
 import { Progress } from './ui/progress'
-import { useFeaturedChallenge } from '@calistenia/core/hooks/useFeaturedChallenge'
-import { trackFeaturedChallengeViewed, trackFeaturedChallengeOpened } from '@calistenia/core/lib/featured-challenge'
-import { resolvePresetChallengeTitle } from '@calistenia/core/lib/challenge-presets'
+import { useFeaturedChallenge } from '@sturdy/core/hooks/useFeaturedChallenge'
+import { trackFeaturedChallengeViewed, trackFeaturedChallengeOpened } from '@sturdy/core/lib/featured-challenge'
+import { resolvePresetChallengeTitle } from '@sturdy/core/lib/challenge-presets'
 
 interface FeaturedChallengeCardProps {
   onNavigate: (path: string) => void

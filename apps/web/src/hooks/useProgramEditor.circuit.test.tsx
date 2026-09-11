@@ -84,7 +84,7 @@ const pbStub = await vi.hoisted(async () => {
   return Object.assign(stub, { schemaFields })
 })
 
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: {
     baseUrl: 'http://pb.test',
     filter: (expr: string) => expr,
@@ -96,14 +96,14 @@ vi.mock('@calistenia/core/lib/pocketbase', () => ({
 // `saveProgram` reporta a monitoreo en el catch, y sin `initCore()` getPlatform()
 // lanza — lo que taparía el fallo real con una excepción distinta.
 const reportError = vi.fn()
-vi.mock('@calistenia/core/platform', () => ({
+vi.mock('@sturdy/core/platform', () => ({
   // #636 §5: `saveProgram` emite `program_editor_saved` desde core, así que el
   // facade de analytics tiene que existir o el guardado revienta en el test.
   getPlatform: () => ({ reportError, analytics: { track: vi.fn(), identify: vi.fn(), clear: vi.fn() } }),
   getClientInfo: () => ({ version: '1.0.0', build: 0, platform: 'web' as const }),
 }))
 
-import { useProgramEditor } from '@calistenia/core/hooks/useProgramEditor'
+import { useProgramEditor } from '@sturdy/core/hooks/useProgramEditor'
 
 type Editor = ReturnType<typeof useProgramEditor>
 

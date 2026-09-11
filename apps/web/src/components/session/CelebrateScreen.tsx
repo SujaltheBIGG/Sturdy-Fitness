@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
-import type { Exercise, ExerciseTiming } from '@calistenia/core/types'
-import { getLocalQuote, type Quote } from '@calistenia/core/lib/quotes'
-import { formatTimingClock, prepareTimingBreakdown } from '@calistenia/core/lib/exerciseTiming'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+import type { Exercise, ExerciseTiming } from '@sturdy/core/types'
+import { getLocalQuote, type Quote } from '@sturdy/core/lib/quotes'
+import { formatTimingClock, prepareTimingBreakdown } from '@sturdy/core/lib/exerciseTiming'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 import Confetti from '../ui/Confetti'
 import { Button } from '../ui/button'
 import PostWorkoutActions from '../PostWorkoutActions'
@@ -86,7 +86,7 @@ export default function CelebrateScreen({
       <div style={{ animation: 'fadeUp 0.5s 0.15s ease-out both' }}>
         <div className="font-bebas tracking-[3px] text-foreground leading-none mb-2"
           style={{ fontSize: 'clamp(40px, 10vw, 64px)' }}>
-          SESIÓN COMPLETADA
+          SESSION COMPLETE
         </div>
         <div className="font-mono text-[11px] text-muted-foreground tracking-[2px]">
           {workoutTitle.toUpperCase()} · {totalSetsLogged} SERIES · {durationMin} MIN
@@ -106,7 +106,7 @@ export default function CelebrateScreen({
 
       {timingBreakdown.rows.length > 0 && (
         <div className="w-full max-w-[380px]" style={{ animation: 'fadeUp 0.5s 0.45s ease-out both' }}>
-          <div className="text-[9px] font-mono tracking-[3px] text-muted-foreground uppercase mb-3">TIEMPO POR EJERCICIO</div>
+          <div className="text-[9px] font-mono tracking-[3px] text-muted-foreground uppercase mb-3">TIME PER EXERCISE</div>
           <div className="flex flex-col gap-1.5">
             {timingBreakdown.rows.map(row => (
               <div key={row.exerciseId} className="flex items-center gap-2">

@@ -38,24 +38,24 @@ Every offline-first hook seeds its `initialData` from a global (non-user-scoped)
 
 | Hook file | Key constant name | Key string |
 |---|---|---|
-| `useProgress.ts:10` | `LS_KEY` | `'calistenia_progress'` |
-| `useProgress.ts:11` | `LS_SETTINGS` | `'calistenia_settings'` |
-| `useWater.ts:9` | `LS_KEY` | `'calistenia_water'` |
-| `useWater.ts` inline | *(inline string)* | `'calistenia_water_goal'` |
-| `useWeight.ts:8` | `LS_KEY` | `'calistenia_weight_entries'` |
-| `useSleep.ts:9` | `LS_KEY` | `'calistenia_sleep_entries'` |
-| `useBodyMeasurements.ts:7` | `LS_KEY` | `'calistenia_body_measurements'` |
-| `useRestPreferences.ts:7` | `LS_KEY` | `'calistenia_rest_prefs'` |
-| `useMealReminders.ts:10` | `LS_KEY` | `'calistenia_meal_reminders'` |
-| `useWorkoutReminders.ts:7` | `LS_KEY` | `'calistenia_workout_reminders'` |
-| `useWeeklyMealPlan.ts:9` | `LS_KEY` | `'calistenia_weekly_plan'` |
-| `useNutrition.ts:57` | `LS_ENTRIES` | `'calistenia_nutrition_entries'` |
-| `useNutrition.ts:58` | `LS_GOALS` | `'calistenia_nutrition_goals'` |
-| `useFavorites.ts` | `STORAGE_KEY` | `'calistenia_exercise_favorites'` |
+| `useProgress.ts:10` | `LS_KEY` | `'sturdy_progress'` |
+| `useProgress.ts:11` | `LS_SETTINGS` | `'sturdy_settings'` |
+| `useWater.ts:9` | `LS_KEY` | `'sturdy_water'` |
+| `useWater.ts` inline | *(inline string)* | `'sturdy_water_goal'` |
+| `useWeight.ts:8` | `LS_KEY` | `'sturdy_weight_entries'` |
+| `useSleep.ts:9` | `LS_KEY` | `'sturdy_sleep_entries'` |
+| `useBodyMeasurements.ts:7` | `LS_KEY` | `'sturdy_body_measurements'` |
+| `useRestPreferences.ts:7` | `LS_KEY` | `'sturdy_rest_prefs'` |
+| `useMealReminders.ts:10` | `LS_KEY` | `'sturdy_meal_reminders'` |
+| `useWorkoutReminders.ts:7` | `LS_KEY` | `'sturdy_workout_reminders'` |
+| `useWeeklyMealPlan.ts:9` | `LS_KEY` | `'sturdy_weekly_plan'` |
+| `useNutrition.ts:57` | `LS_ENTRIES` | `'sturdy_nutrition_entries'` |
+| `useNutrition.ts:58` | `LS_GOALS` | `'sturdy_nutrition_goals'` |
+| `useFavorites.ts` | `STORAGE_KEY` | `'sturdy_exercise_favorites'` |
 
-Also clear the React Query persister cache key `'calistenia_rq_cache'` (used by the offline persister) as it may hold serialized query state scoped to the prior user.
+Also clear the React Query persister cache key `'sturdy_rq_cache'` (used by the offline persister) as it may hold serialized query state scoped to the prior user.
 
-**Deliberately EXCLUDED**: `'calistenia_referral_code'` (`REFERRAL_CODE_KEY`) — this is pre-signup referral attribution, already removed selectively elsewhere in `useAuth.ts:21`. Do NOT add it to the user-scoped clear list.
+**Deliberately EXCLUDED**: `'sturdy_referral_code'` (`REFERRAL_CODE_KEY`) — this is pre-signup referral attribution, already removed selectively elsewhere in `useAuth.ts:21`. Do NOT add it to the user-scoped clear list.
 
 ### Current signOut (packages/core/hooks/useAuth.ts:206-213) — confirmed at 4659cd6
 
@@ -173,32 +173,32 @@ import { storage } from '../platform'
 
 export const USER_SCOPED_STORAGE_KEYS: readonly string[] = [
   // useProgress
-  'calistenia_progress',
-  'calistenia_settings',
+  'sturdy_progress',
+  'sturdy_settings',
   // useWater
-  'calistenia_water',
-  'calistenia_water_goal',
+  'sturdy_water',
+  'sturdy_water_goal',
   // useWeight
-  'calistenia_weight_entries',
+  'sturdy_weight_entries',
   // useSleep
-  'calistenia_sleep_entries',
+  'sturdy_sleep_entries',
   // useBodyMeasurements
-  'calistenia_body_measurements',
+  'sturdy_body_measurements',
   // useRestPreferences
-  'calistenia_rest_prefs',
+  'sturdy_rest_prefs',
   // useMealReminders
-  'calistenia_meal_reminders',
+  'sturdy_meal_reminders',
   // useWorkoutReminders
-  'calistenia_workout_reminders',
+  'sturdy_workout_reminders',
   // useWeeklyMealPlan
-  'calistenia_weekly_plan',
+  'sturdy_weekly_plan',
   // useNutrition
-  'calistenia_nutrition_entries',
-  'calistenia_nutrition_goals',
+  'sturdy_nutrition_entries',
+  'sturdy_nutrition_goals',
   // useFavorites
-  'calistenia_exercise_favorites',
+  'sturdy_exercise_favorites',
   // React Query persister (caché serializado offline)
-  'calistenia_rq_cache',
+  'sturdy_rq_cache',
 ]
 
 /** Elimina todas las entradas de localStorage vinculadas al usuario activo. */
@@ -259,21 +259,21 @@ vi.mock('../platform', () => ({
 }))
 
 const EXPECTED_KEYS = [
-  'calistenia_progress',
-  'calistenia_settings',
-  'calistenia_water',
-  'calistenia_water_goal',
-  'calistenia_weight_entries',
-  'calistenia_sleep_entries',
-  'calistenia_body_measurements',
-  'calistenia_rest_prefs',
-  'calistenia_meal_reminders',
-  'calistenia_workout_reminders',
-  'calistenia_weekly_plan',
-  'calistenia_nutrition_entries',
-  'calistenia_nutrition_goals',
-  'calistenia_exercise_favorites',
-  'calistenia_rq_cache',
+  'sturdy_progress',
+  'sturdy_settings',
+  'sturdy_water',
+  'sturdy_water_goal',
+  'sturdy_weight_entries',
+  'sturdy_sleep_entries',
+  'sturdy_body_measurements',
+  'sturdy_rest_prefs',
+  'sturdy_meal_reminders',
+  'sturdy_workout_reminders',
+  'sturdy_weekly_plan',
+  'sturdy_nutrition_entries',
+  'sturdy_nutrition_goals',
+  'sturdy_exercise_favorites',
+  'sturdy_rq_cache',
 ]
 
 describe('USER_SCOPED_STORAGE_KEYS', () => {

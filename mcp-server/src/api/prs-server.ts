@@ -46,9 +46,9 @@
  *   conoce se queda con su id crudo, como antes: nunca adivina.
  */
 
-import { computePRBackfill } from "@calistenia/core/lib/pr-backfill";
-import type { Settings, WeightPR } from "@calistenia/core/types";
-import type { ProgressSetRow } from "@calistenia/core/lib/progress-map";
+import { computePRBackfill } from "@sturdy/core/lib/pr-backfill";
+import type { Settings, WeightPR } from "@sturdy/core/types";
+import type { ProgressSetRow } from "@sturdy/core/lib/progress-map";
 import { loadUserExerciseResolver, type ServerExerciseResolver } from "./exercise-identity-server.js";
 import type { PB, RecordModel } from "./repos/index.js";
 

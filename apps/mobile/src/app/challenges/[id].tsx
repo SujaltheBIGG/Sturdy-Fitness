@@ -26,17 +26,17 @@ import { ArrowLeft, ChevronDown } from 'lucide-react-native'
 import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
 import { useAuthUser } from '@/lib/use-auth-user'
-import { useChallengeDetail } from '@calistenia/core/hooks/useChallengeDetail'
-import { getMetricLabel, getMetricUnit, daysRemaining, RANK_MEDALS } from '@calistenia/core/lib/challenges'
-import { getChallengeLayout, getGoalProgress } from '@calistenia/core/lib/challenge-layout'
-import { formatDateRange } from '@calistenia/core/lib/dateUtils'
+import { useChallengeDetail } from '@sturdy/core/hooks/useChallengeDetail'
+import { getMetricLabel, getMetricUnit, daysRemaining, RANK_MEDALS } from '@sturdy/core/lib/challenges'
+import { getChallengeLayout, getGoalProgress } from '@sturdy/core/lib/challenge-layout'
+import { formatDateRange } from '@sturdy/core/lib/dateUtils'
 import {
   resolvePresetChallengeDescription,
   resolvePresetChallengeTitle,
-} from '@calistenia/core/lib/challenge-presets'
-import { pb } from '@calistenia/core/lib/pocketbase'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import type { LeaderboardEntry } from '@calistenia/core/hooks/useLeaderboard'
+} from '@sturdy/core/lib/challenge-presets'
+import { pb } from '@sturdy/core/lib/pocketbase'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import type { LeaderboardEntry } from '@sturdy/core/hooks/useLeaderboard'
 
 const LIME = 'hsl(74 90% 45%)'
 

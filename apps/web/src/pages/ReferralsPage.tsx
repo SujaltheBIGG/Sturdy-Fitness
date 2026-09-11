@@ -3,15 +3,15 @@ import { useTranslation } from 'react-i18next'
 import {
   useReferrals,
   REFERRAL_SIGNUP_POINTS,
-} from '@calistenia/core/hooks/useReferrals'
-import { useReferralPoints, type PointTransaction } from '@calistenia/core/hooks/useReferralPoints'
-import { useChallengeExpress } from '@calistenia/core/hooks/useChallengeExpress'
-import { pb } from '@calistenia/core/lib/pocketbase'
-import { utcToLocalDateStr } from '@calistenia/core/lib/dateUtils'
+} from '@sturdy/core/hooks/useReferrals'
+import { useReferralPoints, type PointTransaction } from '@sturdy/core/hooks/useReferralPoints'
+import { useChallengeExpress } from '@sturdy/core/hooks/useChallengeExpress'
+import { pb } from '@sturdy/core/lib/pocketbase'
+import { utcToLocalDateStr } from '@sturdy/core/lib/dateUtils'
 import {
   CANONICAL_ANALYTICS_EVENTS,
   trackCanonicalEvent,
-} from '@calistenia/core/lib/analytics'
+} from '@sturdy/core/lib/analytics'
 import { ReferralStats } from '../components/referrals/ReferralStats'
 import { ReferralList } from '../components/referrals/ReferralList'
 import { InviteButton } from '../components/referrals/InviteButton'
@@ -21,7 +21,7 @@ import { ReferralErrorState } from '../components/referrals/ReferralErrorState'
 import { Loader } from '../components/ui/loader'
 import { cn } from '../lib/utils'
 import { Copy, Check, Share2 } from 'lucide-react'
-import { WEB_BASE_URL } from '@calistenia/core/lib/app-urls'
+import { WEB_BASE_URL } from '@sturdy/core/lib/app-urls'
 
 interface ReferralsPageProps {
   userId: string

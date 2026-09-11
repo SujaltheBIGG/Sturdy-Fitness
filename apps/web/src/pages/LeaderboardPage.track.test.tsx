@@ -19,13 +19,13 @@ const getFullList = vi.hoisted(() => vi.fn())
 // #636 §5: la página pasó al facade canónico para llevar `event_version` y
 // `surface`. El nombre del evento no cambia, así que la aserción de abajo sigue
 // midiendo lo mismo: UN `leaderboard_viewed` por visita.
-vi.mock('@calistenia/core/lib/analytics', async (importOriginal) => ({
-  ...(await importOriginal<typeof import('@calistenia/core/lib/analytics')>()),
+vi.mock('@sturdy/core/lib/analytics', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@sturdy/core/lib/analytics')>()),
   op: { track: mockTrack },
   trackCanonicalEvent: (event: string, properties: Record<string, unknown>) => mockTrack(event, properties),
 }))
 
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: {
     baseUrl: 'http://pb.test',
     filter: (expr: string) => expr,
@@ -40,7 +40,7 @@ vi.mock('react-i18next', () => ({
   initReactI18next: { type: '3rdParty', init: () => {} },
 }))
 
-import { useLeaderboard } from '@calistenia/core/hooks/useLeaderboard'
+import { useLeaderboard } from '@sturdy/core/hooks/useLeaderboard'
 import LeaderboardPage from './LeaderboardPage'
 
 function makeWrapper() {

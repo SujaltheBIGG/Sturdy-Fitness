@@ -9,7 +9,7 @@ import { Text } from '@/components/ui/text'
 import { Loader } from '@/components/ui/loader'
 import { cn } from '@/lib/utils'
 import { Sentry } from '@/lib/instrument'
-import { useDailyMealPlan, type DailyPlannedMeal } from '@calistenia/core/hooks/useDailyMealPlan'
+import { useDailyMealPlan, type DailyPlannedMeal } from '@sturdy/core/hooks/useDailyMealPlan'
 
 export type PlannedMeal = DailyPlannedMeal
 

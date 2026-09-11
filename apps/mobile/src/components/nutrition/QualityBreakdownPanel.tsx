@@ -19,7 +19,7 @@ import { Text } from '@/components/ui/text'
 import { Kicker } from '@/components/ui/kicker'
 import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
-import type { QualityScore, QualityBreakdown, QualitySuggestion } from '@calistenia/core/types'
+import type { QualityScore, QualityBreakdown, QualitySuggestion } from '@sturdy/core/types'
 
 const SCORE_BG: Record<QualityScore, string> = {
   A: 'bg-green-500',

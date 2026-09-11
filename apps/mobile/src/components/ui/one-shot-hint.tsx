@@ -18,9 +18,9 @@ import { Text } from '@/components/ui/text'
 import { cn } from '@/lib/utils'
 import { syncStorage } from '@/lib/storage'
 import { COLORS } from '@/lib/theme'
-import { op } from '@calistenia/core/lib/analytics'
+import { op } from '@sturdy/core/lib/analytics'
 
-const hintKey = (id: string, userId: string) => `calistenia_mobile_hint_${id}_${userId}`
+const hintKey = (id: string, userId: string) => `sturdy_mobile_hint_${id}_${userId}`
 
 interface OneShotHintProps {
   /** Clave única del hint, ej. 'meal_photo'. */

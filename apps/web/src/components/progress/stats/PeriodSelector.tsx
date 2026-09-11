@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { STATS_PERIODS, type StatsPeriod } from '@calistenia/core/lib/training-stats'
+import { STATS_PERIODS, type StatsPeriod } from '@sturdy/core/lib/training-stats'
 import { cn } from '../../../lib/utils'
 
 interface PeriodSelectorProps {

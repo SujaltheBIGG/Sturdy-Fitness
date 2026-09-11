@@ -1,4 +1,4 @@
-import { ButtonGroup, ButtonGroupItem, ButtonGroupText } from '@calistenia/web'
+import { ButtonGroup, ButtonGroupItem, ButtonGroupText } from '@sturdy/web'
 
 export const RangoTemporal = () => (
   <ButtonGroup>

@@ -21,11 +21,11 @@ import { Kicker } from '@/components/ui/kicker'
 import { Loader } from '@/components/ui/loader'
 import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
-import { pb } from '@calistenia/core/lib/pocketbase'
-import { captureBattleInviteToken } from '@calistenia/core/lib/battleInviteHandoff'
-import { previewBattleInvite, joinBattle, newIdempotencyKey } from '@calistenia/core/lib/battleApi'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import type { BattleInvitePreview } from '@calistenia/core/types/battle'
+import { pb } from '@sturdy/core/lib/pocketbase'
+import { captureBattleInviteToken } from '@sturdy/core/lib/battleInviteHandoff'
+import { previewBattleInvite, joinBattle, newIdempotencyKey } from '@sturdy/core/lib/battleApi'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import type { BattleInvitePreview } from '@sturdy/core/types/battle'
 
 export default function BattleInviteScreen() {
   const { token: rawToken } = useLocalSearchParams<{ token?: string | string[] }>()

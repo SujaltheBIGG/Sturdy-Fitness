@@ -1,6 +1,6 @@
 import { storage } from '../platform'
 
-const REFERRAL_PROMPT_KEY = 'calistenia_referral_prompt_shown'
+const REFERRAL_PROMPT_KEY = 'sturdy_referral_prompt_shown'
 const REFERRAL_COOLDOWN_MS = 14 * 24 * 60 * 60 * 1000
 
 const promptedThisSession = new Set<string>()

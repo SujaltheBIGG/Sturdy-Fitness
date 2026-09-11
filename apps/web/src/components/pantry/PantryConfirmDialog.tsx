@@ -5,11 +5,11 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../ui/dialog'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { Spinner } from '../ui/spinner'
-import { PANTRY_CATEGORY_ORDER, normalizePantryName } from '@calistenia/core/lib/pantry'
-import { currencySymbol, parseLocaleNumber } from '@calistenia/core/lib/money'
-import { formatMoney } from '@calistenia/core/lib/shopping'
+import { PANTRY_CATEGORY_ORDER, normalizePantryName } from '@sturdy/core/lib/pantry'
+import { currencySymbol, parseLocaleNumber } from '@sturdy/core/lib/money'
+import { formatMoney } from '@sturdy/core/lib/shopping'
 import { cn } from '../../lib/utils'
-import type { PantryItem, PantryParsedItem, PantryParseResult, PantryUnit } from '@calistenia/core/types'
+import type { PantryItem, PantryParsedItem, PantryParseResult, PantryUnit } from '@sturdy/core/types'
 
 const UNITS: (PantryUnit | null)[] = [null, 'g', 'kg', 'ml', 'l', 'unidad', 'paquete']
 

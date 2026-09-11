@@ -12,7 +12,16 @@ export type TranslatableField = Record<string, string> | string
 
 /**
  * Extract the localized string from a PB JSON field.
- * Fallback chain: current locale → 'es' → first available → empty string.
+ * Fallback chain: current locale → 'en' → first non-empty → empty string.
+ *
+ * English comes before any other locale in the chain on purpose. The web app
+ * ships English-only (`apps/web/src/lib/i18n.ts` pins `supportedLngs: ['en']`),
+ * so a record whose `en` translation is missing used to fall through to `es`
+ * and render Spanish inside an otherwise English UI.
+ *
+ * Empty strings count as missing: the catalog stores `""` for untranslated
+ * fields, and `??` alone would return that blank instead of trying the next
+ * locale.
  */
 export function localize(
   field: TranslatableField | undefined | null,
@@ -20,7 +29,8 @@ export function localize(
 ): string {
   if (!field) return ''
   if (typeof field === 'string') return field
-  return field[locale] ?? field['es'] ?? Object.values(field)[0] ?? ''
+  const firstFilled = Object.values(field).find((v) => typeof v === 'string' && v.trim() !== '')
+  return field[locale]?.trim() || field['en']?.trim() || firstFilled || ''
 }
 
 /**
@@ -31,7 +41,7 @@ export function toTranslatable(value: string, locale: string): Record<string, st
   return { [locale]: value }
 }
 
-/** Sufijo de copia por locale. Cae a español para locales sin traducción. */
+/** Per-locale copy suffix. Falls back to English for untranslated locales. */
 const COPY_SUFFIX: Record<string, string> = { es: '(copia)', en: '(copy)' }
 
 /**
@@ -50,7 +60,7 @@ export function duplicatedName(
   locale: string,
 ): Record<string, string> {
   const suffixed = (text: string, loc: string) =>
-    `${text} ${COPY_SUFFIX[loc] ?? COPY_SUFFIX.es}`.trim()
+    `${text} ${COPY_SUFFIX[loc] ?? COPY_SUFFIX.en}`.trim()
   const entries = field && typeof field === 'object' ? Object.entries(field) : []
   if (entries.length === 0) return toTranslatable(suffixed(localize(field, locale), locale), locale)
   return Object.fromEntries(entries.map(([loc, text]) => [loc, suffixed(String(text), loc)]))

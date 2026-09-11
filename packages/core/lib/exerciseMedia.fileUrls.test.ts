@@ -13,7 +13,7 @@
 import { describe, it, expect } from 'vitest'
 import { getExerciseMedia } from './exerciseMedia'
 
-const PB = 'https://gym.guille.tech'
+const PB = 'https://sturdy.app'
 
 describe('getExerciseMedia — nombre de fichero crudo → URL /api/files/', () => {
   it('resuelve el override de un program_exercise contra program_exercises', () => {

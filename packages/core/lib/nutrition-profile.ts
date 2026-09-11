@@ -22,7 +22,7 @@ import type { ActivityLevel, NutritionGoal, NutritionGoalType, Sex } from '../ty
  * quien siembre el objetivo pueda dejarlo caliente sin arrastrar el hook
  * entero — y con él el módulo de IA — a su grafo de imports.
  */
-export const LS_NUTRITION_GOALS = 'calistenia_nutrition_goals'
+export const LS_NUTRITION_GOALS = 'sturdy_nutrition_goals'
 
 export const readCachedNutritionGoal = (): NutritionGoal | null => {
   try { return JSON.parse(storage.getItem(LS_NUTRITION_GOALS) || 'null') } catch { return null }

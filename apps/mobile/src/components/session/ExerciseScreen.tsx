@@ -9,11 +9,11 @@ import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
 import * as sounds from '@/lib/sounds'
 import { haptics as haptic } from '@/lib/haptics'
-import { getExerciseMedia } from '@calistenia/core/lib/exerciseMedia'
-import { getCatalogStaticMedia } from '@calistenia/core/lib/catalogMedia'
-import { formatTempo, quickReps } from '@calistenia/core/lib/exercise-format'
-import type { ExerciseLog, SetData } from '@calistenia/core/types'
-import type { Step } from '@calistenia/core/lib/session-machine'
+import { getExerciseMedia } from '@sturdy/core/lib/exerciseMedia'
+import { getCatalogStaticMedia } from '@sturdy/core/lib/catalogMedia'
+import { formatTempo, quickReps } from '@sturdy/core/lib/exercise-format'
+import type { ExerciseLog, SetData } from '@sturdy/core/types'
+import type { Step } from '@sturdy/core/lib/session-machine'
 import { ExerciseTimer } from '@/components/session/TimerScreen'
 import ProgressionChip from '@/components/session/ProgressionChip'
 
@@ -69,7 +69,7 @@ const ExerciseScreen = memo(function ExerciseScreen({ step, onLogged, logs = [] 
   // [014+015] Resolve canonical media (program override → catalog static → catalog PB → youtube)
   // mediaBaseUrl prefixes origin-relative static paths (/exercise-media/…) so they resolve
   // as absolute HTTPS URLs on device (same origin as PocketBase / web).
-  const MEDIA_BASE = process.env.EXPO_PUBLIC_PB_URL || 'https://gym.guille.tech'
+  const MEDIA_BASE = process.env.EXPO_PUBLIC_PB_URL || 'https://sturdy.app'
   const resolvedMedia = getExerciseMedia(
     {
       pbRecordId: exercise.pbRecordId,

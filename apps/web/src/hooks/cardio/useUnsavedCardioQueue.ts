@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { pb } from '@calistenia/core/lib/pocketbase'
-import { CARDIO_UNSAVED_KEY as UNSAVED_KEY } from '@calistenia/core/lib/storage-keys'
-import { saveCardioRoute, splitRoute } from '@calistenia/core/lib/cardioRoutes'
-import { isCardioSessionTooShort } from '@calistenia/core/lib/cardioMinimum'
+import { pb } from '@sturdy/core/lib/pocketbase'
+import { CARDIO_UNSAVED_KEY as UNSAVED_KEY } from '@sturdy/core/lib/storage-keys'
+import { saveCardioRoute, splitRoute } from '@sturdy/core/lib/cardioRoutes'
+import { isCardioSessionTooShort } from '@sturdy/core/lib/cardioMinimum'
 
 // Cola FIFO acotada: si el backend lleva caído varias sesiones, se prefiere
 // perder las más viejas antes que reventar la cuota de localStorage.

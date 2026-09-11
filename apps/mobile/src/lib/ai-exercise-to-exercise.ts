@@ -8,7 +8,7 @@
  * `@/lib/catalog`, así que la resolución es directa; un ID desconocido devuelve
  * null y se descarta en el preview.
  */
-import type { Exercise } from '@calistenia/core/types'
+import type { Exercise } from '@sturdy/core/types'
 import { getCatalogExercise } from '@/lib/catalog'
 import { catalogToExercise } from '@/lib/catalog-to-exercise'
 

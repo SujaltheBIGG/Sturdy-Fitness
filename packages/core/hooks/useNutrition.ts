@@ -58,7 +58,7 @@ function mapPBToEntry(r: any): NutritionEntry {
   }
 }
 
-const LS_ENTRIES = 'calistenia_nutrition_entries'
+const LS_ENTRIES = 'sturdy_nutrition_entries'
 
 // ─── localStorage helpers ────────────────────────────────────────────────────
 const lsGetEntries = (): NutritionEntry[] => {

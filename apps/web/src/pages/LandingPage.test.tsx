@@ -11,7 +11,7 @@ vi.mock('react-i18next', () => ({
 }))
 
 const mockTrack = vi.fn()
-vi.mock('@calistenia/core/lib/analytics', () => ({
+vi.mock('@sturdy/core/lib/analytics', () => ({
   op: { track: (...args: unknown[]) => mockTrack(...args) },
 }))
 

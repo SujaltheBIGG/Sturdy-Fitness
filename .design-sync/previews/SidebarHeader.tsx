@@ -1,10 +1,10 @@
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider } from '@calistenia/web'
+import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider } from '@sturdy/web'
 
 // Las piezas de la barra necesitan SidebarProvider; sueltas renderizan vacías.
 export const EnLaBarra = () => (
   <SidebarProvider className="min-h-0">
     <Sidebar collapsible="none" className="h-72 w-64 border-r border-sidebar-border">
-      <SidebarHeader className="font-bebas font-normal text-2xl tracking-wider">CALISTENIA</SidebarHeader>
+      <SidebarHeader className="font-bebas font-normal text-2xl tracking-wider">STURDY</SidebarHeader>
       <SidebarContent>
         <SidebarGroup><SidebarGroupContent><SidebarMenu>
           <SidebarMenuItem><SidebarMenuButton isActive>Hoy</SidebarMenuButton></SidebarMenuItem>

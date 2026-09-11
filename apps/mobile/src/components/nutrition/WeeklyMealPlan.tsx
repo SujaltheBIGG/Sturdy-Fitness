@@ -14,7 +14,7 @@ import type {
   NutritionGoal,
   DailyTotals,
   WeeklyPlannedMeal,
-} from '@calistenia/core/types'
+} from '@sturdy/core/types'
 
 interface WeeklyMealPlanProps {
   activePlan: WeeklyMealPlanType | null

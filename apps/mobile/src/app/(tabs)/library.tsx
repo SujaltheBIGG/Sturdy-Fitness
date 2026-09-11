@@ -12,11 +12,11 @@ import { MenuButton } from '@/components/QuickMenu'
 import { cn } from '@/lib/utils'
 import { CATALOG, CATALOG_CATEGORIES, type CatalogExercise } from '@/lib/catalog'
 import { useExerciseSearch } from '@/lib/use-exercise-search'
-import { localize } from '@calistenia/core/lib/i18n-db'
-import { EQUIPMENT_CATALOG, getEquipmentLabelKey } from '@calistenia/core/lib/equipment'
-import { MUSCLE_GROUPS, getMuscleGroupLabelKey } from '@calistenia/core/lib/muscles'
-import type { DifficultyLevel } from '@calistenia/core/types'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+import { localize } from '@sturdy/core/lib/i18n-db'
+import { EQUIPMENT_CATALOG, getEquipmentLabelKey } from '@sturdy/core/lib/equipment'
+import { MUSCLE_GROUPS, getMuscleGroupLabelKey } from '@sturdy/core/lib/muscles'
+import type { DifficultyLevel } from '@sturdy/core/types'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 
 const DIFFICULTIES: DifficultyLevel[] = ['beginner', 'intermediate', 'advanced']
 

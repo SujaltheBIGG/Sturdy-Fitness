@@ -8,14 +8,14 @@
 import { useCallback, useEffect, useRef } from 'react'
 import { AppState } from 'react-native'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { storage } from '@calistenia/core/platform'
-import { qk } from '@calistenia/core/lib/query-keys'
-import type { HealthHubStatus } from '@calistenia/core/types'
+import { storage } from '@sturdy/core/platform'
+import { qk } from '@sturdy/core/lib/query-keys'
+import type { HealthHubStatus } from '@sturdy/core/types'
 import { useAuthUser } from '@/lib/use-auth-user'
 import * as hc from './bridge'
 import { readDailyCache, syncHealth } from './sync'
 
-const LAST_SYNC_KEY = 'calistenia_health_last_sync'
+const LAST_SYNC_KEY = 'sturdy_health_last_sync'
 /** No re-sincronizar más seguido que esto en auto (el botón manual lo ignora). */
 const AUTO_SYNC_THROTTLE_MS = 2 * 60_000
 const getLastSync = (): string | null => {

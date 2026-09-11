@@ -1,13 +1,13 @@
 import { useMemo, useState, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { PHASES as FALLBACK_PHASES } from '@calistenia/core/data/workouts'
+import { PHASES as FALLBACK_PHASES } from '@sturdy/core/data/workouts'
 import WeekPlanWidget from '../components/WeekPlanWidget'
 import ProgramSelectorModal from '../components/ProgramSelectorModal'
 import TodayWorkoutHero from '../components/dashboard/TodayWorkoutHero'
 import { cn } from '../lib/utils'
-import { todayStr, localHour, diffDays } from '@calistenia/core/lib/dateUtils'
-import { PHASE_COLORS } from '@calistenia/core/lib/style-tokens'
+import { todayStr, localHour, diffDays } from '@sturdy/core/lib/dateUtils'
+import { PHASE_COLORS } from '@sturdy/core/lib/style-tokens'
 import { Card, CardContent } from '../components/ui/card'
 import { Button } from '../components/ui/button'
 import { Progress } from '../components/ui/progress'
@@ -26,14 +26,14 @@ import CommunityProgramHomeCard from '../components/CommunityProgramHomeCard'
 import PhasePhotoBanner from '../components/progress/PhasePhotoBanner'
 import InsightsCard from '../components/insights/InsightsCard'
 import InsightsHistory from '../components/insights/InsightsHistory'
-import { useWater } from '@calistenia/core/hooks/useWater'
-import { useSleep } from '@calistenia/core/hooks/useSleep'
-import { useLeaderboard } from '@calistenia/core/hooks/useLeaderboard'
-import { useActivityFeed } from '@calistenia/core/hooks/useActivityFeed'
+import { useWater } from '@sturdy/core/hooks/useWater'
+import { useSleep } from '@sturdy/core/hooks/useSleep'
+import { useLeaderboard } from '@sturdy/core/hooks/useLeaderboard'
+import { useActivityFeed } from '@sturdy/core/hooks/useActivityFeed'
 import { useWorkoutState, useWorkoutActions } from '../contexts/WorkoutContext'
 import { useAuthState } from '../contexts/AuthContext'
-import type { CardioSession } from '@calistenia/core/types'
-import type { CardioAggregateStats } from '@calistenia/core/hooks/useCardioStats'
+import type { CardioSession } from '@sturdy/core/types'
+import type { CardioAggregateStats } from '@sturdy/core/hooks/useCardioStats'
 import { toast } from 'sonner'
 import { WhatsNewHomeButton } from '../components/WhatsNew'
 
@@ -315,7 +315,7 @@ export default function DashboardPage({
       {/* Progress bar */}
       <div id="tour-progress" className="mb-6">
         <div className="flex justify-between mb-2">
-          <span className={cn('text-[11px]', phaseAccent.text)}>{phase.nameKey ? t(phase.nameKey) : phase.name} · Semanas {phase.weeks}</span>
+          <span className={cn('text-[11px]', phaseAccent.text)}>{phase.nameKey ? t(phase.nameKey) : phase.name} · Weeks {phase.weeks}</span>
           <span className="text-[11px] text-muted-foreground">{Math.round(progress)}%</span>
         </div>
         <Progress value={progress} className="h-1.5" />
@@ -657,7 +657,7 @@ export default function DashboardPage({
               toast.success(t('programs.switchSuccess', { defaultValue: 'Programa cambiado correctamente' }))
               setShowProgramModal(false)
             } else {
-              toast.error(t('programs.switchError', { defaultValue: 'Error al cambiar de programa. Intenta de nuevo.' }))
+              toast.error(t('programs.switchError', { defaultValue: 'Could not switch program. Please try again.' }))
             }
             return ok
           }}

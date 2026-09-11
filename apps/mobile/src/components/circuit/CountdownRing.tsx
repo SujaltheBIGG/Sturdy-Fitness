@@ -16,8 +16,8 @@ import { Text } from '@/components/ui/text'
 import { circuitCues } from '@/lib/training-cues'
 import { CountdownRing as SharedCountdownRing } from '@/components/training/CountdownRing'
 import { TEAL, URGENT, URGENT_BELOW_SECONDS } from '@/components/training/constants'
-import { formatCountdown } from '@calistenia/core/lib/countdown'
-import { usePausableCountdown } from '@calistenia/core/hooks/usePausableCountdown'
+import { formatCountdown } from '@sturdy/core/lib/countdown'
+import { usePausableCountdown } from '@sturdy/core/hooks/usePausableCountdown'
 
 const RING_SIZE = 200
 const RING_STROKE = 8

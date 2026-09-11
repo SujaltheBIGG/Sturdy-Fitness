@@ -41,7 +41,7 @@ export function CardioWidget({ snapshot }: { snapshot: CardioWidgetSnapshot | nu
   return (
     <FlexWidget
       clickAction="OPEN_URI"
-      clickActionData={{ uri: 'calistenia://cardio' }}
+      clickActionData={{ uri: 'sturdy://cardio' }}
       style={{
         height: 'match_parent', width: 'match_parent', flexDirection: 'column',
         justifyContent: 'space-between', backgroundColor: BG, borderRadius: 16,

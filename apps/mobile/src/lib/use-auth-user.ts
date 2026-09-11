@@ -4,8 +4,8 @@
  * hidratación del token se hace en el boot del _layout raíz.
  */
 import { useSyncExternalStore } from 'react'
-import { pb, getCurrentUser } from '@calistenia/core/lib/pocketbase'
-import type { AuthUser } from '@calistenia/core/types'
+import { pb, getCurrentUser } from '@sturdy/core/lib/pocketbase'
+import type { AuthUser } from '@sturdy/core/types'
 
 function subscribe(callback: () => void): () => void {
   return pb.authStore.onChange(callback)

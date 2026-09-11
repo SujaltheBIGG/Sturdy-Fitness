@@ -12,8 +12,8 @@ import { Input } from '../ui/input'
 import { cn } from '../../lib/utils'
 import RouteDrawer from './RouteDrawer'
 import { createRace } from '../../lib/race/raceApi'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import type { Race, RaceMode, RaceActivityType } from '@calistenia/core/types/race'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import type { Race, RaceMode, RaceActivityType } from '@sturdy/core/types/race'
 
 interface Props {
   open: boolean

@@ -7,7 +7,7 @@
 import { useCallback, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
-import { parseExifDateTimeToHM } from '@calistenia/core/lib/meal-time'
+import { parseExifDateTimeToHM } from '@sturdy/core/lib/meal-time'
 import { readPhotoTakenAt } from '../../lib/exif'
 import { MAX_PHOTOS, UnreadableImageError, compressImage } from './meal-logger-shared'
 

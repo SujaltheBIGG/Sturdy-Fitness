@@ -1,7 +1,7 @@
 // F5 (#174): cliente web del parser de recibos — multipart directo con File
-import { AI_API_URL } from '@calistenia/core/lib/ai-api'
-import { pb } from '@calistenia/core/lib/pocketbase'
-import type { ReceiptParseResult } from '@calistenia/core/types'
+import { AI_API_URL } from '@sturdy/core/lib/ai-api'
+import { pb } from '@sturdy/core/lib/pocketbase'
+import type { ReceiptParseResult } from '@sturdy/core/types'
 
 export async function parseReceipt(files: File[]): Promise<ReceiptParseResult> {
   const formData = new FormData()

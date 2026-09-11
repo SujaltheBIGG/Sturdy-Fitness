@@ -8,7 +8,7 @@ import type { MealType, MealReminder } from '../types'
 
 // ─── Persistencia local ───────────────────────────────────────────────────────
 
-const LS_KEY = 'calistenia_meal_reminders'
+const LS_KEY = 'sturdy_meal_reminders'
 
 const lsGet = (): MealReminder[] => {
   try { return JSON.parse(storage.getItem(LS_KEY) || '[]') } catch { return [] }
@@ -64,7 +64,7 @@ export function useMealReminders(userId: string | null) {
 
   const { data: reminders = [] } = useQuery<MealReminder[]>({
     queryKey: remindersKey,
-    // initialData desde LS — disponible offline / sin sesión desde el primer render
+    // initialData desde LS — disponible offline / no session desde el primer render
     initialData: lsGet,
     initialDataUpdatedAt: 0, // fuerza refetch al montar para fusionar con PB
     enabled: !!userId,

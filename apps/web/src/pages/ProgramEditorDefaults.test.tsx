@@ -22,7 +22,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import type { ReactNode } from 'react'
 import i18n from 'i18next'
 
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: {
     filter: vi.fn(),
     collection: vi.fn(() => ({})),
@@ -32,9 +32,9 @@ vi.mock('@calistenia/core/lib/pocketbase', () => ({
 }))
 
 // ⚠️ Import con i18next SIN inicializar, a propósito. Ver cabecera.
-import { useProgramEditor } from '@calistenia/core/hooks/useProgramEditor'
+import { useProgramEditor } from '@sturdy/core/hooks/useProgramEditor'
 
-import es from '@calistenia/core/locales/es/translation.json'
+import es from '@sturdy/core/locales/es/translation.json'
 
 beforeAll(async () => {
   if (!i18n.isInitialized) {

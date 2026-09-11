@@ -10,7 +10,7 @@ import { View, ScrollView, Pressable, ActivityIndicator } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useRouter } from 'expo-router'
 import { useTranslation } from 'react-i18next'
-import { useLocalize } from '@calistenia/core/hooks/useLocalize'
+import { useLocalize } from '@sturdy/core/hooks/useLocalize'
 import { X, Swords } from 'lucide-react-native'
 
 import { Text } from '@/components/ui/text'
@@ -18,15 +18,15 @@ import { Kicker } from '@/components/ui/kicker'
 import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
 import { useAuthUser } from '@/lib/use-auth-user'
-import { BATTLE_PRESETS } from '@calistenia/core/data/battle-presets'
+import { BATTLE_PRESETS } from '@sturdy/core/data/battle-presets'
 import {
   createBattleDraft,
   findMyActiveBattle,
   publishBattle,
   newIdempotencyKey,
-} from '@calistenia/core/lib/battleApi'
-import type { Battle } from '@calistenia/core/types/battle'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
+} from '@sturdy/core/lib/battleApi'
+import type { Battle } from '@sturdy/core/types/battle'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
 
 export default function BattleCreateScreen() {
   const { t } = useTranslation()

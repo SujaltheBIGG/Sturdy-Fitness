@@ -2,10 +2,10 @@ import { useCallback } from 'react'
 import i18n from '../lib/i18n'
 import { Button } from './ui/button'
 import { shareImage, canvasToBlob, loadLogo } from '../lib/share'
-import { trackShareCardShared } from '@calistenia/core/lib/analytics'
-import { todayStr } from '@calistenia/core/lib/dateUtils'
+import { trackShareCardShared } from '@sturdy/core/lib/analytics'
+import { todayStr } from '@sturdy/core/lib/dateUtils'
 import { fillRRect, strokeRRect, drawCircleImage, drawInitialAvatar, loadImage, CARD_COLORS } from '../lib/canvas-helpers'
-import type { Exercise } from '@calistenia/core/types'
+import type { Exercise } from '@sturdy/core/types'
 
 interface Quote { q: string; a: string }
 
@@ -100,9 +100,9 @@ export default function WorkoutShareCard({ workoutTitle, totalSets, durationMin,
       ctx.font = '400 11px "DM Sans", system-ui, sans-serif'
       ctx.fillText(formatDate(dateStr), profileTextX, avatarCy + 14)
 
-      // ── "SESIÓN COMPLETADA" badge ──
+      // ── "SESSION COMPLETE" badge ──
       y = avatarCy + avatarR + 28
-      const badgeText = 'SESIÓN COMPLETADA'
+      const badgeText = 'SESSION COMPLETE'
       ctx.font = '700 10px "DM Sans", system-ui, sans-serif'
       ctx.letterSpacing = '3px'
       const badgeW = ctx.measureText(badgeText).width + 28
@@ -237,7 +237,7 @@ export default function WorkoutShareCard({ workoutTitle, totalSets, durationMin,
           const moreY = y + 8 + maxExercises * 42
           ctx.fillStyle = fgMuted
           ctx.font = '500 11px "DM Sans", system-ui, sans-serif'
-          ctx.fillText(`+${exList.length - 8} más`, pad + 42, moreY + 14)
+          ctx.fillText(`+${exList.length - 8} more`, pad + 42, moreY + 14)
         }
 
         y += listH + 8
@@ -299,18 +299,18 @@ export default function WorkoutShareCard({ workoutTitle, totalSets, durationMin,
       }
       ctx.fillStyle = fgDim
       ctx.font = '500 12px "DM Sans", system-ui, sans-serif'
-      ctx.fillText('CALISTENIA', pad + (logo ? footerLogoSize + 8 : 0), footerY + 18)
+      ctx.fillText('STURDY', pad + (logo ? footerLogoSize + 8 : 0), footerY + 18)
 
       ctx.fillStyle = fgMuted
       ctx.font = '400 10px "DM Sans", system-ui, sans-serif'
       ctx.textAlign = 'right'
-      ctx.fillText('calistenia-app.com', w - pad, footerY + 18)
+      ctx.fillText('sturdy-app.com', w - pad, footerY + 18)
       ctx.textAlign = 'left'
 
       const blob = await canvasToBlob(canvas)
       if (!blob) return
       const shareText = referralCode
-        ? `${workoutTitle} — ${totalSets} series en ${durationMin} min 💪\ngym.guille.tech/invite/${referralCode}`
+        ? `${workoutTitle} — ${totalSets} series en ${durationMin} min 💪\nsturdy.app/invite/${referralCode}`
         : `${workoutTitle} — ${totalSets} series en ${durationMin} min 💪`
       const outcome = await shareImage(
         blob,

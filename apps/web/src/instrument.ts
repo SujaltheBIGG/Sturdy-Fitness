@@ -91,7 +91,7 @@ Sentry.init({
 
   // Tracing — 1.0 in dev, lower in production
   tracesSampleRate: import.meta.env.PROD ? 0.2 : 1.0,
-  tracePropagationTargets: ["localhost", import.meta.env.VITE_API_ORIGIN || "https://gym-server.guille.tech"],
+  tracePropagationTargets: ["localhost", import.meta.env.VITE_API_ORIGIN || "https://api.sturdy.app"],
 
   // Session Replay
   replaysSessionSampleRate: 0.1,

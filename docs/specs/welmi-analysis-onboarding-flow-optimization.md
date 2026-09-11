@@ -7,7 +7,7 @@
 
 ---
 
-## 1. Current Onboarding Flow (Calistenia App)
+## 1. Current Onboarding Flow (Sturdy)
 
 ### Authentication (AuthPage.tsx)
 
@@ -19,7 +19,7 @@ Signup captures only: `email`, `password`, `display_name`. Google OAuth captures
 
 ### Post-Auth Onboarding (OnboardingFlow.tsx)
 
-The onboarding is shown as a full-screen takeover after login if `localStorage` flag `calistenia_onboarding_done_{userId}` is not set. It has 3-4 steps depending on whether profile data is missing:
+The onboarding is shown as a full-screen takeover after login if `localStorage` flag `sturdy_onboarding_done_{userId}` is not set. It has 3-4 steps depending on whether profile data is missing:
 
 | Step | Screen | Data Captured | Skippable? |
 |------|--------|---------------|------------|
@@ -95,7 +95,7 @@ Welmi uses a ~20-step wizard where each screen captures ONE data point with a po
 
 ## 3. Comparison: What We Capture vs. What Welmi Captures
 
-| Data Point | Calistenia App | Welmi | Gap Analysis |
+| Data Point | Sturdy | Welmi | Gap Analysis |
 |------------|---------------|-------|--------------|
 | Email/password | Yes | Yes | -- |
 | Display name | Yes | No | We're ahead |

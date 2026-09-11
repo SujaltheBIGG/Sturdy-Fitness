@@ -8,8 +8,8 @@ import SleepLumbarSection from '../components/lumbar/SleepLumbarSection'
 import { Button } from '../components/ui/button'
 import { Badge } from '../components/ui/badge'
 import { cn } from '../lib/utils'
-import { todayStr } from '@calistenia/core/lib/dateUtils'
-import type { Protocol, ProtocolExercise, Pause } from '@calistenia/core/types'
+import { todayStr } from '@sturdy/core/lib/dateUtils'
+import type { Protocol, ProtocolExercise, Pause } from '@sturdy/core/types'
 import { RecordModel } from 'pocketbase'
 
 // ─── Training protocols ───────────────────────────────────────────────────────
@@ -215,13 +215,13 @@ export default function LumbarPage({ user }: LumbarPageProps) {
   const [activeProtocol, setActiveProtocol] = useState<string | null>(null)
   const [youtubeQuery, setYoutubeQuery]     = useState<string | null>(null)
   const [showLumbarCheck, setShowLumbarCheck] = useState(() => {
-    const lastCheck = localStorage.getItem('calistenia_lumbar_check_date')
+    const lastCheck = localStorage.getItem('sturdy_lumbar_check_date')
     return lastCheck !== todayStr()
   })
 
   const handleLumbarCheckDone = useCallback(() => {
     const today = todayStr()
-    localStorage.setItem('calistenia_lumbar_check_date', today)
+    localStorage.setItem('sturdy_lumbar_check_date', today)
     setShowLumbarCheck(false)
   }, [])
 

@@ -7,8 +7,8 @@ import { Platform } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import * as Sentry from '@sentry/react-native'
 import i18n from 'i18next'
-import { pb } from '@calistenia/core/lib/pocketbase'
-import { todayStr } from '@calistenia/core/lib/dateUtils'
+import { pb } from '@sturdy/core/lib/pocketbase'
+import { todayStr } from '@sturdy/core/lib/dateUtils'
 import { CARDIO_WIDGET_SNAPSHOT_KEY, type CardioWidgetSnapshot } from './cardio-widget-snapshot'
 
 let lastJson: string | null = null

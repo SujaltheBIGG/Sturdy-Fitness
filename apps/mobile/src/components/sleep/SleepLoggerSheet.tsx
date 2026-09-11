@@ -20,9 +20,9 @@ import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import { cn } from '@/lib/utils'
 import { haptics } from '@/lib/haptics'
-import { op } from '@calistenia/core/lib/analytics'
-import { calculateDurationMinutes, type SleepEntryInput } from '@calistenia/core/hooks/useSleep'
-import type { SleepEntry } from '@calistenia/core/types'
+import { op } from '@sturdy/core/lib/analytics'
+import { calculateDurationMinutes, type SleepEntryInput } from '@sturdy/core/hooks/useSleep'
+import type { SleepEntry } from '@sturdy/core/types'
 
 const ACCENT = '#818cf8' // indigo-400 — mismo acento que el chip de sueño del calendario
 

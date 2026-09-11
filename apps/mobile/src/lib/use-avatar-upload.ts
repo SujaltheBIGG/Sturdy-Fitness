@@ -22,7 +22,7 @@ import {
 } from '@/lib/avatar'
 import { haptics } from '@/lib/haptics'
 import { Sentry } from '@/lib/instrument'
-import { pb, getUserAvatarUrl } from '@calistenia/core/lib/pocketbase'
+import { pb, getUserAvatarUrl } from '@sturdy/core/lib/pocketbase'
 
 /** Recorte cuadrado en el propio picker: un toque, y el thumb no corta la cabeza. */
 const PICKER_OPTIONS = {

@@ -49,7 +49,7 @@ export function WaterWidget({ snapshot, today }: { snapshot: NutritionWidgetSnap
 
   if (!snapshot || snapshot.date !== today) {
     return (
-      <FlexWidget clickAction="OPEN_URI" clickActionData={{ uri: 'calistenia://nutrition' }} style={SHELL}>
+      <FlexWidget clickAction="OPEN_URI" clickActionData={{ uri: 'sturdy://nutrition' }} style={SHELL}>
         <TextWidget text={tr.stale} style={{ fontSize: 12, color: MUTED, fontFamily: 'JetBrainsMono_400Regular' }} />
       </FlexWidget>
     )
@@ -62,7 +62,7 @@ export function WaterWidget({ snapshot, today }: { snapshot: NutritionWidgetSnap
   const { filled, empty } = barWeights(ml, goalMl)
 
   return (
-    <FlexWidget clickAction="OPEN_URI" clickActionData={{ uri: 'calistenia://nutrition' }} style={SHELL}>
+    <FlexWidget clickAction="OPEN_URI" clickActionData={{ uri: 'sturdy://nutrition' }} style={SHELL}>
       <FlexWidget style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
         <TextWidget text={liters} style={{ fontSize: 34, color: SKY, fontFamily: 'BebasNeue_400Regular' }} />
         <TextWidget text=" L" style={{ fontSize: 12, color: MUTED, fontFamily: 'JetBrainsMono_400Regular', marginBottom: 4 }} />

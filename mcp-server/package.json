@@ -1,7 +1,7 @@
 {
-  "name": "calistenia-server",
+  "name": "sturdy-server",
   "version": "1.0.0",
-  "description": "Unified server for Calistenia App — REST API + MCP tools for Claude",
+  "description": "Unified server for Sturdy — REST API + MCP tools for Claude",
   "type": "module",
   "engines": {
     "node": ">=22.22.2"
@@ -21,7 +21,7 @@
     "@ai-sdk/google": "^4.0.54",
     "@ai-sdk/openai": "^4.0.50",
     "@ai-sdk/otel": "^1.0.83",
-    "@calistenia/core": "file:../packages/core",
+    "@sturdy/core": "file:../packages/core",
     "@langfuse/core": "^5.10.1",
     "@langfuse/otel": "^5.10.1",
     "@modelcontextprotocol/sdk": "^1.30.0",

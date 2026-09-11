@@ -18,10 +18,10 @@ import {
   useActiveSessionState,
   type ActiveSessionContextValue,
   type SessionProgress,
-} from '@calistenia/core/hooks/session-contexts/useActiveSessionState'
+} from '@sturdy/core/hooks/session-contexts/useActiveSessionState'
 
-export { getCurrentSection } from '@calistenia/core/hooks/session-contexts/useActiveSessionState'
-export type { WarmupCooldownData } from '@calistenia/core/hooks/session-contexts/useActiveSessionState'
+export { getCurrentSection } from '@sturdy/core/hooks/session-contexts/useActiveSessionState'
+export type { WarmupCooldownData } from '@sturdy/core/hooks/session-contexts/useActiveSessionState'
 
 // Dos contextos a propósito: el *store* (identidad de la sesión y acciones) es
 // estable durante todo el entreno, mientras que el progreso cambia en cada

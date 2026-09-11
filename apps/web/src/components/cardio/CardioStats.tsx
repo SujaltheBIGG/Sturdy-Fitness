@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { formatPace, formatDuration } from '@calistenia/core/lib/geo'
-import type { CardioAggregateStats, PersonalRecords, WeeklyTrendPoint } from '@calistenia/core/hooks/useCardioStats'
+import { formatPace, formatDuration } from '@sturdy/core/lib/geo'
+import type { CardioAggregateStats, PersonalRecords, WeeklyTrendPoint } from '@sturdy/core/hooks/useCardioStats'
 import { cn } from '../../lib/utils'
 
 interface CardioStatsProps {

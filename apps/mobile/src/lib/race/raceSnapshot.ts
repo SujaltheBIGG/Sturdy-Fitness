@@ -5,9 +5,9 @@
  * Port del raceSnapshot web: sessionStorage → syncStorage (AsyncStorage).
  */
 import { syncStorage } from '@/lib/storage'
-import type { RaceGpsPoint } from '@calistenia/core/types/race'
+import type { RaceGpsPoint } from '@sturdy/core/types/race'
 
-const KEY = 'calistenia_race_snapshot'
+const KEY = 'sturdy_race_snapshot'
 const MAX_AGE_MS = 6 * 60 * 60 * 1000 // 6h — techo duro de rehidratación
 
 export interface RaceSnapshot {

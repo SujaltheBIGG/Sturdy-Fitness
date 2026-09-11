@@ -1,23 +1,23 @@
 {
   "expo": {
-    "name": "Calistenia",
-    "slug": "calistenia",
+    "name": "Sturdy",
+    "slug": "sturdy",
     "owner": "guillermouser",
     "version": "1.13.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "calistenia",
+    "scheme": "sturdy",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/images/icon.png",
-      "bundleIdentifier": "tech.guille.calistenia",
+      "bundleIdentifier": "app.sturdy.mobile",
       "supportsTablet": false,
       "associatedDomains": [
-        "applinks:gym.guille.tech"
+        "applinks:sturdy.app"
       ],
       "entitlements": {
         "com.apple.security.application-groups": [
-          "group.tech.guille.calistenia"
+          "group.app.sturdy.mobile"
         ]
       },
       "infoPlist": {
@@ -25,7 +25,7 @@
       }
     },
     "android": {
-      "package": "tech.guille.calistenia",
+      "package": "app.sturdy.mobile",
       "googleServicesFile": "./google-services.json",
       "versionCode": 40,
       "intentFilters": [
@@ -35,27 +35,27 @@
           "data": [
             {
               "scheme": "https",
-              "host": "gym.guille.tech",
+              "host": "sturdy.app",
               "pathPrefix": "/race"
             },
             {
               "scheme": "https",
-              "host": "gym.guille.tech",
+              "host": "sturdy.app",
               "pathPrefix": "/u"
             },
             {
               "scheme": "https",
-              "host": "gym.guille.tech",
+              "host": "sturdy.app",
               "pathPrefix": "/session"
             },
             {
               "scheme": "https",
-              "host": "gym.guille.tech",
+              "host": "sturdy.app",
               "pathPrefix": "/invite"
             },
             {
               "scheme": "https",
-              "host": "gym.guille.tech",
+              "host": "sturdy.app",
               "pathPrefix": "/battle-invite"
             }
           ],
@@ -131,8 +131,8 @@
         "@sentry/react-native",
         {
           "url": "https://sentry.io/",
-          "organization": "guillermoscript",
-          "project": "calistenia-app"
+          "organization": "CLIENT-ORG",
+          "project": "sturdy-app"
         }
       ],
       [
@@ -266,20 +266,20 @@
             "ios": {
               "appExtensions": [
                 {
-                  "bundleIdentifier": "tech.guille.calistenia.widget",
+                  "bundleIdentifier": "app.sturdy.mobile.widget",
                   "targetName": "CalisteniaWidgets",
                   "entitlements": {
                     "com.apple.security.application-groups": [
-                      "group.tech.guille.calistenia"
+                      "group.app.sturdy.mobile"
                     ]
                   }
                 },
                 {
-                  "bundleIdentifier": "tech.guille.calistenia.widget",
+                  "bundleIdentifier": "app.sturdy.mobile.widget",
                   "targetName": "CalisteniaWidgets",
                   "entitlements": {
                     "com.apple.security.application-groups": [
-                      "group.tech.guille.calistenia"
+                      "group.app.sturdy.mobile"
                     ]
                   }
                 }

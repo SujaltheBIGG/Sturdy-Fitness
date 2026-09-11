@@ -18,7 +18,7 @@ import { shutdownTracing } from "./instrumentation.js";
 import { startReminderScheduler, stopReminderScheduler } from "./api/reminder-dispatcher.js";
 import { startInactivityScheduler, stopInactivityScheduler } from "./api/inactivity-dispatcher.js";
 
-const FLAG = "__calistenia_bootstrapped__" as const;
+const FLAG = "__sturdy_bootstrapped__" as const;
 const g = globalThis as typeof globalThis & { [FLAG]?: boolean };
 
 // `mcp-use build` / `mcp-use typecheck` evaluate the entry module (to collect

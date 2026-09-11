@@ -6,7 +6,7 @@ import ActivityKit
 @available(iOS 16.2, *)
 struct SessionLiveActivity: Widget {
   var body: some WidgetConfiguration {
-    ActivityConfiguration(for: CalisteniaActivityAttributes.self) { context in
+    ActivityConfiguration(for: SturdyActivityAttributes.self) { context in
       LockScreenView(context: context)
         .activityBackgroundTint(Theme.bg)
         .activitySystemActionForegroundColor(Theme.lime)
@@ -33,14 +33,14 @@ struct SessionLiveActivity: Widget {
       } minimal: {
         Image(systemName: "timer").foregroundColor(Theme.lime)
       }
-      .widgetURL(URL(string: "calistenia://session"))
+      .widgetURL(URL(string: "sturdy://session"))
     }
   }
 }
 
 @available(iOS 16.2, *)
 struct RestCountdown: View {
-  let state: CalisteniaActivityAttributes.ContentState
+  let state: SturdyActivityAttributes.ContentState
   let size: CGFloat
 
   var body: some View {
@@ -59,7 +59,7 @@ struct RestCountdown: View {
 
 @available(iOS 16.2, *)
 struct LockScreenView: View {
-  let context: ActivityViewContext<CalisteniaActivityAttributes>
+  let context: ActivityViewContext<SturdyActivityAttributes>
 
   var resting: Bool { context.state.phase == "rest" && context.state.restEndsAt != nil }
 

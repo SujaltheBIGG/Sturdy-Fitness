@@ -49,7 +49,7 @@ useTrainingStats(progress: ProgressMap, getWorkout: (phase: number, dayId: strin
   : { stats: TrainingStats; ready: boolean }
 ```
 
-Etiquetas de músculo: `t(getMuscleGroupLabelKey(group))` de `@calistenia/core/lib/muscles` (claves `muscleGroup.*` ya existen). Fechas relativas: `relativeDate(dateStr)` de `@calistenia/core/lib/dateUtils`. Claves i18n disponibles: ver bloque `stats.*` en `packages/core/locales/es/translation.json` (líneas tras `progress.tab.body`). Las que tienen plural (`stats.unassigned`, `stats.unknownExercises`) se usan con `t('stats.unassigned', { count })`. `stats.weekdayInitials` es una lista separada por comas.
+Etiquetas de músculo: `t(getMuscleGroupLabelKey(group))` de `@sturdy/core/lib/muscles` (claves `muscleGroup.*` ya existen). Fechas relativas: `relativeDate(dateStr)` de `@sturdy/core/lib/dateUtils`. Claves i18n disponibles: ver bloque `stats.*` en `packages/core/locales/es/translation.json` (líneas tras `progress.tab.body`). Las que tienen plural (`stats.unassigned`, `stats.unknownExercises`) se usan con `t('stats.unassigned', { count })`. `stats.weekdayInitials` es una lista separada por comas.
 
 Estado vacío: `ready && stats.totals.sessions === 0 && stats.totals.sets === 0`. Para saber si hay datos fuera del rango (y ofrecer «Ver todo»), calcular además `useTrainingStats(progress, getWorkout, 'all')` y mirar sus totales — es barato y sólo se usa en ese caso.
 
@@ -96,6 +96,6 @@ Patrones a copiar:
 
 ### Task 6: Verificación y PR
 
-- [ ] `pnpm -r typecheck` y `pnpm --filter @calistenia/core test`.
+- [ ] `pnpm -r typecheck` y `pnpm --filter @sturdy/core test`.
 - [ ] Commits separados: móvil, web. Push, PR con plantilla, «Closes #596».
 - [ ] QA en navegador (dos Vites, ver memoria) y en dispositivo.

@@ -14,27 +14,27 @@ import { useTranslation } from 'react-i18next'
 import { useRouter } from 'expo-router'
 import Animated, { FadeInRight } from 'react-native-reanimated'
 
-import { useUserHealth } from '@calistenia/core/hooks/useUserHealth'
-import { useOnboardingSubmit } from '@calistenia/core/hooks/useOnboardingSubmit'
-import { useWorkoutReminders } from '@calistenia/core/hooks/useWorkoutReminders'
-import { CANONICAL_ANALYTICS_EVENTS, op, trackCanonicalEvent } from '@calistenia/core/lib/analytics'
-import { parseDecimal } from '@calistenia/core/lib/bmi'
-import { markOnboardingDone } from '@calistenia/core/lib/onboarding-state'
-import { estimateFirstWorkoutMinutes, normalizeFirstWorkoutLevel } from '@calistenia/core/lib/first-workout'
-import { pb } from '@calistenia/core/lib/pocketbase'
+import { useUserHealth } from '@sturdy/core/hooks/useUserHealth'
+import { useOnboardingSubmit } from '@sturdy/core/hooks/useOnboardingSubmit'
+import { useWorkoutReminders } from '@sturdy/core/hooks/useWorkoutReminders'
+import { CANONICAL_ANALYTICS_EVENTS, op, trackCanonicalEvent } from '@sturdy/core/lib/analytics'
+import { parseDecimal } from '@sturdy/core/lib/bmi'
+import { markOnboardingDone } from '@sturdy/core/lib/onboarding-state'
+import { estimateFirstWorkoutMinutes, normalizeFirstWorkoutLevel } from '@sturdy/core/lib/first-workout'
+import { pb } from '@sturdy/core/lib/pocketbase'
 import {
   DEFAULT_TRAINING_TIME_PRESET,
   findTrainingTimePreset,
   formatReminderTime,
   reminderDaysFromTraining,
   type TrainingTimePresetId,
-} from '@calistenia/core/lib/onboarding-reminder'
-import type { MatchUserInput } from '@calistenia/core/lib/matchPrograms'
+} from '@sturdy/core/lib/onboarding-reminder'
+import type { MatchUserInput } from '@sturdy/core/lib/matchPrograms'
 import {
   DISCOVERY_SOURCE_NOT_ANSWERED,
   trackDiscoverySourceAnswered,
   type DiscoverySourceId,
-} from '@calistenia/core/lib/discovery-source'
+} from '@sturdy/core/lib/discovery-source'
 
 import { Sentry } from '@/lib/instrument'
 import { useAuthUser } from '@/lib/use-auth-user'
@@ -53,8 +53,8 @@ import { StepTraining } from './StepTraining'
 import { StepProgram } from './StepProgram'
 import { StepReminder } from './StepReminder'
 import { StepPersonalizing } from './StepPersonalizing'
-import type { HealthValues } from '@calistenia/core/types/onboarding'
-import type { TrainingValues } from '@calistenia/core/types/onboarding'
+import type { HealthValues } from '@sturdy/core/types/onboarding'
+import type { TrainingValues } from '@sturdy/core/types/onboarding'
 
 const EMPTY_BASICS: BasicsValues = { weight: '', height: '', age: '', sex: '' }
 const EMPTY_GOALS: GoalsValues = { primary_goal: '', goal_weight: '', waist: '', activity_level: '', pace: '' }

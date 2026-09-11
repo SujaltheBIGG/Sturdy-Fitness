@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { pb, getUserAvatarUrl } from '@calistenia/core/lib/pocketbase'
+import { pb, getUserAvatarUrl } from '@sturdy/core/lib/pocketbase'
 import type { RecordModel } from 'pocketbase'
-import { useFollows } from '@calistenia/core/hooks/useFollows'
-import { useBlocks } from '@calistenia/core/hooks/useBlocks'
-import { excludeBlocked } from '@calistenia/core/lib/blocks'
+import { useFollows } from '@sturdy/core/hooks/useFollows'
+import { useBlocks } from '@sturdy/core/hooks/useBlocks'
+import { excludeBlocked } from '@sturdy/core/lib/blocks'
 import { cn } from '../lib/utils'
 import { Button } from '../components/ui/button'
 import { Input } from '../components/ui/input'
@@ -85,7 +85,7 @@ export default function FriendsPage({ userId }: FriendsPageProps) {
   async function shareNative() {
     if (navigator.share) {
       try {
-        await navigator.share({ title: 'Calistenia App', text: t('profile.whatsappShare', { url: '' }), url: profileUrl })
+        await navigator.share({ title: 'Sturdy', text: t('profile.whatsappShare', { url: '' }), url: profileUrl })
         return
       } catch { /* cancelled */ }
     }

@@ -21,7 +21,7 @@ import { useAuthUser } from '@/lib/use-auth-user'
 import {
   useCommunityPrograms,
   type CommunityProgramCard,
-} from '@calistenia/core/hooks/useCommunityPrograms'
+} from '@sturdy/core/hooks/useCommunityPrograms'
 
 export default function CommunityProgramsScreen() {
   const { t } = useTranslation()

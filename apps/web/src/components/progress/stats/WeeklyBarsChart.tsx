@@ -1,4 +1,4 @@
-import type { WeeklyStat } from '@calistenia/core/lib/training-stats'
+import type { WeeklyStat } from '@sturdy/core/lib/training-stats'
 import { cn } from '../../../lib/utils'
 
 interface WeeklyBarsChartProps {

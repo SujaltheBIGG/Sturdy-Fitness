@@ -19,7 +19,7 @@ export async function emitProgramMilestoneIfCompleted(userId: string, programId:
   const match = /^p(\d+)_/.exec(workoutKey)
   if (!match) return
   const phase = Number(match[1])
-  const milestoneKey = `calistenia_program_milestone_${userId}_${programId}_${phase}`
+  const milestoneKey = `sturdy_program_milestone_${userId}_${programId}_${phase}`
   if (storage.getItem(milestoneKey)) return
 
   const dayPrefix = `p${phase}_`

@@ -13,4 +13,4 @@
  * Estaba copiada en seis sitios entre las dos apps, unas veces como `BASE_URL`
  * y otras como `WEB_ORIGIN` (#468).
  */
-export const WEB_BASE_URL = 'https://gym.guille.tech'
+export const WEB_BASE_URL = 'https://sturdy.app'

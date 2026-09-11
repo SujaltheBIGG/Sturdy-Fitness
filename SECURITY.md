@@ -12,7 +12,7 @@ If you discover a security vulnerability, please report it responsibly.
 
 **Do NOT open a public GitHub issue for security vulnerabilities.**
 
-Instead, please email: **security@calistenia.app** (or open a [private security advisory](https://github.com/guillermoscript/calistenia-app/security/advisories/new)).
+Instead, please email: **security@sturdy.app** (or open a [private security advisory](https://github.com/CLIENT-ORG/sturdy-app/security/advisories/new)).
 
 ### What to include
 

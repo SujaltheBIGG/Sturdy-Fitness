@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { renderHook, act, waitFor } from '@testing-library/react'
 import type { ReactNode } from 'react'
-import type { CircuitDefinition } from '@calistenia/core/types'
+import type { CircuitDefinition } from '@sturdy/core/types'
 
 // pb/op se mockean: CircuitSessionContext los usa para persistir sesiones
 // completadas (pb.collection('circuit_sessions').create) y trackear eventos.
@@ -19,7 +19,7 @@ const { mockCreate, mockTrack, mockReportError, connectivity, lifecycleBus } = v
   },
 }))
 
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: {
     // #464: la cola de core no drena sin sesión válida (evita descartar
     // replays sin token como "poison").
@@ -28,14 +28,14 @@ vi.mock('@calistenia/core/lib/pocketbase', () => ({
   },
 }))
 
-vi.mock('@calistenia/core/lib/analytics', () => ({
+vi.mock('@sturdy/core/lib/analytics', () => ({
   op: { track: mockTrack },
 }))
 
 // #464: los circuitos pasan por `offlineQueue`, que lee el adapter de
 // plataforma de core (storage + connectivity). En tests no hay `initCore()`,
 // así que se inyecta aquí, respaldado por el localStorage de jsdom.
-vi.mock('@calistenia/core/platform', () => ({
+vi.mock('@sturdy/core/platform', () => ({
   storage: {
     getItem: (k: string) => window.localStorage.getItem(k),
     setItem: (k: string, v: string) => window.localStorage.setItem(k, v),
@@ -63,10 +63,10 @@ vi.mock('@calistenia/core/platform', () => ({
 }))
 
 import { CircuitSessionProvider, useCircuitSession } from './CircuitSessionContext'
-import { getQueue, clearQueue } from '@calistenia/core/lib/offlineQueue'
-import { LEGACY_CIRCUIT_UNSAVED_KEY } from '@calistenia/core/lib/circuitSessionQueue'
+import { getQueue, clearQueue } from '@sturdy/core/lib/offlineQueue'
+import { LEGACY_CIRCUIT_UNSAVED_KEY } from '@sturdy/core/lib/circuitSessionQueue'
 
-const STORAGE_KEY = 'calistenia_circuit_active'
+const STORAGE_KEY = 'sturdy_circuit_active'
 const UNSAVED_KEY = LEGACY_CIRCUIT_UNSAVED_KEY
 
 /** Sesiones de circuito pendientes en la cola común de core. */
@@ -127,7 +127,7 @@ describe('startCircuit', () => {
     expect(result.current.isPaused).toBe(false)
   })
 
-  it('persiste en localStorage bajo calistenia_circuit_active', () => {
+  it('persiste en localStorage bajo sturdy_circuit_active', () => {
     const { result } = renderHook(() => useCircuitSession(), { wrapper: makeWrapper('u1') })
     const circuit = makeCircuit()
 

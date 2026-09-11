@@ -6,14 +6,14 @@ import {
   useCommunityProgramDetail,
   useCommunityPrograms,
   type MilestoneChallengeLink,
-} from '@calistenia/core/hooks/useCommunityPrograms'
-import { useChallenges } from '@calistenia/core/hooks/useChallenges'
+} from '@sturdy/core/hooks/useCommunityPrograms'
+import { useChallenges } from '@sturdy/core/hooks/useChallenges'
 import {
   getMilestoneState,
   type MilestoneProgress,
   type MilestoneState,
-} from '@calistenia/core/lib/community-programs'
-import { formatDateRange, todayStr } from '@calistenia/core/lib/dateUtils'
+} from '@sturdy/core/lib/community-programs'
+import { formatDateRange, todayStr } from '@sturdy/core/lib/dateUtils'
 import { cn } from '../lib/utils'
 import { Button } from '../components/ui/button'
 

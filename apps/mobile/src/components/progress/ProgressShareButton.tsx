@@ -14,7 +14,7 @@ import { Button } from '@/components/ui/button'
 import { MOBILE_SHARE_CARD_CONTEXTS, shareCardImage } from '@/lib/share'
 import { useAuthUser } from '@/lib/use-auth-user'
 import { Sentry } from '@/lib/instrument'
-import type { BodyPhoto } from '@calistenia/core/hooks/useBodyPhotos'
+import type { BodyPhoto } from '@sturdy/core/hooks/useBodyPhotos'
 import { useShareCardCapture } from '@/hooks/useShareCardCapture'
 
 import ShareCardCapture from '@/components/share/ShareCardCapture'

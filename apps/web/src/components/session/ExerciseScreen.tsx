@@ -1,10 +1,10 @@
 import { memo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Image } from 'lucide-react'
-import type { ExerciseLog, SetData } from '@calistenia/core/types'
-import type { Step } from '@calistenia/core/lib/session-machine'
-import { formatTempo, quickReps } from '@calistenia/core/lib/exercise-format'
-import { useExerciseMedia, hasResolvedMedia } from '@calistenia/core/hooks/useExerciseMedia'
+import type { ExerciseLog, SetData } from '@sturdy/core/types'
+import type { Step } from '@sturdy/core/lib/session-machine'
+import { formatTempo, quickReps } from '@sturdy/core/lib/exercise-format'
+import { useExerciseMedia, hasResolvedMedia } from '@sturdy/core/hooks/useExerciseMedia'
 import ProgressionChip from './ProgressionChip'
 import YoutubeModal from '../YoutubeModal'
 import MediaViewer from '../MediaViewer'
@@ -179,7 +179,7 @@ const ExerciseScreen = memo(function ExerciseScreen({ step, onLogged, logs = [] 
         {/* Recent history */}
         {recentLogs.length > 0 && (
           <div className="mb-5">
-            <div className="text-[9px] text-muted-foreground/50 tracking-[2px] mb-1.5 uppercase font-mono">Últimas sesiones</div>
+            <div className="text-[9px] text-muted-foreground/50 tracking-[2px] mb-1.5 uppercase font-mono">Recent sessions</div>
             {recentLogs.map((log, i) => (
               <div key={i} className="text-[12px] text-muted-foreground/50 mb-0.5">
                 <span className="font-mono text-muted-foreground/30 mr-2">{log.date}</span>
@@ -210,7 +210,7 @@ const ExerciseScreen = memo(function ExerciseScreen({ step, onLogged, logs = [] 
           <div className="relative">
             <button
               onClick={handleQuick}
-              aria-label={`Registrar serie completada con ${defaultReps}`}
+              aria-label={`Log a completed set with ${defaultReps}`}
               className="w-full py-[18px] px-4 rounded-lg cursor-pointer bg-lime/14 text-lime font-mono text-sm font-bold tracking-[1.5px] flex items-center justify-center gap-2.5 transition-[background-color,transform] duration-100 hover:bg-lime/22 active:scale-[0.97] active:bg-lime/24 focus-visible:ring-2 focus-visible:ring-lime/40 focus-visible:ring-offset-1 focus-visible:ring-offset-background"
             >
               <span className="text-xl leading-none">+</span>
@@ -246,7 +246,7 @@ const ExerciseScreen = memo(function ExerciseScreen({ step, onLogged, logs = [] 
             {hasMedia && (
               <button
                 onClick={() => setShowMedia(true)}
-                aria-label="Ver fotos del ejercicio"
+                aria-label="View exercise photos"
                 className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-md cursor-pointer border border-lime/20 bg-lime/5 text-lime text-sm leading-none hover:bg-lime/10 transition-all duration-150 focus-visible:ring-2 focus-visible:ring-lime/40"
               >
                 <Image size={15} />
@@ -264,7 +264,7 @@ const ExerciseScreen = memo(function ExerciseScreen({ step, onLogged, logs = [] 
 
           {editOpen && (
             <div className="px-3.5 py-3 bg-lime/4 rounded-lg border border-lime/12 form-slide-in">
-              <div className="text-[9px] text-lime tracking-[2px] mb-2.5 uppercase font-mono">Registrar serie personalizada</div>
+              <div className="text-[9px] text-lime tracking-[2px] mb-2.5 uppercase font-mono">Log a custom set</div>
               <div className="flex gap-2">
                 <Input
                   value={customReps}
@@ -294,7 +294,7 @@ const ExerciseScreen = memo(function ExerciseScreen({ step, onLogged, logs = [] 
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCustomRpe(e.target.value)}
                   placeholder="RPE"
                   title={t('session.rpeTitle')}
-                  aria-label="RPE del 1 al 10"
+                  aria-label="RPE from 1 to 10"
                   className="w-[56px] h-9 text-xs"
                 />
               </div>

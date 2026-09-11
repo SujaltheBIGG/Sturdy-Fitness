@@ -16,7 +16,7 @@ const update = vi.fn().mockResolvedValue({})
 const create = vi.fn().mockResolvedValue({ id: 'goal1' })
 const getFirstListItem = vi.fn()
 
-vi.mock('@calistenia/core/lib/pocketbase', () => ({
+vi.mock('@sturdy/core/lib/pocketbase', () => ({
   pb: {
     baseUrl: 'http://pb.test',
     filter: (expr: string) => expr,
@@ -29,14 +29,14 @@ vi.mock('@calistenia/core/lib/pocketbase', () => ({
   isPocketBaseAvailable: () => Promise.resolve(true),
 }))
 
-vi.mock('@calistenia/core/lib/analytics', () => ({
+vi.mock('@sturdy/core/lib/analytics', () => ({
   op: { track: vi.fn() },
   trackCanonicalEvent: vi.fn(),
   CANONICAL_ANALYTICS_EVENTS: {},
 }))
 
-import { useOnboardingSubmit } from '@calistenia/core/hooks/useOnboardingSubmit'
-import type { BasicsValues, GoalsValues } from '@calistenia/core/types/onboarding'
+import { useOnboardingSubmit } from '@sturdy/core/hooks/useOnboardingSubmit'
+import type { BasicsValues, GoalsValues } from '@sturdy/core/types/onboarding'
 
 type Submit = ReturnType<typeof useOnboardingSubmit>
 let submit: Submit

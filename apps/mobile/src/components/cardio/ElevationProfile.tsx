@@ -6,8 +6,8 @@ import { useMemo, useState } from 'react'
 import { View } from 'react-native'
 import Svg, { Path, Defs, LinearGradient, Stop } from 'react-native-svg'
 import { Kicker } from '@/components/ui/kicker'
-import { haversineDistance } from '@calistenia/core/lib/geo'
-import type { GpsPoint } from '@calistenia/core/types'
+import { haversineDistance } from '@sturdy/core/lib/geo'
+import type { GpsPoint } from '@sturdy/core/types'
 
 const MAX_SAMPLES = 120
 

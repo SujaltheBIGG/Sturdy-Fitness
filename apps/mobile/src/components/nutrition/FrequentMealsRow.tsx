@@ -10,7 +10,7 @@ import { Plus } from 'lucide-react-native'
 import { Text } from '@/components/ui/text'
 import { haptics } from '@/lib/haptics'
 import { Sentry } from '@/lib/instrument'
-import type { NutritionEntry } from '@calistenia/core/types'
+import type { NutritionEntry } from '@sturdy/core/types'
 
 interface FrequentMealsRowProps {
   meals: NutritionEntry[]

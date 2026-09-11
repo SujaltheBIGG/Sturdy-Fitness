@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { getUserAvatarUrl } from '@calistenia/core/lib/pocketbase'
+import { getUserAvatarUrl } from '@sturdy/core/lib/pocketbase'
 import { useAuthState } from '../contexts/AuthContext'
 
 export interface SessionIdentity {

@@ -1,19 +1,19 @@
 {
-  "name": "calistenia",
+  "name": "sturdy",
   "private": true,
   "version": "1.4.0",
   "type": "module",
   "packageManager": "pnpm@10.34.5",
   "scripts": {
     "prepare": "husky",
-    "dev": "pnpm --filter @calistenia/web dev",
+    "dev": "pnpm --filter @sturdy/web dev",
     "dev:all": "bash .devcontainer/dev-all.sh",
-    "build": "pnpm --filter @calistenia/web build",
+    "build": "pnpm --filter @sturdy/web build",
     "typecheck": "pnpm -r typecheck",
     "test": "pnpm -r test",
     "test:pb-hooks": "node tests/pb_hooks/run.mjs",
     "outdated": "pnpm -r outdated",
-    "preview": "pnpm --filter @calistenia/web preview",
+    "preview": "pnpm --filter @sturdy/web preview",
     "pb:serve": "./pocketbase serve",
     "pb:migrate": "node scripts/pb-migrate.js",
     "changelog:mobile": "node scripts/generate-changelog-ai.mjs",
@@ -36,7 +36,7 @@
     "programs:content:check": "node scripts/check-program-content.mjs",
     "programs:repair": "node scripts/repair-program-timers-muscles.mjs",
     "programs:repair:check": "node scripts/repair-program-timers-muscles.mjs --check",
-    "test:program-content": "pnpm --filter @calistenia/core exec vitest run ../../scripts/check-program-content.test.mjs --root ../../scripts"
+    "test:program-content": "pnpm --filter @sturdy/core exec vitest run ../../scripts/check-program-content.test.mjs --root ../../scripts"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.2",

@@ -135,7 +135,7 @@ for (const key of Object.keys(es)) {
 }
 
 // Regenerar `pending` tras un barrido:
-//   UPDATE_UNTRANSLATED_BASELINE=1 pnpm --filter @calistenia/core test untranslated
+//   UPDATE_UNTRANSLATED_BASELINE=1 pnpm --filter @sturdy/core test untranslated
 // `exempt` se conserva tal cual — esa lista se cura a mano.
 if (process.env.UPDATE_UNTRANSLATED_BASELINE) {
   const pending = [...candidates.keys()].filter((key) => !(key in baseline.exempt)).sort()

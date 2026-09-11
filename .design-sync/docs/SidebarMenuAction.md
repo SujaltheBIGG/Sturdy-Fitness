@@ -11,7 +11,7 @@ Parte de la familia `Sidebar`. Se usa dentro de `<Sidebar>`, no por separado.
 ```jsx
 <SidebarProvider>
   <Sidebar>
-    <SidebarHeader>Calistenia</SidebarHeader>
+    <SidebarHeader>Sturdy</SidebarHeader>
     <SidebarContent>
       <SidebarGroup>
         <SidebarGroupLabel>Entrenar</SidebarGroupLabel>

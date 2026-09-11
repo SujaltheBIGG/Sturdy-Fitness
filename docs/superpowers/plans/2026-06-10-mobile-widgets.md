@@ -49,7 +49,7 @@
 
 Run (desde la raíz del monorepo):
 ```bash
-pnpm --filter @calistenia/mobile add -D vitest
+pnpm --filter @sturdy/mobile add -D vitest
 ```
 
 En `apps/mobile/package.json`, añadir a `"scripts"`:
@@ -67,7 +67,7 @@ import { buildWidgetSnapshot } from '../widget-snapshot'
 const baseArgs = {
   today: '2026-06-10',
   lang: 'es' as const,
-  programName: 'Calistenia 26 semanas',
+  programName: 'Sturdy 26 semanas',
   programPhase: 2,
   todayId: 'mie',
   weekDays: [
@@ -122,7 +122,7 @@ describe('buildWidgetSnapshot', () => {
 
 - [ ] **Step 3: Verificar que falla**
 
-Run: `pnpm --filter @calistenia/mobile test`
+Run: `pnpm --filter @sturdy/mobile test`
 Expected: FAIL — `Cannot find module '../widget-snapshot'`
 
 - [ ] **Step 4: Implementación mínima**
@@ -196,7 +196,7 @@ export function buildWidgetSnapshot(args: {
 
 - [ ] **Step 5: Verificar que pasa + typecheck**
 
-Run: `pnpm --filter @calistenia/mobile test` → PASS (4 tests)
+Run: `pnpm --filter @sturdy/mobile test` → PASS (4 tests)
 Run: `pnpm run typecheck` (raíz) → sin errores
 
 - [ ] **Step 6: Commit**
@@ -265,7 +265,7 @@ describe('mapPhaseToActivity', () => {
 })
 ```
 
-- [ ] **Step 2: Verificar FAIL** — `pnpm --filter @calistenia/mobile test` → módulo no existe.
+- [ ] **Step 2: Verificar FAIL** — `pnpm --filter @sturdy/mobile test` → módulo no existe.
 
 - [ ] **Step 3: Implementación**
 
@@ -309,7 +309,7 @@ export function mapPhaseToActivity(input: {
 }
 ```
 
-- [ ] **Step 4: Verificar PASS + typecheck** — `pnpm --filter @calistenia/mobile test` y `pnpm run typecheck`.
+- [ ] **Step 4: Verificar PASS + typecheck** — `pnpm --filter @sturdy/mobile test` y `pnpm run typecheck`.
 
 - [ ] **Step 5: Actualizar contrato en la spec**
 
@@ -334,10 +334,10 @@ git commit -m "feat(mobile): mapper fase de sesión → estado de live activity"
 - [ ] **Step 1: Instalar dependencias**
 
 ```bash
-pnpm --filter @calistenia/mobile add react-native-android-widget @notifee/react-native @bacons/apple-targets
+pnpm --filter @sturdy/mobile add react-native-android-widget @notifee/react-native @bacons/apple-targets
 ```
 
-Comprobar versiones instaladas con `pnpm --filter @calistenia/mobile list react-native-android-widget @notifee/react-native @bacons/apple-targets`. Esperado: android-widget ≥0.16, notifee ≥9, apple-targets la última. Si los peers de RN 0.85 fallan, consultar el README de cada paquete antes de forzar.
+Comprobar versiones instaladas con `pnpm --filter @sturdy/mobile list react-native-android-widget @notifee/react-native @bacons/apple-targets`. Esperado: android-widget ≥0.16, notifee ≥9, apple-targets la última. Si los peers de RN 0.85 fallan, consultar el README de cada paquete antes de forzar.
 
 - [ ] **Step 2: app.json — entitlements, Info.plist y plugins**
 
@@ -346,7 +346,7 @@ En `apps/mobile/app.json`:
 1. Dentro de `"ios"` añadir:
 ```json
 "entitlements": {
-  "com.apple.security.application-groups": ["group.tech.guille.calistenia"]
+  "com.apple.security.application-groups": ["group.app.sturdy.mobile"]
 },
 "infoPlist": {
   "NSSupportsLiveActivities": true
@@ -454,8 +454,8 @@ Pod::Spec.new do |s|
   s.name           = 'WidgetBridge'
   s.version        = '1.0.0'
   s.summary        = 'Snapshot compartido + Live Activities'
-  s.author         = 'Calistenia'
-  s.homepage       = 'https://gym.guille.tech'
+  s.author         = 'Sturdy'
+  s.homepage       = 'https://sturdy.app'
   s.license        = 'MIT'
   s.platforms      = { :ios => '15.1' }
   s.source         = { git: '' }
@@ -544,7 +544,7 @@ enum LiveActivityManager {
 import ExpoModulesCore
 import WidgetKit
 
-let APP_GROUP = "group.tech.guille.calistenia"
+let APP_GROUP = "group.app.sturdy.mobile"
 
 public class WidgetBridgeModule: Module {
   public func definition() -> ModuleDefinition {
@@ -792,7 +792,7 @@ En `src/lib/widget-bridge.ts`, sustituir la rama android por:
     }
 ```
 
-- [ ] **Step 4: Verificar** — `pnpm run typecheck` → sin errores. `pnpm --filter @calistenia/mobile test` → siguen pasando.
+- [ ] **Step 4: Verificar** — `pnpm run typecheck` → sin errores. `pnpm --filter @sturdy/mobile test` → siguen pasando.
 
 - [ ] **Step 5: Commit**
 
@@ -823,7 +823,7 @@ module.exports = {
   name: 'CalisteniaWidgets',
   deploymentTarget: '16.2',
   entitlements: {
-    'com.apple.security.application-groups': ['group.tech.guille.calistenia'],
+    'com.apple.security.application-groups': ['group.app.sturdy.mobile'],
   },
 }
 ```
@@ -866,7 +866,7 @@ struct WidgetSnapshot: Codable {
 }
 
 enum SnapshotStore {
-  static let appGroup = "group.tech.guille.calistenia"
+  static let appGroup = "group.app.sturdy.mobile"
 
   static func load() -> WidgetSnapshot? {
     guard let json = UserDefaults(suiteName: appGroup)?.string(forKey: "widget_snapshot"),
@@ -998,7 +998,7 @@ struct TodayWidgetView: View {
     .padding(14)
     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     .containerBackground(Theme.bg, for: .widget)
-    .widgetURL(URL(string: "calistenia://"))
+    .widgetURL(URL(string: "sturdy://"))
   }
 }
 
@@ -1071,10 +1071,10 @@ git commit -m "feat(mobile): target WidgetKit iOS con TodayWidget (SwiftUI)"
 
 `apps/mobile/src/lib/sync-widget-snapshot.ts`:
 ```ts
-import { localDay, todayStr } from '@calistenia/core/lib/dateUtils'
+import { localDay, todayStr } from '@sturdy/core/lib/dateUtils'
 import { buildWidgetSnapshot } from './widget-snapshot'
 import { writeWidgetSnapshot } from './widget-bridge'
-import type { Settings, WeekDay, Workout } from '@calistenia/core/types'
+import type { Settings, WeekDay, Workout } from '@sturdy/core/types'
 
 const DAY_IDS = ['dom', 'lun', 'mar', 'mie', 'jue', 'vie', 'sab'] as const
 
@@ -1348,7 +1348,7 @@ struct SessionLiveActivity: Widget {
       } minimal: {
         Image(systemName: "timer").foregroundColor(Theme.lime)
       }
-      .widgetURL(URL(string: "calistenia://session"))
+      .widgetURL(URL(string: "sturdy://session"))
     }
   }
 }
@@ -1563,7 +1563,7 @@ En `adjustTime` (líneas ~124-140), añadir tras el `scheduleRestEnd(...).then(.
 - [ ] **Step 3: Verificar**
 
 - `pnpm run typecheck` → sin errores.
-- `pnpm --filter @calistenia/mobile test` → pasan.
+- `pnpm --filter @sturdy/mobile test` → pasan.
 - Smoke web: sesión completa en expo web (todo no-op, sin errores en consola).
 
 - [ ] **Step 4: Commit**
@@ -1615,7 +1615,7 @@ npx expo run:android
 
 - [ ] **Step 4: Regresiones**
 
-- `pnpm run typecheck` y `pnpm --filter @calistenia/mobile test`.
+- `pnpm run typecheck` y `pnpm --filter @sturdy/mobile test`.
 - Expo Go (iOS): la app sigue arrancando (widgets/notifee en no-op silencioso).
 - `npx expo export --platform ios --platform android` → bundles Hermes OK.
 

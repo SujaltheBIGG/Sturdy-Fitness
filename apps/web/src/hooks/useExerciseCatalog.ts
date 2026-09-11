@@ -8,4 +8,4 @@ export {
   useExerciseCatalog,
   getStaticCatalog,
   type ExerciseCatalog,
-} from '@calistenia/core/hooks/useExerciseCatalog'
+} from '@sturdy/core/hooks/useExerciseCatalog'

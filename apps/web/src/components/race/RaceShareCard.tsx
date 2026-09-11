@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next'
 import { Button } from '../ui/button'
 import { loadLogo } from '../../lib/share'
 import { createShareCardCanvas, drawRoutePolyline, exportShareCard } from '../../lib/share-card'
-import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent, trackShareCardShared } from '@calistenia/core/lib/analytics'
-import { formatPace, formatDuration } from '@calistenia/core/lib/geo'
-import { sortRaceParticipants } from '@calistenia/core/lib/race-sort'
+import { CANONICAL_ANALYTICS_EVENTS, trackCanonicalEvent, trackShareCardShared } from '@sturdy/core/lib/analytics'
+import { formatPace, formatDuration } from '@sturdy/core/lib/geo'
+import { sortRaceParticipants } from '@sturdy/core/lib/race-sort'
 import { fillRRect, CARD_COLORS } from '../../lib/canvas-helpers'
-import { fitRoutePath } from '@calistenia/core/lib/static-map'
-import type { Race, RaceParticipant, RaceGpsPoint } from '@calistenia/core/types/race'
+import { fitRoutePath } from '@sturdy/core/lib/static-map'
+import type { Race, RaceParticipant, RaceGpsPoint } from '@sturdy/core/types/race'
 
 interface RaceShareCardProps {
   race: Race
@@ -437,12 +437,12 @@ export default function RaceShareCard({ race, participants, currentUserId, userN
       if (logo) ctx.drawImage(logo, pad, fy + 6, 16, 16)
       ctx.fillStyle = fgDim
       ctx.font = '600 10px "DM Sans", system-ui, sans-serif'
-      ctx.fillText('CALISTENIA', pad + (logo ? 24 : 0), fy + 18)
+      ctx.fillText('STURDY', pad + (logo ? 24 : 0), fy + 18)
 
       ctx.fillStyle = fgMuted
       ctx.font = '400 9px "DM Sans", system-ui, sans-serif'
       ctx.textAlign = 'right'
-      ctx.fillText('calistenia-app.com', w - pad, fy + 18)
+      ctx.fillText('sturdy-app.com', w - pad, fy + 18)
       ctx.textAlign = 'left'
 
       // ─── EXPORT ───
@@ -451,7 +451,7 @@ export default function RaceShareCard({ race, participants, currentUserId, userN
       const outcome = await exportShareCard(canvas, {
         fileName: `race_${race.id}_${suffix}.png`,
         title: `${race.name} — #${rank + 1}`,
-        text: `#${rank + 1} en ${race.name} — ${me.distance_km.toFixed(2)} km\ncalistenia-app.com`,
+        text: `#${rank + 1} en ${race.name} — ${me.distance_km.toFixed(2)} km\nsturdy-app.com`,
       })
       if (!outcome) return
       trackShareCardShared({

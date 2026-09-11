@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { getExerciseMedia } from './exerciseMedia'
 import type { ExerciseMediaInput, CatalogMediaRecord, CatalogStaticMedia } from './exerciseMedia'
 
-const PB = 'https://gym.guille.tech'
+const PB = 'https://sturdy.app'
 
 // ── Fixtures ──────────────────────────────────────────────────────────────────
 

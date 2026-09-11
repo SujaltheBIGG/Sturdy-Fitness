@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
-import type { NutritionGoal, NutritionGoalType, ActivityLevel, Sex } from '@calistenia/core/types'
+import type { NutritionGoal, NutritionGoalType, ActivityLevel, Sex } from '@sturdy/core/types'
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
