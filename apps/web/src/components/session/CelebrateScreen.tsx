@@ -153,7 +153,7 @@ export default function CelebrateScreen({
           variant="limeSolid"
           className="min-w-[160px] sm:min-w-[200px] font-bebas text-xl tracking-[2px] px-9 py-3.5"
         >
-          IR AL DASHBOARD
+          GO TO DASHBOARD
         </Button>
         <div className="text-[11px] text-muted-foreground/50 font-mono tracking-wide">o toca en cualquier lugar</div>
       </div>

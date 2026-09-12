@@ -186,7 +186,7 @@ test('onboarding completo activa el programa elegido (wizard de 8 pasos)', async
   await dismissOverlays(page)
   await selectDay(page)
   // "Push – Pecho y tríceps" es del seed; el fallback usa "Empuje + Core Lumbar"
-  await expect(page.getByText(/Pecho y tríceps/i).first()).toBeVisible({ timeout: 8000 })
+  await expect(page.getByText(/(Pecho y tríceps|Chest and triceps|Push)/i).first()).toBeVisible({ timeout: 8000 })
 })
 
 /**
@@ -226,7 +226,7 @@ test('el último paso del onboarding arranca el primer entreno en /session', asy
   // Aterriza en la sesión activa: primer ejercicio del nivel principiante y
   // contador de series del entreno corto.
   await expect(page).toHaveURL(/\/session$/, { timeout: 15000 })
-  await expect(page.getByText(/1\/8 series/i).first()).toBeVisible({ timeout: 15000 })
+  await expect(page.getByText(/1\/8 (series|sets)/i).first()).toBeVisible({ timeout: 15000 })
   await expect(page.getByRole('button', { name: /serie completada|set completed/i }).first()).toBeVisible({ timeout: 5000 })
 
   // El onboarding queda marcado y la intención pendiente se consumió.

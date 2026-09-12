@@ -38,14 +38,14 @@ export default function NoteScreen({ workoutTitle, totalSetsLogged, durationMin,
             variant="limeSolid"
             className="font-bebas text-lg tracking-wide px-6"
           >
-            GUARDAR
+            SAVE
           </Button>
           <Button
             variant="outline"
             onClick={() => onSave('')}
             className="font-mono text-[11px] tracking-wide px-4"
           >
-            SALTAR
+            SKIP
           </Button>
         </div>
       </div>

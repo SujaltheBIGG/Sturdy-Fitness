@@ -41,19 +41,19 @@ describe('RacePRsPanel en español (#560)', () => {
     const { container } = render(<RacePRsPanel userId="u1" />)
 
     // `race.prsTitle` se pone en mayúsculas por CSS, así que el texto del DOM
-    // conserva los acentos; `prsWins`/`prsFinished` sí pasan por
+    // conserva el original; `prsWins`/`prsFinished` sí pasan por
     // `.toUpperCase()` en el JSX.
-    expect(screen.getByText('Récords de carrera')).toBeInTheDocument()
-    expect(screen.getByText(/2 VICTORIAS/)).toBeInTheDocument()
-    expect(screen.getByText(/2 TERMINADAS/)).toBeInTheDocument()
-    expect(screen.getByText('📏 Carrera más larga')).toBeInTheDocument()
+    expect(screen.getByText('Race records')).toBeInTheDocument()
+    expect(screen.getByText(/2 WINS/)).toBeInTheDocument()
+    expect(screen.getByText(/2 FINISHED/)).toBeInTheDocument()
+    expect(screen.getByText('📏 Longest race')).toBeInTheDocument()
 
-    // Los valores en inglés que reportaba el issue no deben volver. Se
-    // comprueba sobre el texto completo del panel para que reaparezcan como
-    // fallo aunque cambie el marcado.
+    // El fallo original del issue era texto a medio traducir. La app ahora es
+    // solo inglés (`i18n.ts` fija `supportedLngs: ['en']`), así que lo que no
+    // debe volver son restos en castellano ni claves crudas sin resolver.
     const text = container.textContent ?? ''
-    for (const ingles of ['WINS', 'FINISHED', 'Records de Race', 'Race más larga']) {
-      expect(text).not.toContain(ingles)
+    for (const resto of ['VICTORIAS', 'TERMINADAS', 'Récords', 'race.prs']) {
+      expect(text).not.toContain(resto)
     }
   })
 })

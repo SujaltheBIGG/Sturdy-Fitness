@@ -66,7 +66,7 @@ export default function SessionTopBar({
             <div className="font-mono text-[10px] text-lime tracking-[3px]">COMPLETADO</div>
           )}
           <div className="font-mono text-[9px] text-muted-foreground/40 tracking-wide tabular-nums">
-            {exerciseIndex}/{exerciseTotal} · {stepIndex}/{stepTotal} series
+            {exerciseIndex}/{exerciseTotal} · {stepIndex}/{stepTotal} sets
           </div>
         </div>
 

@@ -21,7 +21,7 @@ vi.mock('../../lib/pocketbase', () => ({
 // El nombre esperado se LEE del catálogo, no se escribe a mano: el contenido
 // del catálogo se retoca (traducciones, #689) y un literal aquí convertiría
 // este test en un guardián del copy en vez de del repaso del snapshot.
-const catalogName = (id: string, locale = 'es') =>
+const catalogName = (id: string, locale = 'en') =>
   localize(getOrLoadCatalogIndex()?.byId.get(id)?.name, locale)
 
 const memory = new Map<string, string>()

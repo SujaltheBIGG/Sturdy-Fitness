@@ -48,10 +48,10 @@ describe('describeFeedItem · sesiones de fuerza', () => {
   it('nunca deja el título vacío en una sesión libre (la regresión de la web)', () => {
     const view = describeFeedItem(item({
       workoutKey: 'free_1783000000',
-      workoutTitle: 'Sesión Libre',
+      workoutTitle: 'Free Session',
       phase: NO_PHASE,
     }))
-    expect(view.title).toBe('Sesión Libre')
+    expect(view.title).toBe('Free Session')
     expect(view.title).not.toBe('')
     expect(view.action).toBeTruthy()
     expect(view.verb).toBeTruthy()
@@ -64,7 +64,7 @@ describe('describeFeedItem · sesiones de fuerza', () => {
    */
   it('no llama sesión libre a una clave antigua que solo es el día', () => {
     const view = describeFeedItem(item({ workoutKey: 'lun', phase: NO_PHASE }))
-    expect(view.action).toBe('completó un entrenamiento')
+    expect(view.action).toBe('completed a workout')
     expect(view.title).toBe('lun')
     expect(view.title).not.toContain('_')
   })
@@ -72,7 +72,7 @@ describe('describeFeedItem · sesiones de fuerza', () => {
   it('cuenta QUÉ se entrenó en una sesión libre, no solo que hubo una', () => {
     const view = describeFeedItem(item({
       workoutKey: 'free_1',
-      workoutTitle: 'Sesión Libre',
+      workoutTitle: 'Free Session',
       exerciseNames: ['Flexiones', 'Plank', 'Dips', 'Sentadillas', 'Remo'],
       durationSeconds: 2520,
     }))
@@ -107,13 +107,13 @@ describe('describeFeedItem · sesiones de fuerza', () => {
       completedAt: '2026-08-09T16:58:12.000Z',
       date: '2026-08-09',
       workoutKey: 'free_1783000000',
-      workoutTitle: 'Sesión Libre',
+      workoutTitle: 'Free Session',
       phase: NO_PHASE,
       note: '',
     } as unknown as FeedItem
 
     const view = describeFeedItem(cached)
-    expect(view.title).toBe('Sesión Libre')
+    expect(view.title).toBe('Free Session')
     expect(view.detail).toBeNull()
     expect(view.metrics).toBeNull()
   })
@@ -143,7 +143,7 @@ describe('describeFeedItem · sesiones de fuerza', () => {
       workoutKey: 'free_1',
       workoutTitle: 'TÍTULO RANCIO DE LA CACHÉ',
     }))
-    expect(view.title).toBe('Sesión Libre')
+    expect(view.title).toBe('Free Session')
   })
 
   it('no se rompe con una fase fuera del catálogo de colores', () => {
@@ -336,7 +336,7 @@ describe('describeFeedItem · robustez', () => {
 
 describe('capitalizeFirst', () => {
   it('capitaliza la primera letra', () => {
-    expect(capitalizeFirst('completó un entrenamiento')).toBe('Completó un entrenamiento')
+    expect(capitalizeFirst('completed a workout')).toBe('Completed a workout')
   })
 
   it('respeta los acentos', () => {

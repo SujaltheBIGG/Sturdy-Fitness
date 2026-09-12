@@ -39,7 +39,7 @@ describe('duplicatedName', () => {
   })
 
   it('cae al sufijo español en un locale sin traducción', () => {
-    expect(duplicatedName({ fr: 'Force' }, 'fr')).toEqual({ fr: 'Force (copia)' })
+    expect(duplicatedName({ fr: 'Force' }, 'fr')).toEqual({ fr: 'Force (copy)' })
   })
 
   it('envuelve un string plano pre-migración bajo el locale activo', () => {

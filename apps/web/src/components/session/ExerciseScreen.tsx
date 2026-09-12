@@ -146,7 +146,7 @@ const ExerciseScreen = memo(function ExerciseScreen({ step, onLogged, logs = [] 
             }
             />
           ))}
-          <span className="font-mono text-[10px] text-muted-foreground ml-1">SERIE {setNumber}/{totalSets}</span>
+          <span className="font-mono text-[10px] text-muted-foreground ml-1">SET {setNumber}/{totalSets}</span>
         </div>
 
         {/* Progressive overload hint */}
@@ -214,7 +214,7 @@ const ExerciseScreen = memo(function ExerciseScreen({ step, onLogged, logs = [] 
               className="w-full py-[18px] px-4 rounded-lg cursor-pointer bg-lime/14 text-lime font-mono text-sm font-bold tracking-[1.5px] flex items-center justify-center gap-2.5 transition-[background-color,transform] duration-100 hover:bg-lime/22 active:scale-[0.97] active:bg-lime/24 focus-visible:ring-2 focus-visible:ring-lime/40 focus-visible:ring-offset-1 focus-visible:ring-offset-background"
             >
               <span className="text-xl leading-none">+</span>
-              SERIE COMPLETADA — {defaultReps}
+              SET COMPLETED — {defaultReps}
             </button>
             {flyUp > 0 && (
               <span
@@ -317,7 +317,7 @@ const ExerciseScreen = memo(function ExerciseScreen({ step, onLogged, logs = [] 
                     !customReps && 'bg-lime/20 text-muted-foreground cursor-not-allowed'
                   )}
                 >
-                  GUARDAR
+                  SAVE
                 </Button>
               </div>
             </div>

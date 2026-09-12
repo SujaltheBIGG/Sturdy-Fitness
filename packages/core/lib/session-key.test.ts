@@ -57,8 +57,8 @@ describe('sessionKeyLabel', () => {
   // texto" y cae al respaldo, así que estas aserciones comprueban justo el peor
   // caso: lo que el usuario ve cuando i18n no responde.
   it('etiqueta las sesiones libres en vez de enseñar la clave cruda', () => {
-    expect(sessionKeyLabel('free_1783000000')).toBe('Sesión Libre')
-    expect(sessionKeyLabel('manual_1783000000')).toBe('Sesión Libre')
+    expect(sessionKeyLabel('free_1783000000')).toBe('Free Session')
+    expect(sessionKeyLabel('manual_1783000000')).toBe('Free Session')
   })
 
   it('humaniza una clave de programa que no está en el catálogo', () => {

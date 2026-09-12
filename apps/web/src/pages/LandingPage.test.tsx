@@ -53,7 +53,7 @@ describe('LandingPage CTAs', () => {
     renderLanding()
     const [heroLink] = screen.getAllByRole('link', { name: /landing\.androidCta/ })
     fireEvent.click(heroLink)
-    expect(mockTrack).toHaveBeenCalledWith('cta_clicked', { location: 'hero', intent: 'android_download' })
+    expect(mockTrack).toHaveBeenCalledWith('cta_clicked', { location: 'hero', intent: 'pwa_install' })
   })
 
   it('los CTA web llaman onGetStarted y trackean intent web_start', () => {
