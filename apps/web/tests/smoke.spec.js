@@ -29,7 +29,7 @@ async function completeAllSets(page) {
       continue
     }
 
-    const serieBtn = page.getByRole('button', { name: /(SERIE COMPLETADA|SET COMPLETED)/i })
+    const serieBtn = page.getByRole('button', { name: /(SERIE COMPLETADA|SET COMPLETED|Log a completed set)/i })
     if (await serieBtn.isVisible({ timeout: 500 }).catch(() => false)) {
       await serieBtn.click()
       await page.waitForTimeout(300)
