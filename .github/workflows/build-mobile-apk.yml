@@ -241,16 +241,16 @@ jobs:
               echo "$DISPATCH_NOTES"
             else
               node scripts/extract-changelog-entry.mjs "$VERSION" \
-                || echo "_Sin entrada de changelog para $VERSION._"
+                || echo "_No changelog entry for $VERSION._"
             fi
             echo
-            echo "### Instalar"
-            echo "1. Descarga el archivo APK de abajo"
-            echo "2. En tu Android, activa \"Instalar apps de fuentes desconocidas\" en Ajustes"
-            echo "3. Abre el APK descargado para instalar"
+            echo "### Install"
+            echo "1. Download the APK file below"
+            echo "2. On your Android, enable \"Install unknown apps\" in Settings"
+            echo "3. Open the downloaded APK to install"
             echo
             echo "---"
-            echo "Build desde el commit: $COMMIT_SHA"
+            echo "Built from commit: $COMMIT_SHA"
           } > release-notes.md
           echo "--- release notes ---"
           cat release-notes.md
@@ -263,7 +263,7 @@ jobs:
           body_path: release-notes.md
           files: Sturdy-${{ needs.build.outputs.version }}.apk
           draft: false
-          prerelease: ${{ github.event_name == 'workflow_dispatch' }}
+          prerelease: false
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
