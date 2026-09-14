@@ -86,7 +86,7 @@ const devHost =
 
 const pbUrl =
   process.env.EXPO_PUBLIC_PB_URL ||
-  (__DEV__ && devHost ? `http://${devHost}:8090` : 'https://sturdy.app')
+  (__DEV__ && devHost ? `http://${devHost}:8090` : 'https://sturdy-app-production.up.railway.app')
 
 const aiApiUrl =
   process.env.EXPO_PUBLIC_AI_API_URL ||
