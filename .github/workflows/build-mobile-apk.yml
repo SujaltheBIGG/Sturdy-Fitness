@@ -85,21 +85,24 @@ jobs:
           DOTENV
 
       - name: Create google-services.json
-        # Android FCM config. Kept out of the repo (gitignored credential);
-        # provided via the GOOGLE_SERVICES_JSON secret and written here so
-        # `expo prebuild` (android.googleServicesFile) can copy it into the
-        # native project. Set it with:
+        # Android FCM config, consumed by `expo prebuild`
+        # (android.googleServicesFile). The repo carries a placeholder so the
+        # build is self-contained; set the GOOGLE_SERVICES_JSON secret to a real
+        # Firebase config to override it and make push actually deliver:
         #   gh secret set GOOGLE_SERVICES_JSON < apps/mobile/google-services.json
         working-directory: apps/mobile
         env:
           GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
         run: |
-          if [ -z "$GOOGLE_SERVICES_JSON" ]; then
-            echo "::error::GOOGLE_SERVICES_JSON secret is not set. Run: gh secret set GOOGLE_SERVICES_JSON < apps/mobile/google-services.json"
+          if [ -n "$GOOGLE_SERVICES_JSON" ]; then
+            printf '%s' "$GOOGLE_SERVICES_JSON" > google-services.json
+            echo "Wrote google-services.json from secret ($(wc -c < google-services.json) bytes)"
+          elif [ -f google-services.json ]; then
+            echo "::warning::GOOGLE_SERVICES_JSON secret not set; using the placeholder committed in the repo. Push notifications will not deliver until a real Firebase config is supplied."
+          else
+            echo "::error::No google-services.json in the repo and no GOOGLE_SERVICES_JSON secret set."
             exit 1
           fi
-          printf '%s' "$GOOGLE_SERVICES_JSON" > google-services.json
-          echo "Wrote google-services.json ($(wc -c < google-services.json) bytes)"
 
       - name: Generate Android native project
         working-directory: apps/mobile

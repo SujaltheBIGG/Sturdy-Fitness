@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "116463439577",
-    "project_id": "calistenia-30ab8",
-    "storage_bucket": "calistenia-30ab8.firebasestorage.app"
+    "project_number": "000000000000",
+    "project_id": "sturdy-app",
+    "storage_bucket": "sturdy-app.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:116463439577:android:4f272f2148bb6f636178c8",
+        "mobilesdk_app_id": "1:000000000000:android:0000000000000000000000",
         "android_client_info": {
           "package_name": "app.sturdy.mobile"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBMchghCFAivYKH5jgXMZ_oqqHakxhmTPU"
+          "current_key": "AIzaSyA0000000000000000000000000000000"
         }
       ],
       "services": {
