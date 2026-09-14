@@ -56,6 +56,13 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          # The action installs the legacy "tools" package by default, which
+          # Google has removed from the SDK repository — sdkmanager then exits 1
+          # with "Failed to find package 'tools'" and the build never starts.
+          # platform-tools is all this build needs; the runner image already
+          # ships the platforms and build-tools that Gradle resolves.
+          packages: platform-tools
 
       - name: Cache Gradle dependencies & build cache
         uses: actions/cache@v4
