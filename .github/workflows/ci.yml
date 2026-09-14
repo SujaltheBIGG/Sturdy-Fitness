@@ -114,7 +114,7 @@ jobs:
       # (su CDN devuelve 504s intermitentes de vez en cuando).
       - name: Cache PocketBase binary
         id: pb-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: /tmp/pb
           key: pocketbase-${{ env.PB_VERSION }}-linux-amd64
