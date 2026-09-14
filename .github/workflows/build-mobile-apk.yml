@@ -248,6 +248,33 @@ jobs:
           APK_PATH=$(find apps/mobile/android/app/build/outputs/apk/release -name "*.apk" | head -1)
           cp "$APK_PATH" "Sturdy-${{ steps.version.outputs.version }}.apk"
 
+      - name: Sign APK with the release key
+        # Sign explicitly rather than trusting Gradle to have applied
+        # signingConfigs.release. Two separate failures already shipped a
+        # debug-signed APK from a build whose gradle config was provably
+        # correct, so take Gradle out of the signing path entirely: apksigner
+        # replaces any existing signature with this one.
+        env:
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          APK="Sturdy-${{ steps.version.outputs.version }}.apk"
+          KS="apps/mobile/android/app/release.keystore"
+          [ -f "$KS" ] || { echo "::error::release.keystore missing"; exit 1; }
+          APKSIGNER=$(ls "$ANDROID_SDK_ROOT"/build-tools/*/apksigner 2>/dev/null | sort -V | tail -1)
+          [ -n "$APKSIGNER" ] || { echo "::error::apksigner not found"; exit 1; }
+          "$APKSIGNER" sign \
+            --ks "$KS" --ks-type PKCS12 \
+            --ks-pass env:ANDROID_KEYSTORE_PASSWORD \
+            --ks-key-alias "$ANDROID_KEY_ALIAS" \
+            --key-pass env:ANDROID_KEY_PASSWORD \
+            --v1-signing-enabled true \
+            --v2-signing-enabled true \
+            --v3-signing-enabled true \
+            "$APK"
+          echo "signed $APK with the release key"
+
       - name: Verify APK is signed
         # A previous release shipped completely unsigned (no v1 META-INF sig, no
         # v2 signing block) and Android rejected it with "There was a problem
