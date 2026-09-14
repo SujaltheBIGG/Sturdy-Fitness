@@ -63,7 +63,6 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-            ~/.gradle/build-cache
           # android/ no existe en el checkout (lo genera prebuild), así que
           # hasheamos lo que SÍ define el grafo nativo: lockfile + config Expo.
           key: gradle-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml', 'apps/mobile/app.json', 'apps/mobile/package.json') }}
@@ -196,6 +195,9 @@ jobs:
           }
           fs.writeFileSync(p, s);
           console.log('Patched build.gradle: buildTypes.release -> signingConfigs.release');
+          const bt3 = blockAfter(s, /\bbuildTypes\s*\{/, 0);
+          console.log('--- buildTypes after patch ---');
+          console.log(s.slice(bt3.open, Math.min(bt3.close + 1, bt3.open + 1200)));
           NODE
 
       - name: Build APK
@@ -221,7 +223,12 @@ jobs:
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
           ORG_GRADLE_PROJECT_reactNativeArchitectures: arm64-v8a,armeabi-v7a
-        run: ./gradlew assembleRelease --build-cache --parallel -Dorg.gradle.jvmargs="-Xmx4g -XX:+HeapDumpOnOutOfMemoryError" -Dorg.gradle.workers.max=4
+        # No --build-cache: the signing config reads credentials through
+        # System.getenv(), which Gradle does not track as a task input, so a
+        # cached packageRelease output from an earlier, differently-signed run
+        # gets restored and silently ships the wrong signature. Dependency
+        # caching (~/.gradle/caches) is kept — that is where the time goes.
+        run: ./gradlew assembleRelease --parallel -Dorg.gradle.jvmargs="-Xmx4g -XX:+HeapDumpOnOutOfMemoryError" -Dorg.gradle.workers.max=4
 
       - name: Get version info
         id: version
