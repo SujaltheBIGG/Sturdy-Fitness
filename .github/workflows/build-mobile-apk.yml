@@ -169,6 +169,11 @@ jobs:
         # by the release signingConfig injected in the previous step.
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          # app.json still carries the placeholder Sentry org ("CLIENT-ORG"),
+          # so the release bundle task fails with "Project not found" and takes
+          # the whole APK down with it. Source maps are optional; skip the
+          # upload until a real Sentry org/project is configured.
+          SENTRY_DISABLE_AUTO_UPLOAD: "true"
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
