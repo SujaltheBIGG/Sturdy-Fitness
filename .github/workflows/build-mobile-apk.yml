@@ -135,11 +135,13 @@ jobs:
           const fs = require('fs');
           const p = 'build.gradle';
           let s = fs.readFileSync(p, 'utf8');
-          if (!/signingConfigs\s*\{/.test(s)) {
-            console.error('::error::no signingConfigs block in build.gradle');
-            process.exit(1);
-          }
+
+          // Insert the release signingConfig if it isn't there yet.
           if (!s.includes('signingConfigs.release')) {
+            if (!/signingConfigs\s*\{/.test(s)) {
+              console.error('::error::no signingConfigs block in build.gradle');
+              process.exit(1);
+            }
             const block = [
               'signingConfigs {',
               '    release {',
@@ -152,21 +154,48 @@ jobs:
             ].join('\n');
             s = s.replace(/signingConfigs\s*\{/, block);
           }
-          // Point the release buildType at it, whether it currently names the
-          // debug config or has no signingConfig line at all.
-          const relIdx = s.search(/buildTypes\s*\{[\s\S]*?\brelease\s*\{/);
-          if (relIdx < 0) { console.error('::error::no release buildType'); process.exit(1); }
-          if (/release\s*\{[\s\S]*?signingConfig\s+signingConfigs\.debug/.test(s)) {
-            s = s.replace(/(\brelease\s*\{[\s\S]*?signingConfig\s+)signingConfigs\.debug/, '$1signingConfigs.release');
-          } else if (!/\brelease\s*\{[\s\S]*?signingConfig\s+signingConfigs\.release/.test(s)) {
-            s = s.replace(/(\bbuildTypes\s*\{[\s\S]*?\brelease\s*\{)/, '$1\n            signingConfig signingConfigs.release');
+
+          // Locate buildTypes { ... } by brace matching, then the release
+          // sub-block inside it. Regex alone is not safe here: a lazy match for
+          // "release {" also hits the release entry inside signingConfigs and
+          // silently rewrites the wrong signingConfig line, leaving the release
+          // build on the debug key.
+          function blockAfter(src, headRe, from) {
+            const m = src.slice(from).match(headRe);
+            if (!m) return null;
+            const headAt = from + m.index;
+            const open = src.indexOf('{', headAt);
+            if (open < 0) return null;
+            let depth = 0;
+            for (let i = open; i < src.length; i++) {
+              if (src[i] === '{') depth++;
+              else if (src[i] === '}') { depth--; if (depth === 0) return { open, close: i }; }
+            }
+            return null;
           }
-          if (!/\brelease\s*\{[\s\S]*?signingConfig\s+signingConfigs\.release/.test(s)) {
-            console.error('::error::failed to attach release signingConfig');
+
+          const bt = blockAfter(s, /\bbuildTypes\s*\{/, 0);
+          if (!bt) { console.error('::error::no buildTypes block'); process.exit(1); }
+          const rel = blockAfter(s, /\brelease\s*\{/, bt.open);
+          if (!rel || rel.close > bt.close) { console.error('::error::no release buildType'); process.exit(1); }
+
+          let body = s.slice(rel.open + 1, rel.close);
+          if (/signingConfig\s+signingConfigs\.\w+/.test(body)) {
+            body = body.replace(/signingConfig\s+signingConfigs\.\w+/, 'signingConfig signingConfigs.release');
+          } else {
+            body = '\n            signingConfig signingConfigs.release' + body;
+          }
+          s = s.slice(0, rel.open + 1) + body + s.slice(rel.close);
+
+          // Re-verify against the rewritten source, scoped to buildTypes.release.
+          const bt2 = blockAfter(s, /\bbuildTypes\s*\{/, 0);
+          const rel2 = blockAfter(s, /\brelease\s*\{/, bt2.open);
+          if (!/signingConfig\s+signingConfigs\.release/.test(s.slice(rel2.open, rel2.close))) {
+            console.error('::error::release buildType is not using signingConfigs.release');
             process.exit(1);
           }
           fs.writeFileSync(p, s);
-          console.log('Patched build.gradle: release buildType -> signingConfigs.release');
+          console.log('Patched build.gradle: buildTypes.release -> signingConfigs.release');
           NODE
 
       - name: Build APK
@@ -220,8 +249,16 @@ jobs:
           APK="Sturdy-${{ steps.version.outputs.version }}.apk"
           APKSIGNER=$(ls "$ANDROID_SDK_ROOT"/build-tools/*/apksigner 2>/dev/null | sort -V | tail -1)
           if [ -n "$APKSIGNER" ]; then
-            "$APKSIGNER" verify --print-certs "$APK" || { echo "::error::APK signature verification failed"; exit 1; }
-            echo "apksigner: signature OK"
+            "$APKSIGNER" verify --print-certs "$APK" > sig.txt || { cat sig.txt; echo "::error::APK signature verification failed"; exit 1; }
+            cat sig.txt
+            # A debug-signed APK installs, but the debug keystore is regenerated
+            # per build, so the next release will not install over it. Treat it
+            # as a failure: it means the release signingConfig did not attach.
+            if grep -q "CN=Android Debug" sig.txt; then
+              echo "::error::APK is signed with the DEBUG key, not the release keystore. buildTypes.release did not pick up signingConfigs.release."
+              exit 1
+            fi
+            echo "apksigner: signed with the release key"
           else
             echo "::warning::apksigner not found; falling back to a structural check"
             if unzip -l "$APK" | grep -qE "META-INF/.*\.(RSA|DSA|EC)$"; then
