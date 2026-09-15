@@ -27,7 +27,7 @@
     "android": {
       "package": "app.sturdy.mobile",
       "googleServicesFile": "./google-services.json",
-      "versionCode": 41,
+      "versionCode": 42,
       "intentFilters": [
         {
           "action": "VIEW",

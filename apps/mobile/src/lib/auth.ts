@@ -28,7 +28,7 @@ WebBrowser.maybeCompleteAuthSession()
 // "Authorized redirect URIs" del cliente OAuth de Google y servirse en pb_public.
 // El bridge reenvía el code+state a APP_RETURN_URL.
 const OAUTH_BRIDGE_URL =
-  process.env.EXPO_PUBLIC_OAUTH_BRIDGE_URL || 'https://sturdy.app/oauth-bridge.html'
+  process.env.EXPO_PUBLIC_OAUTH_BRIDGE_URL || 'https://sturdy-app-production.up.railway.app/oauth-bridge.html'
 
 // Esquema propio de la app al que vuelve el deep-link. Literal (no Linking.createURL)
 // para que coincida EXACTO con el redirect hardcodeado del bridge estático.
