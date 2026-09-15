@@ -157,6 +157,39 @@ export const loginWithOAuth2Code = async (
 }
 
 /**
+ * Login con el ID token que devuelve el Google Sign-In nativo de Android.
+ *
+ * El flujo de `loginWithOAuth2Code` manda al usuario a una pestaña del
+ * navegador; Credential Manager en cambio resuelve la cuenta dentro de la app y
+ * entrega un ID token firmado. PocketBase no tiene endpoint que acepte uno, así
+ * que lo verifica el hook `pb_hooks/google_native_auth.pb.js` y devuelve una
+ * sesión normal.
+ *
+ * @param profile nombre y avatar que da el SDK nativo; se usan para rellenar el
+ *   perfil igual que hace el flujo web con `meta`.
+ */
+export const loginWithGoogleIdToken = async (
+  idToken: string,
+  profile?: { name?: string; avatarURL?: string }
+): Promise<RecordAuthResponse<RecordModel>> => {
+  const res = await pb.send('/api/google-native-auth', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ idToken }),
+  })
+
+  const token = (res as { token?: string })?.token
+  const record = (res as { record?: RecordModel })?.record
+  if (!token || !record) throw new Error('oauth_native_bad_response')
+
+  pb.authStore.save(token, record)
+
+  const result = { token, record, meta: profile } as RecordAuthResponse<RecordModel>
+  await syncOAuthProfile(result)
+  return result
+}
+
+/**
  * Refresca el token en el arranque de la app.
  * Si el server RECHAZA el token (401/403…), limpia el authStore.
  * Si no hubo respuesta (offline, server caído), CONSERVA el token: cerrar la

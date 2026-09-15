@@ -27,7 +27,7 @@
     "android": {
       "package": "app.sturdy.mobile",
       "googleServicesFile": "./google-services.json",
-      "versionCode": 42,
+      "versionCode": 43,
       "intentFilters": [
         {
           "action": "VIEW",
@@ -256,6 +256,7 @@
         }
       ],
       "expo-asset",
+      "@react-native-google-signin/google-signin",
       "./plugins/with-upload-signing.js"
     ],
     "extra": {

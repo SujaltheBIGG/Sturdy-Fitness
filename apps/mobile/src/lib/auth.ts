@@ -20,7 +20,13 @@
  */
 import * as WebBrowser from 'expo-web-browser'
 import * as Linking from 'expo-linking'
-import { loginWithOAuth2Code } from '@sturdy/core/lib/pocketbase'
+import {
+  GoogleSignin,
+  statusCodes,
+  isSuccessResponse,
+  isErrorWithCode,
+} from '@react-native-google-signin/google-signin'
+import { loginWithOAuth2Code, loginWithGoogleIdToken } from '@sturdy/core/lib/pocketbase'
 
 WebBrowser.maybeCompleteAuthSession()
 
@@ -47,7 +53,72 @@ export class OAuthCancelledError extends Error {
 export const isAuthCancelled = (e: unknown): e is OAuthCancelledError =>
   e instanceof OAuthCancelledError
 
+// Cliente OAuth **web**: es el audience que Google pone en el ID token del
+// login nativo, y el que verifica el hook del backend. El cliente Android
+// (paquete + huella SHA-1) también hace falta en Google Cloud, pero no se
+// nombra aquí: Play Services lo resuelve por la firma del APK.
+const GOOGLE_WEB_CLIENT_ID = process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID || ''
+
+let googleConfigured = false
+function configureGoogle() {
+  if (googleConfigured || !GOOGLE_WEB_CLIENT_ID) return
+  GoogleSignin.configure({ webClientId: GOOGLE_WEB_CLIENT_ID })
+  googleConfigured = true
+}
+
+/**
+ * Login nativo: hoja de cuentas de Android, sin salir de la app.
+ *
+ * Devuelve null cuando este dispositivo no puede hacerlo (sin Play Services, o
+ * sin webClientId configurado) para que el llamante caiga al flujo de
+ * navegador. Una cancelación del usuario sí se propaga como OAuthCancelledError:
+ * eligió salir, reabrirle un navegador sería peor.
+ */
+async function tryNativeGoogleLogin() {
+  if (!GOOGLE_WEB_CLIENT_ID) return null
+  configureGoogle()
+
+  try {
+    await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true })
+  } catch {
+    return null
+  }
+
+  let response
+  try {
+    response = await GoogleSignin.signIn()
+  } catch (err) {
+    if (isErrorWithCode(err)) {
+      if (err.code === statusCodes.SIGN_IN_CANCELLED) {
+        throw new OAuthCancelledError('cancelled')
+      }
+      if (err.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        return null
+      }
+    }
+    throw err
+  }
+
+  // El usuario cerró la hoja sin elegir cuenta.
+  if (!isSuccessResponse(response)) {
+    throw new OAuthCancelledError('dismissed')
+  }
+
+  const idToken = response.data?.idToken
+  // Sin idToken no hay nada que verificar en el backend; cae al navegador en
+  // vez de fallar, porque suele significar una config incompleta del cliente.
+  if (!idToken) return null
+
+  return loginWithGoogleIdToken(idToken, {
+    name: response.data?.user?.name ?? undefined,
+    avatarURL: response.data?.user?.photo ?? undefined,
+  })
+}
+
 export async function loginWithGoogle() {
+  const native = await tryNativeGoogleLogin()
+  if (native) return native
+
   return loginWithOAuth2Code('google', OAUTH_BRIDGE_URL, async (authUrl) => {
     const res = await WebBrowser.openAuthSessionAsync(authUrl, APP_RETURN_URL)
     if (res.type !== 'success' || !res.url) {
