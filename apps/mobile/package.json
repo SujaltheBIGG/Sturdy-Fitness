@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@ai-sdk/react": "^4.0.86",
-    "@bacons/apple-targets": "^4.0.7",
+    "@bacons/apple-targets": "^5.0.0",
     "@expo-google-fonts/bebas-neue": "^0.4.1",
     "@expo-google-fonts/dm-sans": "^0.4.2",
     "@expo-google-fonts/jetbrains-mono": "^0.4.1",
